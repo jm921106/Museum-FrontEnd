@@ -2,7 +2,6 @@
 <html lang="en-US">
 <head>
     <title>Halo - Mobile Template</title>
-    <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="x-ua-compatible">
     <meta content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" name="viewport">
     <meta content="yes" name="apple-mobile-web-app-capable">
@@ -13,15 +12,16 @@
     <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="all" rel="stylesheet"
           type="text/css">
     <!-- Styles -->
-    <link href="css/keyframes.css" rel="stylesheet" type="text/css">
-    <link href="css/materialize.min.css" rel="stylesheet" type="text/css">
-    <link href="css/swiper.css" rel="stylesheet" type="text/css">
-    <link href="css/swipebox.min.css" rel="stylesheet" type="text/css">
-    <link href="css/style.css" rel="stylesheet" type="text/css">
-
+    <link href="../../css/keyframes.css" rel="stylesheet" type="text/css">
+    <link href="../../css/materialize.min.css" rel="stylesheet" type="text/css">
+    <link href="../../css/swiper.css" rel="stylesheet" type="text/css">
+    <link href="../../css/swipebox.min.css" rel="stylesheet" type="text/css">
+    <link href="../../css/style.css" rel="stylesheet" type="text/css">
 </head>
 
+<!--<body onload="init_paint_select()">-->
 <body>
+
 <div class="m-scene" id="main"> <!-- Main Container -->
 
     <!-- Sidebars -->
@@ -72,7 +72,7 @@
             <div class="facebook">
                 <h6 class="follow-us">Notifications</h6>
                 <div class="face-notification">
-                    <img src="img/user2.jpg" alt="" class="cricle">
+                    <img src="../../img/user2.jpg" alt="" class="cricle">
                     <div>
                         <p>Mike Green</p>
                         <span>Sent you a message</span>
@@ -80,7 +80,7 @@
                     </div>
                 </div>
                 <div class="face-notification">
-                    <img src="img/user.jpg" alt="" class="cricle">
+                    <img src="../../img/user.jpg" alt="" class="cricle">
                     <div>
                         <p>Lara Connors</p>
                         <span>Post a photo with you</span>
@@ -88,7 +88,7 @@
                     </div>
                 </div>
                 <div class="face-notification">
-                    <img src="img/user3.jpg" alt="" class="cricle">
+                    <img src="../../img/user3.jpg" alt="" class="cricle">
                     <div>
                         <p>Mike Green</p>
                         <span>Post something...</span>
@@ -102,7 +102,7 @@
             <!-- Chat -->
             <div class="chat-sidebar">
                 <div class="chat-img">
-                    <img src="img/user.jpg" alt="" class="cricle">
+                    <img src="../../img/user.jpg" alt="" class="cricle">
                     <span class="dot green"></span>
                 </div>
                 <div class="chat-message">
@@ -114,7 +114,7 @@
 
             <div class="chat-sidebar">
                 <div class="chat-img">
-                    <img src="img/user2.jpg" alt="" class="cricle">
+                    <img src="../../img/user2.jpg" alt="" class="cricle">
                     <span class="dot green"></span>
                 </div>
                 <div class="chat-message">
@@ -126,7 +126,7 @@
 
             <div class="chat-sidebar">
                 <div class="chat-img">
-                    <img src="img/user3.jpg" alt="" class="cricle">
+                    <img src="../../img/user3.jpg" alt="" class="cricle">
                     <span class="dot orange"></span>
                 </div>
                 <div class="chat-message">
@@ -138,7 +138,7 @@
 
             <div class="chat-sidebar">
                 <div class="chat-img">
-                    <img src="img/user4.jpg" alt="" class="cricle">
+                    <img src="../../img/user4.jpg" alt="" class="cricle">
                     <span class="dot grey"></span>
                 </div>
                 <div class="chat-message">
@@ -150,7 +150,7 @@
 
             <div class="chat-sidebar">
                 <div class="chat-img">
-                    <img src="img/user5.jpg" alt="" class="cricle">
+                    <img src="../../img/user5.jpg" alt="" class="cricle">
                     <span class="dot green"></span>
                 </div>
                 <div class="chat-message">
@@ -162,7 +162,7 @@
 
             <div class="chat-sidebar">
                 <div class="chat-img">
-                    <img src="img/user.jpg" alt="" class="cricle">
+                    <img src="../../img/user.jpg" alt="" class="cricle">
                     <span class="dot grey"></span>
                 </div>
                 <div class="chat-message">
@@ -174,7 +174,7 @@
 
             <div class="chat-sidebar">
                 <div class="chat-img">
-                    <img src="img/user3.jpg" alt="" class="cricle">
+                    <img src="../../img/user3.jpg" alt="" class="cricle">
                     <span class="dot green"></span>
                 </div>
                 <div class="chat-message">
@@ -195,7 +195,7 @@
                     <i class="ion-social-tumblr"></i>
                 </div>
                 <div class="nav-avatar">
-                    <img class="circle avatar" src="img/user.jpg" alt="">
+                    <img class="circle avatar" src="../../img/user.jpg" alt="">
                     <div class="avatar-body">
                         <h3>Halo</h3>
                         <p>Material Mobile</p>
@@ -203,14 +203,6 @@
                 </div>
             </div>
         </li>
-        <li><a href="views/example/shop.html" class="no-child"><i class="ion-android-playstore"></i> Display</a></li>
-        <li><a href="views/play/play-main.html" class="no-child"><i class="ion-ios-videocam"></i> Play</a></li>
-        <li><a href="views/example/news.html" class="no-child"><i class="ion-social-rss"></i> panel_1</a></li>
-        <li><a href="views/example/contact.html" class="no-child"><i class="ion-android-map"></i> panel_2</a></li>
-        <li><a href="views/example/contact.html" class="no-child"><i class="ion-android-map"></i> panel_3</a></li>
-        <li><a href="views/example/contact.html" class="no-child"><i class="ion-android-map"></i> panel_4</a></li>
-        <li><a href="views/example/contact.html" class="no-child"><i class="ion-android-map"></i> panel_5</a></li>
-        <li><a href="views/example/contact.html" class="no-child"><i class="ion-android-map"></i> panel_6</a></li>
         <li>
             <div class="collapsible-header">
                 <i class="ion-android-home"></i> Home <span class="badge blue lighten-2">5</span>
@@ -218,11 +210,11 @@
             <div class="collapsible-body">
                 <ul class="collapsible">
                     <li>
-                        <a href="views/example/index-classic.html">Classic</a>
-                        <a href="views/example/index-sliced.html">Sliced</a>
-                        <a href="views/example/index-slider.html">Slider</a>
-                        <a href="views/example/index-drawer.html">Drawer</a>
-                        <a href="views/example/index-walkthrough.html">Walkthrough</a>
+                        <a href="index-classic.html">Classic</a>
+                        <a href="index-sliced.html">Sliced</a>
+                        <a href="index-slider.html">Slider</a>
+                        <a href="index-drawer.html">Drawer</a>
+                        <a href="index-walkthrough.html">Walkthrough</a>
                     </li>
                 </ul>
             </div>
@@ -234,11 +226,11 @@
             <div class="collapsible-body">
                 <ul class="collapsible">
                     <li>
-                        <a href="views/example/material.html">Material</a>
-                        <a href="views/example/left-sidebar.html">Left</a>
-                        <a href="views/example/right-sidebar.html">Right</a>
-                        <a href="views/example/dual-sidebar.html">Dual</a>
-                        <a href="views/example/blank.html">Blank</a>
+                        <a href="material.html">Material</a>
+                        <a href="left-sidebar.html">Left</a>
+                        <a href="right-sidebar.html">Right</a>
+                        <a href="dual-sidebar.html">Dual</a>
+                        <a href="blank.html">Blank</a>
                     </li>
                 </ul>
             </div>
@@ -250,18 +242,18 @@
             <div class="collapsible-body">
                 <ul class="collapsible">
                     <li>
-                        <a href="views/example/article.html">Article</a>
-                        <a href="views/example/event.html">Event</a>
-                        <a href="views/example/project.html">Project</a>
-                        <a href="views/example/player.html">Music Player</a>
-                        <a href="views/example/todo.html">ToDo</a>
-                        <a href="views/example/category.html">Category</a>
-                        <a href="views/example/product.html">Product</a>
-                        <a href="views/example/checkout.html">Checkout</a>
-                        <a href="views/example/search.html">Search</a>
-                        <a href="views/example/faq.html">Faq</a>
-                        <a href="views/example/coming-soon.html">Coming Soon</a>
-                        <a href="views/example/404.html">404</a>
+                        <a href="article.html">Article</a>
+                        <a href="event.html">Event</a>
+                        <a href="project.html">Project</a>
+                        <a href="player.html">Music Player</a>
+                        <a href="todo.html">ToDo</a>
+                        <a href="category.html">Category</a>
+                        <a href="product.html">Product</a>
+                        <a href="checkout.html">Checkout</a>
+                        <a href="search.html">Search</a>
+                        <a href="faq.html">Faq</a>
+                        <a href="coming-soon.html">Coming Soon</a>
+                        <a href="404.html">404</a>
                     </li>
                 </ul>
             </div>
@@ -273,17 +265,17 @@
             <div class="collapsible-body">
                 <ul class="collapsible">
                     <li>
-                        <a href="views/example/calendar.html">Calendar</a>
-                        <a href="views/example/profile.html">Profile</a>
-                        <a href="views/example/chat.html">Chat</a>
-                        <a href="views/example/login.html">Login</a>
-                        <a href="views/example/signup.html">Sign Up</a>
-                        <a href="views/example/lockscreen.html">Lockscreen</a>
-                        <a href="views/example/forgot.html">Password</a>
-                        <a href="views/example/notification.html">Notification</a>
-                        <a href="views/example/chart.html">Chart</a>
-                        <a href="views/example/timeline.html">Timeline</a>
-                        <a href="views/example/activity.html">Activity</a>
+                        <a href="calendar.html">Calendar</a>
+                        <a href="profile.html">Profile</a>
+                        <a href="chat.html">Chat</a>
+                        <a href="login.html">Login</a>
+                        <a href="signup.html">Sign Up</a>
+                        <a href="lockscreen.html">Lockscreen</a>
+                        <a href="forgot.html">Password</a>
+                        <a href="notification.html">Notification</a>
+                        <a href="chart.html">Chart</a>
+                        <a href="timeline.html">Timeline</a>
+                        <a href="activity.html">Activity</a>
                     </li>
                 </ul>
             </div>
@@ -295,8 +287,8 @@
             <div class="collapsible-body">
                 <ul class="collapsible">
                     <li>
-                        <a href="views/example/blog.html">Classic</a>
-                        <a href="views/example/blog-card.html">Card</a>
+                        <a href="blog.html">Classic</a>
+                        <a href="blog-card.html">Card</a>
                     </li>
                 </ul>
             </div>
@@ -308,9 +300,9 @@
             <div class="collapsible-body">
                 <ul class="collapsible">
                     <li>
-                        <a href="views/example/gallery-filter.html">Filter</a>
-                        <a href="views/example/gallery-masonry.html">Masonry</a>
-                        <a href="views/example/gallery-card.html">Card</a>
+                        <a href="gallery-filter.html">Filter</a>
+                        <a href="gallery-masonry.html">Masonry</a>
+                        <a href="gallery-card.html">Card</a>
                     </li>
                 </ul>
             </div>
@@ -322,69 +314,86 @@
             <div class="collapsible-body">
                 <ul class="collapsible">
                     <li>
-                        <a href="views/example/portfolio-filter.html">Filter</a>
-                        <a href="views/example/portfolio-masonry.html">Masonry</a>
-                        <a href="views/example/portfolio-card.html">Card</a>
+                        <a href="portfolio-filter.html">Filter</a>
+                        <a href="portfolio-masonry.html">Masonry</a>
+                        <a href="portfolio-card.html">Card</a>
                     </li>
                 </ul>
             </div>
         </li>
-        <li><a href="views/example/shop.html" class="no-child"><i class="ion-android-playstore"></i> Shop</a></li>
-        <li><a href="views/example/video.html" class="no-child"><i class="ion-ios-videocam"></i> Video</a></li>
-        <li><a href="views/example/news.html" class="no-child"><i class="ion-social-rss"></i> News</a></li>
-        <li><a href="views/example/contact.html" class="no-child"><i class="ion-android-map"></i> Contact</a></li>
+        <li><a href="shop.html" class="no-child"><i class="ion-android-playstore"></i> Shop</a></li>
+        <li><a href="video.html" class="no-child"><i class="ion-ios-videocam"></i> Video</a></li>
+        <li><a href="news.html" class="no-child"><i class="ion-social-rss"></i> News</a></li>
+        <li><a href="contact.html" class="no-child"><i class="ion-android-map"></i> Contact</a></li>
     </ul>
     <!-- End of Sidebars -->
 
     <!-- Page Content -->
-    <div id="content">
+    <div id="content" class="grey-blue page">
 
         <!-- Toolbar -->
-        <div id="toolbar" class="halo-nav box-shad-none">
+        <div id="toolbar" class="primary-color">
             <div class="open-left" id="open-left" data-activates="slide-out-left">
                 <i class="ion-android-menu"></i>
             </div>
-            <span class="title none">Halo</span>
+            <span class="title">paint-select</span>
             <div class="open-right" id="open-right" data-activates="slide-out">
                 <i class="ion-android-person"></i>
             </div>
         </div>
 
-        <div class="h-banner animated fadeindown">
-            <div class="parallax">
-                <!-- Slider -->
-                <div class="swiper-container slider">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="img/5.jpg" alt="">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="img/8.jpg" alt="">
+        <!-- Main Content -->
+        <div class="animated fadeinup">
+
+            <div id="pattern_grid" class="grid">
+
+            </div>
+
+            <!-- Footer -->
+            <footer class="page-footer primary-color">
+                <div class="container">
+                    <div class="row">
+                        <div class="col s12">
+                            <p class="center-align grey-text text-lighten-4">You can use rows and columns here to
+                                organize your footer content.</p>
+                            <div class="center-align">
+                                <i class="ion-social-facebook m-10 white-text"></i>
+                                <i class="ion-social-twitter m-10 white-text"></i>
+                                <i class="ion-social-pinterest m-10 white-text"></i>
+                                <i class="ion-social-dribbble m-10 white-text"></i>
+                            </div>
                         </div>
                     </div>
-                    <!-- Add Pagination -->
-                    <div class="swiper-pagination"></div>
                 </div>
-                <!-- End of Slider -->
-                <div class="banner-title">Halo</div>
-            </div>
+                <div class="footer-copyright blue darken-1">
+                    <div class="container">
+                        2016 Codnauts
+                        <a class="grey-text text-lighten-4 right" href="#!">Privacy Policy</a>
+                    </div>
+                </div>
+            </footer>
         </div>
+        <!-- End of Main Contents -->
 
 
     </div> <!-- End of Page Content -->
 
+</div>
 </div> <!-- End of Page Container -->
 
 <!-- themeforest default -->
-<script src="js/jquery-2.1.0.min.js"></script>
-<script src="js/jquery.swipebox.min.js"></script>
-<script src="js/jquery.smoothState.min.js"></script>
-<script src="js/materialize.min.js"></script>
-<script src="js/swiper.min.js"></script>
-<script src="js/jquery.mixitup.min.js"></script>
-<script src="js/masonry.min.js"></script>
-<script src="js/chart.min.js"></script>
-<script src="js/functions.js"></script>
+<script src="../../js/jquery-2.1.0.min.js"></script>
+<script src="../../js/jquery.swipebox.min.js"></script>
+<script src="../../js/jquery.smoothState.min.js"></script>
+<script src="../../js/materialize.min.js"></script>
+<script src="../../js/swiper.min.js"></script>
+<script src="../../js/jquery.mixitup.min.js"></script>
+<script src="../../js/masonry.min.js"></script>
+<script src="../../js/chart.min.js"></script>
+<script src="../../js/functions.js"></script>
+
+<!-- customizing -->
+<script src="../../js/play.js"></script>
 
 </body>
 </html>

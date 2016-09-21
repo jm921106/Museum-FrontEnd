@@ -1,7 +1,295 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9aad275a-5d09-4355-899b-6e93c6eaacfe" name="Default" comment="" />
+    <list default="true" id="9aad275a-5d09-4355-899b-6e93c6eaacfe" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/items/sample1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/items/sample2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/items/sample3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/patterns/pattern_1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/patterns/pattern_2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/patterns/pattern_3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/patterns/pattern_4.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/patterns/pattern_5.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/patterns/pattern_6.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/patterns/pattern_7.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/patterns/pattern_8.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/patterns/pattern_9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/data/patterns.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/help/documentation.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/play.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/views/leftPanel/left-panel.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/views/play/paint-draw.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/views/play/paint-intro.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/views/play/paint-result.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/views/play/paint-select.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/views/play/play-info.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/views/play/play-main.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/config.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/confighelper.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/cordova-js-src/confighelper.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/cordova-js-src/exec.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/cordova-js-src/platform.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/cordova.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/cordova_plugins.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/css/keyframes.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/css/materialize.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/css/style.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/css/swipebox.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/css/swiper.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/exec.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/10.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/8.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/9.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/banner.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/banner1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/banner2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/banner3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/banner4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/blur.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/default-skin.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/default-skin.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/icons.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/icons.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/loader.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/opacity.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/player.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/preloader.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/product.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/product2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/product3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/product4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/project.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/user.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/user2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/user3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/user4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/user5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/user6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/user7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/user8.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/v1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/v2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/v3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/v4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/v5 copia.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/v5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/img/v6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/js/chart.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/js/functions.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/js/jquery-2.1.0.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/js/jquery.mixitup.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/js/jquery.smoothState.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/js/jquery.swipebox.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/js/masonry.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/js/materialize.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/js/swiper.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/platform.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-battery-status/src/browser/BatteryProxy.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-battery-status/www/battery.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-camera/src/browser/CameraProxy.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-camera/www/Camera.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-camera/www/CameraConstants.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-camera/www/CameraPopoverOptions.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-contacts/www/Contact.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-contacts/www/ContactAddress.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-contacts/www/ContactError.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-contacts/www/ContactField.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-contacts/www/ContactFieldType.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-contacts/www/ContactFindOptions.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-contacts/www/ContactName.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-contacts/www/ContactOrganization.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-contacts/www/contacts.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-device-motion/src/browser/AccelerometerProxy.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-device-motion/www/Acceleration.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-device-motion/www/accelerometer.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-device-orientation/src/browser/CompassProxy.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-device-orientation/www/CompassError.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-device-orientation/www/CompassHeading.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-device-orientation/www/compass.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-device/src/browser/DeviceProxy.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-device/www/device.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-dialogs/www/browser/notification.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-dialogs/www/notification.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-file-transfer/www/FileTransfer.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-file-transfer/www/FileTransferError.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-file-transfer/www/browser/FileTransfer.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-file/src/browser/FileProxy.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-file/www/DirectoryEntry.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-file/www/DirectoryReader.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-file/www/Entry.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-file/www/File.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-file/www/FileEntry.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-file/www/FileError.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-file/www/FileReader.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-file/www/FileSystem.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-file/www/FileUploadOptions.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-file/www/FileUploadResult.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-file/www/FileWriter.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-file/www/Flags.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-file/www/LocalFileSystem.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-file/www/Metadata.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-file/www/ProgressEvent.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-file/www/browser/FileSystem.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-file/www/browser/Preparing.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-file/www/browser/isChrome.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-file/www/fileSystemPaths.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-file/www/fileSystems.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-file/www/requestFileSystem.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-file/www/resolveLocalFileSystemURI.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-globalization/src/browser/GlobalizationProxy.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-globalization/www/GlobalizationError.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-globalization/www/browser/moment.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-globalization/www/globalization.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-inappbrowser/src/browser/InAppBrowserProxy.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-inappbrowser/www/inappbrowser.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-media-capture/src/browser/CaptureProxy.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-media-capture/www/CaptureAudioOptions.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-media-capture/www/CaptureError.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-media-capture/www/CaptureImageOptions.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-media-capture/www/CaptureVideoOptions.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-media-capture/www/MediaFile.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-media-capture/www/MediaFileData.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-media-capture/www/capture.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-media/www/Media.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-media/www/MediaError.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-media/www/browser/Media.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-network-information/src/browser/network.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-network-information/www/Connection.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-network-information/www/network.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-splashscreen/src/browser/SplashScreenProxy.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-splashscreen/www/splashscreen.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-statusbar/src/browser/statusbar.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-statusbar/www/statusbar.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-vibration/src/browser/Vibration.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/plugins/cordova-plugin-vibration/www/vibration.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/.pgbomit" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/icon/android/drawable-hdpi-icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/icon/android/drawable-ldpi-icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/icon/android/drawable-mdpi-icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/icon/android/drawable-xhdpi-icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/icon/android/drawable-xxhdpi-icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/icon/android/drawable-xxxhdpi-icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/icon/ios/icon-40.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/icon/ios/icon-40@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/icon/ios/icon-50.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/icon/ios/icon-50@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/icon/ios/icon-60.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/icon/ios/icon-60@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/icon/ios/icon-60@3x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/icon/ios/icon-72.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/icon/ios/icon-72@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/icon/ios/icon-76.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/icon/ios/icon-76@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/icon/ios/icon-small.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/icon/ios/icon-small@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/icon/ios/icon-small@3x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/icon/ios/icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/icon/ios/icon@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/icon/windows/Square150x150Logo.scale-100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/icon/windows/Square150x150Logo.scale-240.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/icon/windows/Square30x30Logo.scale-100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/icon/windows/Square310x310Logo.scale-100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/icon/windows/Square44x44Logo.scale-100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/icon/windows/Square44x44Logo.scale-240.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/icon/windows/Square70x70Logo.scale-100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/icon/windows/Square71x71Logo.scale-100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/icon/windows/Square71x71Logo.scale-240.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/icon/windows/StoreLogo.scale-100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/icon/windows/StoreLogo.scale-240.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/icon/windows/Wide310x150Logo.scale-100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/icon/windows/Wide310x150Logo.scale-240.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/icon/wp8/ApplicationIcon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/icon/wp8/Background.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/screen/android/drawable-land-hdpi-screen.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/screen/android/drawable-land-ldpi-screen.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/screen/android/drawable-land-mdpi-screen.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/screen/android/drawable-land-xhdpi-screen.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/screen/android/drawable-land-xxhdpi-screen.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/screen/android/drawable-land-xxxhdpi-screen.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/screen/android/drawable-port-hdpi-screen.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/screen/android/drawable-port-ldpi-screen.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/screen/android/drawable-port-mdpi-screen.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/screen/android/drawable-port-xhdpi-screen.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/screen/android/drawable-port-xxhdpi-screen.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/screen/android/drawable-port-xxxhdpi-screen.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/screen/ios/Default-568h@2x~iphone.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/screen/ios/Default-667h.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/screen/ios/Default-736h.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/screen/ios/Default-Landscape-736h.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/screen/ios/Default-Landscape@2x~ipad.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/screen/ios/Default-Landscape~ipad.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/screen/ios/Default-Portrait@2x~ipad.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/screen/ios/Default-Portrait~ipad.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/screen/ios/Default@2x~iphone.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/screen/ios/Default~iphone.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/screen/windows/SplashScreen.scale-100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/screen/windows/SplashScreenPhone.scale-240.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/res/screen/wp8/screen-portrait.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/spec/helper.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/spec/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/spec/lib/jasmine-1.2.0/MIT.LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/spec/lib/jasmine-1.2.0/jasmine-html.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/spec/lib/jasmine-1.2.0/jasmine.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/spec/lib/jasmine-1.2.0/jasmine.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/404.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/activity.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/article.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/blank.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/blog-card.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/blog.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/calendar.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/category.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/chart.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/chat.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/checkout.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/coming-soon.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/contact.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/dual-sidebar.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/event.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/faq.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/forgot.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/gallery-card.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/gallery-filter.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/gallery-masonry.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/index-classic.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/index-drawer.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/index-sliced.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/index-slider.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/index-walkthrough.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/left-sidebar.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/lockscreen.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/login.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/material.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/news.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/notification.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/player.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/portfolio-card.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/portfolio-filter.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/portfolio-masonry.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/product.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/profile.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/project.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/right-sidebar.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/search.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/shop.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/signup.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/spec.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/timeline.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/todo.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/views/example/video.html" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/views/example/spec.html" afterPath="$PROJECT_DIR$/www/spec.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/views/example/checkout.html" afterPath="$PROJECT_DIR$/www/views/example/checkout.html" />
+    </list>
     <ignored path="museum-front.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,28 +308,13 @@
     <favorites_list name="museum-front" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="index-classic.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/views/example/index-classic.html">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="525">
+      <file leaf-file-name="spec.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/www/spec.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="622">
-              <caret line="510" column="7" selection-start-line="510" selection-start-column="7" selection-end-line="510" selection-end-column="7" />
+            <state relative-caret-position="962">
+              <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/www/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="181" column="25" selection-start-line="181" selection-start-column="25" selection-end-line="181" selection-end-column="25" />
-              <folding>
-                <element signature="n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#li#0;n#ul#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#li#9;n#ul#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -51,9 +324,13 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JavaScript File" />
         <option value="HTML File" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -61,7 +338,27 @@
         <option value="$PROJECT_DIR$/www/index_2.html" />
         <option value="$PROJECT_DIR$/www/index-classic.html" />
         <option value="$PROJECT_DIR$/www/views/example/index-classic.html" />
+        <option value="$PROJECT_DIR$/www/views/play/paint_intro.html" />
+        <option value="$PROJECT_DIR$/www/views/play/play_main.html" />
+        <option value="$PROJECT_DIR$/www/views/leftPanel/left_panel.html" />
+        <option value="$PROJECT_DIR$/www/js/w3data.js" />
+        <option value="$PROJECT_DIR$/www/js/left-panel.js" />
+        <option value="$PROJECT_DIR$/www/js/csi.min.js" />
+        <option value="$PROJECT_DIR$/www/views/leftPanel/left-panel.html" />
         <option value="$PROJECT_DIR$/www/index.html" />
+        <option value="$PROJECT_DIR$/www/views/play/play-main.html" />
+        <option value="$PROJECT_DIR$/www/views/play/pattern-select.html" />
+        <option value="$PROJECT_DIR$/www/views/play/paint-intro.html" />
+        <option value="$PROJECT_DIR$/www/data/patterns.json" />
+        <option value="$PROJECT_DIR$/www/js/play.js" />
+        <option value="$PROJECT_DIR$/www/views/play/paint-select.html" />
+        <option value="$PROJECT_DIR$/www/views/play/paint-result.html" />
+        <option value="$PROJECT_DIR$/www/views/example/gallery-card.html" />
+        <option value="$PROJECT_DIR$/www/views/example/checkout.html" />
+        <option value="$PROJECT_DIR$/www/views/example/blank.html" />
+        <option value="$PROJECT_DIR$/www/views/play/paint-draw.html" />
+        <option value="$PROJECT_DIR$/www/views/play/play-info.html" />
+        <option value="$PROJECT_DIR$/www/spec.html" />
       </list>
     </option>
   </component>
@@ -73,8 +370,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-11" />
-    <option name="y" value="-11" />
-    <option name="width" value="1942" />
+    <option name="width" value="1934" />
     <option name="height" value="1042" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -102,78 +398,42 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="museum-front" />
+              <option name="myItemId" value="Museum-FrontEnd" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="museum-front" />
+              <option name="myItemId" value="Museum-FrontEnd" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="museum-front" />
+              <option name="myItemId" value="Museum-FrontEnd" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="museum-front" />
+              <option name="myItemId" value="Museum-FrontEnd" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="museum-front" />
+              <option name="myItemId" value="Museum-FrontEnd" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="museum-front" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="museum-front" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="museum-front" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="museum-front" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -185,11 +445,15 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\gitMuseumFrontEnd\Museum-FrontEnd\www" />
+      <recent name="C:\gitMuseumFrontEnd\Museum-FrontEnd\www\views\leftPanel" />
       <recent name="C:\WebDevelop\MUSEUM\museum-front\www\views\example" />
       <recent name="C:\WebDevelop\MUSEUM\museum-front\www" />
       <recent name="C:\WebDevelop\MUSEUM\museum-front\www\views" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\gitMuseumFrontEnd\Museum-FrontEnd\www" />
+      <recent name="C:\gitMuseumFrontEnd\Museum-FrontEnd\www\img" />
       <recent name="C:\WebDevelop\MUSEUM\museum-front\www" />
     </key>
   </component>
@@ -209,6 +473,11 @@
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
+    <configuration default="true" type="MongoRunConfiguration" factoryName="Mongo">
+      <setting name="path" value="" />
+      <setting name="shellParams" value="" />
+      <method />
+    </configuration>
     <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
       <method />
     </configuration>
@@ -219,6 +488,12 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -253,33 +528,35 @@
       <option name="presentableId" value="Default" />
       <updated>1474457829677</updated>
       <workItem from="1474457831099" duration="1317000" />
+      <workItem from="1474459762747" duration="7178000" />
+      <workItem from="1474469972463" duration="6364000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1317000" />
+    <option name="totallyTimeSpent" value="14859000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="1942" height="1042" extended-state="7" />
-    <editor active="true" />
+    <frame x="-11" y="0" width="1934" height="1042" extended-state="0" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25352877" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25299892" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32993197" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288835" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288835" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6371359" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -290,53 +567,300 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/www/icon.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/example/index-drawer.html">
+    <entry file="file://$PROJECT_DIR$/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
-          <folding />
+        <state relative-caret-position="222">
+          <caret line="6" column="67" selection-start-line="6" selection-start-column="67" selection-end-line="6" selection-end-column="68" />
+          <folding>
+            <element signature="n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#0;n#ul#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/css/style.css">
+    <entry file="file://$PROJECT_DIR$/www/views/play/play-main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1073">
+          <caret line="323" column="28" selection-start-line="323" selection-start-column="28" selection-end-line="323" selection-end-column="28" />
+          <folding>
+            <element signature="n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#ul#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/play/paint-intro.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#ul#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#footer#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/example/404.html">
+    <entry file="file://$PROJECT_DIR$/www/views/play/paint-select.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="13" column="18" selection-start-line="12" selection-start-column="19" selection-end-line="13" selection-end-column="28" />
-          <folding />
+        <state relative-caret-position="2701">
+          <caret line="378" column="109" selection-start-line="378" selection-start-column="109" selection-end-line="378" selection-end-column="109" />
+          <folding>
+            <element signature="n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#ul#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#footer#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/example/index-classic.html">
+    <entry file="file://$PROJECT_DIR$/www/help/documentation.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="622">
-          <caret line="510" column="7" selection-start-line="510" selection-start-column="7" selection-end-line="510" selection-end-column="7" />
+        <state relative-caret-position="296">
+          <caret line="8" column="46" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="181" column="25" selection-start-line="181" selection-start-column="25" selection-end-line="181" selection-end-column="25" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#li#0;n#ul#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#li#9;n#ul#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/icon.png" />
+    <entry file="file://$PROJECT_DIR$/www/views/example/index-drawer.html" />
+    <entry file="file://$PROJECT_DIR$/www/css/style.css" />
+    <entry file="file://$PROJECT_DIR$/www/views/example/index-classic.html" />
+    <entry file="file://$PROJECT_DIR$/www/views/example/index-slider.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="5" column="30" selection-start-line="0" selection-start-column="0" selection-end-line="396" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/example/404.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1554">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/csi.min.js" />
+    <entry file="file://$PROJECT_DIR$/www/img/user.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/example/product.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="10" column="18" selection-start-line="0" selection-start-column="0" selection-end-line="502" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="6" column="67" selection-start-line="6" selection-start-column="67" selection-end-line="6" selection-end-column="68" />
+          <folding>
+            <element signature="n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#0;n#ul#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/leftPanel/left-panel.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/play/paint-intro.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="370" column="35" selection-start-line="370" selection-start-column="35" selection-end-line="370" selection-end-column="35" />
+          <folding>
+            <element signature="n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#ul#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#footer#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/help/documentation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="8" column="46" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/data/patterns.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/functions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="447" column="7" selection-start-line="447" selection-start-column="7" selection-end-line="447" selection-end-column="7" />
+          <folding>
+            <element signature="n#!!block;n#initiate_plugins#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/example/blog.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="20" column="8" selection-start-line="0" selection-start-column="0" selection-end-line="439" selection-end-column="7" />
+          <folding>
+            <element signature="n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#ul#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/play.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/example/gallery-card.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="343" column="32" selection-start-line="343" selection-start-column="32" selection-end-line="343" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/example/blank.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="35" column="112" selection-start-line="35" selection-start-column="100" selection-end-line="35" selection-end-column="112" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/example/checkout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="62">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="386" selection-end-column="0" />
+          <folding>
+            <element signature="n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#ul#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#ul#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/example/timeline.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="11" column="12" selection-start-line="0" selection-start-column="0" selection-end-line="574" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/play/play-info.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="538" column="72" selection-start-line="538" selection-start-column="72" selection-end-line="538" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/play/paint-draw.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="387" column="27" selection-start-line="387" selection-start-column="27" selection-end-line="387" selection-end-column="27" />
+          <folding>
+            <element signature="n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#ul#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#ul#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/play/paint-result.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="444">
+          <caret line="327" column="24" selection-start-line="327" selection-start-column="24" selection-end-line="327" selection-end-column="24" />
+          <folding>
+            <element signature="n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#ul#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#footer#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/play/play-main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1628">
+          <caret line="323" column="28" selection-start-line="323" selection-start-column="28" selection-end-line="323" selection-end-column="28" />
+          <folding>
+            <element signature="n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#ul#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/play/paint-select.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="343" column="0" selection-start-line="343" selection-start-column="0" selection-end-line="343" selection-end-column="0" />
+          <folding>
+            <element signature="n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#ul#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#footer#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3646">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/spec.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="962">
+          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
