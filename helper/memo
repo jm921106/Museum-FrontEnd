@@ -1,0 +1,31 @@
+dir
+
+-help
+    설명글/부가적인 내용을 넣는 부분
+
+-html 파일
+    naming규칙 (ex)
+        - play 부분 play_name.html
+        - display 부분 display_name.html
+    index 파일명은 변경하면 안됨
+    index와 같은 depth에 있어야함, <include>된 html파일을 적용하기 위함
+    include 하는 법  <div w3-include-html="views/include/includeCss.html"></div> : 수정예정
+
+- css 파일
+    custom.css를 제외한 다른 파일은 수정 금지
+    필요한 css는 custom.css에 지정
+    페이지간 css 중복을 방지하기 위하여 개인적인 속성은 웬만하면 id값을 이용하여 지정할 것! 주의!!!
+    custom.css에 속성명[줄임말]로 naming을 하여 css속성을 부여 할 것
+        - ex1 font-szie : 15px >>> fx15
+        - ex2 font-weight : bold >>> fwbold
+
+- js 파일
+    custom.js를 제외한 다른 파일은 수정 금지
+    custom.js는 function.js에서 필요한 부분만 가져온 파일
+    custom.js에서 function은 initiate_plugins() 안과 밖에 각각 2번씩 지정해줘야한다
+        - page 이동시 계속 js를 적용하기 위함
+    처음에는 각자 다른 js 파일에 작업하나 마지막에는 custom.js에 모든 파일을 통합한다 생각하고 작업 css도 마찬가지
+
+- data dir (json파일)
+    pattern item등 미리 정의된 더이상 추가되지 않을 데이터는 front-end에 json 형식으로 미리 정의해둔다.
+

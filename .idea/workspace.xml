@@ -2,57 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9aad275a-5d09-4355-899b-6e93c6eaacfe" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/sketch/bucket-background.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/sketch/crayon-background.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/sketch/crayon-outline.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/sketch/crayon-texture.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/sketch/eraser-background.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/sketch/eraser-outline.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/sketch/marker-background.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/sketch/marker-outline.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/sketch/paint-outline.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/sketch/watermelon-duck-outline.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/views/sketchJS/images/bucket-background.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/views/sketchJS/images/crayon-background.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/views/sketchJS/images/crayon-outline.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/views/sketchJS/images/crayon-texture.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/views/sketchJS/images/eraser-background.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/views/sketchJS/images/eraser-outline.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/views/sketchJS/images/marker-background.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/views/sketchJS/images/marker-outline.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/views/sketchJS/images/paint-outline.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/views/sketchJS/images/watermelon-duck-outline.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/css/custom.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/data/items.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/custom.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/drawing.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/w3include.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/paint-select.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/views/include/footer.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/views/include/includeCss.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/views/include/includeScript.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/views/include/left-panel.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/views/sketchJS/sketch.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/views/sketchJS/sketch.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/js/play.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/views/play/paint-select.html" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/www/views/leftPanel/left-panel.html" afterPath="$PROJECT_DIR$/helper/image_fix" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/www/views/play/paint-draw.html" afterPath="$PROJECT_DIR$/www/paint-draw.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/www/views/play/paint-intro.html" afterPath="$PROJECT_DIR$/www/paint-intro.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/www/views/play/paint-result.html" afterPath="$PROJECT_DIR$/www/paint-result.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/www/views/play/play-info.html" afterPath="$PROJECT_DIR$/www/play-info.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/www/views/play/play-main.html" afterPath="$PROJECT_DIR$/www/play-main.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-camera/src/blackberry10/index.js" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-camera/src/blackberry10/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-camera/www/CameraConstants.js" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-camera/www/CameraConstants.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-file-transfer/tests/tests.js" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-file-transfer/tests/tests.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-media-capture/src/browser/CaptureProxy.js" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-media-capture/src/browser/CaptureProxy.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-media-capture/www/CaptureImageOptions.js" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-media-capture/www/CaptureImageOptions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-splashscreen/www/windows/SplashScreenProxy.js" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-splashscreen/www/windows/SplashScreenProxy.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/materialize.min.css" afterPath="$PROJECT_DIR$/www/css/materialize.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/data/patterns.json" afterPath="$PROJECT_DIR$/www/data/patterns.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/materialize.min.js" afterPath="$PROJECT_DIR$/www/js/materialize.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/helper/memo" />
     </list>
     <ignored path="museum-front.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -73,7 +23,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="525">
-      <file leaf-file-name="paint-select.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="paint-select.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/paint-select.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="523">
@@ -85,11 +35,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="memo" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/helper/memo">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="37">
+              <caret line="4" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="custom.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/custom.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1374">
-              <caret line="436" column="53" selection-start-line="436" selection-start-column="53" selection-end-line="436" selection-end-column="53" />
+            <state relative-caret-position="74">
+              <caret line="47" column="27" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="27" />
               <folding>
                 <element signature="e#14#1676#0" expanded="false" />
                 <element signature="e#4071#5835#0" expanded="false" />
@@ -118,8 +78,8 @@
       <file leaf-file-name="paint-draw.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/paint-draw.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="671">
-              <caret line="193" column="40" selection-start-line="193" selection-start-column="40" selection-end-line="193" selection-end-column="40" />
+            <state relative-caret-position="111">
+              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="70" />
               <folding>
                 <element signature="n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#ul#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -218,6 +178,7 @@
         <option value="$PROJECT_DIR$/www/css/custom.css" />
         <option value="$PROJECT_DIR$/www/paint-result.html" />
         <option value="$PROJECT_DIR$/www/paint-select.html" />
+        <option value="$PROJECT_DIR$/helper/memo" />
       </list>
     </option>
   </component>
@@ -288,78 +249,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Museum-FrontEnd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Museum-FrontEnd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Museum-FrontEnd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Museum-FrontEnd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Museum-FrontEnd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Museum-FrontEnd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Museum-FrontEnd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Museum-FrontEnd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -483,12 +372,12 @@
       <workItem from="1474982686878" duration="10763000" />
       <workItem from="1475026299468" duration="6885000" />
       <workItem from="1475073663890" duration="5788000" />
-      <workItem from="1475158358115" duration="7617000" />
+      <workItem from="1475158358115" duration="8767000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51519000" />
+    <option name="totallyTimeSpent" value="52669000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
@@ -542,7 +431,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/www/views/leftPanel/footer.css" />
     <entry file="file://$PROJECT_DIR$/www/views/play/paint-draw.html" />
     <entry file="file://$PROJECT_DIR$/config.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -823,10 +711,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/paint-result.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="64" column="51" selection-start-line="64" selection-start-column="51" selection-end-line="64" selection-end-column="51" />
+          <folding>
+            <marker date="1475166096228" expanded="false" signature="1305:2870" ph="..." />
+            <marker date="1475166096228" expanded="false" signature="6441:7562" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/paint-draw.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="671">
-          <caret line="193" column="40" selection-start-line="193" selection-start-column="40" selection-end-line="193" selection-end-column="40" />
+        <state relative-caret-position="111">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="70" />
           <folding>
             <element signature="n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#ul#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -838,8 +737,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/custom.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1374">
-          <caret line="436" column="53" selection-start-line="436" selection-start-column="53" selection-end-line="436" selection-end-column="53" />
+        <state relative-caret-position="74">
+          <caret line="47" column="27" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="27" />
           <folding>
             <element signature="e#14#1676#0" expanded="false" />
             <element signature="e#4071#5835#0" expanded="false" />
@@ -854,17 +753,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/paint-result.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="64" column="51" selection-start-line="64" selection-start-column="51" selection-end-line="64" selection-end-column="51" />
-          <folding>
-            <marker date="1475166096228" expanded="false" signature="1305:2870" ph="..." />
-            <marker date="1475166096228" expanded="false" signature="6441:7562" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/paint-select.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="523">
@@ -872,6 +760,14 @@
           <folding>
             <element signature="n#footer#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/helper/memo">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="37">
+          <caret line="4" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
