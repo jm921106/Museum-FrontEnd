@@ -29,7 +29,7 @@ module.exports = {
   DestinationType:{
     /** Return base64 encoded string */
     DATA_URL: 0,
-    /** Return file uri (content://media/external/images/media/2 for Android) */
+    /** Return file uri (content://media/external/sketch/media/2 for Android) */
     FILE_URI: 1,
     /** Return native uri (eg. asset-library://... for iOS) */
     NATIVE_URI: 2

@@ -784,7 +784,7 @@ exports.defineAutoTests = function () {
                         return;
                     }
 
-                    var imageURL = "http://apache.org/images/feather-small.gif";
+                    var imageURL = "http://apache.org/sketch/feather-small.gif";
                     var lastModified = new Date();
 
                     var downloadFail = function (error) {
@@ -813,7 +813,7 @@ exports.defineAutoTests = function () {
                         return;
                     }
 
-                    var imageURL = "http://apache.org/images/feather-small.gif";
+                    var imageURL = "http://apache.org/sketch/feather-small.gif";
                     var lastModified = new Date();
                     var specContext = this;
 
@@ -1495,7 +1495,7 @@ exports.defineManualTests = function (contentEl, createActionButton) {
 
     "use strict";
 
-    var imageURL = "http://apache.org/images/feather-small.gif";
+    var imageURL = "http://apache.org/sketch/feather-small.gif";
     var videoURL = "http://techslides.com/demos/sample-videos/small.mp4";
 
     function clearResults() {

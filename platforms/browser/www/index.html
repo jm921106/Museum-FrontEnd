@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <div w3-include-html="views/include/includeCss.html"></div>
+    <!--<title>Museum</title>-->
+    <!--<meta charset="utf-8">-->
+    <!--<meta content="IE=edge" http-equiv="x-ua-compatible">-->
+    <!--<meta content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" name="viewport">-->
+    <!--<meta content="yes" name="apple-mobile-web-app-capable">-->
+    <!--<meta content="yes" name="apple-touch-fullscreen">-->
+    <!--&lt;!&ndash; Fonts &ndash;&gt;-->
+    <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>-->
+    <!--&lt;!&ndash; Icons &ndash;&gt;-->
+    <!--<link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="all" rel="stylesheet"-->
+          <!--type="text/css">-->
+    <!--&lt;!&ndash; Styles &ndash;&gt;-->
+    <!--<link href="css/keyframes.css" rel="stylesheet" type="text/css">-->
+    <!--<link href="css/materialize.min.css" rel="stylesheet" type="text/css">-->
+    <!--<link href="css/swiper.css" rel="stylesheet" type="text/css">-->
+    <!--<link href="css/swipebox.min.css" rel="stylesheet" type="text/css">-->
+    <!--<link href="css/style.css" rel="stylesheet" type="text/css">-->
+    <!--<link href="css/custom.css" rel="stylesheet" type="text/css">-->
+
+</head>
+
+<body onload="init()">
+<div class="m-scene" id="main"> <!-- Main Container -->
+
+    <ul id="slide-out-left" class="side-nav collapsible">
+        <div w3-include-html="views/include/left-panel.html"></div>
+        <!--<li>-->
+            <!--<div class="sidenav-header primary-color">-->
+                <!--<div class="nav-social">-->
+                    <!--<i class="ion-social-facebook"></i>-->
+                    <!--<i class="ion-social-twitter"></i>-->
+                    <!--<i class="ion-social-tumblr"></i>-->
+                <!--</div>-->
+                <!--<div class="nav-avatar">-->
+                    <!--<img class="circle avatar" src="img/user.jpg" alt="">-->
+                    <!--<div class="avatar-body">-->
+                        <!--<h3>전시 제목</h3>-->
+                        <!--<p>경기도 박물관</p>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</li>-->
+        <!--<li><a href="shop.html" class="no-child"><i class="ion-android-playstore"></i> Display</a></li>-->
+        <!--<li><a href="play-main.html" class="no-child"><i class="ion-ios-videocam"></i> Play</a></li>-->
+        <!--<li><a href="view/ sketchJS/sketch.html" class="no-child"><i class="ion-ios-videocam"></i> SketchJS</a></li>-->
+        <!--<li><a href="#" class="no-child"><i class="ion-social-rss"></i> panel_1</a></li>-->
+        <!--<li><a href="#" class="no-child"><i class="ion-android-map"></i> panel_2</a></li>-->
+        <!--<li><a href="#" class="no-child"><i class="ion-android-map"></i> panel_3</a></li>-->
+        <!--<li><a href="#" class="no-child"><i class="ion-android-map"></i> panel_4</a></li>-->
+        <!--<li><a href="#" class="no-child"><i class="ion-android-map"></i> panel_5</a></li>-->
+        <!--<li><a href="#" class="no-child"><i class="ion-android-map"></i> panel_6</a></li>-->
+    </ul>
+
+
+    <!-- Page Content -->
+    <div id="content">
+
+        <!-- Toolbar -->
+        <div id="toolbar" class="halo-nav box-shad-none">
+            <div class="open-left" id="open-left" data-activates="slide-out-left">
+                <i class="ion-android-menu"></i>
+            </div>
+            <span class="title none">Halo</span>
+        </div>
+
+        <div class="h-banner animated fadeindown">
+            <div class="parallax">
+                <!-- Slider -->
+                <div class="swiper-container slider">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="img/5.jpg" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="img/8.jpg" alt="">
+                        </div>
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+                <!-- End of Slider -->
+                <div class="banner-title">Halo</div>
+            </div>
+        </div>
+
+        <!-- play draw -->
+        <!--<div class="m-20">-->
+            <!--<canvas id="myCanvas" style="background-color:antiquewhite; width:320px !important; height:320px !important;"></canvas>-->
+        <!--</div>-->
+
+        <!--<div w3-include-html="views/include/footer.html"></div>-->
+
+    </div> <!-- End of Page Content -->
+
+
+
+</div> <!-- End of Page Container -->
+
+<!--<div w3-include-html="views/include/includeScript.html"></div>-->
+<!-- themeforest default -->
+<script src="js/jquery-2.1.0.min.js"></script>
+<script src="js/jquery.swipebox.min.js"></script>
+<script src="js/jquery.smoothState.min.js"></script>
+<script src="js/materialize.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/jquery.mixitup.min.js"></script>
+<script src="js/masonry.min.js"></script>
+<script src="js/chart.min.js"></script>
+<script src="js/custom.js"></script>
+<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+<script src="js/drawing.js"></script>
+
+</body>
+</html>

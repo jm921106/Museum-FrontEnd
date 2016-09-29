@@ -28,7 +28,7 @@ var PictureSourceType = {
     },
     DestinationType = {
         DATA_URL: 0,         // Return base64 encoded string
-        FILE_URI: 1,         // Return file uri (content://media/external/images/media/2 for Android)
+        FILE_URI: 1,         // Return file uri (content://media/external/sketch/media/2 for Android)
         NATIVE_URI: 2        // Return native uri (eg. asset-library://... for iOS)
     },
     savePath = window.qnx.webplatform.getApplication().getEnv("HOME").replace('/data', '') + '/shared/camera/',

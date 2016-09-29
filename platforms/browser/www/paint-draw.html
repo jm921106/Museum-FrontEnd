@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <div w3-include-html="views/include/includeCss.html"></div>
+
+</head>
+
+<body onload="init()">
+<div class="m-scene" id="main"> <!-- Main Container -->
+
+    <ul id="slide-out-left" class="side-nav collapsible">
+        <div w3-include-html="views/include/left-panel.html"></div>
+    </ul>
+
+    <!-- Page Content -->
+    <div id="content" class="page">
+
+        <!-- Toolbar -->
+        <div id="toolbar" class="primary-color">
+            <div class="open-left" id="open-left" data-activates="slide-out-left">
+                <i class="ion-android-menu"></i>
+            </div>
+            <span class="title">paint-draw</span>
+        </div>
+
+        <!-- Main Content -->
+        <div class="animated fadeinup">
+            <!-- Order Recap -->
+            <ul class="collapsible checkout-header animated fadeindown delay-2" data-collapsible="accordion">
+                <li>
+                    <div class="collapsible-header">
+                        Show order summary
+                        <i class="ion-android-arrow-dropdown"></i>
+                        <span class="checkout-price right">$240.00</span>
+                    </div>
+                    <div class="collapsible-body z-depth-1">
+
+                        <!-- Products in cart -->
+                        <div class="checkout-details">
+                            <img class="checkout-image" src="img/user2.jpg" alt="">
+                            <div class="checkout-product-title">
+                                <h6>Pair of Shoes <span class="right">$220.00</span></h6>
+                                <span>43 - 44</span>
+                            </div>
+                        </div>
+
+                        <!-- Discount -->
+                        <form class="discount">
+                            <div class="input-field">
+                                <input id="code" type="text" class="validate">
+                                <label for="code">Discount code here</label>
+                                <div class="btn primary-color">
+                                    <i class="ion-arrow-right-c"></i>
+                                </div>
+                            </div>
+                        </form>
+
+                        <!-- Subtotal -->
+                        <div class="subtotal">
+                            <h6>Subtotal <span class="right">$220.00</span></h6>
+                            <span>Shipping <span class="right">$20.00</span></span>
+                        </div>
+
+                        <!-- Total -->
+                        <div class="total">
+                            <h4>Total <span class="right">$240.00</span></h4>
+                        </div>
+
+                    </div>
+                </li>
+            </ul>
+
+            <!-- play draw -->
+            <div class="m-20">
+                <canvas id="myCanvas" style="background-color:antiquewhite; width:320px !important; height:320px !important;"></canvas>
+            </div>
+
+            <button> 완 료 </button>
+
+        </div> <!-- End of Main Contents -->
+
+
+    </div> <!-- End of Page Content -->
+
+</div> <!-- End of Page Container -->
+
+<!--<div w3-include-html="views/include/includeScript.html"></div>-->
+<!-- themeforest default -->
+
+<script src="js/jquery-2.1.0.min.js"></script>
+<script src="js/jquery.swipebox.min.js"></script>
+<script src="js/jquery.smoothState.min.js"></script>
+<script src="js/materialize.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/jquery.mixitup.min.js"></script>
+<script src="js/masonry.min.js"></script>
+<script src="js/chart.min.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/drawing.js"></script>
+
+</body>
+</html>
