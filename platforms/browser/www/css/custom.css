@@ -14,15 +14,30 @@
 .font-size-20 {
     font-size:20px;
 }
+.fwbold {
+    font-weight: bold;
+}
+
+/* margin */
+.mt0 {
+    margin-top: 0px !important;
+}
+.ml-m30 {
+    margin-left: -30px !important;
+}
 
 /* sketch */
 canvas {
-    position: absolute;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+/* modal */
+#modal-btn {
+    width : 320px
 }
 

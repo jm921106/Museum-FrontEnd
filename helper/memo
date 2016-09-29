@@ -7,6 +7,7 @@ dir
     naming규칙 (ex)
         - play 부분 play_name.html
         - display 부분 display_name.html
+        - side 부분 side_name.hmtl
     index 파일명은 변경하면 안됨
     index와 같은 depth에 있어야함, <include>된 html파일을 적용하기 위함
     include 하는 법  <div w3-include-html="views/include/includeCss.html"></div> : 수정예정

@@ -2,7 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9aad275a-5d09-4355-899b-6e93c6eaacfe" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/helper/memo" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/side-app.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/side-info.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/side-like.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/side-myLike.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/side-notice.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/side-today.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/helper/memo" afterPath="$PROJECT_DIR$/helper/memo" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/custom.js" afterPath="$PROJECT_DIR$/www/js/custom.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/paint-draw.html" afterPath="$PROJECT_DIR$/www/paint-draw.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/paint-intro.html" afterPath="$PROJECT_DIR$/www/paint-intro.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/paint-result.html" afterPath="$PROJECT_DIR$/www/paint-result.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/paint-select.html" afterPath="$PROJECT_DIR$/www/paint-select.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/play-main.html" afterPath="$PROJECT_DIR$/www/play-main.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/views/include/left-panel.html" afterPath="$PROJECT_DIR$/www/views/include/left-panel.html" />
     </list>
     <ignored path="museum-front.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,91 +38,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="525">
-      <file leaf-file-name="paint-select.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/paint-select.html">
+      <file leaf-file-name="side-today.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/www/side-today.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="523">
-              <caret line="73" column="50" selection-start-line="73" selection-start-column="50" selection-end-line="73" selection-end-column="50" />
-              <folding>
-                <element signature="n#footer#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="memo" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/helper/memo">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="37">
-              <caret line="4" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+            <state relative-caret-position="371">
+              <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="custom.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/js/custom.js">
+      <file leaf-file-name="side-like.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/side-like.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="74">
-              <caret line="47" column="27" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="27" />
-              <folding>
-                <element signature="e#14#1676#0" expanded="false" />
-                <element signature="e#4071#5835#0" expanded="false" />
-                <element signature="e#5913#7289#0" expanded="false" />
-                <element signature="e#8033#8890#0" expanded="false" />
-                <element signature="e#11003#12227#0" expanded="false" />
-                <element signature="e#12256#14018#0" expanded="false" />
-                <element signature="e#15392#16165#0" expanded="false" />
-                <marker date="1475075572741" expanded="false" signature="1754:4034" ph="..." />
-                <marker date="1475075572741" expanded="false" signature="8986:10941" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="paint-intro.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/paint-intro.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="73" column="45" selection-start-line="73" selection-start-column="38" selection-end-line="73" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="paint-draw.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/paint-draw.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
-              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="70" />
-              <folding>
-                <element signature="n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#ul#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#canvas#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#footer#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="paint-result.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/paint-result.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="412">
-              <caret line="64" column="51" selection-start-line="64" selection-start-column="51" selection-end-line="64" selection-end-column="51" />
-              <folding>
-                <marker date="1475166096228" expanded="false" signature="1305:2870" ph="..." />
-                <marker date="1475166096228" expanded="false" signature="6441:7562" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="custom.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/css/custom.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+            <state relative-caret-position="336">
+              <caret line="97" column="0" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -118,9 +63,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -130,11 +75,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/www/index_2.html" />
-        <option value="$PROJECT_DIR$/www/index-classic.html" />
-        <option value="$PROJECT_DIR$/www/views/example/index-classic.html" />
-        <option value="$PROJECT_DIR$/www/views/play/paint_intro.html" />
-        <option value="$PROJECT_DIR$/www/views/play/play_main.html" />
         <option value="$PROJECT_DIR$/www/views/leftPanel/left_panel.html" />
         <option value="$PROJECT_DIR$/www/js/left-panel.js" />
         <option value="$PROJECT_DIR$/www/js/csi.min.js" />
@@ -156,7 +96,6 @@
         <option value="$PROJECT_DIR$/www/views/leftPanel/footer.html" />
         <option value="$PROJECT_DIR$/www/views/include/footerScript.html" />
         <option value="$PROJECT_DIR$/www/views/play/paint-select.html" />
-        <option value="$PROJECT_DIR$/www/views/include/left-panel.html" />
         <option value="$PROJECT_DIR$/www/js/play.js" />
         <option value="$PROJECT_DIR$/www/js/w3data.js" />
         <option value="$PROJECT_DIR$/www/play-info.html" />
@@ -165,20 +104,28 @@
         <option value="$PROJECT_DIR$/www/views/include/includeCss.html" />
         <option value="$PROJECT_DIR$/www/js/sketch.js" />
         <option value="$PROJECT_DIR$/www/data/patterns.json" />
-        <option value="$PROJECT_DIR$/www/js/custom.js" />
         <option value="$PROJECT_DIR$/www/views/include/includeScript.html" />
         <option value="$PROJECT_DIR$/www/js/drawing.js" />
         <option value="$PROJECT_DIR$/helper/image_fix" />
-        <option value="$PROJECT_DIR$/www/index.html" />
-        <option value="$PROJECT_DIR$/www/play-main.html" />
-        <option value="$PROJECT_DIR$/www/paint-intro.html" />
         <option value="$PROJECT_DIR$/www/css/materialize.min.css" />
         <option value="$PROJECT_DIR$/www/js/materialize.min.js" />
-        <option value="$PROJECT_DIR$/www/paint-draw.html" />
         <option value="$PROJECT_DIR$/www/css/custom.css" />
-        <option value="$PROJECT_DIR$/www/paint-result.html" />
-        <option value="$PROJECT_DIR$/www/paint-select.html" />
+        <option value="$PROJECT_DIR$/www/panel-notice.html" />
         <option value="$PROJECT_DIR$/helper/memo" />
+        <option value="$PROJECT_DIR$/www/views/side-info.html" />
+        <option value="$PROJECT_DIR$/www/views/side-app.html" />
+        <option value="$PROJECT_DIR$/www/index.html" />
+        <option value="$PROJECT_DIR$/www/views/include/left-panel.html" />
+        <option value="$PROJECT_DIR$/www/paint-select.html" />
+        <option value="$PROJECT_DIR$/www/paint-intro.html" />
+        <option value="$PROJECT_DIR$/www/paint-result.html" />
+        <option value="$PROJECT_DIR$/www/play-main.html" />
+        <option value="$PROJECT_DIR$/www/side-myLike.html" />
+        <option value="$PROJECT_DIR$/www/paint-draw.html" />
+        <option value="$PROJECT_DIR$/www/js/functions.js" />
+        <option value="$PROJECT_DIR$/www/js/custom.js" />
+        <option value="$PROJECT_DIR$/www/side-like.html" />
+        <option value="$PROJECT_DIR$/www/side-today.html" />
       </list>
     </option>
   </component>
@@ -249,6 +196,64 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Museum-FrontEnd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Museum-FrontEnd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Museum-FrontEnd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Museum-FrontEnd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="include" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Museum-FrontEnd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Museum-FrontEnd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -372,18 +377,18 @@
       <workItem from="1474982686878" duration="10763000" />
       <workItem from="1475026299468" duration="6885000" />
       <workItem from="1475073663890" duration="5788000" />
-      <workItem from="1475158358115" duration="8767000" />
+      <workItem from="1475158358115" duration="10489000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52669000" />
+    <option name="totallyTimeSpent" value="54391000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21389794" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21226928" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288835" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4842233" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -431,35 +436,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/www/views/play/paint-draw.html" />
-    <entry file="file://$PROJECT_DIR$/config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2700">
-          <caret line="102" column="30" selection-start-line="102" selection-start-column="30" selection-end-line="102" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/play/paint-select.html" />
-    <entry file="file://$PROJECT_DIR$/www/js/functions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2368">
-          <caret line="447" column="7" selection-start-line="447" selection-start-column="7" selection-end-line="447" selection-end-column="7" />
-          <folding>
-            <element signature="n#!!block;n#initiate_plugins#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/spec.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="851">
-          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/play.js" />
-    <entry file="file://$PROJECT_DIR$/www/js/w3data.js" />
     <entry file="file://$PROJECT_DIR$/www/views/sketchJS/sketch.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
@@ -531,13 +507,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/include/left-panel.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/chart.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="111">
@@ -567,17 +536,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="370">
           <caret line="10" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/play-info.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15">
-          <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -614,17 +572,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="498">
-          <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="116" selection-end-column="17" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#footer#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/materialize.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="428">
@@ -637,14 +584,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="203">
           <caret line="7959" column="17" selection-start-line="7959" selection-start-column="17" selection-end-line="7959" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/play-main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="53" column="89" selection-start-line="29" selection-start-column="7" selection-end-line="53" selection-end-column="89" />
           <folding />
         </state>
       </provider>
@@ -695,14 +634,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/paint-intro.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="73" column="45" selection-start-line="73" selection-start-column="38" selection-end-line="73" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/css/custom.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="296">
@@ -711,23 +642,85 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/helper/memo">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/include/left-panel.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="523">
+          <caret line="24" column="94" selection-start-line="24" selection-start-column="94" selection-end-line="24" selection-end-column="94" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#footer#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/paint-intro.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/paint-result.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="64" column="51" selection-start-line="64" selection-start-column="51" selection-end-line="64" selection-end-column="51" />
+        <state relative-caret-position="560">
+          <caret line="53" column="93" selection-start-line="29" selection-start-column="12" selection-end-line="53" selection-end-column="93" />
           <folding>
-            <marker date="1475166096228" expanded="false" signature="1305:2870" ph="..." />
-            <marker date="1475166096228" expanded="false" signature="6441:7562" ph="..." />
+            <element signature="n#footer#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/paint-select.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="33" column="12" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
+          <folding>
+            <element signature="n#footer#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/play-info.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/side-app.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/paint-draw.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="70" />
+        <state relative-caret-position="777">
+          <caret line="21" column="3" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
           <folding>
-            <element signature="n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#ul#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#canvas#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#footer#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -735,38 +728,79 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/play-main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/side-info.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/side-notice.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/functions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="466" column="1" selection-start-line="466" selection-start-column="1" selection-end-line="466" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/custom.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="47" column="27" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="27" />
+        <state relative-caret-position="148">
+          <caret line="308" column="8" selection-start-line="308" selection-start-column="8" selection-end-line="308" selection-end-column="8" />
           <folding>
             <element signature="e#14#1676#0" expanded="false" />
             <element signature="e#4071#5835#0" expanded="false" />
             <element signature="e#5913#7289#0" expanded="false" />
-            <element signature="e#8033#8890#0" expanded="false" />
-            <element signature="e#11003#12227#0" expanded="false" />
-            <element signature="e#12256#14018#0" expanded="false" />
-            <element signature="e#15392#16165#0" expanded="false" />
-            <marker date="1475075572741" expanded="false" signature="1754:4034" ph="..." />
-            <marker date="1475075572741" expanded="false" signature="8986:10941" ph="..." />
+            <element signature="e#10346#10971#0" expanded="false" />
+            <element signature="e#11047#11904#0" expanded="false" />
+            <element signature="e#14017#15241#0" expanded="false" />
+            <element signature="e#15270#17032#0" expanded="false" />
+            <element signature="e#18406#19179#0" expanded="false" />
+            <marker date="1475169548379" expanded="false" signature="1754:4034" ph="..." />
+            <marker date="1475169548379" expanded="false" signature="12000:13955" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/paint-select.html">
+    <entry file="file://$PROJECT_DIR$/www/side-myLike.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="523">
-          <caret line="73" column="50" selection-start-line="73" selection-start-column="50" selection-end-line="73" selection-end-column="50" />
+        <state relative-caret-position="560">
+          <caret line="53" column="26" selection-start-line="29" selection-start-column="12" selection-end-line="53" selection-end-column="26" />
           <folding>
-            <element signature="n#footer#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#footer#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/helper/memo">
+    <entry file="file://$PROJECT_DIR$/www/side-like.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="37">
-          <caret line="4" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        <state relative-caret-position="336">
+          <caret line="97" column="0" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/side-today.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
           <folding />
         </state>
       </provider>
