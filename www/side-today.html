@@ -31,8 +31,7 @@
             <!--<div class="sidenav-header primary-color">-->
                 <!--<div class="nav-social">-->
                     <!--<i class="ion-social-facebook"></i>-->
-                    <!--<i class="ion-social-twitter"></i>-->
-                    <!--<i class="ion-social-tumblr"></i>-->
+                    <!--<i class="ion-social-twitter"></i> uncaughtexception
                 <!--</div>-->
                 <!--<div class="nav-avatar">-->
                     <!--<img class="circle avatar" src="img/user.jpg" alt="">-->
@@ -161,40 +160,8 @@
             data: [28, 54, 40, 19, 37, 20, 90]
         }]
     }
-    // PIE CHART
-    var pieData = [{
-        value: 33,
-        color: "#BBDEFB",
-        highlight: "#29b6f6",
-        label: "New"
-    }, {
-        value: 66,
-        color: "#ffcc80",
-        highlight: "#ffa726",
-        label: "Completed"
-    }, {
-        value: 66,
-        color: "#e1bee7",
-        highlight: "#ba68c8",
-        label: "Cancelled"
-    }];
-    // Doughnut Chart
-    var doughnutData = [{
-        value: 250,
-        color: "#BBDEFB",
-        highlight: "#42a5f5",
-        label: "Search"
-    }, {
-        value: 70,
-        color: "#EF9A9A",
-        highlight: "#ef5350",
-        label: "Bounce"
-    }, {
-        value: 100,
-        color: "#fff9c4",
-        highlight: "#fff176",
-        label: "New"
-    }];
+
+
     // Bar Chart
     var barChartData = {
         labels: ["1", "2", "3", "4", "5"],
@@ -212,24 +179,17 @@
             data: [28, 48, 19, 27, 90]
         }]
     }
+
     var ctx = document.getElementById("canvas").getContext("2d");
     window.myLine = new Chart(ctx).Line(lineChartData, {
         responsive: true,
     });
-    var ctx2 = document.getElementById("pieChart").getContext("2d");
-    window.myPie = new Chart(ctx2).Pie(pieData, {
-        animation: true,
-        responsive: true
-    });
+
     var ctx3 = document.getElementById("barChart").getContext("2d");
     window.myBar = new Chart(ctx3).Bar(barChartData, {
         responsive: true
     });
-    var ctx4 = document.getElementById("doughnutChart").getContext("2d");
-    window.myPie = new Chart(ctx4).Doughnut(doughnutData, {
-        animation: true,
-        responsive: true
-    });
+
 </script>
 </body>
 </html>

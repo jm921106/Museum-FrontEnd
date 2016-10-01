@@ -41,3 +41,32 @@ canvas {
     width : 320px
 }
 
+/* color */
+.primary-text {
+    color: #303f9f !important;
+}
+.primary-color {
+    background-color: #303f9f !important;
+}
+.primary-border {
+    border-color: #303f9f !important;
+}
+
+/* 정렬 */
+.table {
+    display: table;
+}
+.vamiddle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+/* page id */
+.backgroundImg {
+    background: url(../img/background/background-1.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
