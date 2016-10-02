@@ -256,7 +256,12 @@ function initiate_plugins() {
             }
         }
     })
+    
 }
+////--> End of Call all function for Ajax, now from there recall all the functions <--////
+////--> End of Call all function for Ajax, now from there recall all the functions <--////
+////--> End of Call all function for Ajax, now from there recall all the functions <--////
+////--> End of Call all function for Ajax, now from there recall all the functions <--////
 ////--> End of Call all function for Ajax, now from there recall all the functions <--////
 
 
@@ -488,3 +493,27 @@ $(function w3IncludeHTML() {
         }
     }
 })
+
+// 페이지가 load시 today 수가 증가 - 한번만 되면 되기 때문에 initiate_plugins() 안에 처리하지 않음
+$(function index_init() {
+    var path = window.location.pathname;
+    var page = path.split("/").pop();
+    if (page == 'index') {
+
+        var xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function () {
+            // if ( ajax 정상작동 했을시)
+            if (this.readyState == 4 && this.status == 200) {
+                console.log('today 작업 : ' + this.responseText)
+                // document.getElementById("demo").innerHTML = this.responseText;
+            }
+        };
+        xhttp.open("GET", window.temp_domain + "todayLoad", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send();
+    }
+});
+
+
+

@@ -22,7 +22,7 @@
     <link href="css/custom.css" rel="stylesheet" type="text/css">
 </head>
 
-<body>
+<body id="paint-intro_page">
 <div class="m-scene" id="main"> <!-- Main Container -->
     <ul id="slide-out-left" class="side-nav collapsible">
         <div w3-include-html="views/include/left-panel.html"></div>
@@ -96,7 +96,7 @@
 
             <div class="page-content">
 
-                <h5>Description</h5>
+                <h5>아름다운 무늬란 ???</h5>
                 <p class="text-flow">A wonderful serenity has taken possession of my entire soul, like these sweet
                     mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in
                     this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so
@@ -104,8 +104,13 @@
                     A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring
                     which I enjoy with my whole heart.</p>
 
-                <a class="btn-floating btn-large waves-effect waves-light red">vote</a>
-                <a class="btn-floating btn-large waves-effect waves-light red">result</a>
+                <!--<a class="btn-floating btn-large waves-effect waves-light red">vote</a>-->
+                <!--<a class="btn-floating btn-large waves-effect waves-light red">result</a>-->
+                <div class="center-align width-100">
+                    <a style="margin: auto;" class="btn-large font-size-18 primary-color" onclick="Materialize.toast('I am a toast', 4000)">작품 보기</a>
+                    <a style="margin: auto;" class="btn-large font-size-18 primary-color" onclick="Materialize.toast('아직 작품이 없습니다. <br/> 먼저 그림을 그려 주세요.', 4000)"> 나의 작품</a>
+                </div>
+
             </div>
 
             <!--<div w3-include-html="views/include/footer.html"></div>-->
@@ -125,7 +130,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="footer-copyright blue darken-1">
+                <div class="footer-copyright primary-color darken-1">
                     <div class="container">
                         2016 Codnauts
                         <a class="grey-text text-lighten-4 right" href="#!">Privacy Policy</a>

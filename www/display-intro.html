@@ -23,7 +23,6 @@
 
 </head>
 
-
 <body>
 <div class="m-scene" id="main"> <!-- Main Container -->
 
@@ -60,21 +59,69 @@
     <div id="content">
 
         <!-- Toolbar -->
-        <div id="toolbar" class="primary-color">
-            <a class="open-left" href="javascript:history.back()">
-                <i class="ion-android-arrow-back"></i>
-            </a>
-            <span class="title">Blank</span>
+        <div id="toolbar" class="primary-color box-shad-none">
+            <div class="open-left" id="open-left" data-activates="slide-out-left">
+                <i class="ion-android-menu"></i>
+            </div>
+            <span class="title none">경기도 박물관</span>
+        </div>
+
+        <!-- Hero Header -->
+        <div class="h-banner animated fadeindown">
+            <div class="parallax primary-color">
+                <div class="floating-button animated bouncein delay-3">
+            <span class="btn-floating resize btn-large waves-effect waves-light accent-color btn z-depth-1">
+              <i class="ion-volume-high" id = "voicePlay"></i>
+            </span>
+                </div>
+                <div class="banner-title">display-main</div>
+            </div>
         </div>
 
         <!-- Main Content -->
-        <div style="height: calc(100vh - 56px);" class="animated fadeinup valign-wrapper fullscreen center-align">
-            <a style="margin: 0 auto;" href="display-content.html"
-               class="waves-effect waves-light btn-large primary-color valign animated bouncein delay-2">이곳에 리스트를 넣어주세요.</a>
-        </div> <!-- End of Main Contents -->
+        <div class="animated fadeinup delay-1">
+            <div class="page-content m-t-20">
+                <p class="text-flow">
+                    <span class="dropcap">경.박</span>
+                    에 오신것을 환영합니다. 에 오신것을 환영합니다.에 오신것을 환영합니다.에 오신것을 환영합니다.에 오신것을 환영합니다.에 오신것을 환영합니다.에 오신것을 환영합니다.에 오신것을 환영합니다.
+                </p>
+                <p class="text-flow">
+                    자. 읽을 음성을 테스트 중입니다 으오홓ㅎ헿히힣ㅎ힣 다음그림을 눌러 전시관람을 할것
+                    위에 오디오 버튼을 누르면 음성이 나올것입니다...
+                </p>
+                <a class="waves-effect waves-light btn-large primary-color width-100 m-b-20" href="display-list.html">리스트 페이지로 이동</a>
+            </div>
+
+        </div>
+        <!-- End of Main Contents -->
 
 
+        <!--<div w3-include-html="views/include/footer.html"></div>-->
+        <!-- Footer -->
+        <footer class="page-footer primary-color">
+            <div class="container">
+                <div class="row">
+                    <div class="col s12">
+                        <p class="center-align grey-text text-lighten-4">You can use rows and columns here to organize
+                            your footer content.</p>
+                        <div class="center-align">
+                            <i class="ion-social-facebook m-10 white-text"></i>
+                            <i class="ion-social-twitter m-10 white-text"></i>
+                            <i class="ion-social-pinterest m-10 white-text"></i>
+                            <i class="ion-social-dribbble m-10 white-text"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright primary-color darken-1">
+                <div class="container">
+                    2016 Codnauts
+                    <a class="grey-text text-lighten-4 right" href="#!">Privacy Policy</a>
+                </div>
+            </div>
+        </footer>
     </div> <!-- End of Page Content -->
+
 
 </div> <!-- End of Page Container -->
 
@@ -91,6 +138,15 @@
 <script src="js/chart.min.js"></script>
 <script src="js/custom.js"></script>
 <script src="js/drawing.js"></script>
+
+<script>
+
+    $("#voicePlay").click(function(){{
+        alert("목소리가 나올것이다.");
+    }
+    })
+
+</script>
 
 </body>
 </html>
