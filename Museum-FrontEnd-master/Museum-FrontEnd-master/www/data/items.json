@@ -1,0 +1,6 @@
+{
+  "id": [1,2,3,4,5],
+  "name": ["김주승","김이승","김삼승","김사승","김오중"],
+  "code": ["1일","2코드","3지","4징어","5종"],
+  "img" : ["../../../public/img/examples/card_bg_1.jpg","../../../public/img/examples/card_bg_2.jpg","../../../public/img/examples/card_bg_3.jpg","../../../public/img/examples/card_bg_1.jpg","../../../public/img/examples/card_bg_1.jpg"]
+}
