@@ -20,7 +20,9 @@
     <link href="css/swipebox.min.css" rel="stylesheet" type="text/css">
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <link href="css/custom.css" rel="stylesheet" type="text/css">
+
 </head>
+
 
 <body>
 <div class="m-scene" id="main"> <!-- Main Container -->
@@ -28,20 +30,20 @@
     <ul id="slide-out-left" class="side-nav collapsible">
         <div w3-include-html="views/include/left-panel.html"></div>
         <!--<li>-->
-            <!--<div class="sidenav-header primary-color">-->
-                <!--<div class="nav-social">-->
-                    <!--<i class="ion-social-facebook"></i>-->
-                    <!--<i class="ion-social-twitter"></i>-->
-                    <!--<i class="ion-social-tumblr"></i>-->
-                <!--</div>-->
-                <!--<div class="nav-avatar">-->
-                    <!--<img class="circle avatar" src="img/user.jpg" alt="">-->
-                    <!--<div class="avatar-body">-->
-                        <!--<h3>전시 제목</h3>-->
-                        <!--<p>경기도 박물관</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
+        <!--<div class="sidenav-header primary-color">-->
+        <!--<div class="nav-social">-->
+        <!--<i class="ion-social-facebook"></i>-->
+        <!--<i class="ion-social-twitter"></i>-->
+        <!--<i class="ion-social-tumblr"></i>-->
+        <!--</div>-->
+        <!--<div class="nav-avatar">-->
+        <!--<img class="circle avatar" src="img/user.jpg" alt="">-->
+        <!--<div class="avatar-body">-->
+        <!--<h3>전시 제목</h3>-->
+        <!--<p>경기도 박물관</p>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
         <!--</li>-->
         <!--<li><a href="shop.html" class="no-child"><i class="ion-android-playstore"></i> Display</a></li>-->
         <!--<li><a href="play-main.html" class="no-child"><i class="ion-ios-videocam"></i> Play</a></li>-->
@@ -55,46 +57,68 @@
     </ul>
 
     <!-- Page Content -->
-    <div id="content" class="grey-blue page">
+    <div id="content" class="page">
 
         <!-- Toolbar -->
         <div id="toolbar" class="primary-color">
             <div class="open-left" id="open-left" data-activates="slide-out-left">
                 <i class="ion-android-menu"></i>
             </div>
-            <span class="title">side-like</span>
+            <span class="title">display-content</span>
+            <div class="open-right" id="open-right" data-activates="slide-out">
+                <i class="ion-android-person"></i>
+            </div>
         </div>
 
-        <!-- Main Content -->
-        <div class="animated fadeinup">
+        <!-- Hero Header -->
+        <div class="hero-header animated fadein">
+            <!-- Slider -->
+            <div class="swiper-container slider m-b-20">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="img/product.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/product2.jpg" alt="">
+                    </div>
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+            <!-- End of Slider -->
 
-            <!-- Pie Chart -->
-            <div id="pie_chart" class="card animated fadeinup delay-1">
-                <div class="legend">
-                    <h5 class="uppercase">Users <i class="ion-android-more-vertical right text-color"></i></h5>
-                    <p><span class="data-color blue lighten-3"></span>New</p>
-                    <p><span class="data-color orange lighten-3"></span>Completed</p>
-                    <p><span class="data-color purple lighten-4"></span>Cancelled</p>
+            <!-- Floating Action Button -->
+            <div class="floating-button scrollable-fab animated bouncein delay-3">
+                <a href="checkout.html" class="btn-floating btn-large waves-effect waves-light accent-color btn z-depth-1">
+                    <i class="ion-android-cart"></i>
+                </a>
+            </div>
+        </div>
+        <!-- Article Content -->
+        <div class="animated fadeinup delay-1">
+            <div class="page-content">
+
+                <div class="page-content m-t-20">
+                    <p class="text-flow">
+                        <span class="dropcap">경.박</span>
+                        에 오신것을 환영합니다. 에 오신것을 환영합니다.에 오신것을 환영합니다.에 오신것을 환영합니다.에 오신것을 환영합니다.에 오신것을 환영합니다.에 오신것을 환영합니다.에 오신것을 환영합니다.
+                    </p>
+                    <p class="text-flow">
+                        자. 읽을 음성을 테스트 중입니다 으오홓ㅎ헿히힣ㅎ힣 다음그림을 눌러 전시관람을 할것
+                        위에 오디오 버튼을 누르면 음성이 나올것입니다...
+                    </p>
+                    <a class="waves-effect waves-light btn-large primary-color width-100 m-b-20" href="display-map.html">시작하기</a>
                 </div>
 
-                <div class="pieChartCont">
-                    <canvas id="pieChart" width="300" height="300"></canvas>
+                <!-- Share -->
+                <div class="share center-align m-t-30">
+                    <h3 class="uppercase">Share it!</h3>
+                    <i class="ion-social-facebook p-20 blue-text text-darken-4"></i>
+                    <i class="ion-social-twitter p-20 blue-text"></i>
+                    <i class="ion-social-pinterest p-20 red-text"></i>
                 </div>
             </div>
 
-            <!-- Doughnut Chart -->
-            <div id="doughnut_chart" class="card animated fadeinup delay-2">
-                <div class="legend">
-                    <h5 class="uppercase">Email Report <i class="ion-android-refresh right text-color"></i></h5>
-                    <p><span class="data-color blue lighten-4"></span>Search</p>
-                    <p><span class="data-color red lighten-3"></span>Bounce</p>
-                    <p><span class="data-color yellow lighten-4"></span>New</p>
-                </div>
-
-                <div class="doughnutChartCont">
-                    <canvas id="doughnutChart" width="300" height="300"></canvas>
-                </div>
-            </div>
 
             <!-- Footer -->
             <footer class="page-footer primary-color">
@@ -111,22 +135,21 @@
                         </div>
                     </div>
                 </div>
-                <div class="footer-copyright blue darken-1">
+                <div class="footer-copyright primary-color darken-1">
                     <div class="container">
                         2016 Codnauts
                         <a class="grey-text text-lighten-4 right" href="#!">Privacy Policy</a>
                     </div>
                 </div>
             </footer>
-        </div> <!-- End of Main Contents -->
+        </div>
 
 
     </div> <!-- End of Page Content -->
 
 </div> <!-- End of Page Container -->
 
-<!--<div w3-include-html="views/include/includeScript.html"></div>-->
-<!-- themeforest default -->
+<script src="js/temp_domain.js"></script>
 <script src="js/jquery-2.1.0.min.js"></script>
 <script src="js/jquery.swipebox.min.js"></script>
 <script src="js/jquery.smoothState.min.js"></script>
@@ -138,55 +161,5 @@
 <script src="js/custom.js"></script>
 <script src="js/drawing.js"></script>
 
-<script>
-    // Charts
-
-    // PIE CHART
-    var pieData = [{
-        value: 33,
-        color: "#BBDEFB",
-        highlight: "#29b6f6",
-        label: "New"
-    }, {
-        value: 66,
-        color: "#ffcc80",
-        highlight: "#ffa726",
-        label: "Completed"
-    }, {
-        value: 66,
-        color: "#e1bee7",
-        highlight: "#ba68c8",
-        label: "Cancelled"
-    }];
-    // Doughnut Chart
-    var doughnutData = [{
-        value: 250,
-        color: "#BBDEFB",
-        highlight: "#42a5f5",
-        label: "Search"
-    }, {
-        value: 70,
-        color: "#EF9A9A",
-        highlight: "#ef5350",
-        label: "Bounce"
-    }, {
-        value: 100,
-        color: "#fff9c4",
-        highlight: "#fff176",
-        label: "New"
-    }];
-
-    var ctx2 = document.getElementById("pieChart").getContext("2d");
-    window.myPie = new Chart(ctx2).Pie(pieData, {
-        animation: true,
-        responsive: true
-    });
-
-    var ctx4 = document.getElementById("doughnutChart").getContext("2d");
-    window.myPie = new Chart(ctx4).Doughnut(doughnutData, {
-        animation: true,
-        responsive: true
-    });
-</script>
 </body>
 </html>
