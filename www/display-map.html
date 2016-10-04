@@ -24,7 +24,7 @@
     <style type="text/css">
         img[usemap] {
             border: none;
-            height: auto;
+            /*height: auto;*/
             max-width: 100%;
             width: auto;
         }
@@ -82,7 +82,7 @@
         <img src="img/map.jpg" class="fullSize pos-ab" usemap="#goTest">
 
         <map name="goTest">
-            <a href="#popupDialog1" style="visibility:hidden" data-rel="popup" data-transition="slideup">
+            <a href="#popupDialog1"  data-rel="popup" data-transition="slideup">
                 <area shape="circle" coords="233,153,20" alt="popupLink1" href="display-intro.html?c1">
             </a>
             <a id="popupLink2" style="visibility:hidden" href="#popupDialog2" data-rel="popup">
@@ -126,7 +126,6 @@
         $('img[usemap]').rwdImageMaps();
     });
 </script>
-
 
 </body>
 </html>
