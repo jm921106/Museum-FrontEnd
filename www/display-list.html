@@ -19,7 +19,7 @@
     <link href="css/swiper.css" rel="stylesheet" type="text/css">
     <link href="css/swipebox.min.css" rel="stylesheet" type="text/css">
     <link href="css/style.css" rel="stylesheet" type="text/css">
-    <link href="css/custom.css" rel="stylesheet" type="text/css">
+    <!--<link href="css/custom.css" rel="stylesheet" type="text/css">-->
 
 </head>
 
@@ -59,24 +59,52 @@
     <!-- Page Content -->
     <div id="content">
 
-        <!-- Toolbar -->
-        <div id="toolbar" class="primary-color">
-            <a class="open-left" href="javascript:history.back()">
-                <i class="ion-android-arrow-back"></i>
-            </a>
-            <span class="title">Blank</span>
+         <!--Toolbar -->
+        <div id="toolbar" class="primary-color box-shad-none">
+            <div class="open-left" id="open-left" data-activates="slide-out-left">
+                <i class="ion-android-menu"></i>
+            </div>
+            <span class="title none">디스플레이 리스트</span>
         </div>
 
+
+
+
         <!-- Main Content -->
-        <div style="height: calc(100vh - 56px);" class="animated fadeinup valign-wrapper fullscreen center-align">
-            <a style="margin: 0 auto;" href="display-content.html"
-               class="waves-effect waves-light btn-large primary-color valign animated bouncein delay-2">이곳에 리스트를 넣어주세요.</a>
-        </div> <!-- End of Main Contents -->
+        <div class="animated fadeinup" >
 
 
-    </div> <!-- End of Page Content -->
+            <div class="grid" style="position: relative; margin-top: 50px;" id = "myList" >
 
-</div> <!-- End of Page Container -->
+            </div>
+
+            <footer class="page-footer primary-color">
+                <div class="container">
+                    <div class="row">
+                        <div class="col s12">
+                            <p class="center-align grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                            <div class="center-align">
+                                <i class="ion-social-facebook m-10 white-text"></i>
+                                <i class="ion-social-twitter m-10 white-text"></i>
+                                <i class="ion-social-pinterest m-10 white-text"></i>
+                                <i class="ion-social-dribbble m-10 white-text"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-copyright blue darken-1">
+                    <div class="container">
+                        2016 Codnauts
+                        <a class="grey-text text-lighten-4 right" href="#">Privacy Policy</a>
+                    </div>
+                </div>
+            </footer>
+
+            <!-- End of Main Contents -->
+            </div>
+        </div>
+    </div>
+
 
 <!--<div w3-include-html="views/include/includeScript.html"></div>-->
 <!-- themeforest default -->
@@ -91,6 +119,52 @@
 <script src="js/chart.min.js"></script>
 <script src="js/custom.js"></script>
 <script src="js/drawing.js"></script>
+
+<script type="text/javascript">
+
+    var makeList = function(id ,imgUrl , title , text){
+        $('#myList').append("" +
+                "<div class='grid-item gallery-item-card'>"+
+                    "<a href='display-content.html' onclick='sendData("+id+");'>"+
+                    "<img src="+imgUrl+">"+
+                     "<div class='gallery-item-header'>"+
+                            "<div class='gallery-item-author'>"+
+                                "<span>"+title+"</span>" +
+                                 "<span class='small'>"+text+"</span>" +
+                             "</div>"+
+                        "</div> "+
+                     "</a>"+
+                "</div>");
+    }
+
+
+    //자바스크립트 코드
+    $.ajax({
+        url: './data/items.json'
+        ,type:'GET',
+        dataType : 'json'
+        , success: function(data) {
+            alert(data.name.length);
+            for(i =0 ; i< data.name.length ; i ++) {
+                makeList(data.id[i] , data.img[i], data.name[i],data.code[i]);
+            }
+        }
+    })
+
+   var sendData = function(myData){
+       alert(myData);
+
+       $.ajax({
+           url: './서버경로'
+           ,type:'GET',
+           dataType : 'json',
+           data : myData
+           , success: function(data) {
+           }
+       })
+   }
+</script>
+
 
 </body>
 </html>
