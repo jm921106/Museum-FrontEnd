@@ -139,20 +139,8 @@
 
 
 
-    var audioData = "./audio/old_melody.mp3"
-//    오디오 시작부분 //
-    var audio = new Audio(audioData);
-    $("#voicePlay").click(function(){
-        if(audio.paused){
-            console.log("플레이해라")
-            audio.play();
-        }
-        else {
-            console.log("퍼즈해라")
-            audio.pause();
-        }
-    });
-//    오디오 끝나는부분  //
+
+
 
 
 // 넘겨받는 부분
@@ -167,10 +155,31 @@ var category = window.location.search.substring(1);
         ,type:'GET',
         dataType : 'json'
         , success: function(data) {
-            alert(data.category.title);
+        alert(data[category].title);
 
-            }
+            $('#titleData').html(data[category].title);
+            $('#contentData').html(data[category].introduce);
+
+            //나중에 오디오 링크 꼭 해놓자 !!!
+            var audioData = "./audio/old_melody.mp3"
+            //    오디오 시작부분 //
+            var audio = new Audio(audioData);
+            $("#voicePlay").click(function(){
+                if(audio.paused){
+                    console.log("플레이해라")
+                    audio.play();
+                }
+                else {
+                    console.log("퍼즈해라")
+                    audio.pause();
+                }
+            });
+//    오디오 끝나는부분  //
+
+        }
     })
+
+
 
 
 

@@ -2,7 +2,7 @@
 {
   "c1" : {
     "title":"이건 두번째 컨텐츠 내용입니다.",
-
+    "introduce": "이건 첫번째 컨텐츠의 인삿말",
     "content":[
     {
       "code":"001",
@@ -38,6 +38,7 @@
 
   "c2" : {
     "title":"이건 두번째 컨텐츠 내용입니다.",
+    "introduce": "이건 2번째 컨텐츠의 인삿말",
     "content":[
       {
         "code":"001",
@@ -73,11 +74,12 @@
 
   "c3":{
     "title":"이건 세번째 컨텐츠 내용입니다.",
+    "introduce": "이건 3번째 컨텐츠의 인삿말",
     "content":[
       {
         "code":"001",
         "title": "title1",
-        "content_adult": "content1",
+        "content_adult": "content1 어덜트임",
         "content_kid": "content1",
         "imgUrl": [
           "../img/img1.png","../img/img1.png","../img/img1.png","../img/img1.png"
@@ -86,7 +88,7 @@
       },
       {
         "title": "title1",
-        "content_adult": "content1",
+        "content_adult": "content2 d어덜트당",
         "content_kid": "content1",
         "imgUrl": "../img/img1.png",
         "mp3Url": "../mp3/mp31.mp3"
@@ -99,7 +101,7 @@
       },
       {
         "title": "title1",
-        "content_adult": "content1",
+        "content_adult": "content1 어덜트에용 흐후",
         "content_kid": "content1",
         "imgUrl": "../img/img1.png",
         "mp3Url": "../mp3/mp31.mp3"
