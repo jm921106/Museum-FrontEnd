@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-    <title>Halo - Mobile Template</title>
+    <!--<div w3-include-html="views/include/includeCss.html"></div>-->
+    <title>Museum</title>
+    <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="x-ua-compatible">
     <meta content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" name="viewport">
     <meta content="yes" name="apple-mobile-web-app-capable">
@@ -9,18 +11,49 @@
     <!-- Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
     <!-- Icons -->
-    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="all" rel="stylesheet" type="text/css">
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="all" rel="stylesheet"
+          type="text/css">
     <!-- Styles -->
     <link href="css/keyframes.css" rel="stylesheet" type="text/css">
     <link href="css/materialize.min.css" rel="stylesheet" type="text/css">
     <link href="css/swiper.css" rel="stylesheet" type="text/css">
     <link href="css/swipebox.min.css" rel="stylesheet" type="text/css">
     <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/custom.css" rel="stylesheet" type="text/css">
+
 </head>
 
 <body>
 <div class="m-scene" id="main"> <!-- Main Container -->
 
+    <ul id="slide-out-left" class="side-nav collapsible">
+        <div w3-include-html="views/include/left-panel.html"></div>
+        <!--<li>-->
+        <!--<div class="sidenav-header primary-color">-->
+        <!--<div class="nav-social">-->
+        <!--<i class="ion-social-facebook"></i>-->
+        <!--<i class="ion-social-twitter"></i>-->
+        <!--<i class="ion-social-tumblr"></i>-->
+        <!--</div>-->
+        <!--<div class="nav-avatar">-->
+        <!--<img class="circle avatar" src="img/user.jpg" alt="">-->
+        <!--<div class="avatar-body">-->
+        <!--<h3>전시 제목</h3>-->
+        <!--<p>경기도 박물관</p>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</li>-->
+        <!--<li><a href="shop.html" class="no-child"><i class="ion-android-playstore"></i> Display</a></li>-->
+        <!--<li><a href="play-main.html" class="no-child"><i class="ion-ios-videocam"></i> Play</a></li>-->
+        <!--<li><a href="view/ sketchJS/sketch.html" class="no-child"><i class="ion-ios-videocam"></i> SketchJS</a></li>-->
+        <!--<li><a href="side-notice.html" class="no-child"><i class="ion-social-rss"></i> 공지사항</a></li>-->
+        <!--<li><a href="side-info.html" class="no-child"><i class="ion-android-map"></i> 앱 이용정보</a></li>-->
+        <!--<li><a href="side-app.html" class="no-child"><i class="ion-android-map"></i> 앱 구성정보</a></li>-->
+        <!--<li><a href="side-myLike.html" class="no-child"><i class="ion-android-map"></i> 내가 좋아요한 유물</a></li>-->
+        <!--<li><a href="side-like.html" class="no-child"><i class="ion-android-map"></i> 투데이 확인하기</a></li>-->
+        <!--<li><a href=side-today.html class="no-child"><i class="ion-android-map"></i> 좋아요 확인하기</a></li>-->
+    </ul>
 
     <!-- Page Content -->
     <div id="content" class="page">
@@ -30,7 +63,7 @@
             <div class="open-left" id="open-left" data-activates="slide-out-left">
                 <i class="ion-android-menu"></i>
             </div>
-            <span class="title">Product</span>
+            <span class="title">display-content</span>
             <div class="open-right" id="open-right" data-activates="slide-out">
                 <i class="ion-android-favorite"></i>
             </div>
@@ -60,20 +93,29 @@
                 </a>
             </div>
         </div>
+
         <!-- Article Content -->
-        <div class="animated fadeinup delay-1">
+        <div class="animated fadeinup delay-1 m-20">
 
                 <h5>Description</h5>
-                <p class="text-flow">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.
-                    A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                <p class="text-flow">
+                    A wonderful serenity has taken possession of my entire soul,
+                    like these sweet mornings of spring which I enjoy with my whole
+                    heart. I am alone, and feel the charm of existence in this spo
+                    happy, my dear friend, so absorbed in the exquisite sense of mere
+                    tranquil existence, that I neglect my talents.
+                    A wonderful serenity has taken possession of my entire soul, like
+                    these sweet mornings of spring which I enjoy with my whole heart.
+                </p>
 
-                <!-- Share -->
-                <div class="share center-align m-t-30">
-                    <h3 class="uppercase">Share it!</h3>
-                    <i class="ion-social-facebook p-20 blue-text text-darken-4"></i>
-                    <i class="ion-social-twitter p-20 blue-text"></i>
-                    <i class="ion-social-pinterest p-20 red-text"></i>
-                </div>
+
+                <!--&lt;!&ndash; Share &ndash;&gt;-->
+                <!--<div class="share center-align m-t-30">-->
+                    <!--<h3 class="uppercase">Share it!</h3>-->
+                    <!--<i class="ion-social-facebook p-20 blue-text text-darken-4"></i>-->
+                    <!--<i class="ion-social-twitter p-20 blue-text"></i>-->
+                    <!--<i class="ion-social-pinterest p-20 red-text"></i>-->
+                <!--</div>-->
 
             </div>
 
@@ -93,7 +135,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="footer-copyright blue darken-1">
+                <div class="footer-copyright primary-color darken-1">
                     <div class="container">
                         2016 Codnauts
                         <a class="grey-text text-lighten-4 right" href="#!">Privacy Policy</a>
@@ -108,6 +150,9 @@
 </div> <!-- End of Page Container -->
 
 
+<!--<div w3-include-html="views/include/includeScript.html"></div>-->
+<!-- themeforest default -->
+<script src="js/temp_domain.js"></script>
 <script src="js/jquery-2.1.0.min.js"></script>
 <script src="js/jquery.swipebox.min.js"></script>
 <script src="js/jquery.smoothState.min.js"></script>
@@ -116,6 +161,8 @@
 <script src="js/jquery.mixitup.min.js"></script>
 <script src="js/masonry.min.js"></script>
 <script src="js/chart.min.js"></script>
-<script src="js/functions.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/drawing.js"></script>
+
 </body>
 </html>

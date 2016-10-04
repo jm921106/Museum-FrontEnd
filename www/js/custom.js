@@ -269,15 +269,15 @@ function initiate_plugins() {
             url: './data/categorys.json',
             type: 'GET',
             dataType: 'json',
-            success: function(data) {
+            success: function (data) {
                 // null 값 전송시 처리
-                data.forEach(function(item) {
-                    if(item.id == category) {
+                data.forEach(function (item) {
+                    if (item.id == category) {
                         category = item
                         noneCheck = true;
                     }
                 });
-                if(noneCheck == false) {
+                if (noneCheck == false) {
                     category = data[0]
                 }
 
@@ -300,7 +300,31 @@ function initiate_plugins() {
         }) // ajax
     }) // function
 
+    // list page
+    $(function () {
+        // 추 후 ajax 처리
+        var category = "c3";
 
+        //자바스크립트 코드
+        $.ajax({
+            url: './data/items.json',
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                data.forEach(function(item) {
+                    if(item.category == category) {
+                        console.log(item.category)
+                        listAdd(
+                            // item.code,
+                            item.imgUrl[0],
+                            item.title,
+                            item.content_adult
+                        );
+                    }
+                });
+            }
+        })
+    });
 }
 ////--> End of Call all function for Ajax, now from there recall all the functions <--////
 ////--> End of Call all function for Ajax, now from there recall all the functions <--////
@@ -567,21 +591,21 @@ $(function category_intro() {
     category = window.location.search.substring(1);
 
     $.ajax({
-        url: './data/categorys.json', 
+        url: './data/categorys.json',
         type: 'GET',
-        dataType: 'json', 
-        success: function(data) {
+        dataType: 'json',
+        success: function (data) {
             // null 값 전송시 처리
-            data.forEach(function(item) {
-                if(item.id == category) {
+            data.forEach(function (item) {
+                if (item.id == category) {
                     category = item
                     noneCheck = true;
                 }
             });
-            if(noneCheck == false) {
+            if (noneCheck == false) {
                 category = data[0]
             }
-            
+
             var audioData = category.mp3Url
             $('#titleData').html(category.title);
             $('#contentData').html(category.introduce);
@@ -601,4 +625,43 @@ $(function category_intro() {
     }) // ajax
 }) // function
 
+// list page
+function listAdd(imgUrl, title, content) {
+    $('#itemList').append("" +
+        "<div class='grid-item gallery-item-card'>" +
+        "<a href='display-content.html'>" +
+        "<img src=" + imgUrl + ">" +
+        "<div class='gallery-item-header'>" +
+        "<div class='gallery-item-author'>" +
+        "<span>" + title + "</span>" +
+        "<span class='small'>" + content + "</span>" +
+        "</div>" +
+        "</div> " +
+        "</a>" +
+        "</div>");
+}
 
+$(function () {
+    // 추 후 ajax 처리
+    var category = "c3";
+
+    //자바스크립트 코드
+    $.ajax({
+        url: './data/items.json', 
+        type: 'GET',
+        dataType: 'json', 
+        success: function (data) {
+            data.forEach(function(item) {
+                if(item.category == category) {
+                    console.log(item.category)
+                    listAdd(
+                        // item.code,
+                        item.imgUrl[0],
+                        item.title,
+                        item.content_adult
+                    );
+                }
+            });
+        }
+    })
+});

@@ -1,129 +1,26 @@
-
-{
-  "c1" : {
-    "title":"이건 두번째 컨텐츠 내용입니다.",
-    "introduce": "이건 첫번째 컨텐츠의 인삿말",
-    "content":[
-    {
-      "code":"001",
-      "title": "title1",
-      "content_adult": "content1",
-      "content_kid": "content1",
-      "imgUrl": [
-        "./img/1.jpg","../img/img1.png","../img/img1.png","../img/img1.png"
-      ],
-      "mp3Url": "../mp3/mp31.mp3"
-    },
-    {
-      "code":"002",
-      "title": "title2",
-      "content_adult": "content1",
-      "content_kid": "content1",
-      "imgUrl": "./img/img2.jpg",
-      "mp3Url": "../mp3/mp31.mp3"
-    },
-    {
-      "code":"003",
-      "title": "title 3",
-      "content_adult": "content1",
-      "content_kid": "content1",
-      "imgUrl": "./img/img3.jpg",
-      "mp3Url": "../mp3/mp31.mp3"
-    },
-    {
-      "code":"004",
-      "title": "title1",
-      "content_adult": "content1",
-      "content_kid": "content1",
-      "imgUrl": "../img4.jpg",
-      "mp3Url": "../mp3/mp31.mp3"
-    }
-  ]},
-  "c2" : {
-    "title":"이건 두번째 컨텐츠 내용입니다.",
-    "introduce": "이건 2번째 컨텐츠의 인삿말",
-    "content":[
-      {
-        "code":"001",
-        "title": "title1",
-        "content_adult": "content1",
-        "content_kid": "content1",
-        "imgUrl": [
-          "./img/1.jpg","../img/img1.png","../img/img1.png","../img/img1.png"
-        ],
-        "mp3Url": "../mp3/mp31.mp3"
-      },
-      {
-        "code":"002",
-        "title": "title2",
-        "content_adult": "content1",
-        "content_kid": "content1",
-        "imgUrl": "./img/img2.jpg",
-        "mp3Url": "../mp3/mp31.mp3"
-      },
-      {
-        "code":"003",
-        "title": "title 3",
-        "content_adult": "content1",
-        "content_kid": "content1",
-        "imgUrl": "./img/img3.jpg",
-        "mp3Url": "../mp3/mp31.mp3"
-      },
-      {
-        "code":"004",
-        "title": "title1",
-        "content_adult": "content1",
-        "content_kid": "content1",
-        "imgUrl": "../img4.jpg",
-        "mp3Url": "../mp3/mp31.mp3"
-      }
-    ]},
-
-  "c3":{
-    "title":"이건 세번째 컨텐츠 내용입니다.",
-    "introduce": "이건 3번째 컨텐츠의 인삿말",
-    "content":[
-      {
-        "code":"001",
-        "title": "title1",
-        "content_adult": "content1",
-        "content_kid": "content1",
-        "imgUrl": [
-          "./img/1.jpg","../img/img1.png","../img/img1.png","../img/img1.png"
-        ],
-        "mp3Url": "../mp3/mp31.mp3"
-      },
-      {
-        "code":"002",
-        "title": "title2",
-        "content_adult": "content1",
-        "content_kid": "content1",
-
-        "imgUrl": [
-          "./img/2.jpg","../img/img1.png","../img/img1.png","../img/img1.png"
-        ],
-        "mp3Url": "../mp3/mp31.mp3"
-      },
-      {
-        "code":"003",
-        "title": "title 3",
-        "content_adult": "content1",
-        "content_kid": "content1",
-        "imgUrl":  [
-          "./img/3.jpg","../img/img1.png","../img/img1.png","../img/img1.png"
-        ],
-        "mp3Url": "../mp3/mp31.mp3"
-      },
-      {
-        "code":"004",
-        "title": "title1",
-        "content_adult": "content1",
-        "content_kid": "content1",
-        "imgUrl": [
-          "./img/4.jpg","../img/img1.png","../img/img1.png","../img/img1.png"
-        ],
-        "mp3Url": "../mp3/mp31.mp3"
-      }
-    ]}
-
-}
+ [
+      { "code": "001", "category": "c1", "title": "title1", "content_adult": "content1", "content_kid": "content1", "mp3Url": "../mp3/mp31.mp3",
+        "imgUrl": [ "img/1.jpg", "img/img1.png", "img/img1.png", "img/img1.png"] },
+      { "code": "002", "category": "c1", "title": "title2", "content_adult": "content1", "content_kid": "content1", "mp3Url": "../mp3/mp31.mp3",
+        "imgUrl": [ "img/1.jpg", "img/img1.png", "img/img1.png", "img/img1.png"] },
+      { "code": "003", "category": "c1", "title": "title3", "content_adult": "content1", "content_kid": "content1", "mp3Url": "../mp3/mp31.mp3",
+        "imgUrl": [ "img/1.jpg", "img/img1.png", "img/img1.png", "img/img1.png"] },
+      { "code": "004", "category": "c1", "title": "title4", "content_adult": "content1", "content_kid": "content1", "mp3Url": "../mp3/mp31.mp3",
+        "imgUrl": [ "img/1.jpg", "img/img1.png", "img/img1.png", "img/img1.png"] },
+      { "code": "005", "category": "c2", "title": "title5", "content_adult": "content1", "content_kid": "content1", "mp3Url": "../mp3/mp31.mp3",
+        "imgUrl": [ "img/1.jpg", "img/img1.png", "img/img1.png", "img/img1.png"] },
+      { "code": "006", "category": "c2", "title": "title6", "content_adult": "content1", "content_kid": "content1", "mp3Url": "../mp3/mp31.mp3",
+        "imgUrl": [ "img/1.jpg", "img/img1.png", "img/img1.png", "img/img1.png"] },
+      { "code": "007", "category": "c2", "title": "title7", "content_adult": "content1", "content_kid": "content1", "mp3Url": "../mp3/mp31.mp3",
+        "imgUrl": [ "img/1.jpg", "img/img1.png", "img/img1.png", "img/img1.png"] },
+      { "code": "008", "category": "c2", "title": "title8", "content_adult": "content1", "content_kid": "content1", "mp3Url": "../mp3/mp31.mp3",
+        "imgUrl": [ "img/1.jpg", "img/img1.png", "img/img1.png", "img/img1.png"] },
+      { "code": "009", "category": "c3", "title": "title9", "content_adult": "content1", "content_kid": "content1", "mp3Url": "../mp3/mp31.mp3",
+        "imgUrl": [ "img/1.jpg", "img/img1.png", "img/img1.png", "img/img1.png"] },
+      { "code": "010", "category": "c3", "title": "title10", "content_adult": "content1", "content_kid": "content1", "mp3Url": "../mp3/mp31.mp3",
+        "imgUrl": [ "img/1.jpg", "img/img1.png", "img/img1.png", "img/img1.png"] },
+      { "code": "011", "category": "c3", "title": "title11", "content_adult": "content1", "content_kid": "content1", "mp3Url": "../mp3/mp31.mp3",
+        "imgUrl": [ "img/1.jpg", "img/img1.png", "img/img1.png", "img/img1.png"] },
+      { "code": "012", "category": "c3", "title": "title12", "content_adult": "content1", "content_kid": "content1", "mp3Url": "../mp3/mp31.mp3",
+        "imgUrl": [ "img/1.jpg", "img/img1.png", "img/img1.png", "img/img1.png"] }
+ ]
