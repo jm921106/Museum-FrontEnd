@@ -10,28 +10,32 @@
       "content_adult": "content1",
       "content_kid": "content1",
       "imgUrl": [
-        "../img/img1.png","../img/img1.png","../img/img1.png","../img/img1.png"
+        "./img/1.jpg","../img/img1.png","../img/img1.png","../img/img1.png"
       ],
       "mp3Url": "../mp3/mp31.mp3"
     },
     {
-      "title": "title1",
+      "code":"002",
+      "title": "title2",
       "content_adult": "content1",
       "content_kid": "content1",
-      "imgUrl": "../img/img1.png",
+      "imgUrl": "./img/img2.jpg",
       "mp3Url": "../mp3/mp31.mp3"
     },
     {
+      "code":"003",
+      "title": "title 3",
       "content_adult": "content1",
       "content_kid": "content1",
-      "imgUrl": "../img/img1.png",
+      "imgUrl": "./img/img3.jpg",
       "mp3Url": "../mp3/mp31.mp3"
     },
     {
+      "code":"004",
       "title": "title1",
       "content_adult": "content1",
       "content_kid": "content1",
-      "imgUrl": "../img/img1.png",
+      "imgUrl": "../img4.jpg",
       "mp3Url": "../mp3/mp31.mp3"
     }
   ]},
@@ -46,28 +50,32 @@
         "content_adult": "content1",
         "content_kid": "content1",
         "imgUrl": [
-          "../img/img1.png","../img/img1.png","../img/img1.png","../img/img1.png"
+          "./img/1.jpg","../img/img1.png","../img/img1.png","../img/img1.png"
         ],
         "mp3Url": "../mp3/mp31.mp3"
       },
       {
-        "title": "title1",
+        "code":"002",
+        "title": "title2",
         "content_adult": "content1",
         "content_kid": "content1",
-        "imgUrl": "../img/img1.png",
+        "imgUrl": "./img/img2.jpg",
         "mp3Url": "../mp3/mp31.mp3"
       },
       {
+        "code":"003",
+        "title": "title 3",
         "content_adult": "content1",
         "content_kid": "content1",
-        "imgUrl": "../img/img1.png",
+        "imgUrl": "./img/img3.jpg",
         "mp3Url": "../mp3/mp31.mp3"
       },
       {
+        "code":"004",
         "title": "title1",
         "content_adult": "content1",
         "content_kid": "content1",
-        "imgUrl": "../img/img1.png",
+        "imgUrl": "../img4.jpg",
         "mp3Url": "../mp3/mp31.mp3"
       }
     ]},
@@ -79,31 +87,41 @@
       {
         "code":"001",
         "title": "title1",
-        "content_adult": "content1 어덜트임",
+        "content_adult": "content1",
         "content_kid": "content1",
         "imgUrl": [
-          "../img/img1.png","../img/img1.png","../img/img1.png","../img/img1.png"
+          "./img/1.jpg","../img/img1.png","../img/img1.png","../img/img1.png"
         ],
         "mp3Url": "../mp3/mp31.mp3"
       },
       {
-        "title": "title1",
-        "content_adult": "content2 d어덜트당",
-        "content_kid": "content1",
-        "imgUrl": "../img/img1.png",
-        "mp3Url": "../mp3/mp31.mp3"
-      },
-      {
+        "code":"002",
+        "title": "title2",
         "content_adult": "content1",
         "content_kid": "content1",
-        "imgUrl": "../img/img1.png",
+        "imgUrl": [
+          "./img/2.jpg","../img/img1.png","../img/img1.png","../img/img1.png"
+        ],
         "mp3Url": "../mp3/mp31.mp3"
       },
       {
-        "title": "title1",
-        "content_adult": "content1 어덜트에용 흐후",
+        "code":"003",
+        "title": "title 3",
+        "content_adult": "content1",
         "content_kid": "content1",
-        "imgUrl": "../img/img1.png",
+        "imgUrl":  [
+          "./img/3.jpg","../img/img1.png","../img/img1.png","../img/img1.png"
+        ],
+        "mp3Url": "../mp3/mp31.mp3"
+      },
+      {
+        "code":"004",
+        "title": "title1",
+        "content_adult": "content1",
+        "content_kid": "content1",
+        "imgUrl": [
+          "./img/4.jpg","../img/img1.png","../img/img1.png","../img/img1.png"
+        ],
         "mp3Url": "../mp3/mp31.mp3"
       }
     ]}
