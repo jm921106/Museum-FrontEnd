@@ -71,10 +71,10 @@
             <div class="parallax primary-color">
                 <div class="floating-button animated bouncein delay-3">
             <span class="btn-floating resize btn-large waves-effect waves-light accent-color btn z-depth-1">
-              <i class="ion-volume-high" id = "voicePlay"></i>
+              <i class="ion-volume-high" id="voicePlay"></i>
             </span>
                 </div>
-                <div class="banner-title" id = "titleData">타이틀이 들어갈곳</div>
+                <div class="banner-title" id="titleData">타이틀이 들어갈 곳</div>
             </div>
         </div>
 
@@ -82,10 +82,12 @@
         <div class="animated fadeinup delay-1">
             <div class="page-content m-t-20">
                 <p class="text-flow" id="contentData">
-                컨텐츠 내용이 들어갈 공간
+                    컨텐츠 내용이 들어갈 공간
                 </p>
-
-                <a class="waves-effect waves-light btn-large primary-color width-100 m-b-20" href="display-list.html" >리스트 페이지로 이동</a>
+                <a class="waves-effect waves-light btn-large primary-color width-100 m-b-20"
+                   href="display-list.html?'window.category.id'">
+                    리스트 페이지로 이동
+                </a>
             </div>
 
         </div>
@@ -134,56 +136,6 @@
 <script src="js/chart.min.js"></script>
 <script src="js/custom.js"></script>
 <script src="js/drawing.js"></script>
-<script>
-
-
-
-
-
-
-
-
-// 넘겨받는 부분
-var category = window.location.search.substring(1);
-    alert(category);
-
-// 넘겨받는 부분끝
-
-
-    $.ajax({
-        url: './data/items.json'
-        ,type:'GET',
-        dataType : 'json'
-        , success: function(data) {
-        alert(data[category].title);
-
-            $('#titleData').html(data[category].title);
-            $('#contentData').html(data[category].introduce);
-
-            //나중에 오디오 링크 꼭 해놓자 !!!
-            var audioData = "./audio/old_melody.mp3"
-            //    오디오 시작부분 //
-            var audio = new Audio(audioData);
-            $("#voicePlay").click(function(){
-                if(audio.paused){
-                    console.log("플레이해라")
-                    audio.play();
-                }
-                else {
-                    console.log("퍼즈해라")
-                    audio.pause();
-                }
-            });
-//    오디오 끝나는부분  //
-
-        }
-    })
-
-
-
-
-
-</script>
 
 </body>
 </html>

@@ -24,7 +24,8 @@ $(function () {
                 $('#bottom-sheet').closeModal();
                 $container.addClass('is-exiting');
                 smoothState.restartCSSAnimations();
-                setTimeout(function () { }, duration_CONSTANT * 2);
+                setTimeout(function () {
+                }, duration_CONSTANT * 2);
             }
         },
         onReady: {
@@ -36,7 +37,8 @@ $(function () {
         },
         onAfter: function ($container, $newContent) {
             setTimeout(function () {
-                ResizeHandler = ResizeHandler || function () { };
+                ResizeHandler = ResizeHandler || function () {
+                    };
                 ResizeHandler();
             }, 500)
             initiate_plugins(); // All onAfter calls goes inside this function
@@ -74,7 +76,7 @@ function initiate_plugins() {
         edge: 'left', // Choose the horizontal origin
         closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
     });
-  
+
     // Swipebox
     $('.swipebox').swipebox();
 
@@ -82,7 +84,7 @@ function initiate_plugins() {
     $('.grid').masonry({
         itemSelector: '.grid-item'
     });
-  
+
     // Scrolling Floating Action Button
     $(window).scroll(function () {
         var scroll = $(window).scrollTop();
@@ -92,7 +94,7 @@ function initiate_plugins() {
             $(".floating-button").removeClass("scrolled-down");
         }
     });
-  
+
     // Row Height for Drawer
     var grandparent_height = $('#grandparent').height();
     $('.child').height(grandparent_height * 0.25);
@@ -128,7 +130,7 @@ function initiate_plugins() {
         autoplay: 5000,
         direction: 'vertical'
     });
-  
+
     // MixItUP
     $(function () {
         var layout = 'grid', // Store the current layout as a variable
@@ -137,7 +139,8 @@ function initiate_plugins() {
         // Instantiate MixItUp with some custom options:
         try {
             $container.mixItUp('destroy');
-        } catch (x) { }
+        } catch (x) {
+        }
         $container.mixItUp({
             animation: {
                 animateChangeLayout: true, // Animate the positions of targets as the layout changes
@@ -167,7 +170,7 @@ function initiate_plugins() {
             }
         });
     });
-  
+
     // Material Layout
     $('.parallax').parallax();
     $(function () {
@@ -211,12 +214,12 @@ function initiate_plugins() {
     });
 
     // Pattern-Select
-    $(function() {
+    $(function () {
 
         var xmlhttp = new XMLHttpRequest();
         var url = "data/patterns.json";
 
-        xmlhttp.onreadystatechange=function() {
+        xmlhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 jsonRender(this.responseText);
             }
@@ -227,7 +230,7 @@ function initiate_plugins() {
         function jsonRender(response) {
             var arr = JSON.parse(response);
 
-            for(var i=0; i<arr.patterns.length; i++) {
+            for (var i = 0; i < arr.patterns.length; i++) {
                 $('#pattern_grid').append(patternDiv(arr.patterns[i].src, arr.patterns[i].name, arr.patterns[i].content))
             }
         }
@@ -242,7 +245,7 @@ function initiate_plugins() {
                 a = z[i].cloneNode(false);
                 file = z[i].getAttribute("w3-include-html");
                 var xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function() {
+                xhttp.onreadystatechange = function () {
                     if (xhttp.readyState == 4 && xhttp.status == 200) {
                         a.removeAttribute("w3-include-html");
                         a.innerHTML = xhttp.responseText;
@@ -256,7 +259,48 @@ function initiate_plugins() {
             }
         }
     })
-    
+
+    // category intro page
+    $(function category_intro() {
+        var noneCheck = false;
+        category = window.location.search.substring(1);
+
+        $.ajax({
+            url: './data/categorys.json',
+            type: 'GET',
+            dataType: 'json',
+            success: function(data) {
+                // null 값 전송시 처리
+                data.forEach(function(item) {
+                    if(item.id == category) {
+                        category = item
+                        noneCheck = true;
+                    }
+                });
+                if(noneCheck == false) {
+                    category = data[0]
+                }
+
+                var audioData = category.mp3Url
+                $('#titleData').html(category.title);
+                $('#contentData').html(category.introduce);
+
+                // 오디오 시작부분 //
+                var audio = new Audio(audioData);
+                $("#voicePlay").click(function () {
+                    if (audio.paused) {
+                        audio.play();
+                    }
+                    else {
+                        audio.pause();
+                    }
+                });
+                // 오디오 끝나는부분 //
+            }
+        }) // ajax
+    }) // function
+
+
 }
 ////--> End of Call all function for Ajax, now from there recall all the functions <--////
 ////--> End of Call all function for Ajax, now from there recall all the functions <--////
@@ -420,11 +464,12 @@ $(function () {
             });
         }
     });
-  
+
     // init swiper layout
     window.onload = function () {
         setTimeout(function () {
-            ResizeHandler = ResizeHandler || function () { };
+            ResizeHandler = ResizeHandler || function () {
+                };
             ResizeHandler();
         }, 500)
     };
@@ -435,25 +480,25 @@ $(function () {
 function patternDiv(src, name, content) {
     var patternDiv = "";
     patternDiv += "<div class='grid-item gallery-item-card'>"
-    patternDiv += "<a href='"+src+"' class='swipebox no-smoothState' title='This is dummy caption.'>"
-    patternDiv += "<img src='"+src+"' alt='image'>"
+    patternDiv += "<a href='" + src + "' class='swipebox no-smoothState' title='This is dummy caption.'>"
+    patternDiv += "<img src='" + src + "' alt='image'>"
     patternDiv += "</a>"
     patternDiv += "<div class='gallery-item-header'>"
     patternDiv += "<div class='gallery-item-author'>"
-    patternDiv += "<span>'"+name+"'</span>"
-    patternDiv += "<span class='small'>"+content+"</span>"
+    patternDiv += "<span>'" + name + "'</span>"
+    patternDiv += "<span class='small'>" + content + "</span>"
     patternDiv += "<a href='paint-draw.html' class='waves-effect waves-light btn font-size-12'>무늬 선택</a>"
     patternDiv += "</div></div></div>"
     return patternDiv;
 }
 
 // Pattern-Select
-$(function() {
+$(function () {
 
     var xmlhttp = new XMLHttpRequest();
     var url = "data/patterns.json";
 
-    xmlhttp.onreadystatechange=function() {
+    xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             jsonRender(this.responseText);
         }
@@ -464,7 +509,7 @@ $(function() {
     function jsonRender(response) {
         var arr = JSON.parse(response);
 
-        for(var i=0; i<arr.patterns.length; i++) {
+        for (var i = 0; i < arr.patterns.length; i++) {
             $('#pattern_grid').append(patternDiv(arr.patterns[i].src, arr.patterns[i].name, arr.patterns[i].content))
         }
     }
@@ -479,7 +524,7 @@ $(function w3IncludeHTML() {
             a = z[i].cloneNode(false);
             file = z[i].getAttribute("w3-include-html");
             var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
+            xhttp.onreadystatechange = function () {
                 if (xhttp.readyState == 4 && xhttp.status == 200) {
                     a.removeAttribute("w3-include-html");
                     a.innerHTML = xhttp.responseText;
@@ -515,5 +560,45 @@ $(function index_init() {
     }
 });
 
+var category;
+// category intro page
+$(function category_intro() {
+    var noneCheck = false;
+    category = window.location.search.substring(1);
+
+    $.ajax({
+        url: './data/categorys.json', 
+        type: 'GET',
+        dataType: 'json', 
+        success: function(data) {
+            // null 값 전송시 처리
+            data.forEach(function(item) {
+                if(item.id == category) {
+                    category = item
+                    noneCheck = true;
+                }
+            });
+            if(noneCheck == false) {
+                category = data[0]
+            }
+            
+            var audioData = category.mp3Url
+            $('#titleData').html(category.title);
+            $('#contentData').html(category.introduce);
+
+            // 오디오 시작부분 //
+            var audio = new Audio(audioData);
+            $("#voicePlay").click(function () {
+                if (audio.paused) {
+                    audio.play();
+                }
+                else {
+                    audio.pause();
+                }
+            });
+            // 오디오 끝나는부분 //
+        }
+    }) // ajax
+}) // function
 
 

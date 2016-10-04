@@ -4,37 +4,41 @@
     "title":"이건 두번째 컨텐츠 내용입니다.",
     "introduce": "이건 첫번째 컨텐츠의 인삿말",
     "content":[
-    {
-      "code":"001",
-      "title": "title1",
-      "content_adult": "content1",
-      "content_kid": "content1",
-      "imgUrl": [
-        "../img/img1.png","../img/img1.png","../img/img1.png","../img/img1.png"
-      ],
-      "mp3Url": "../mp3/mp31.mp3"
-    },
-    {
-      "title": "title1",
-      "content_adult": "content1",
-      "content_kid": "content1",
-      "imgUrl": "../img/img1.png",
-      "mp3Url": "../mp3/mp31.mp3"
-    },
-    {
-      "content_adult": "content1",
-      "content_kid": "content1",
-      "imgUrl": "../img/img1.png",
-      "mp3Url": "../mp3/mp31.mp3"
-    },
-    {
-      "title": "title1",
-      "content_adult": "content1",
-      "content_kid": "content1",
-      "imgUrl": "../img/img1.png",
-      "mp3Url": "../mp3/mp31.mp3"
-    }
-  ]},
+      {
+        "code":"001",
+        "title": "title1",
+        "content_adult": "content1",
+        "content_kid": "content1",
+        "imgUrl": [
+          "./img/1.jpg","../img/img1.png","../img/img1.png","../img/img1.png"
+        ],
+        "mp3Url": "../mp3/mp31.mp3"
+      },
+      {
+        "code":"002",
+        "title": "title2",
+        "content_adult": "content1",
+        "content_kid": "content1",
+        "imgUrl": "./img/img2.jpg",
+        "mp3Url": "../mp3/mp31.mp3"
+      },
+      {
+        "code":"003",
+        "title": "title 3",
+        "content_adult": "content1",
+        "content_kid": "content1",
+        "imgUrl": "./img/img3.jpg",
+        "mp3Url": "../mp3/mp31.mp3"
+      },
+      {
+        "code":"004",
+        "title": "title1",
+        "content_adult": "content1",
+        "content_kid": "content1",
+        "imgUrl": "../img4.jpg",
+        "mp3Url": "../mp3/mp31.mp3"
+      }
+    ]},
 
   "c2" : {
     "title":"이건 두번째 컨텐츠 내용입니다.",
@@ -46,28 +50,32 @@
         "content_adult": "content1",
         "content_kid": "content1",
         "imgUrl": [
-          "../img/img1.png","../img/img1.png","../img/img1.png","../img/img1.png"
+          "./img/1.jpg","../img/img1.png","../img/img1.png","../img/img1.png"
         ],
         "mp3Url": "../mp3/mp31.mp3"
       },
       {
-        "title": "title1",
+        "code":"002",
+        "title": "title2",
         "content_adult": "content1",
         "content_kid": "content1",
-        "imgUrl": "../img/img1.png",
+        "imgUrl": "./img/img2.jpg",
         "mp3Url": "../mp3/mp31.mp3"
       },
       {
+        "code":"003",
+        "title": "title 3",
         "content_adult": "content1",
         "content_kid": "content1",
-        "imgUrl": "../img/img1.png",
+        "imgUrl": "./img/img3.jpg",
         "mp3Url": "../mp3/mp31.mp3"
       },
       {
+        "code":"004",
         "title": "title1",
         "content_adult": "content1",
         "content_kid": "content1",
-        "imgUrl": "../img/img1.png",
+        "imgUrl": "../img4.jpg",
         "mp3Url": "../mp3/mp31.mp3"
       }
     ]},
@@ -79,31 +87,35 @@
       {
         "code":"001",
         "title": "title1",
-        "content_adult": "content1 어덜트임",
+        "content_adult": "content1",
         "content_kid": "content1",
         "imgUrl": [
-          "../img/img1.png","../img/img1.png","../img/img1.png","../img/img1.png"
+          "./img/1.jpg","../img/img1.png","../img/img1.png","../img/img1.png"
         ],
         "mp3Url": "../mp3/mp31.mp3"
       },
       {
-        "title": "title1",
-        "content_adult": "content2 d어덜트당",
-        "content_kid": "content1",
-        "imgUrl": "../img/img1.png",
-        "mp3Url": "../mp3/mp31.mp3"
-      },
-      {
+        "code":"002",
+        "title": "title2",
         "content_adult": "content1",
         "content_kid": "content1",
-        "imgUrl": "../img/img1.png",
+        "imgUrl": "./img/img2.jpg",
         "mp3Url": "../mp3/mp31.mp3"
       },
       {
-        "title": "title1",
-        "content_adult": "content1 어덜트에용 흐후",
+        "code":"003",
+        "title": "title 3",
+        "content_adult": "content1",
         "content_kid": "content1",
-        "imgUrl": "../img/img1.png",
+        "imgUrl": "./img/img3.jpg",
+        "mp3Url": "../mp3/mp31.mp3"
+      },
+      {
+        "code":"004",
+        "title": "title1",
+        "content_adult": "content1",
+        "content_kid": "content1",
+        "imgUrl": "../img4.jpg",
         "mp3Url": "../mp3/mp31.mp3"
       }
     ]}
