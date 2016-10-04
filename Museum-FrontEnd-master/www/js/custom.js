@@ -167,6 +167,11 @@ function initiate_plugins() {
             }
         });
     });
+
+
+
+
+
   
     // Material Layout
     $('.parallax').parallax();
