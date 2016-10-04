@@ -32,9 +32,6 @@
 </head>
 
 
-
-
-
 <body>
 <div class="m-scene" id="main"> <!-- Main Container -->
 
@@ -68,24 +65,42 @@
     </ul>
 
     <!-- Page Content -->
-    <div id="content">
+    <div id="content" class="page">
 
         <!-- Toolbar -->
         <div id="toolbar" class="primary-color">
-            <a class="open-left" href="javascript:history.back()">
-                <i class="ion-android-arrow-back"></i>
-            </a>
+            <div class="open-left" id="open-left" data-activates="slide-out-left">
+                <i class="ion-android-menu"></i>
+            </div>
             <span class="title">박물관 지도</span>
+            <div class="open-right" id="open-right" data-activates="slide-out-left">
+                <i class="ion-android-search"></i>
+            </div>
         </div>
 
         <!-- Main Content -->
-        <img src="./img/map.jpg" class="fullSize" usemap="#goTest">
+        <img src="img/map.jpg" class="fullSize pos-ab" usemap="#goTest">
 
         <map name="goTest">
-            <a href="#popupDialog1" data-rel="popup" data-transition="slideup"><area shape="circle" coords="233,153,20" alt="popupLink1" href="display-intro.html?c1"></a>
-            <a id="popupLink2" style="visibility:hidden" href="#popupDialog2" data-rel="popup" data-transition="pop"><area shape="circle" coords="242,192,20" alt="popupLink2" href="display-intro.html?c2"></a>
-            <a id="popupLink3" style="visibility:hidden" href="#popupDialog3" data-rel="popup" data-transition="slideup"><area shape="circle" coords="350,211,20" alt="popupLink3" href="display-intro.html?c3" onClick="sendData(3)"></a>
+            <a href="#popupDialog1" style="visibility:hidden" data-rel="popup" data-transition="slideup">
+                <area shape="circle" coords="233,153,20" alt="popupLink1" href="display-intro.html?c1">
+            </a>
+            <a id="popupLink2" style="visibility:hidden" href="#popupDialog2" data-rel="popup">
+                <area shape="circle" coords="242,192,20" alt="popupLink2" href="display-intro.html?c2">
+            </a>
+            <a id="popupLink3" style="visibility:hidden" href="#popupDialog3" data-rel="popup">
+                <area shape="circle" coords="350,211,20" alt="popupLink3" href="display-intro.html?c3">
+            </a>
         </map>
+
+        <!-- 추후에 이 이미지로 변경 -->
+        <a href="display-intro.html?c1" class="btn-floating btn-large waves-effect waves-light red">c1</a>
+        <a href="display-intro.html?c2"  class="btn-floating btn-large waves-effect waves-light red">c2</a>
+        <a href="display-intro.html?c3"  class="btn-floating btn-large waves-effect waves-light red">c3</a>
+
+
+
+        <button></button>
 
     </div> <!-- End of Page Content -->
 
@@ -107,12 +122,10 @@
 <script src="js/jquery.rwdImageMaps.min.js"></script>
 
 <script type="text/javascript">
-
-    $(document).ready(function(e) {
+    $(document).ready(function (e) {
         $('img[usemap]').rwdImageMaps();
     });
 </script>
-
 
 
 </body>
