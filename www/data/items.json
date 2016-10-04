@@ -4,42 +4,41 @@
     "title":"이건 두번째 컨텐츠 내용입니다.",
     "introduce": "이건 첫번째 컨텐츠의 인삿말",
     "content":[
-      {
-        "code":"001",
-        "title": "title1",
-        "content_adult": "content1",
-        "content_kid": "content1",
-        "imgUrl": [
-          "./img/1.jpg","../img/img1.png","../img/img1.png","../img/img1.png"
-        ],
-        "mp3Url": "../mp3/mp31.mp3"
-      },
-      {
-        "code":"002",
-        "title": "title2",
-        "content_adult": "content1",
-        "content_kid": "content1",
-        "imgUrl": "./img/img2.jpg",
-        "mp3Url": "../mp3/mp31.mp3"
-      },
-      {
-        "code":"003",
-        "title": "title 3",
-        "content_adult": "content1",
-        "content_kid": "content1",
-        "imgUrl": "./img/img3.jpg",
-        "mp3Url": "../mp3/mp31.mp3"
-      },
-      {
-        "code":"004",
-        "title": "title1",
-        "content_adult": "content1",
-        "content_kid": "content1",
-        "imgUrl": "../img4.jpg",
-        "mp3Url": "../mp3/mp31.mp3"
-      }
-    ]},
-
+    {
+      "code":"001",
+      "title": "title1",
+      "content_adult": "content1",
+      "content_kid": "content1",
+      "imgUrl": [
+        "./img/1.jpg","../img/img1.png","../img/img1.png","../img/img1.png"
+      ],
+      "mp3Url": "../mp3/mp31.mp3"
+    },
+    {
+      "code":"002",
+      "title": "title2",
+      "content_adult": "content1",
+      "content_kid": "content1",
+      "imgUrl": "./img/img2.jpg",
+      "mp3Url": "../mp3/mp31.mp3"
+    },
+    {
+      "code":"003",
+      "title": "title 3",
+      "content_adult": "content1",
+      "content_kid": "content1",
+      "imgUrl": "./img/img3.jpg",
+      "mp3Url": "../mp3/mp31.mp3"
+    },
+    {
+      "code":"004",
+      "title": "title1",
+      "content_adult": "content1",
+      "content_kid": "content1",
+      "imgUrl": "../img4.jpg",
+      "mp3Url": "../mp3/mp31.mp3"
+    }
+  ]},
   "c2" : {
     "title":"이건 두번째 컨텐츠 내용입니다.",
     "introduce": "이건 2번째 컨텐츠의 인삿말",
@@ -99,7 +98,10 @@
         "title": "title2",
         "content_adult": "content1",
         "content_kid": "content1",
-        "imgUrl": "./img/img2.jpg",
+
+        "imgUrl": [
+          "./img/2.jpg","../img/img1.png","../img/img1.png","../img/img1.png"
+        ],
         "mp3Url": "../mp3/mp31.mp3"
       },
       {
@@ -107,7 +109,9 @@
         "title": "title 3",
         "content_adult": "content1",
         "content_kid": "content1",
-        "imgUrl": "./img/img3.jpg",
+        "imgUrl":  [
+          "./img/3.jpg","../img/img1.png","../img/img1.png","../img/img1.png"
+        ],
         "mp3Url": "../mp3/mp31.mp3"
       },
       {
@@ -115,7 +119,9 @@
         "title": "title1",
         "content_adult": "content1",
         "content_kid": "content1",
-        "imgUrl": "../img4.jpg",
+        "imgUrl": [
+          "./img/4.jpg","../img/img1.png","../img/img1.png","../img/img1.png"
+        ],
         "mp3Url": "../mp3/mp31.mp3"
       }
     ]}

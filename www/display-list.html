@@ -122,10 +122,14 @@
 
 <script type="text/javascript">
 
+    var category = "c3";
+
+
+
     var makeList = function(id ,imgUrl , title , text){
         $('#myList').append("" +
                 "<div class='grid-item gallery-item-card'>"+
-                    "<a href='display-content.html' onclick='sendData("+id+");'>"+
+                    "<a href='display-content.html'>"+
                     "<img src="+imgUrl+">"+
                      "<div class='gallery-item-header'>"+
                             "<div class='gallery-item-author'>"+
@@ -144,9 +148,9 @@
         ,type:'GET',
         dataType : 'json'
         , success: function(data) {
-            alert(data.name.length);
-            for(i =0 ; i< data.name.length ; i ++) {
-                makeList(data.id[i] , data.img[i], data.name[i],data.code[i]);
+            alert(data[category].content.length);
+            for(i =0 ; i< data[category].content.length ; i ++) {
+                makeList(data[category].content[i].id , data[category].content[i].imgUrl[0], data[category].content[i].title,data[category].content[i].content_adult);
             }
         }
     })
