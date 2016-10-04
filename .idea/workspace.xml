@@ -235,6 +235,8 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="www" />
+<<<<<<< HEAD
+=======
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -249,6 +251,7 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="helper" />
+>>>>>>> c17d777558db41981f43402678437c429896d132
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -259,7 +262,11 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+<<<<<<< HEAD
     <property name="last_opened_file_path" value="C:/WebDevelop" />
+=======
+    <property name="last_opened_file_path" value="C:/gitLogicong-intergreated/logicong-web-intergrated" />
+>>>>>>> db358302c30d51ae8a119b6612fbc3b8b191dc67
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="js-jscs-nodeInterpreter" value="C:\nodejs\node.exe" />
@@ -359,13 +366,29 @@
       <workItem from="1475300313621" duration="12268000" />
       <workItem from="1475420865606" duration="2759000" />
       <workItem from="1475423640196" duration="5671000" />
+<<<<<<< HEAD
+      <workItem from="1475597426530" duration="972000" />
+=======
       <workItem from="1475597426530" duration="59000" />
+<<<<<<< HEAD
       <workItem from="1475598047418" duration="442000" />
+=======
+      <workItem from="1475598047418" duration="75000" />
+>>>>>>> c17d777558db41981f43402678437c429896d132
+>>>>>>> db358302c30d51ae8a119b6612fbc3b8b191dc67
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="75604000" />
+=======
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="76075000" />
+=======
+    <option name="totallyTimeSpent" value="75237000" />
+>>>>>>> c17d777558db41981f43402678437c429896d132
+>>>>>>> db358302c30d51ae8a119b6612fbc3b8b191dc67
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
