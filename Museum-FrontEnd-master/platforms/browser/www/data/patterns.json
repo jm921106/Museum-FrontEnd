@@ -1,0 +1,12 @@
+{"patterns":[
+  {"index":1, "name":"무늬1", "content":"설명1", "src":"img/patterns/pattern_1.png"},
+  {"index":2, "name":"무늬2", "content":"설명2", "src":"img/patterns/pattern_2.png"},
+  {"index":3, "name":"무늬3", "content":"설명3", "src":"img/patterns/pattern_3.png"},
+  {"index":4, "name":"무늬4", "content":"설명4", "src":"img/patterns/pattern_4.png"},
+  {"index":5, "name":"무늬5", "content":"설명5", "src":"img/patterns/pattern_5.png"},
+  {"index":6, "name":"무늬6", "content":"설명6", "src":"img/patterns/pattern_6.png"},
+  {"index":7, "name":"무늬7", "content":"설명7", "src":"img/patterns/pattern_7.png"},
+  {"index":8, "name":"무늬8", "content":"설명8", "src":"img/patterns/pattern_8.png"},
+  {"index":9, "name":"무늬9", "content":"설명9", "src":"img/patterns/pattern_9.png"}
+]}
+

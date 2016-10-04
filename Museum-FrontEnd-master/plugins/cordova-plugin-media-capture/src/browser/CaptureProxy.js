@@ -87,7 +87,7 @@ function CameraUI() {
 
 /**
  * Displays capture preview
- * @param  {Number} count       Number of images to take
+ * @param  {Number} count       Number of sketch to take
  * @param  {Function} successCB Success callback, that accepts data URL of captured image
  * @param  {Function} errorCB   Error callback
  */
@@ -161,7 +161,7 @@ module.exports = {
             return;
         }
 
-        // Counter for already taken images
+        // Counter for already taken sketch
         var imagesTaken = 0;
 
         navigator.getUserMedia = navigator.getUserMedia ||

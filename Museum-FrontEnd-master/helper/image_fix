@@ -1,0 +1,11 @@
+index [배경화면]
+    - background-image 360 x 640
+
+play-main [현장실습메인]
+    - background-image 360 x 640
+
+paint-draw [pattern]
+    - pattern 700 x 700
+
+item image
+    - item 700 x 700
