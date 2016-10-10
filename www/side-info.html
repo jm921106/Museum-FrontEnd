@@ -1,10 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <!--<div w3-include-html="views/include/includeCss.html"></div>-->
+    <title>Museum</title>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="x-ua-compatible">
+    <meta content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+    <!-- Icons -->
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="all" rel="stylesheet"
+          type="text/css">
+    <!-- Styles -->
+    <link href="css/keyframes.css" rel="stylesheet" type="text/css">
+    <link href="css/materialize.min.css" rel="stylesheet" type="text/css">
+    <link href="css/swiper.css" rel="stylesheet" type="text/css">
+    <link href="css/swipebox.min.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/custom.css" rel="stylesheet" type="text/css">
+
 </head>
-<body>
+
+<body id="index_page">
+
+
+<div class="m-scene" id="main"> <!-- Main Container -->
+    <img src="img/background/background-1.jpg" style="height: 100vh; width: 100vw; position: absolute;">
+
+    <ul id="slide-out-left" class="side-nav collapsible">
+        <div w3-include-html="views/include/left-panel.html"></div>
+        <!--<li>-->
+        <!--<div class="sidenav-header primary-color">-->
+        <!--<div class="nav-social">-->
+        <!--<i class="ion-social-facebook"></i>-->
+        <!--<i class="ion-social-twitter"></i>-->
+        <!--<i class="ion-social-tumblr"></i>-->
+        <!--</div>-->
+        <!--<div class="nav-avatar">-->
+        <!--<img class="circle avatar" src="img/user.jpg" alt="">-->
+        <!--<div class="avatar-body">-->
+        <!--<h3>전시 제목</h3>-->
+        <!--<p>경기도 박물관</p>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</li>-->
+        <!--<li><a href="shop.html" class="no-child"><i class="ion-android-playstore"></i> Display</a></li>-->
+        <!--<li><a href="play-main.html" class="no-child"><i class="ion-ios-videocam"></i> Play</a></li>-->
+        <!--<li><a href="view/ sketchJS/sketch.html" class="no-child"><i class="ion-ios-videocam"></i> SketchJS</a></li>-->
+        <!--<li><a href="side-notice.html" class="no-child"><i class="ion-social-rss"></i> 공지사항</a></li>-->
+        <!--<li><a href="side-info.html" class="no-child"><i class="ion-android-map"></i> 앱 이용정보</a></li>-->
+        <!--<li><a href="side-app.html" class="no-child"><i class="ion-android-map"></i> 앱 구성정보</a></li>-->
+        <!--<li><a href="side-myLike.html" class="no-child"><i class="ion-android-map"></i> 내가 좋아요한 유물</a></li>-->
+        <!--<li><a href="side-like.html" class="no-child"><i class="ion-android-map"></i> 투데이 확인하기</a></li>-->
+        <!--<li><a href=side-today.html class="no-child"><i class="ion-android-map"></i> 좋아요 확인하기</a></li>-->
+    </ul>
+
+    <!-- Page Content -->
+    <div id="content">
+
+
+
+        <!-- Main Content -->
+        <div class="animated fadeinup">
+
+            <!-- Slider -->
+            <div class="swiper-container steps">
+                <div class="swiper-wrapper slider-steps">
+                    <div class="swiper-slide grey-blue">
+                        <div class="valign-wrapper">
+                            <div class="valign center-align p-l-r-50">
+                                <img src="img/background/splash1.png" style="height:100%; position:relative">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide grey-blue">
+                        <div class="valign-wrapper">
+                            <div class="valign center-align p-l-r-50">
+                                <img src="img/background/splash2.png" style="height:100%; position:relative">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="steps-controllers ">
+                    <!-- Add Arrows -->
+                    <div><a href="index.html">SKIP</a></div>
+                    <div class="swiper-button-prev">이전</div>
+                    <div class="swiper-button-next">다음</div>
+                </div>
+            </div>
+            <!-- End of Slider -->
+
+        </div> <!-- End of Main Contents -->
+
+
+    </div> <!-- End of Page Content -->
+
+</div> <!-- End of Page Container -->
+
+<!--<div w3-include-html="views/include/includeScript.html"></div>-->
+<!-- themeforest default -->
+<script src="js/temp_domain.js"></script>
+<script src="js/jquery-2.1.0.min.js"></script>
+<script src="js/jquery.swipebox.min.js"></script>
+<script src="js/jquery.smoothState.min.js"></script>
+<script src="js/materialize.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/jquery.mixitup.min.js"></script>
+<script src="js/masonry.min.js"></script>
+<script src="js/chart.min.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/drawing.js"></script>
 
 </body>
 </html>

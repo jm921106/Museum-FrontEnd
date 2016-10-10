@@ -325,32 +325,6 @@ function initiate_plugins() {
             }
         })
     });
-    
-    // content page
-    $(function () {
-        // 추 후 ajax 처리
-        var itemCode = "001";
-
-        //자바스크립트 코드
-        $.ajax({
-            url: './data/items.json',
-            type: 'GET',
-            dataType: 'json',
-            success: function (data) {
-                data.forEach(function(item) {
-                    if(item.code == itemCode) {
-                        console.log(item.code);
-                        item.imgUrl.forEach(function(imgUrl) {
-                            contentImageAdd(imgUrl);
-                        });
-
-                        $('#itemTitle').text(item.title);
-                        $('#itemContent').text(item.content_adult);
-                    }
-                });
-            }
-        })
-    });
 }
 ////--> End of Call all function for Ajax, now from there recall all the functions <--////
 ////--> End of Call all function for Ajax, now from there recall all the functions <--////
@@ -663,19 +637,19 @@ function listAdd(imgUrl, title, content) {
         "<span class='small'>" + content + "</span>" +
         "</div>" +
         "</div> " +
-
         "</a>" +
         "</div>");
 }
+
 $(function () {
     // 추 후 ajax 처리
     var category = "c3";
 
     //자바스크립트 코드
     $.ajax({
-        url: './data/items.json',
+        url: './data/items.json', 
         type: 'GET',
-        dataType: 'json',
+        dataType: 'json', 
         success: function (data) {
             data.forEach(function(item) {
                 if(item.category == category) {
@@ -686,38 +660,6 @@ $(function () {
                         item.title,
                         item.content_adult
                     );
-                }
-            });
-        }
-    })
-});
-
-// contents page
-function contentImageAdd(imgUrl) {
-    $('#itemSilder').append(      
-    "<div class='swiper-slide'>" +
-    "<img src=" + imgUrl + " alt=''>" +
-    "</div>")
-}
-$(function () {
-    // 추 후 ajax 처리
-    var itemCode = "001";
-
-    //자바스크립트 코드
-    $.ajax({
-        url: './data/items.json',
-        type: 'GET',
-        dataType: 'json',
-        success: function (data) {
-            data.forEach(function(item) {
-                if(item.code == itemCode) {
-                    console.log(item.code);
-                    item.imgUrl.forEach(function(imgUrl) {
-                       contentImageAdd(imgUrl); 
-                    });
-                    
-                    $('#itemTitle').text(item.title);
-                    $('#itemContent').text(item.content_adult);
                 }
             });
         }
