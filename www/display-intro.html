@@ -1,58 +1,19 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-    <!--<div w3-include-html="views/include/includeCss.html"></div>-->
-    <title>Museum</title>
-    <meta charset="utf-8">
-    <meta content="IE=edge" http-equiv="x-ua-compatible">
-    <meta content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" name="viewport">
-    <meta content="yes" name="apple-mobile-web-app-capable">
-    <meta content="yes" name="apple-touch-fullscreen">
-    <!-- Fonts -->
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
-    <!-- Icons -->
-    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="all" rel="stylesheet"
-          type="text/css">
-    <!-- Styles -->
-    <link href="css/keyframes.css" rel="stylesheet" type="text/css">
-    <link href="css/materialize.min.css" rel="stylesheet" type="text/css">
-    <link href="css/swiper.css" rel="stylesheet" type="text/css">
-    <link href="css/swipebox.min.css" rel="stylesheet" type="text/css">
-    <link href="css/style.css" rel="stylesheet" type="text/css">
-    <link href="css/custom.css" rel="stylesheet" type="text/css">
-
+    <div w3-include-html="views/include/includeCss.html"></div>
 </head>
 
 <body>
 <div class="m-scene" id="main"> <!-- Main Container -->
 
+    <!-- SIDE LEFT-->
     <ul id="slide-out-left" class="side-nav collapsible">
         <div w3-include-html="views/include/left-panel.html"></div>
-        <!--<li>-->
-        <!--<div class="sidenav-header primary-color">-->
-        <!--<div class="nav-social">-->
-        <!--<i class="ion-social-facebook"></i>-->
-        <!--<i class="ion-social-twitter"></i>-->
-        <!--<i class="ion-social-tumblr"></i>-->
-        <!--</div>-->
-        <!--<div class="nav-avatar">-->
-        <!--<img class="circle avatar" src="img/user.jpg" alt="">-->
-        <!--<div class="avatar-body">-->
-        <!--<h3>전시 제목</h3>-->
-        <!--<p>경기도 박물관</p>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--</li>-->
-        <!--<li><a href="shop.html" class="no-child"><i class="ion-android-playstore"></i> Display</a></li>-->
-        <!--<li><a href="play-main.html" class="no-child"><i class="ion-ios-videocam"></i> Play</a></li>-->
-        <!--<li><a href="view/ sketchJS/sketch.html" class="no-child"><i class="ion-ios-videocam"></i> SketchJS</a></li>-->
-        <!--<li><a href="side-notice.html" class="no-child"><i class="ion-social-rss"></i> 공지사항</a></li>-->
-        <!--<li><a href="side-info.html" class="no-child"><i class="ion-android-map"></i> 앱 이용정보</a></li>-->
-        <!--<li><a href="side-app.html" class="no-child"><i class="ion-android-map"></i> 앱 구성정보</a></li>-->
-        <!--<li><a href="side-myLike.html" class="no-child"><i class="ion-android-map"></i> 내가 좋아요한 유물</a></li>-->
-        <!--<li><a href="side-like.html" class="no-child"><i class="ion-android-map"></i> 투데이 확인하기</a></li>-->
-        <!--<li><a href=side-today.html class="no-child"><i class="ion-android-map"></i> 좋아요 확인하기</a></li>-->
+    </ul>
+    <!-- SIDE RIGHT-->
+    <ul id="slide-out-right" class="side-nav collapsible">
+
     </ul>
 
     <!-- Page Content -->
@@ -64,6 +25,9 @@
                 <i class="ion-android-menu"></i>
             </div>
             <span class="title none">경기도 박물관</span>
+            <!--<div class="open-right" id="open-right" data-activates="slide-out-right">-->
+                <!--<i class="ion-android-search"></i>-->
+            <!--</div>-->
         </div>
 
         <!-- Hero Header -->
@@ -81,48 +45,22 @@
         <!-- Main Content -->
         <div class="animated fadeinup delay-1">
             <div class="page-content m-t-20">
-                <p class="text-flow" id="contentData">
-                    컨텐츠 내용이 들어갈 공간
-                </p>
-
-                <a class="waves-effect waves-light btn-large primary-color width-100 m-b-20"
-                   href="display-list.html?c1">
-                    리스트 페이지로 이동
-                </a>
-
+                <div id="display-content">
+                    <p class="text-flow" id="contentData">
+                        <!-- Content [INPUT]-->
+                        컨텐츠 내용이 들어갈 공간
+                    </p>
+                </div>
+                <div id="display-button" class="m-t-20">
+                    <a id="move-btn" class="waves-effect waves-light btn-large primary-color width-100" href="display-list.html?c1">자세히 보기</a>
+                </div>
             </div>
-
         </div>
         <!-- End of Main Contents -->
 
 
-        <!--<div w3-include-html="views/include/footer.html"></div>-->
-        <!-- Footer -->
-        <footer class="page-footer primary-color bottom-fixed">
-            <div class="container">
-                <div class="row">
-                    <div class="col s12">
-                        <p class="center-align grey-text text-lighten-4">You can use rows and columns here to organize
-                            your footer content.</p>
-                        <div class="center-align">
-                            <i class="ion-social-facebook m-10 white-text"></i>
-                            <i class="ion-social-twitter m-10 white-text"></i>
-                            <i class="ion-social-pinterest m-10 white-text"></i>
-                            <i class="ion-social-dribbble m-10 white-text"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-copyright primary-color darken-1">
-                <div class="container">
-                    2016 Codnauts
-                    <a class="grey-text text-lighten-4 right" href="#!">Privacy Policy</a>
-                </div>
-            </div>
-        </footer>
+        <div w3-include-html="views/include/footer.html"></div>
     </div> <!-- End of Page Content -->
-
-
 </div> <!-- End of Page Container -->
 
 <!--<div w3-include-html="views/include/includeScript.html"></div>-->

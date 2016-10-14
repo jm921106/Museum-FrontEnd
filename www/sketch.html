@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
     <title>Simple HTML5 Drawing App with Paint Bucket Tool</title>
     <style>
         canvas {
@@ -17,36 +16,13 @@
 </head>
 
 <body>
-<h1>필요한 기능들</h1>
-<ol>
-    <li>색변경 ㅇ</li>
-    <li>펜두께 </li>
-    <li>효과 </li>
-    <li>지우기 </li>
-    <li>한단계전 </li>
-    <li>전체지우기 </li>
-    <li>사진위에 그리기 (사진은 가장 상위) </li>
-    <li>저장 </li>
-    <li>저장 이미지 보내기 </li>
-</ol>
-
-<button id="red" onclick="changeToRed()">Red</button>
-<button id="blue" onclick="changeToBlue()">Blue</button>
-<button id="green" onclick="changeToGreen()">Green</button>
-<br/>
-<button id="small" onclick="changeToSmall()">small</button>
-<button id="normal" onclick="changeToNormal()">normal</button>
-<button id="large" onclick="changeToLarge()">large</button>
-<button id="huge" onclick="changeToHuge()">huge</button>
-
-<div style="background-color: #8c9eff" id="canvasDiv"></div>
+<div id="canvasDiv"></div>
 
 <!--[if IE]><script type="text/javascript" src="excanvas.js"></script><![endif]-->
 
-<script src="js/jquery-2.1.0.min.js"></script>
-<script type="text/javascript" src="views/sketchJS/custom_skeych.js"></script>
-
-<!--<script type="text/javascript" src="views/sketchJS/sketch.js"></script>-->
-<!--<script type="text/javascript">drawingApp.init();</script>-->
+<script type="text/javascript" src="sketch.js"></script>
+<script type="text/javascript">
+    drawingApp.init();
+</script>
 </body>
 </html>

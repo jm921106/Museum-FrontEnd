@@ -28,96 +28,63 @@
 <div class="m-scene" id="main"> <!-- Main Container -->
     <ul id="slide-out-left" class="side-nav collapsible">
         <div w3-include-html="views/include/left-panel.html"></div>
-        <!--<li>-->
-            <!--<div class="sidenav-header primary-color">-->
-                <!--<div class="nav-social">-->
-                    <!--<i class="ion-social-facebook"></i>-->
-                    <!--<i class="ion-social-twitter"></i>-->
-                    <!--<i class="ion-social-tumblr"></i>-->
-                <!--</div>-->
-                <!--<div class="nav-avatar">-->
-                    <!--<img class="circle avatar" src="img/user.jpg" alt="">-->
-                    <!--<div class="avatar-body">-->
-                        <!--<h3>전시 제목</h3>-->
-                        <!--<p>경기도 박물관</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</li>-->
-        <!--<li><a href="shop.html" class="no-child"><i class="ion-android-playstore"></i> Display</a></li>-->
-        <!--<li><a href="play-main.html" class="no-child"><i class="ion-ios-videocam"></i> Play</a></li>-->
-        <!--<li><a href="view/ sketchJS/sketch.html" class="no-child"><i class="ion-ios-videocam"></i> SketchJS</a></li>-->
-        <!--<li><a href="#" class="no-child"><i class="ion-social-rss"></i> panel_1</a></li>-->
-        <!--<li><a href="#" class="no-child"><i class="ion-android-map"></i> panel_2</a></li>-->
-        <!--<li><a href="#" class="no-child"><i class="ion-android-map"></i> panel_3</a></li>-->
-        <!--<li><a href="#" class="no-child"><i class="ion-android-map"></i> panel_4</a></li>-->
-        <!--<li><a href="#" class="no-child"><i class="ion-android-map"></i> panel_5</a></li>-->
-        <!--<li><a href="#" class="no-child"><i class="ion-android-map"></i> panel_6</a></li>-->
+    </ul>
+
+    <ul id="slide-out-right" class="side-nav collapsible">
+        <li>
+            <div class="sidenav-header primary-color">
+                <div class="nav-social">
+                    <i class="ion-social-facebook"></i>
+                    <i class="ion-social-twitter"></i>
+                    <i class="ion-social-tumblr"></i>
+                </div>
+                <div class="nav-avatar">
+                    <img class="circle avatar" src="img/user.jpg" alt="">
+                    <div class="avatar-body">
+                        <h3>pen setting</h3>
+                        <p>pen setting</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li><a href="index.html" class="no-child"><i class="ion-ios-home"></i> home</a></li>
+        <li><a href="sketch.html" class="no-child"><i class="ion-ios-videocam"></i> SketchJS</a></li>
+        <li><a href="side-notice.html" class="no-child"><i class="ion-social-rss"></i> 공지사항</a></li>
+        <li><a href="side-info.html" class="no-child"><i class="ion-android-map"></i> 앱 이용정보</a></li>
+        <li><a href="side-app.html" class="no-child"><i class="ion-android-map"></i> 앱 구성정보</a></li>
+        <li><a href="side-myLike.html" class="no-child"><i class="ion-android-map"></i> 내가 좋아요한 유물</a></li>
+        <li><a href="side-like.html" class="no-child"><i class="ion-android-map"></i> 투데이 확인하기</a></li>
+        <li><a href=side-today.html class="no-child"><i class="ion-android-map"></i> 좋아요 확인하기</a></li>
     </ul>
 
     <!-- Page Content -->
-    <div id="content" class="grey-blue page">
+    <div id="content" class="page">
 
         <!--Toolbar -->
         <div id="toolbar" class="primary-color">
             <div class="open-left" id="open-left" data-activates="slide-out-left">
                 <i class="ion-android-menu"></i>
             </div>
-            <span class="title">paint-draw</span>
+            <span id="testText" class="title">drawing page</span>
+            <div class="open-right" id="open-right" data-activates="slide-out-right">
+                <i class="ion-android-menu"></i>
+            </div>
         </div>
 
         <!-- Main Content -->
-        <div>
-
-            <!-- Order Recap -->
-            <ul class="collapsible checkout-header animated fadeindown delay-2" data-collapsible="accordion">
-                <li>
-                    <div class="collapsible-header">
-                        Show order summary
-                        <i class="ion-android-arrow-dropdown"></i>
-                        <span class="checkout-price right">$240.00</span>
-                    </div>
-                    <div class="collapsible-body z-depth-1">
-
-                        <!-- Products in cart -->
-                        <div class="checkout-details">
-                            <img class="checkout-image" src="img/user2.jpg" alt="">
-                            <div class="checkout-product-title">
-                                <h6>Pair of Shoes <span class="right">$220.00</span></h6>
-                                <span>43 - 44</span>
-                            </div>
-                        </div>
-
-                        <!-- Discount -->
-                        <form class="discount">
-                            <div class="input-field">
-                                <input id="code" type="text" class="validate">
-                                <label for="code">Discount code here</label>
-                                <div class="btn primary-color">
-                                    <i class="ion-arrow-right-c"></i>
-                                </div>
-                            </div>
-                        </form>
-
-                        <!-- Subtotal -->
-                        <div class="subtotal">
-                            <h6>Subtotal <span class="right">$220.00</span></h6>
-                            <span>Shipping <span class="right">$20.00</span></span>
-                        </div>
-
-                        <!-- Total -->
-                        <div class="total">
-                            <h4>Total <span class="right">$240.00</span></h4>
-                        </div>
-
-                    </div>
-                </li>
-            </ul>
+        <div id="draw-header">
+            <div class="lh-inherit">
+                <blockquote class="m-20 primary-border ">
+                    <h2 class="uppercase">아름다운 무늬</h2>
+                    <p class="left-align">아래 무늬를 이쁘게 색칠해 주세요 !</p>
+                </blockquote>
+            </div>
 
             <!-- play draw -->
-            <div class="m-20">
-                <canvas id="myCanvas"
-                        style="background-color:antiquewhite; width:320px !important; height:320px !important;"></canvas>
+            <div class="canvasSize">
+                <!--<canvas id="myCanvas" style="background-color:antiquewhite; width:320px !important; height:320px !important;"></canvas>-->
+                <canvas id="myCanvas" class="canvasSize" style="background-color:antiquewhite;"></canvas>
+                <!--<div id="canvasDiv"></div>-->
             </div>
 
             <!-- Modal Trigger -->
@@ -151,29 +118,17 @@
                 </div>
                 <div class="modal-footer">
                     <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">취소</a>
-                    <a href="paint-result.html" class="modal-action modal-close waves-effect waves-green btn-flat ">완료</a>
+                    <a href="paint-result.html"
+                       class="modal-action modal-close waves-effect waves-green btn-flat ">완료</a>
                 </div>
             </div>
 
         </div> <!-- End of Main Contents -->
 
-        <!-- footer -->
-        <footer class="page-footer primary-color">
-            <div class="container">
-                <div class="row">
-                    <div class="col s12">
-                        <p class="center-align grey-text text-lighten-4">You can use rows and columns here to organize
-                            your footer content.</p>
-                        <div class="center-align">
-                            <i class="ion-social-facebook m-10 white-text"></i>
-                            <i class="ion-social-twitter m-10 white-text"></i>
-                            <i class="ion-social-pinterest m-10 white-text"></i>
-                            <i class="ion-social-dribbble m-10 white-text"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-copyright primary-color darken-1">
+        <!--<div w3-include-html="views/include/footer.html"></div>-->
+        <!-- Footer -->
+        <footer class="page-footer primary-color bottom-fixed">
+            <div class="footer-copyright primary-color darken-1 bottom-fixed">
                 <div class="container">
                     2016 Codnauts
                     <a class="grey-text text-lighten-4 right" href="#!">Privacy Policy</a>
@@ -197,6 +152,8 @@
 <script src="js/chart.min.js"></script>
 <script src="js/custom.js"></script>
 <script src="js/drawing.js"></script>
+<!--<script src="views/sketchJS/sketch.js"></script>-->
+<!--<script type="text/javascript">drawingApp.init();</script>-->
 
 </body>
 </html>

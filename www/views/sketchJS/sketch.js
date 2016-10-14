@@ -107,7 +107,6 @@ var drawingApp = (function () {
         },
 
         addClick = function (x, y, dragging) {
-
             clickX.push(x);
             clickY.push(y);
             clickTool.push(curTool);
@@ -117,7 +116,6 @@ var drawingApp = (function () {
         },
 
         clearClick = function () {
-
             clickX = [clickX[clickX.length - 1]];
             clickY = [clickY[clickY.length - 1]];
             clickTool = [clickTool[clickTool.length - 1]];
@@ -548,7 +546,6 @@ var drawingApp = (function () {
                         }
                     }
                 },
-
                 drag = function (e) {
 
                     if (curTool !== "bucket") {
@@ -560,7 +557,6 @@ var drawingApp = (function () {
                     // Prevent the whole page from dragging if on mobile
                     e.preventDefault();
                 },
-
                 release = function () {
 
                     if (curTool !== "bucket") {
@@ -568,7 +564,6 @@ var drawingApp = (function () {
                     }
                     redraw();
                 },
-
                 cancel = function () {
                     if (curTool !== "bucket") {
                         paint = false;
@@ -591,7 +586,6 @@ var drawingApp = (function () {
 
                     redraw();
                 },
-
                 dragDrawing = function (e) {
 
                     var mouseX = (e.changedTouches ? e.changedTouches[0].pageX : e.pageX) - this.offsetLeft,
@@ -607,7 +601,6 @@ var drawingApp = (function () {
                     // Prevent the whole page from dragging if on mobile
                     e.preventDefault();
                 },
-
                 releaseDrawing = function () {
 
                     if (curTool !== "bucket") {
@@ -615,7 +608,6 @@ var drawingApp = (function () {
                         redraw();
                     }
                 },
-
                 cancelDrawing = function () {
                     if (curTool === "bucket") {
                         paint = false;
@@ -718,34 +710,34 @@ var drawingApp = (function () {
 
             // Load sketch
             crayonImage.onload = resourceLoaded;
-            crayonImage.src = "sketch/crayon-outline.png";
+            crayonImage.src = "img/images/crayon-outline.png";
 
             markerImage.onload = resourceLoaded;
-            markerImage.src = "sketch/marker-outline.png";
+            markerImage.src = "img/images/marker-outline.png";
 
             eraserImage.onload = resourceLoaded;
-            eraserImage.src = "sketch/eraser-outline.png";
+            eraserImage.src = "img/images/eraser-outline.png";
 
             crayonBackgroundImage.onload = resourceLoaded;
-            crayonBackgroundImage.src = "sketch/crayon-background.png";
+            crayonBackgroundImage.src = "img/images/crayon-background.png";
 
             markerBackgroundImage.onload = resourceLoaded;
-            markerBackgroundImage.src = "sketch/marker-background.png";
+            markerBackgroundImage.src = "img/images/marker-background.png";
 
             eraserBackgroundImage.onload = resourceLoaded;
-            eraserBackgroundImage.src = "sketch/eraser-background.png";
+            eraserBackgroundImage.src = "img/images/eraser-background.png";
 
             bucketBackgroundImage.onload = resourceLoaded;
-            bucketBackgroundImage.src = "sketch/bucket-background.png";
+            bucketBackgroundImage.src = "img/images/bucket-background.png";
 
             crayonTextureImage.onload = function () {
                 contexts.texture.drawImage(crayonTextureImage, 0, 0, drawingAreaWidth, drawingAreaHeight);
                 resourceLoaded();
             };
-            crayonTextureImage.src = "sketch/crayon-texture.png";
+            crayonTextureImage.src = "img/images/crayon-texture.png";
 
             swatchImage.onload = resourceLoaded;
-            swatchImage.src = "sketch/paint-outline.png";
+            swatchImage.src = "img/images/paint-outline.png";
 
             outlineImage.onload = function () {
 
@@ -761,7 +753,7 @@ var drawingApp = (function () {
 
                 resourceLoaded();
             };
-            outlineImage.src = "sketch/watermelon-duck-outline.png";
+            outlineImage.src = "img/images/watermelon-duck-outline.png";
         };
 
     return {

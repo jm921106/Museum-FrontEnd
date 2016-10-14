@@ -19,6 +19,15 @@
     font-size: 20px;
 }
 
+/* line height*/
+.lh-normal {
+    line-height: normal;
+}
+
+.lh-inherit {
+    line-height: inherit;
+}
+
 .fwbold {
     font-weight: bold;
 }
@@ -74,6 +83,12 @@ canvas {
 .fullSize {
     height : calc(100vh - 56px);
     width : 100vw;
+}
+
+.canvasSize {
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
 }
 
 .pos-ab {
