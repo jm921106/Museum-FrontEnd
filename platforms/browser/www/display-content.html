@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <div w3-include-html="views/include/includeCss.html"></div>
+</head>
+
+<body>
+<div class="m-scene" id="main"> <!-- Main Container -->
+
+    <ul id="slide-out-left" class="side-nav collapsible">
+        <div w3-include-html="views/include/left-panel.html"></div>
+    </ul>
+
+    <!-- Page Content -->
+    <div id="content" class="page">
+
+        <!-- Toolbar -->
+        <div id="toolbar" class="primary-color">
+            <div class="open-left" id="open-left" data-activates="slide-out-left">
+                <i class="ion-android-menu"></i>
+            </div>
+            <span class="title">display-content</span>
+            <div class="open-right" id="open-right" data-activates="slide-out">
+                <i class="ion-android-favorite"></i>
+            </div>
+        </div>
+
+        <!-- Hero Header -->
+        <div class="hero-header animated fadein">
+            <!-- Slider -->
+            <div class="swiper-container slider m-b-20">
+                <div id="item-slide" class="swiper-wrapper">
+                    <!--<div class="swiper-slide">-->
+                        <!--<img src="img/product.jpg" alt="">-->
+                    <!--</div>-->
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+            <!-- End of Slider -->
+
+            <!-- Floating Action Button -->
+            <div class="floating-button scrollable-fab animated bouncein delay-3">
+                <a href="#" class="btn-floating btn-large waves-effect waves-light accent-color btn z-depth-1">
+                    <i class="ion-volume-high" id="voicePlay"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Article Content -->
+        <div class="animated fadeinup delay-1 m-20">
+
+                <h5 id="item-title">아이템 제목이 들어가는 곳</h5>
+                <p id="item-content" class="text-flow">
+                    아이템 내용이 들어가는 곳
+                </p>
+
+                <!--&lt;!&ndash; Share &ndash;&gt;-->
+                <!--<div class="share center-align m-t-30">-->
+                    <!--<h3 class="uppercase">Share it!</h3>-->
+                    <!--<i class="ion-social-facebook p-20 blue-text text-darken-4"></i>-->
+                    <!--<i class="ion-social-twitter p-20 blue-text"></i>-->
+                    <!--<i class="ion-social-pinterest p-20 red-text"></i>-->
+                <!--</div>-->
+            </div>
+        <div w3-include-html="views/include/footer.html"></div>
+        </div>
+    </div> <!-- End of Page Content -->
+</div> <!-- End of Page Container -->
+
+
+<!--<div w3-include-html="views/include/includeScript.html"></div>-->
+<!-- themeforest default -->
+<script src="js/temp_domain.js"></script>
+<script src="js/jquery-2.1.0.min.js"></script>
+<script src="js/jquery.swipebox.min.js"></script>
+<script src="js/jquery.smoothState.min.js"></script>
+<script src="js/materialize.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/jquery.mixitup.min.js"></script>
+<script src="js/masonry.min.js"></script>
+<script src="js/chart.min.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/drawing.js"></script>
+
+</body>
+</html>

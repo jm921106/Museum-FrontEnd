@@ -1,58 +1,19 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-    <!--<div w3-include-html="views/include/includeCss.html"></div>-->
-    <title>Museum</title>
-    <meta charset="utf-8">
-    <meta content="IE=edge" http-equiv="x-ua-compatible">
-    <meta content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" name="viewport">
-    <meta content="yes" name="apple-mobile-web-app-capable">
-    <meta content="yes" name="apple-touch-fullscreen">
-    <!-- Fonts -->
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
-    <!-- Icons -->
-    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="all" rel="stylesheet"
-          type="text/css">
-    <!-- Styles -->
-    <link href="css/keyframes.css" rel="stylesheet" type="text/css">
-    <link href="css/materialize.min.css" rel="stylesheet" type="text/css">
-    <link href="css/swiper.css" rel="stylesheet" type="text/css">
-    <link href="css/swipebox.min.css" rel="stylesheet" type="text/css">
-    <link href="css/style.css" rel="stylesheet" type="text/css">
-    <link href="css/custom.css" rel="stylesheet" type="text/css">
-
+    <div w3-include-html="views/include/includeCss.html"></div>
 </head>
 
 <body>
 <div class="m-scene" id="main"> <!-- Main Container -->
 
+    <!-- SIDE LEFT-->
     <ul id="slide-out-left" class="side-nav collapsible">
         <div w3-include-html="views/include/left-panel.html"></div>
-        <!--<li>-->
-            <!--<div class="sidenav-header primary-color">-->
-                <!--<div class="nav-social">-->
-                    <!--<i class="ion-social-facebook"></i>-->
-                    <!--<i class="ion-social-twitter"></i>-->
-                    <!--<i class="ion-social-tumblr"></i>-->
-                <!--</div>-->
-                <!--<div class="nav-avatar">-->
-                    <!--<img class="circle avatar" src="img/user.jpg" alt="">-->
-                    <!--<div class="avatar-body">-->
-                        <!--<h3>전시 제목</h3>-->
-                        <!--<p>경기도 박물관</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</li>-->
-        <!--<li><a href="shop.html" class="no-child"><i class="ion-android-playstore"></i> Display</a></li>-->
-        <!--<li><a href="play-main.html" class="no-child"><i class="ion-ios-videocam"></i> Play</a></li>-->
-        <!--<li><a href="view/ sketchJS/sketch.html" class="no-child"><i class="ion-ios-videocam"></i> SketchJS</a></li>-->
-        <!--<li><a href="#" class="no-child"><i class="ion-social-rss"></i> panel_1</a></li>-->
-        <!--<li><a href="#" class="no-child"><i class="ion-android-map"></i> panel_2</a></li>-->
-        <!--<li><a href="#" class="no-child"><i class="ion-android-map"></i> panel_3</a></li>-->
-        <!--<li><a href="#" class="no-child"><i class="ion-android-map"></i> panel_4</a></li>-->
-        <!--<li><a href="#" class="no-child"><i class="ion-android-map"></i> panel_5</a></li>-->
-        <!--<li><a href="#" class="no-child"><i class="ion-android-map"></i> panel_6</a></li>-->
+    </ul>
+    <!-- SIDE RIGHT-->
+    <ul id="slide-out-right" class="side-nav collapsible">
+
     </ul>
 
     <!-- Page Content -->
@@ -63,7 +24,10 @@
             <div class="open-left" id="open-left" data-activates="slide-out-left">
                 <i class="ion-android-menu"></i>
             </div>
-            <span class="title">play_main</span>
+            <span class="center-align"></span>
+            <div class="open-right" id="open-right" data-activates="slide-out-right">
+                <i class="ion-android-search"></i>
+            </div>
         </div>
 
         <!-- Main Content -->
@@ -74,43 +38,58 @@
                 <div class="swiper-wrapper">
 
                     <!-- 현장실습 1 -->
-                    <div class="swiper-slide bg-v-2">
+                    <div class="swiper-slide bg-v-1">
                         <div class="opacity-overlay-black"></div>
                         <div class="bottom-abs left-align">
-                            <p class="slider-category white-text">mobile pattern painting</p>
-                            <h4 class="slider-title uppercase white-text">아름다운 무늬</h4>
+                            <!--<p class="slider-category white-text">mobile pattern painting</p>-->
+                            <h4 class="slider-category slider-title uppercase white-text">소원을 담은 문양</h4>
                             <p class="slider-text small white-text">
-                                스마트 폰으로 제공하는 무늬를 색칠해보는 학습입니다.
-                                제공되는 몇몇 무늬중 가장 마음에 드는 무늬를 선택하고
-                                그 무늬를 예쁜 색으로 색칠해 봅시다.
-                                매 달 가장 많은 투표를 받은 사람은 소정에 상품을 보내드리니
-                                꼭 참여해 보세요 !
+                                마음에 드는 문양을 선택해서 예쁜 색으로<br>
+                                색칠해 보세요 ! 가장 많은 투표를 받은 분께 <br>
+                                소정의 선물을 드립니다 !
                             </p>
-                            <a class="waves-effect waves-light btn-large primary-color block animated bouncein delay-4" href="paint-intro.html">
-                                아름다운 무늬 시작하기
-                            </a>
+                            <span class="center-align">
+                                <button class="block animated bouncein delay-4" href="paint-intro.html">시 작 하 기</button>
+                                <button class="block animated bouncein delay-4" href="paint-intro.html">투 표 하 기</button>
+                            </span>
+
                         </div>
                     </div>
 
                     <!-- 현장실습 2 -->
-                    <div class="swiper-slide bg-v-3">
+                    <div class="swiper-slide bg-v-2">
                         <div class="opacity-overlay-black"></div>
                         <div class="bottom-abs center-align">
-                            <p class="slider-category white-text">technology</p>
-                            <h4 class="slider-title uppercase white-text">while the lovely valley teems</h4>
-                            <p class="slider-text small white-text">I throw myself down among the tall grass by the trickling stream; and, as I lie close to the earth, a thousand unknown plants are noticed by me when I hear the buzz of the little world among the stalks, and grow familiar with the countless indescribable forms.</p>
-                            <a class="waves-effect waves-light btn-large primary-color block animated bouncein delay-4" href="article.html">Read More</a>
+                            <p class="slider-category white-text">Ennlish Title in here</p>
+                            <h4 class="slider-title uppercase white-text">두번째 현장실습 이벤트</h4>
+                            <p class="slider-text small white-text">
+                                두번째 현장실습 이벤트 내용 설명<br/>
+                                두번째 현장실습<br/>
+                                두번째 현장실습 이벤트 내용 설명<br/>
+                                두번째 현장실습<br/>
+                                두번째 현장실습 이벤트 내용 설명<br/>
+                                두번째 현장실습
+                            </p>
+                            <a class="waves-effect waves-light btn-large primary-color block animated bouncein delay-4" href="article.html">자세히 보기</a>
                         </div>
                     </div>
 
                     <!-- 현장실습 3 -->
-                    <div class="swiper-slide bg-v-4">
+                    <div class="swiper-slide bg-v-3">
                         <div class="opacity-overlay-black"></div>
                         <div class="bottom-abs right-align">
-                            <p class="slider-category white-text">technology</p>
-                            <h4 class="slider-title uppercase white-text">while the lovely valley teems</h4>
-                            <p class="slider-text small white-text">I throw myself down among the tall grass by the trickling stream; and, as I lie close to the earth, a thousand unknown plants are noticed by me when I hear the buzz of the little world among the stalks, and grow familiar with the countless indescribable forms.</p>
-                            <a class="waves-effect waves-light btn-large primary-color block animated bouncein delay-4" href="article.html">Read More</a>
+                            <p class="slider-category white-text">Ennlish Title in here</p>
+                            <h4 class="slider-title uppercase white-text">세번째 현장실습 이벤트</h4>
+                            <p class="slider-text small white-text">
+                                세번째 현장실습 이벤트 내용 설명<br/>
+                                세번째 현장실습<br/>
+                                세번째 현장실습 이벤트 내용 설명<br/>
+                                세번째 현장실습<br/>
+                                세번째 현장실습 이벤트 내용 설명 <br/>
+                                세번째 현장실습<br/>
+
+                            </p>
+                            <a class="waves-effect waves-light btn-large primary-color block animated bouncein delay-4" href="article.html">자세히 보기</a>
                         </div>
                     </div>
 

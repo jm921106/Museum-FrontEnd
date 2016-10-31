@@ -5,10 +5,8 @@
 </head>
 
 <body id="index_page">
-
-
 <div class="m-scene" id="main"> <!-- Main Container -->
-    <img src="img/background/background-1.jpg" style="height: 100vh; width: 100vw; position: absolute;">
+    <img src="img/background/mainBG.png" style="height: 100vh; width: 100vw; position: absolute;">
 
     <!-- SIDE LEFT-->
     <ul id="slide-out-left" class="side-nav collapsible">
@@ -23,11 +21,11 @@
     <div id="content">
 
         <!-- Toolbar -->
-        <div id="toolbar" class="primary-color">
+        <div id="toolbar" class="">
             <div class="open-left" id="open-left" data-activates="slide-out-left">
                 <i class="ion-android-menu"></i>
             </div>
-            <span class="title">경기도 박물관</span>
+            <!--<span class="title">경기도 박물관</span>-->
             <div class="open-right" id="open-right" data-activates="slide-out-right">
                 <i class="ion-android-search"></i>
             </div>
@@ -35,17 +33,25 @@
 
         <!-- Main Content -->
         <div style="height: calc(100vh);" class="animated fadeinup valign-wrapper fullscreen center-align">
-            <div style="width : calc(100vw)">
-                <a style="margin: 0 auto;" href="display-main.html"
-                   class="waves-effect waves-light btn-large primary-color valign animated bouncein delay-5 font-size-20 m-20">전
-                    시 관 람</a>
-                <a style="margin: 0 auto;" href="play-main.html"
-                   class="waves-effect waves-light btn-large primary-color valign animated bouncein delay-5 font-size-20 m-20">현
-                    장 실 습</a>
-            </div>
+            <!--<div style="width : calc(100vw)">-->
+                <!--<a style="margin: 0 auto;" href="display-main.html"-->
+                   <!--class="waves-effect waves-light btn-large primary-color valign animated bouncein delay-5 font-size-20 m-20">전-->
+                    <!--시 관 람</a>-->
+                <!--<a style="margin: 0 auto;" href="play-main.html"-->
+                   <!--class="waves-effect waves-light btn-large primary-color valign animated bouncein delay-5 font-size-20 m-20">현-->
+                    <!--장 실 습</a>-->
+            <!--</div>-->
         </div> <!-- End of Main Contents -->
 
-        <div w3-include-html="views/include/footer.html"></div>
+
+        <footer class="main-footer black-blur bottom-fixed">
+            <center>
+                <a href="display-main.html"
+                   class="font-size-20 white-text m-20">전 시 관 람</a>
+                <a href="play-main.html"
+                   class="font-size-20 white-text m-20">현 장 실 습</a>
+            </center>
+        </footer>
     </div> <!-- End of Page Content -->
 </div> <!-- End of Page Container -->
 

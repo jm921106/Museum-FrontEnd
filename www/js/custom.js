@@ -538,32 +538,32 @@ var category;
  *
  */
 // Pattern-Select
-$(function () {
-    var xmlhttp = new XMLHttpRequest();
-    var url = "data/patterns.json";
-
-    xmlhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) 
-            jsonRender(this.responseText);
-        
-    }
-    xmlhttp.open("GET", url, true);
-    xmlhttp.send();
-
-    function jsonRender(response) {
-        var arr = JSON.parse(response);
-
-        for (var i = 0; i < arr.patterns.length; i++) {
-            $('#pattern_grid').append(
-                patternDiv(
-                    arr.patterns[i].src,
-                    arr.patterns[i].name,
-                    arr.patterns[i].content
-                )
-            )
-        }
-    }
-});
+// $(function () {
+//     var xmlhttp = new XMLHttpRequest();
+//     var url = "data/patterns.json";
+//
+//     xmlhttp.onreadystatechange = function () {
+//         if (this.readyState == 4 && this.status == 200)
+//             jsonRender(this.responseText);
+//
+//     }
+//     xmlhttp.open("GET", url, true);
+//     xmlhttp.send();
+//
+//     function jsonRender(response) {
+//         var arr = JSON.parse(response);
+//
+//         for (var i = 0; i < arr.patterns.length; i++) {
+//             $('#pattern_grid').append(
+//                 patternDiv(
+//                     arr.patterns[i].src,
+//                     arr.patterns[i].name,
+//                     arr.patterns[i].content
+//                 )
+//             )
+//         }
+//     }
+// });
 
 
 /**

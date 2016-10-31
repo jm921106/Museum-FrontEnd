@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <div w3-include-html="views/include/includeCss.html"></div>
+</head>
+
+<body>
+<div class="m-scene" id="main"> <!-- Main Container -->
+
+    <!-- SIDE LEFT-->
+    <ul id="slide-out-left" class="side-nav collapsible">
+        <div w3-include-html="views/include/left-panel.html"></div>
+    </ul>
+    <!-- SIDE RIGHT-->
+    <ul id="slide-out-right" class="side-nav collapsible">
+
+    </ul>
+
+    <!-- Page Content -->
+    <div id="content">
+
+        <!-- Toolbar -->
+        <div id="toolbar" class="primary-color box-shad-none">
+            <div class="open-left" id="open-left" data-activates="slide-out-left">
+                <i id="left-side-icon" class="ion-android-menu"></i>
+            </div>
+            <span class="title none"></span>
+            <!-- DESIGN PROBLEM [DELETE]-->
+            <!--<div class="open-right" id="open-right" data-activates="slide-out-right">-->
+                <!--<i class="ion-android-search"></i>-->
+            <!--</div>-->
+        </div>
+
+        <!-- Hero Header -->
+        <div class="h-banner animated fadeindown">
+            <div class="parallax primary-color">
+                <div class="floating-button animated bouncein delay-3">
+            <span class="btn-floating resize btn-large waves-effect waves-light accent-color btn z-depth-1">
+              <i class="ion-volume-high" id="voicePlay"></i>
+            </span>
+                </div>
+                <div class="banner-title">[전시페이지]</div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="animated fadeinup delay-1">
+            <div class="page-content">
+                <div id="display-content">
+                    <p class="text-flow">
+                        <!-- Content [INPUT]-->
+                        <span class="dropcap">경</span>
+                        기도 박물관에 오신것을 환영합니다. 경기도 박물관에 오신것을 환영합니다. 경기도 박물관에 오신것을 환영합니다. 경기도 박물관에 오신것을 환영합니다. 경기도 박물관에 오신것을 환영합니다. 경기도 박물관에 오신것을 환영합니다. 경기도 박물관에 오신것을 환영합니다. 경기도 박물관에 오신것을 환영합니다.
+                    </p>
+                </div>
+                <div id="display-button" class="m-t-20">
+                    <a id="move-btn" class="waves-effect waves-light btn-large primary-color width-100" href="display-map.html">박물관 지도보기</a>
+                </div>
+            </div>
+        </div>
+        <!-- End of Main Contents -->
+
+        <div w3-include-html="views/include/footer.html"></div>
+    </div> <!-- End of Page Content -->
+</div> <!-- End of Page Container -->
+
+<!--<div w3-include-html="views/include/includeScript.html"></div>-->
+<!-- themeforest default -->
+<script src="js/temp_domain.js"></script>
+<script src="js/jquery-2.1.0.min.js"></script>
+<script src="js/jquery.swipebox.min.js"></script>
+<script src="js/jquery.smoothState.min.js"></script>
+<script src="js/materialize.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/jquery.mixitup.min.js"></script>
+<script src="js/masonry.min.js"></script>
+<script src="js/chart.min.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/drawing.js"></script>
+
+</body>
+</html>
