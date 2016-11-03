@@ -658,8 +658,9 @@ $(function () {
                 dataType: 'json',
                 success: function (data) {
                     var arr = post_data.split('_');
+                    if(arr[0]=="")
+                        var arr = ['1','1'];
                     var cat = data[arr[0]];
-                    var object
                     cat.forEach(function (item) {
                         if(item.code == arr[1]) {
                             item.srcImg.forEach(function (imgUrl) {
