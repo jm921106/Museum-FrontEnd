@@ -233,78 +233,179 @@ function initiate_plugins() {
 
 
     /**
-     * play part [in ajax]
+     * Play Part
+     * [1] pattern summit
+     * [2] result contents
+     * [3]
+     * [4]
+     * [5]
      *
      */
 
+// [1]
+    $('#pattern_submit').click(function () {
+        var name = $('#name').val();
+        var phone = $('#phone').val();
+        var address = $('#address').val();
+
+        if (name == "" || phone == "" || address == "") {
+            $('#modal_status').html('값을 정확히 입력해 주세요!').css("color", "red");
+            return;
+        }
+
+        // var result = null;
+        var canvas = document.getElementById('myCanvas');
+        var dataURL = canvas.toDataURL();
+
+        var url = window.temp_domain + "patternInsert";
+        var post_data = {
+            "user_id": "jm921106",
+            "name": name,
+            "phone": phone,
+            "address": address,
+            "result": dataURL
+        }
+        $.post(url, {
+            user_id: "jm921106",
+            name: name,
+            phone: phone,
+            address: address,
+            result: dataURL
+        }, function (data) {
+            console.log('post ok')
+            console.log(data)
+            if (data)
+                window.location.href = 'paint-result.html';
+            else
+                $('#modal_status').html('전송에 문제가 있습니다. 다시 시도해 주세요!').css("color", "red");
+        });
+    });
+
+// [2]
+    $(function () {
+        var path = window.location.pathname;
+        var page = path.split("/").pop();
+        if (page == 'paint-result.html') {
+            var url = window.temp_domain + "patternFind";
+            $.get(url, function (datas) {
+                datas.forEach(function (data) {
+                    // console.log(data.imgURL)
+                    var img_url = window.temp_domain + "public/repository/" + data.imgURL;
+                    patternAdd(data.user_id, getDateFormat(new Date(data.date)), img_url);
+                })
+            });
+        }
+    });
+
     /**
-     * display part [in ajax]
+     * Panel Page [SET]
+     * [1]
+     * [2]
+     * [3]
+     * [4]
+     * [5]
+     * [6]
+     */
+// 페이지가 load시 today 수가 증가 - 한번만 되면 되기 때문에 initiate_plugins() 안에 처리하지 않음
+    $(function index_init() {
+        var path = window.location.pathname;
+        var page = path.split("/").pop();
+        if (page == 'index') {
+
+            var xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function () {
+                // if ( ajax 정상작동 했을시)
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log('today 작업 : ' + this.responseText)
+                    // document.getElementById("demo").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", window.temp_domain + "todayLoad", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send();
+        }
+    });
+
+    /**
+     * Display Part
+     * [1]
+     * [2]
+     * [3]
+     * [4]
+     * [5]
      *
      */
     $(function () {
         // [페이지 전환시 audio parse()]
         // if(audio.played) audio.pause();
-        var code = window.location.search.substring(1);
-        var category = window.location.search.substring(1);
+
+        var post_data = window.location.search.substring(1);
 
         var path = window.location.pathname;
         var page = path.split("/").pop();
         switch (page) {
-            case 'display-intro.html':
-                $.ajax({
-                    url: './data/categorys.json',
-                    type: 'GET',
-                    dataType: 'json',
-                    success: function (data) {
-                        audioSet(category.mp3Url);
-                        $('#titleData').html(category.title);
-                        $('#contentData').html(category.introduce);
-                    }
-                });
-                break;
+            // case 'display-intro.html':
+            //     $.ajax({
+            //         url: './data/categorys.json',
+            //         type: 'GET',
+            //         dataType: 'json',
+            //         success: function (data) {
+            //             audioSet(category.mp3Url);
+            //             $('#titleData').html(category.title);
+            //             $('#contentData').html(category.introduce);
+            //         }
+            //     });
+            //     break;
 
             case 'display-list.html':
+                // title setting & 전체 color 변경
+                console.log('display-list.html case >>> title color 변경 필요')
                 $.ajax({
                     url: './data/items.json',
                     type: 'GET',
                     dataType: 'json',
                     success: function (data) {
-                        data.forEach(function (item) {
-                            if (item.category == category) {
-                                listAdd(
-                                    item.code,
-                                    item.imgUrl[0],
-                                    item.title,
-                                    item.content_adult
-                                );
-                            }
+                        if(post_data == undefined)
+                            post_data = '1';
+
+                        data[post_data].forEach(function (cat) {
+                            // if (cat == category) {
+                            listAdd(
+                                post_data+'_'+cat.code,
+                                cat.srcImg[0],
+                                cat.title
+                            );
+                            // }
                         });
                     }
                 });
                 break;
-
             case 'display-content.html':
                 $.ajax({
                     url: './data/items.json',
                     type: 'GET',
                     dataType: 'json',
                     success: function (data) {
-                        data.forEach(function (item) {
-                            if (item.code == code) {
-                                item.imgUrl.forEach(function (imgUrl) {
+                        var arr = post_data.split('_');
+                        if(arr[0]=="")
+                            var arr = ['1','1'];
+                        var cat = data[arr[0]];
+                        cat.forEach(function (item) {
+                            if(item.code == arr[1]) {
+                                item.srcImg.forEach(function (imgUrl) {
                                     imageSlideAdd(imgUrl);
-                                })
-                                audioSet(item.mp3Url);
-                                $('#item-title').html(item.title);
-                                $('#item-content').html(item.content_adult);
+                                });
+                                // audioSet(item.mp3Url);
+                                $('#item-title').html(item.subTitle);
+                                $('#item-content').html(item.content);
                             }
-                        });
+                        })
                     }
                 });
                 break;
         }
     });
-
 }
 ////--> End of Call all function for Ajax, now from there recall all the functions <--////
 
