@@ -60,45 +60,86 @@
     <!-- Page Content -->
     <div id="content" class="page">
 
-        <!--Toolbar -->
-        <div id="toolbar" class="primary-color">
+        <!-- Toolbar -->
+        <div id="toolbar" class="tool-bar white-color">
             <div class="open-left" id="open-left" data-activates="slide-out-left">
-                <i class="ion-android-menu"></i>
+                <i class="cus-color-1 ion-android-menu"></i>
             </div>
-            <span class="title">drawing page</span>
-            <div class="open-right" id="open-right" data-activates="slide-out-right">
-                <i class="ion-android-menu"></i>
+            <span class="cus-background-1 title">소원을 담은 문양</span>
+            <div class="cus-color-1 open-right" id="open-right" data-activates="slide-out-right">
+                <i class="cus-color-1 ion-android-search"></i>
             </div>
         </div>
 
         <!-- Main Content -->
         <div id="draw-header">
-            <div class="lh-inherit">
-                <blockquote class="m-20 primary-border ">
-                    <h2 class="uppercase">아름다운 무늬</h2>
-                    <p id="testText" class="left-align">아래 무늬를 이쁘게 색칠해 주세요 !</p>
-                </blockquote>
+
+            <div class="width-max one-line">
+                <div class="draw-pen-set m-20">
+                    <a class="btn-floating btn waves-effect waves-light red">
+                        <img src="img/workspace/eraser.svg">
+                    </a>
+                    <a class="btn-floating btn waves-effect waves-light green">
+                             <img src="img/workspace/school-material.svg">
+                    </a>
+                    <a class="btn-floating btn waves-effect waves-light blue">
+                               <img src="img/workspace/paint-brush.svg">
+                    </a>
+                    <br>
+                    <input class="draw-pen-set" type="range" name="points" id="points" value="50" min="0" max="100" />
+                </div>
+
+                <!--<div class="draw-pen-status m-20-20-20-0">-->
+                    <!--<button>now status</button>-->
+                <!--</div>-->
+
+                <div class="draw-color-set m-20-20-20-0">
+                    <table>
+                        <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>8</td>
+                            <td>9</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>12</td>
+                            <td>13</td>
+                            <td>14</td>
+                            <td>15</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
 
             <!-- play draw -->
-            <div class="canvasSize">
-                <!--<canvas id="myCanvas" style="background-color:antiquewhite; width:320px !important; height:320px !important;"></canvas>-->
-                <canvas id="myCanvas" class="canvasSize" style="background-color:antiquewhite;"></canvas>
+            <!--<div class="canvasSize">-->
+                <canvas id="myCanvas" class="canvasSize" style="border: 1px solid black;"></canvas>
                 <!--<div id="canvasDiv"></div>-->
-            </div>
+            <!--</div>-->
 
             <!-- Modal Trigger -->
-            <a id="modal-btn"
-               class="modal-trigger waves-effect waves-light btn-large center-align m-20 mt0 font-size-18 primary-color"
-               href="#modal">
-                무늬 색칠 완료
-            </a>
+            <div class="draw-btn-div">
+                <a id="modal-btn"
+                   class="modal-trigger waves-effect waves-light btn center-align m-10 font-size-18 cus-color-background-1"
+                   href="#modal">
+                    색칠 완료
+                </a>
+            </div>
             <!-- Modal Structure -->
             <div id="modal" class="modal modal-fixed-footer">
                 <div class="modal-content">
                     <h4 class="fwbold font-size-20">아름다운 무늬</h4>
 
-                    <p class="right-align font-size-15">정말 완료 하시겠습니까 ?</p>
+                    <p id="modal_status" class="right-align font-size-15">정말 완료 하시겠습니까 ?</p>
 
                     <h4 class="shipping-address">내 정보를 입력해 주세요.</h4>
 
@@ -118,13 +159,19 @@
                 </div>
                 <div class="modal-footer">
                     <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">취소</a>
-                    <a href="paint-result.html"
-                       class="modal-action modal-close waves-effect waves-green btn-flat ">완료</a>
+                    <button id="pattern_submit" class="modal-action waves-effect waves-green btn-flat ">완료</button>
                 </div>
             </div>
 
         </div> <!-- End of Main Contents -->
-        <div w3-include-html="views/include/footer.html"></div>
+
+        <!-- Footer -->
+        <!--<div w3-include-html="views/include/footer.html"></div>-->
+        <footer class="page-footer cus-background-1 bottom-fixed">
+            <div class="footer-copyright cus-background-1 darken-1 bottom-fixed vamiddle">
+                <img class="center-align logo-img-resizing" src="img/museum/museum-logo.png">
+            </div>
+        </footer>
     </div> <!-- End of Page Content -->
 </div> <!-- End of Page Container -->
 
@@ -140,6 +187,11 @@
 <script src="js/chart.min.js"></script>
 <script src="js/custom.js"></script>
 <script src="js/drawing.js"></script>
+<script src="js/temp_domain.js"></script>
+<scirpt>
+    <!--var pattern = window.location.search.substring(1);-->
+    <!--console.log(pattern);-->
+</scirpt>
 
 </body>
 </html>
