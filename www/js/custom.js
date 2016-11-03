@@ -544,24 +544,11 @@ $('#pattern_submit').click(function () {
     }, function (data) {
         console.log('post ok')
         console.log(data)
-        if(data)
+        if (data)
             window.location.href = 'paint-result.html';
         else
             $('#modal_status').html('전송에 문제가 있습니다. 다시 시도해 주세요!').css("color", "red");
     });
-    // var xhttp = new XMLHttpRequest();
-    // xhttp.onreadystatechange = function () {
-    //     // if ( ajax 정상작동 했을시)
-    //     if (this.readyState == 4 && this.status == 200) {
-    //         if (this.responseText)
-    //             window.location.href = 'paint-result.html';
-    //         else
-    //             $('#modal_status').html('전송에 문제가 있습니다. 다시 시도해 주세요!').css("color", "red");
-    //     }
-    // };
-    // xhttp.open("POST", url, true);
-    // xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    // xhttp.send(post_data);
 });
 
 // [2] 
@@ -623,61 +610,66 @@ $(function () {
     // [페이지 전환시 audio parse()]
     // if(audio.played) audio.pause();
 
-    var code = window.location.search.substring(1);
-    var category = window.location.search.substring(1);
+    var post_data = window.location.search.substring(1);
 
     var path = window.location.pathname;
     var page = path.split("/").pop();
     switch (page) {
-        case 'display-intro.html':
-            $.ajax({
-                url: './data/categorys.json',
-                type: 'GET',
-                dataType: 'json',
-                success: function (data) {
-                    audioSet(category.mp3Url);
-                    $('#titleData').html(category.title);
-                    $('#contentData').html(category.introduce);
-                }
-            });
-            break;
+        // case 'display-intro.html':
+        //     $.ajax({
+        //         url: './data/categorys.json',
+        //         type: 'GET',
+        //         dataType: 'json',
+        //         success: function (data) {
+        //             audioSet(category.mp3Url);
+        //             $('#titleData').html(category.title);
+        //             $('#contentData').html(category.introduce);
+        //         }
+        //     });
+        //     break;
 
         case 'display-list.html':
+            // title setting & 전체 color 변경
+            console.log('display-list.html case >>> title color 변경 필요')
             $.ajax({
                 url: './data/items.json',
                 type: 'GET',
                 dataType: 'json',
                 success: function (data) {
-                    data.forEach(function (item) {
-                        if (item.category == category) {
+                    if(post_data == undefined)
+                        post_data = '1';
+
+                    data[post_data].forEach(function (cat) {
+                        // if (cat == category) {
                             listAdd(
-                                item.code,
-                                item.imgUrl[0],
-                                item.title,
-                                item.content_adult
+                                post_data+'_'+cat.code,
+                                cat.srcImg[0],
+                                cat.title
                             );
-                        }
+                        // }
                     });
                 }
             });
             break;
-
         case 'display-content.html':
             $.ajax({
                 url: './data/items.json',
                 type: 'GET',
                 dataType: 'json',
                 success: function (data) {
-                    data.forEach(function (item) {
-                        if (item.code == code) {
-                            item.imgUrl.forEach(function (imgUrl) {
+                    var arr = post_data.split('_');
+                    var cat = data[arr[0]];
+                    var object
+                    cat.forEach(function (item) {
+                        if(item.code == arr[1]) {
+                            item.srcImg.forEach(function (imgUrl) {
                                 imageSlideAdd(imgUrl);
-                            })
-                            audioSet(item.mp3Url);
-                            $('#item-title').html(item.title);
-                            $('#item-content').html(item.content_adult);
+                            });
+                            // audioSet(item.mp3Url);
+                            $('#item-title').html(item.subTitle);
+                            $('#item-content').html(item.content);
                         }
-                    });
+                    })
                 }
             });
             break;
@@ -707,19 +699,38 @@ function imageSlideAdd(imgUrl) {
 }
 
 
-function listAdd(code, imgUrl, title, content) {
-    $('#itemList').append(
+function listAdd(code, imgUrl, title) {
+    $('#list_grid').append(
         "<div class='grid-item gallery-item-card'>" +
         "<a href=" + 'display-content.html?' + code + ">" +
         "<img src=" + imgUrl + ">" +
         "<div class='gallery-item-header'>" +
         "<div class='gallery-item-author'>" +
-        "<span>" + title + "</span>" +
-        "<span class='small'>" + content + "</span>" +
+        "<div>" +
+        title +
         "</div>" +
-        "</div> " +
+        "</div>" +
+        "</div>" +
         "</a>" +
-        "</div>");
+        "</div>"
+    );
+}
+
+function patternAdd(user_id, date, img_url) {
+    $('#result_contents').append(
+        "<div class='blog-fullwidth animated fadeinup delay-1'>" +
+        "<div class='blog-header'>" +
+        "<div class='ml-m30'>" +
+        "<div class='font-size-18'>" + user_id + "</div>" +
+        "<div class='small'>" + date + "</div>" +
+        "</div>" +
+        "</div>" +
+        "<div class='blog-image m-20'>" +
+        "<img src=" + img_url + " alt=''>" +
+        "<div class='opacity-overlay-top'></div>" +
+        "</div>" +
+        "</div>"
+    );
 }
 
 
@@ -746,6 +757,7 @@ function find() {
         if (availableTags[i].match(temp)) {
             var link = "./../../display-page3.html?" + availableTags[i];
             $("#findBox").append("<a href='"+link+"'><li>" + availableTags[i] + "</li></a>");
+
         }
     }
 }

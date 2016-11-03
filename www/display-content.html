@@ -7,21 +7,26 @@
 <body>
 <div class="m-scene" id="main"> <!-- Main Container -->
 
+    <!-- leftSideBar -->
     <ul id="slide-out-left" class="side-nav collapsible">
         <div w3-include-html="views/include/left-panel.html"></div>
+    </ul>
+
+    <ul id="slide-out-right" class="side-nav collapsible">
+        <div w3-include-html="views/include/right-panel.html"></div>
     </ul>
 
     <!-- Page Content -->
     <div id="content" class="page">
 
         <!-- Toolbar -->
-        <div id="toolbar" class="primary-color">
+        <div id="toolbar" class="tool-bar white">
             <div class="open-left" id="open-left" data-activates="slide-out-left">
-                <i class="ion-android-menu"></i>
+                <i class="cus-color-1 ion-android-menu"></i>
             </div>
-            <span class="title">display-content</span>
-            <div class="open-right" id="open-right" data-activates="slide-out">
-                <i class="ion-android-favorite"></i>
+            <span class="cus-background-1 title">소원을 담은 문양</span>
+            <div class="cus-color-1 open-right" id="open-right" data-activates="slide-out-right">
+                <i class="cus-color-1 ion-android-search"></i>
             </div>
         </div>
 
@@ -31,7 +36,7 @@
             <div class="swiper-container slider m-b-20">
                 <div id="item-slide" class="swiper-wrapper">
                     <!--<div class="swiper-slide">-->
-                        <!--<img src="img/product.jpg" alt="">-->
+                    <!--<img src="img/product.jpg" alt="">-->
                     <!--</div>-->
                 </div>
                 <!-- Add Pagination -->
@@ -41,7 +46,7 @@
 
             <!-- Floating Action Button -->
             <div class="floating-button scrollable-fab animated bouncein delay-3">
-                <a href="#" class="btn-floating btn-large waves-effect waves-light accent-color btn z-depth-1">
+                <a href="#" class="btn-floating btn-large waves-effect waves-light cus-background-basic btn z-depth-1">
                     <i class="ion-volume-high" id="voicePlay"></i>
                 </a>
             </div>
@@ -50,22 +55,28 @@
         <!-- Article Content -->
         <div class="animated fadeinup delay-1 m-20">
 
-                <h5 id="item-title">아이템 제목이 들어가는 곳</h5>
-                <p id="item-content" class="text-flow">
-                    아이템 내용이 들어가는 곳
-                </p>
 
-                <!--&lt;!&ndash; Share &ndash;&gt;-->
-                <!--<div class="share center-align m-t-30">-->
-                    <!--<h3 class="uppercase">Share it!</h3>-->
-                    <!--<i class="ion-social-facebook p-20 blue-text text-darken-4"></i>-->
-                    <!--<i class="ion-social-twitter p-20 blue-text"></i>-->
-                    <!--<i class="ion-social-pinterest p-20 red-text"></i>-->
-                <!--</div>-->
-            </div>
-        <div w3-include-html="views/include/footer.html"></div>
+            <h5 id="item-title">아이템 제목이 들어가는 곳</h5>
+            <p id="item-content" class="text-flow">
+                아이템 내용이 들어가는 곳
+            </p>
+
+            <!--&lt;!&ndash; Share &ndash;&gt;-->
+            <!--<div class="share center-align m-t-30">-->
+            <!--<h3 class="uppercase">Share it!</h3>-->
+            <!--<i class="ion-social-facebook p-20 blue-text text-darken-4"></i>-->
+            <!--<i class="ion-social-twitter p-20 blue-text"></i>-->
+            <!--<i class="ion-social-pinterest p-20 red-text"></i>-->
+            <!--</div>-->
         </div>
-    </div> <!-- End of Page Content -->
+        <!--<div w3-include-html="views/include/footer.html"></div>-->
+    </div>
+    <footer class="page-footer cus-background-1 bottom-fixed">
+        <div class="footer-copyright cus-background-1 darken-1 bottom-fixed width-100 center-align vamiddle">
+            <img class="center-align logo-img-resizing" src="img/museum/museum-logo.png">
+        </div>
+    </footer>
+</div> <!-- End of Page Content -->
 </div> <!-- End of Page Container -->
 
 
