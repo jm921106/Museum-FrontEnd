@@ -236,32 +236,6 @@ function initiate_plugins() {
      * play part [in ajax]
      *
      */
-    $(function () {
-        var xmlhttp = new XMLHttpRequest();
-        var url = "data/patterns.json";
-
-        xmlhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                jsonRender(this.responseText);
-            }
-        }
-        xmlhttp.open("GET", url, true);
-        xmlhttp.send();
-
-        function jsonRender(response) {
-            var arr = JSON.parse(response);
-
-            for (var i = 0; i < arr.patterns.length; i++) {
-                $('#pattern_grid').append(
-                    patternDiv(
-                        arr.patterns[i].src,
-                        arr.patterns[i].name,
-                        arr.patterns[i].content
-                    )
-                )
-            }
-        }
-    });
 
     /**
      * display part [in ajax]
@@ -275,7 +249,7 @@ function initiate_plugins() {
 
         var path = window.location.pathname;
         var page = path.split("/").pop();
-        switch(page) {
+        switch (page) {
             case 'display-intro.html':
                 $.ajax({
                     url: './data/categorys.json',
@@ -317,7 +291,7 @@ function initiate_plugins() {
                     success: function (data) {
                         data.forEach(function (item) {
                             if (item.code == code) {
-                                item.imgUrl.forEach(function(imgUrl){
+                                item.imgUrl.forEach(function (imgUrl) {
                                     imageSlideAdd(imgUrl);
                                 })
                                 audioSet(item.mp3Url);
@@ -530,41 +504,81 @@ var category;
 
 /**
  * Play Part
- * [1]
- * [2]
+ * [1] pattern summit
+ * [2] result contents
  * [3]
  * [4]
  * [5]
  *
  */
-// Pattern-Select
-// $(function () {
-//     var xmlhttp = new XMLHttpRequest();
-//     var url = "data/patterns.json";
-//
-//     xmlhttp.onreadystatechange = function () {
-//         if (this.readyState == 4 && this.status == 200)
-//             jsonRender(this.responseText);
-//
-//     }
-//     xmlhttp.open("GET", url, true);
-//     xmlhttp.send();
-//
-//     function jsonRender(response) {
-//         var arr = JSON.parse(response);
-//
-//         for (var i = 0; i < arr.patterns.length; i++) {
-//             $('#pattern_grid').append(
-//                 patternDiv(
-//                     arr.patterns[i].src,
-//                     arr.patterns[i].name,
-//                     arr.patterns[i].content
-//                 )
-//             )
-//         }
-//     }
-// });
 
+// [1] 
+$('#pattern_submit').click(function () {
+    var name = $('#name').val();
+    var phone = $('#phone').val();
+    var address = $('#address').val();
+
+    if (name == "" || phone == "" || address == "") {
+        $('#modal_status').html('값을 정확히 입력해 주세요!').css("color", "red");
+        return;
+    }
+
+    // var result = null;
+    var canvas = document.getElementById('myCanvas');
+    var dataURL = canvas.toDataURL();
+
+    var url = window.temp_domain + "patternInsert";
+    var post_data = {
+        "user_id": "jm921106",
+        "name": name,
+        "phone": phone,
+        "address": address,
+        "result": dataURL
+    }
+    $.post(url, {
+        user_id: "jm921106",
+        name: name,
+        phone: phone,
+        address: address,
+        result: dataURL
+    }, function (data) {
+        console.log('post ok')
+        console.log(data)
+        if(data)
+            window.location.href = 'paint-result.html';
+        else
+            $('#modal_status').html('전송에 문제가 있습니다. 다시 시도해 주세요!').css("color", "red");
+    });
+    // var xhttp = new XMLHttpRequest();
+    // xhttp.onreadystatechange = function () {
+    //     // if ( ajax 정상작동 했을시)
+    //     if (this.readyState == 4 && this.status == 200) {
+    //         if (this.responseText)
+    //             window.location.href = 'paint-result.html';
+    //         else
+    //             $('#modal_status').html('전송에 문제가 있습니다. 다시 시도해 주세요!').css("color", "red");
+    //     }
+    // };
+    // xhttp.open("POST", url, true);
+    // xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    // xhttp.send(post_data);
+});
+
+// [2] 
+$(function () {
+    var path = window.location.pathname;
+    var page = path.split("/").pop();
+    if (page == 'paint-result.html') {
+        var url = window.temp_domain + "patternFind";
+        $.get(url, function (datas) {
+            datas.forEach(function (data) {
+                // console.log(data.imgURL)
+                var img_url = window.temp_domain + "public/repository/" + data.imgURL;
+                patternAdd(data.user_id, getDateFormat(new Date(data.date)), img_url);
+            })
+        });
+    }
+});
 
 /**
  * Panel Page [SET]
@@ -614,7 +628,7 @@ $(function () {
 
     var path = window.location.pathname;
     var page = path.split("/").pop();
-    switch(page) {
+    switch (page) {
         case 'display-intro.html':
             $.ajax({
                 url: './data/categorys.json',
@@ -656,7 +670,7 @@ $(function () {
                 success: function (data) {
                     data.forEach(function (item) {
                         if (item.code == code) {
-                            item.imgUrl.forEach(function(imgUrl){
+                            item.imgUrl.forEach(function (imgUrl) {
                                 imageSlideAdd(imgUrl);
                             })
                             audioSet(item.mp3Url);
@@ -670,6 +684,13 @@ $(function () {
     }
 });
 
+
+/**
+ *  function util
+ *
+ */
+
+
 function audioSet(url) {
     audio = new Audio(url);
     $("#voicePlay").click(function () {
@@ -681,14 +702,15 @@ function audioSet(url) {
 function imageSlideAdd(imgUrl) {
     $('#item-slide').append(
         "<div class='swiper-slide'>" +
-        "<img src="+imgUrl+" alt=''>" +
+        "<img src=" + imgUrl + " alt=''>" +
         "</div>");
 }
+
 
 function listAdd(code, imgUrl, title, content) {
     $('#itemList').append(
         "<div class='grid-item gallery-item-card'>" +
-        "<a href="+'display-content.html?'+code+">" +
+        "<a href=" + 'display-content.html?' + code + ">" +
         "<img src=" + imgUrl + ">" +
         "<div class='gallery-item-header'>" +
         "<div class='gallery-item-author'>" +
@@ -700,6 +722,7 @@ function listAdd(code, imgUrl, title, content) {
         "</div>");
 }
 
+
 function find(){
     var temp = $("#findForm").val();
     $("#findBox").html("");
@@ -709,22 +732,15 @@ function find(){
         }
 }
 
-
-function patternDiv(src, name, content) {
-    var patternDiv = "";
-    patternDiv += "<div class='grid-item gallery-item-card'>"
-    patternDiv += "<a href='" + src + "' class='swipebox no-smoothState' title='This is dummy caption.'>"
-    patternDiv += "<img src='" + src + "' alt='image'>"
-    patternDiv += "</a>"
-    patternDiv += "<div class='gallery-item-header'>"
-    patternDiv += "<div class='gallery-item-author'>"
-    patternDiv += "<span>'" + name + "'</span>"
-    patternDiv += "<span class='small'>" + content + "</span>"
-    patternDiv += "<a href='paint-draw.html' class='waves-effect waves-light btn primary-color font-size-12'>무늬 선택</a>"
-    patternDiv += "</div></div></div>"
-    return patternDiv;
+function getDateFormat(date) {
+    // 년월일 얻기
+    return date.getFullYear() + '-' + addZero(date.getMonth() + 1) + '-' + addZero(date.getDate());
 }
 
-
-
+function addZero(num) {
+    if (num < 10)
+        return '0' + num;
+    else
+        return num;
+}
 
