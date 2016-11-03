@@ -734,32 +734,31 @@ function patternAdd(user_id, date, img_url) {
 }
 
 
-var availableTags = [
-    "단령",
-    "유순정 초상",
-    "홍명호 초상",
-    "무관 초상 초본",
-    "사모",
-    "백한흉배",
-    "호포흉배",
-    "단학흉배",
-    "쌍학흉배",
-    "김주승",
-    "허정문"
-];
-
 
 
 function find() {
     var temp = $("#findForm").val();
     $("#findBox").html("");
-    for (var i = 0; i < availableTags.length; i++) {
-        if (availableTags[i].match(temp)) {
-            var link = "./../../display-page3.html?" + availableTags[i];
-            $("#findBox").append("<a href='"+link+"'><li>" + availableTags[i] + "</li></a>");
 
+    $.ajax({
+        url: './data/items.json',
+        type: 'GET',
+        dataType: 'json',
+        success: function (data) {
+            for(var i = 1 ; i <= 5 ; i ++){
+
+                var cat=""+ i+"";
+                var arr = data[cat];
+                arr.forEach( function(arr){
+                    if (arr.title.match(temp)) { //타이틀이 같아야해
+                        var link = "./display-content.html?" + cat+"_"+arr.code;
+                        $("#findBox").append("<a href='" + link + "'><li>" + arr.title + "</li></a>");
+                    }
+                });
+
+            }
         }
-    }
+    })
 }
 
 function getDateFormat(date) {
