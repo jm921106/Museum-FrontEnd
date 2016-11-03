@@ -715,6 +715,23 @@ function listAdd(code, imgUrl, title) {
     );
 }
 
+function patternAdd(user_id, date, img_url) {
+    $('#result_contents').append(
+        "<div class='blog-fullwidth animated fadeinup delay-1'>" +
+        "<div class='blog-header'>" +
+        "<div class='ml-m30'>" +
+        "<div class='font-size-18'>" + user_id + "</div>" +
+        "<div class='small'>" + date + "</div>" +
+        "</div>" +
+        "</div>" +
+        "<div class='blog-image m-20'>" +
+        "<img src=" + img_url + " alt=''>" +
+        "<div class='opacity-overlay-top'></div>" +
+        "</div>" +
+        "</div>"
+    );
+}
+
 function find() {
     var temp = $("#findForm").val();
     $("#findBox").html("");
