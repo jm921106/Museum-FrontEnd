@@ -700,6 +700,16 @@ function listAdd(code, imgUrl, title, content) {
         "</div>");
 }
 
+function find(){
+    var temp = $("#findForm").val();
+    $("#findBox").html("");
+    for (var i = 0;i < availableTags.length;i++)
+        if(availableTags[i].match(temp)) {
+            $("#findBox").append("<li>"+availableTags[i]+"</li>")
+        }
+}
+
+
 function patternDiv(src, name, content) {
     var patternDiv = "";
     patternDiv += "<div class='grid-item gallery-item-card'>"

@@ -32,11 +32,15 @@
         <div w3-include-html="views/include/left-panel.html"></div>
     </ul>
 
+    <ul id="slide-out-right" class="side-nav collapsible">
+        <div w3-include-html="views/include/right-panel.html"></div>
+    </ul>
+
     <!-- Page Content -->
     <div id="content" class="grey-blue page">
 
         <!-- Toolbar -->
-        <div id="toolbar" class="tool-bar">
+        <div id="toolbar" class="tool-bar white">
             <div class="open-left" id="open-left" data-activates="slide-out-left">
                 <i class="cus-color-1 ion-android-menu"></i>
             </div>
@@ -47,41 +51,47 @@
         </div>
 
         <!-- Main Content -->
-        <div class="animated fadeinup delay-3">
-
-            <div id="pattern_grid" class="grid m-10">
-                <div class='grid-item gallery-item-card'>
-                    <a class='swipebox no-smoothState' title='This is dummy caption.'>
-                        <img src="img/patterns/pattern_1.png" alt='image'>
-                    </a>
-                    <div class='gallery-item-header'>
-                        <div class='gallery-item-author'>
-                            <span>
-                                '제목'
-                                <div class='small'>내용내용</div>
-                            </span>
-                        </div>
-                    </div>
-                </div>
+        <div class="swiper-container slider m-b-20 swiper-container-horizontal">
+            <div class="swiper-wrapper" style="transform: translate3d(-640px, 0px, 0px); transition-duration: 0ms;"><div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="1" style="width: 320px;">
+                <img src="./img/8.jpg" alt="">
             </div>
+                <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="0" style="width: 320px;">
+                    <img src="./img/5.jpg" alt="">
+                </div>
+                <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="1" style="width: 320px;">
+                    <img src="./img/8.jpg" alt="">
+                </div>
+                <div class="swiper-slide swiper-slide-duplicate swiper-slide-next" data-swiper-slide-index="0" style="width: 320px;">
+                    <img src="./img/5.jpg" alt="">
+                </div></div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span></div>
         </div>
+
+        <h1>김주승테스트</h1>
+        <p>임시 내용을 잠시 적어두도록 하겠슴 이 문단은 테스트를 위한 문단으로 데이터베이스에서 글이 들어가기 위한 자리임
+        내가 술먹으면 사람이 아니다 아오 </p>
         <!-- End of Main Contents -->
 
     </div>
-
-    <!-- Footer -->
+            <!-- Footer -->
     <!--<div w3-include-html="views/include/footer.html"></div>-->
     <footer class="page-footer cus-background-1 bottom-fixed">
         <div class="footer-copyright cus-background-1 darken-1 bottom-fixed vamiddle">
            <center><img class="center-align logo-img-resizing" src="img/museum/museum-logo.png"></center>
         </div>
     </footer>
+            <!-- End of Page Container -->
 
-</div> <!-- End of Page Container -->
+</div>
 
 <!--<div w3-include-html="views/include/includeScript.html"></div>-->
 <!-- themeforest default -->
 <script src="js/jquery-2.1.0.min.js"></script>
+<script src="js/swiper.min.js"></script>
 <script src="js/jquery.swipebox.min.js"></script>
 <script src="js/jquery.smoothState.min.js"></script>
 <script src="js/materialize.min.js"></script>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <div w3-include-html="views/include/includeCss.html"></div>
+</head>
+
+<body>
+
+<div class="m-scene" id="main"> <!-- Main Container -->
+
+    <!-- SIDE LEFT-->
+    <ul id="slide-out-left" class="side-nav collapsible">
+        <div w3-include-html="views/include/left-panel.html"></div>
+    </ul>
+    <!-- SIDE RIGHT-->
+    <ul id="slide-out-right" class="side-nav collapsible">
+        <div w3-include-html="views/include/right-panel.html"></div>
+    </ul>
+
+    <img class="pos-ab fullscreen" src="img/background/patternBG.jpg" />
+
+    <!-- Page Content -->
+    <div id="content">
+
+        <!-- Toolbar -->
+        <div id="toolbar" class="box-shad-none">
+            <div class="open-left" id="open-left" data-activates="slide-out-left">
+                <i id="left-side-icon" class="ion-android-menu"></i>
+            </div>
+            <span class="title none"></span>
+            <!-- DESIGN PROBLEM [DELETE]-->
+            <div class="open-right" id="open-right" data-activates="slide-out-right">
+                <i class="ion-android-search"></i>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="animated fadeinup delay-1">
+            <div class="middle">
+                <br>
+                <br>
+                <br>
+                <br>
+                        <center><button class="waves-effect waves-light btn-large custom-color1 m-b-10 custom-button1 animated bouncein " >1부 공무용 예복, 흑색 단령</button></center><br>
+                        <center><button class="waves-effect waves-light btn-large custom-color1 m-b-10 custom-button1 animated bouncein " >2부 여성의 예복, 녹색원삼</button></center><br>
+                        <center><button class="waves-effect waves-light btn-large custom-color1 m-b-10 custom-button1 animated bouncein " >3부 유학자의 예복, 백색 심의</button></center><br>
+                        <center><button class="waves-effect waves-light btn-large custom-color1 m-b-10 custom-button1 animated bouncein " >4부 의례용 예복, 홍색 조복</button></center><br>
+                        <center><button class="waves-effect waves-light btn-large custom-color1 m-b-10 custom-button1 animated bouncein " >5부 남녀 덧옷, 배자</button></center><br>
+
+            </div>
+        </div>
+        <!-- End of Main Contents -->
+
+        <!--<div w3-include-html="views/include/footer.html"></div>-->
+    </div> <!-- End of Page Content -->
+</div> <!-- End of Page Container -->
+
+<!--<div w3-include-html="views/include/includeScript.html"></div>-->
+<!-- themeforest default -->
+<script src="js/temp_domain.js"></script>
+<script src="js/jquery-2.1.0.min.js"></script>
+<script src="js/jquery.swipebox.min.js"></script>
+<script src="js/jquery.smoothState.min.js"></script>
+<script src="js/materialize.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/jquery.mixitup.min.js"></script>
+<script src="js/masonry.min.js"></script>
+<script src="js/chart.min.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/drawing.js"></script>
+<script>
+    var availableTags = [
+        "ActionScript",
+        "AppleScript",
+        "Asp",
+        "BASIC",
+        "C",
+        "C++",
+        "Clojure",
+        "COBOL",
+        "ColdFusion",
+        "Erlang",
+        "Fortran",
+        "Groovy",
+        "Haskell",
+        "Java",
+        "JavaScript",
+        "Lisp",
+        "Perl",
+        "PHP",
+        "Python",
+        "Ruby",
+        "Scala",
+        "Scheme"
+    ];
+</script>
+
+</body>
+</html>
