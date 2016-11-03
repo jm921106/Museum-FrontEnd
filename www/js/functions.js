@@ -61,7 +61,58 @@ function initiate_plugins() {
     // Drag
     $('.drag-target').remove();
 
-    // Right Sidebar
+    // Right Sidebar    $('.swipebox').swipebox();
+
+    // Masonry
+    $('.grid').masonry({
+        itemSelector: '.grid-item'
+    });
+
+    // Scrolling Floating Action Button
+    $(window).scroll(function () {
+        var scroll = $(window).scrollTop();
+        if (scroll >= 1) {
+            $(".floating-button").addClass("scrolled-down");
+        } else {
+            $(".floating-button").removeClass("scrolled-down");
+        }
+    });
+
+    // Row Height for Drawer
+    var grandparent_height = $('#grandparent').height();
+    $('.child').height(grandparent_height * 0.25);
+
+    // Swiper Sliders
+    var swiper = new Swiper('.slider', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        autoplay: 5000,
+        loop: true
+    });
+    var swiper = new Swiper('.slider-sliced', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        autoplay: 5000,
+    });
+    var swiper = new Swiper('.steps', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        effect: 'fade',
+    });
+    var swiper = new Swiper('.slider-drawer', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+    });
+    var swiper = new Swiper('.slider-vertical', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        autoplay: 5000,
+        direction: 'vertical'
+    });
     $('#open-right').sideNav({
         menuWidth: 240, // Default is 240
         edge: 'right', // Choose the horizontal origin

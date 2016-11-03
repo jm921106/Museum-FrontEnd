@@ -32,13 +32,61 @@
     font-weight: bold;
 }
 
+/* color */
+.cus-color-deepRed {
+    color: #8b1014;
+}
+
+.cus-background-deepRed {
+    background-color: #8b1014;
+}
+
+.cus-color-basic{
+    color: #8a6d3b;
+}
+
+.cus-background-basic {
+    background-color: #8a6d3b;
+}
+
+
+/* color */
+.primary-text {
+    color: #303f9f !important;
+}
+
+.primary-color {
+    background-color: #303f9f !important;
+}
+
+.primary-border {
+    border-color: #303f9f !important;
+}
+
 /* margin */
+.bt0 {
+    margin-bottom: 0px !important;
+}
+
 .mt0 {
     margin-top: 0px !important;
 }
 
+.mt20 {
+    margin-top: 20px !important;
+}
+
 .ml-m30 {
     margin-left: -30px !important;
+}
+
+.m-20-20-0-20 {
+    margin: 20px 20px 0px 20px !important;
+}
+
+
+.m-0-20-0-20 {
+    margin: 0px 20px 0px 20px !important;
 }
 
 /* sketch */
@@ -61,19 +109,6 @@ canvas {
 .draw-btn-div {
     width: 100% !important;
     text-align: center !important;
-}
-
-/* color */
-.primary-text {
-    color: #303f9f !important;
-}
-
-.primary-color {
-    background-color: #303f9f !important;
-}
-
-.primary-border {
-    border-color: #303f9f !important;
 }
 
 /* 정렬 */
@@ -132,8 +167,7 @@ canvas {
 }
 
 .width-100 {
-    width : 100px !important;
-    width : 100px !important;
+    width : 100% !important;
 }
 .custom-middle{
     vertical-align: middle;
@@ -186,7 +220,7 @@ canvas {
 .title-img-resizing {
     width : 55vw;
     height: auto;
-    /*align: center !important;*/
+    display : inline !important;
 }
 
 .align-c {
@@ -212,8 +246,9 @@ canvas {
 }
 
 .logo-img-resizing {
-    width : 40vw !important;
+    width : 30vw !important;
     height: auto;
+    display:inline !important;
 }
 
 /* color */

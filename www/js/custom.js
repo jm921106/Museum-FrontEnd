@@ -544,24 +544,11 @@ $('#pattern_submit').click(function () {
     }, function (data) {
         console.log('post ok')
         console.log(data)
-        if(data)
+        if (data)
             window.location.href = 'paint-result.html';
         else
             $('#modal_status').html('전송에 문제가 있습니다. 다시 시도해 주세요!').css("color", "red");
     });
-    // var xhttp = new XMLHttpRequest();
-    // xhttp.onreadystatechange = function () {
-    //     // if ( ajax 정상작동 했을시)
-    //     if (this.readyState == 4 && this.status == 200) {
-    //         if (this.responseText)
-    //             window.location.href = 'paint-result.html';
-    //         else
-    //             $('#modal_status').html('전송에 문제가 있습니다. 다시 시도해 주세요!').css("color", "red");
-    //     }
-    // };
-    // xhttp.open("POST", url, true);
-    // xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    // xhttp.send(post_data);
 });
 
 // [2] 
@@ -626,23 +613,28 @@ $(function () {
     var code = window.location.search.substring(1);
     var category = window.location.search.substring(1);
 
+    console.log(code)
+    console.log(category)
+
     var path = window.location.pathname;
     var page = path.split("/").pop();
     switch (page) {
-        case 'display-intro.html':
-            $.ajax({
-                url: './data/categorys.json',
-                type: 'GET',
-                dataType: 'json',
-                success: function (data) {
-                    audioSet(category.mp3Url);
-                    $('#titleData').html(category.title);
-                    $('#contentData').html(category.introduce);
-                }
-            });
-            break;
+        // case 'display-intro.html':
+        //     $.ajax({
+        //         url: './data/categorys.json',
+        //         type: 'GET',
+        //         dataType: 'json',
+        //         success: function (data) {
+        //             audioSet(category.mp3Url);
+        //             $('#titleData').html(category.title);
+        //             $('#contentData').html(category.introduce);
+        //         }
+        //     });
+        //     break;
 
         case 'display-list.html':
+            // title setting & 전체 color 변경
+            console.log('display-list.html case >>> title color 변경 필요')
             $.ajax({
                 url: './data/items.json',
                 type: 'GET',
@@ -653,8 +645,7 @@ $(function () {
                             listAdd(
                                 item.code,
                                 item.imgUrl[0],
-                                item.title,
-                                item.content_adult
+                                item.title
                             );
                         }
                     });
@@ -669,10 +660,10 @@ $(function () {
                 dataType: 'json',
                 success: function (data) {
                     data.forEach(function (item) {
-                        if (item.code == code) {
+                        if (item.code == 001) {
                             item.imgUrl.forEach(function (imgUrl) {
                                 imageSlideAdd(imgUrl);
-                            })
+                            });
                             audioSet(item.mp3Url);
                             $('#item-title').html(item.title);
                             $('#item-content').html(item.content_adult);
@@ -707,28 +698,29 @@ function imageSlideAdd(imgUrl) {
 }
 
 
-function listAdd(code, imgUrl, title, content) {
-    $('#itemList').append(
+function listAdd(code, imgUrl, title) {
+    $('#list_grid').append(
         "<div class='grid-item gallery-item-card'>" +
         "<a href=" + 'display-content.html?' + code + ">" +
         "<img src=" + imgUrl + ">" +
         "<div class='gallery-item-header'>" +
         "<div class='gallery-item-author'>" +
-        "<span>" + title + "</span>" +
-        "<span class='small'>" + content + "</span>" +
+        "<div>" +
+        title +
         "</div>" +
-        "</div> " +
+        "</div>" +
+        "</div>" +
         "</a>" +
-        "</div>");
+        "</div>"
+    );
 }
 
-
-function find(){
+function find() {
     var temp = $("#findForm").val();
     $("#findBox").html("");
-    for (var i = 0;i < availableTags.length;i++)
-        if(availableTags[i].match(temp)) {
-            $("#findBox").append("<li>"+availableTags[i]+"</li>")
+    for (var i = 0; i < availableTags.length; i++)
+        if (availableTags[i].match(temp)) {
+            $("#findBox").append("<li>" + availableTags[i] + "</li>")
         }
 }
 

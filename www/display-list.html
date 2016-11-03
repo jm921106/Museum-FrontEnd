@@ -4,10 +4,12 @@
     <div w3-include-html="views/include/includeCss.html"></div>
 </head>
 
-
+<!--<body onload="init_paint_select()">-->
 <body>
+
 <div class="m-scene" id="main"> <!-- Main Container -->
 
+    <!-- leftSideBar -->
     <ul id="slide-out-left" class="side-nav collapsible">
         <div w3-include-html="views/include/left-panel.html"></div>
     </ul>
@@ -15,29 +17,48 @@
     <!-- Page Content -->
     <div id="content" class="page">
 
-        <!--Toolbar -->
-        <div id="toolbar" class="primary-color box-shad-none">
+        <!-- Toolbar -->
+        <div id="toolbar" class="tool-bar white-color">
             <div class="open-left" id="open-left" data-activates="slide-out-left">
                 <i class="cus-color-1 ion-android-menu"></i>
             </div>
-            <span class="cus-color-1 title">유물 리스트</span>
-            <div class="open-right" id="open-right" data-activates="slide-out-right">
-                <i class="ion-android-search"></i>
+            <span class="cus-background-1 title">Sub-Title</span>
+            <div class="cus-color-1 open-right" id="open-right" data-activates="slide-out-right">
+                <i class="cus-color-1 ion-android-search"></i>
             </div>
         </div>
-        
-        <!-- Main Content -->
-        <div class="animated fadeinup">
-            <div id="itemList" class="grid m-10">
 
+        <!-- Main Content -->
+        <div class="animated fadeinup delay-3">
+
+            <div id="list_grid" class="grid m-10-10-66-10">
+                <div class='grid-item gallery-item-card'>
+                    <a href="paint-draw.html?pattern=1" class='swipebox' title='This is dummy caption.'>
+                        <img src="img/patterns/pattern_1.png">
+                        <div class='gallery-item-header'>
+                            <div class='gallery-item-author'>
+                                <div class="one-line">
+                                    '구름' <div class='small'>장수 장생</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
-            <!-- End of Main Contents -->
         </div>
+        <!-- End of Main Contents -->
+
     </div>
 
-    <div w3-include-html="views/include/footer.html"></div>
-</div>
+    <!-- Footer -->
+    <!--<div w3-include-html="views/include/footer.html"></div>-->
+    <footer class="page-footer cus-background-1 bottom-fixed">
+        <div class="footer-copyright cus-background-1 darken-1 bottom-fixed width-100 center-align vamiddle">
+            <img class="center-align logo-img-resizing" src="img/museum/museum-logo.png">
+        </div>
+    </footer>
 
+</div> <!-- End of Page Container -->
 
 <!--<div w3-include-html="views/include/includeScript.html"></div>-->
 <!-- themeforest default -->
@@ -55,3 +76,4 @@
 
 </body>
 </html>
+
