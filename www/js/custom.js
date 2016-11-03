@@ -610,11 +610,7 @@ $(function () {
     // [페이지 전환시 audio parse()]
     // if(audio.played) audio.pause();
 
-    var code = window.location.search.substring(1);
-    var category = window.location.search.substring(1);
-
-    console.log(code)
-    console.log(category)
+    var post_data = window.location.search.substring(1);
 
     var path = window.location.pathname;
     var page = path.split("/").pop();
@@ -640,35 +636,40 @@ $(function () {
                 type: 'GET',
                 dataType: 'json',
                 success: function (data) {
-                    data.forEach(function (item) {
-                        if (item.category == category) {
+                    if(post_data == undefined)
+                        post_data = '1';
+
+                    data[post_data].forEach(function (cat) {
+                        // if (cat == category) {
                             listAdd(
-                                item.code,
-                                item.imgUrl[0],
-                                item.title
+                                post_data+'_'+cat.code,
+                                cat.srcImg[0],
+                                cat.title
                             );
-                        }
+                        // }
                     });
                 }
             });
             break;
-
         case 'display-content.html':
             $.ajax({
                 url: './data/items.json',
                 type: 'GET',
                 dataType: 'json',
                 success: function (data) {
-                    data.forEach(function (item) {
-                        if (item.code == 001) {
-                            item.imgUrl.forEach(function (imgUrl) {
+                    var arr = post_data.split('_');
+                    var cat = data[arr[0]];
+                    var object
+                    cat.forEach(function (item) {
+                        if(item.code == arr[1]) {
+                            item.srcImg.forEach(function (imgUrl) {
                                 imageSlideAdd(imgUrl);
                             });
-                            audioSet(item.mp3Url);
-                            $('#item-title').html(item.title);
-                            $('#item-content').html(item.content_adult);
+                            // audioSet(item.mp3Url);
+                            $('#item-title').html(item.subTitle);
+                            $('#item-content').html(item.content);
                         }
-                    });
+                    })
                 }
             });
             break;
