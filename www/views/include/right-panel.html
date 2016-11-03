@@ -1,7 +1,7 @@
 <li>
     <div class="sidenav-header primary-color">
         <div class="nav-social">
-            <h1>찾고싶은 물품을 검색해주세요.</h1>
+            <p>찾고싶은 물품을 검색해주세요.</p>
            <input type="search" id = "findForm" onkeyup="find()" >
         </div>
     </div>
@@ -10,45 +10,3 @@
 
 </div>
 <script src="../../js/jquery-2.1.0.min.js"></script>
-<script>
-    var availableTags = [
-        "ActionScript",
-        "AppleScript",
-        "Asp",
-        "BASIC",
-        "C",
-        "C++",
-        "Clojure",
-        "COBOL",
-        "ColdFusion",
-        "Erlang",
-        "Fortran",
-        "Groovy",
-        "Haskell",
-        "Java",
-        "JavaScript",
-        "Lisp",
-        "Perl",
-        "PHP",
-        "Python",
-        "Ruby",
-        "Scala",
-        "Sche"
-    ];
-    function find() {
-        var temp = $("#findForm").val();
-
-        $("#findBox").html("");
-        for (var i = 0; i < availableTags.length; i++) {
-            var changeTemp = availableTags[i];
-            if (availableTags[i].match(temp)) {
-                $("#findBox").append("<a onClick='changeFindVal(changeTemp)' href='#'><li>" + availableTags[i] + "</li></a>");
-            }
-        }
-    }
-    function changeFindVal(a){
-        $("#findForm").val(a);
-    }
-
-
-</script>
