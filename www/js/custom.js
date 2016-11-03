@@ -723,13 +723,31 @@ function listAdd(code, imgUrl, title, content) {
 }
 
 
-function find(){
+var availableTags = [
+    "단령",
+    "유순정 초상",
+    "홍명호 초상",
+    "무관 초상 초본",
+    "사모",
+    "백한흉배",
+    "호포흉배",
+    "단학흉배",
+    "쌍학흉배",
+    "김주승",
+    "허정문"
+];
+
+
+
+function find() {
     var temp = $("#findForm").val();
     $("#findBox").html("");
-    for (var i = 0;i < availableTags.length;i++)
-        if(availableTags[i].match(temp)) {
-            $("#findBox").append("<li>"+availableTags[i]+"</li>")
+    for (var i = 0; i < availableTags.length; i++) {
+        if (availableTags[i].match(temp)) {
+            var link = "./../../display-page3.html?" + availableTags[i];
+            $("#findBox").append("<a href='"+link+"'><li>" + availableTags[i] + "</li></a>");
         }
+    }
 }
 
 function getDateFormat(date) {
@@ -743,4 +761,5 @@ function addZero(num) {
     else
         return num;
 }
+
 
