@@ -1,24 +1,12 @@
-<li>
-    <div class="sidenav-header primary-color">
+<li style="height: 56px !important;">
+    <div style="background-color: #444; height: 56px !important; padding: 10px 20px 20px 20px;">
         <div class="nav-social">
-            <i class="ion-social-facebook"></i>
-            <i class="ion-social-twitter"></i>
-            <i class="ion-social-tumblr"></i>
-        </div>
-        <div class="nav-avatar">
-            <img class="circle avatar" src="img/user.jpg" alt="">
-            <div class="avatar-body">
-                <h3>전시 제목</h3>
-                <p>경기도 박물관</p>
-            </div>
+            <!--<p >찾고싶은 물품을 검색해주세요.</p>-->
+           <input style="margin-bottom: 5px !important;" type="search" id = "findForm" onkeyup="find()" placeholder="원하는 유물을 입력해주세요.">
         </div>
     </div>
 </li>
-<li><a href="index.html" class="no-child"><i class="ion-ios-home"></i> home</a></li>
-<li><a href="sketch.html" class="no-child"><i class="ion-ios-videocam"></i> SketchJS</a></li>
-<li><a href="side-notice.html" class="no-child"><i class="ion-social-rss"></i> 공지사항</a></li>
-<li><a href="side-info.html" class="no-child"><i class="ion-android-map"></i> 앱 이용정보</a></li>
-<li><a href="side-app.html" class="no-child"><i class="ion-android-map"></i> 앱 구성정보</a></li>
-<li><a href="side-myLike.html" class="no-child"><i class="ion-android-map"></i> 내가 좋아요한 유물</a></li>
-<li><a href="side-like.html" class="no-child"><i class="ion-android-map"></i> 투데이 확인하기</a></li>
-<li><a href=side-today.html class="no-child"><i class="ion-android-map"></i> 좋아요 확인하기</a></li>
+<div class="m-10" id ="findBox">
+
+</div>
+<script src="../../js/jquery-2.1.0.min.js"></script>

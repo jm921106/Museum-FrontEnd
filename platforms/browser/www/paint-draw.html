@@ -26,79 +26,85 @@
 
 
 <div class="m-scene" id="main"> <!-- Main Container -->
+    <!-- SideBar -->
     <ul id="slide-out-left" class="side-nav collapsible">
         <div w3-include-html="views/include/left-panel.html"></div>
     </ul>
-
     <ul id="slide-out-right" class="side-nav collapsible">
-        <li>
-            <div class="sidenav-header primary-color">
-                <div class="nav-social">
-                    <i class="ion-social-facebook"></i>
-                    <i class="ion-social-twitter"></i>
-                    <i class="ion-social-tumblr"></i>
-                </div>
-                <div class="nav-avatar">
-                    <img class="circle avatar" src="img/user.jpg" alt="">
-                    <div class="avatar-body">
-                        <h3>pen setting</h3>
-                        <p>pen setting</p>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li><a href="index.html" class="no-child"><i class="ion-ios-home"></i> home</a></li>
-        <li><a href="sketch.html" class="no-child"><i class="ion-ios-videocam"></i> SketchJS</a></li>
-        <li><a href="side-notice.html" class="no-child"><i class="ion-social-rss"></i> 공지사항</a></li>
-        <li><a href="side-info.html" class="no-child"><i class="ion-android-map"></i> 앱 이용정보</a></li>
-        <li><a href="side-app.html" class="no-child"><i class="ion-android-map"></i> 앱 구성정보</a></li>
-        <li><a href="side-myLike.html" class="no-child"><i class="ion-android-map"></i> 내가 좋아요한 유물</a></li>
-        <li><a href="side-like.html" class="no-child"><i class="ion-android-map"></i> 투데이 확인하기</a></li>
-        <li><a href=side-today.html class="no-child"><i class="ion-android-map"></i> 좋아요 확인하기</a></li>
+        <div w3-include-html="views/include/right-panel.html"></div>
     </ul>
 
     <!-- Page Content -->
     <div id="content" class="page">
 
-        <!--Toolbar -->
-        <div id="toolbar" class="primary-color">
+        <!-- Toolbar -->
+        <div id="toolbar" class="tool-bar white-color">
             <div class="open-left" id="open-left" data-activates="slide-out-left">
-                <i class="ion-android-menu"></i>
+                <i class="cus-color-1 ion-android-menu"></i>
             </div>
-            <span class="title">drawing page</span>
-            <div class="open-right" id="open-right" data-activates="slide-out-right">
-                <i class="ion-android-menu"></i>
+            <span class="cus-background-1 title">소원을 담은 문양</span>
+            <div class="cus-color-1 open-right" id="open-right" data-activates="slide-out-right">
+                <i class="cus-color-1 ion-android-search"></i>
             </div>
         </div>
 
         <!-- Main Content -->
         <div id="draw-header">
-            <div class="lh-inherit">
-                <blockquote class="m-20 primary-border ">
-                    <h2 class="uppercase">아름다운 무늬</h2>
-                    <p id="testText" class="left-align">아래 무늬를 이쁘게 색칠해 주세요 !</p>
-                </blockquote>
+
+            <div class="width-max">
+                <div class="draw-pen-set m-20 pos-ab">
+                    <a class="btn-floating btn waves-effect waves-light red">
+                        <img src="img/workspace/eraser.svg">
+                    </a>
+                    <a class="btn-floating btn waves-effect waves-light green">
+                             <img src="img/workspace/school-material.svg">
+                    </a>
+                    <a class="btn-floating btn waves-effect waves-light blue">
+                               <img src="img/workspace/paint-brush.svg">
+                    </a>
+                    <br>
+                    <input class="draw-pen-set" type="range" name="points" id="points" value="50" min="0" max="100" />
+                </div>
+
+                <!--<div class="draw-pen-status m-20-20-20-0">-->
+                    <!--<button>now status</button>-->
+                <!--</div>-->
+
+                <div class="width-100 right-align">
+                    <table class="draw-color-set">
+                        <tr>
+                            <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+                        </tr>
+                        <tr>
+                            <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+                        </tr>
+                        <tr>
+                            <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
 
             <!-- play draw -->
-            <div class="canvasSize">
-                <!--<canvas id="myCanvas" style="background-color:antiquewhite; width:320px !important; height:320px !important;"></canvas>-->
-                <canvas id="myCanvas" class="canvasSize" style="background-color:antiquewhite;"></canvas>
+            <!--<div class="canvasSize">-->
+                <canvas id="myCanvas" class="canvasSize" style="border: 1px solid black;"></canvas>
                 <!--<div id="canvasDiv"></div>-->
-            </div>
+            <!--</div>-->
 
             <!-- Modal Trigger -->
-            <a id="modal-btn"
-               class="modal-trigger waves-effect waves-light btn-large center-align m-20 mt0 font-size-18 primary-color"
-               href="#modal">
-                무늬 색칠 완료
-            </a>
+            <div class="draw-btn-div">
+                <a id="modal-btn"
+                   class="modal-trigger waves-effect waves-light btn center-align m-10 font-size-18 cus-color-background-1"
+                   href="#modal">
+                    색칠 완료
+                </a>
+            </div>
             <!-- Modal Structure -->
             <div id="modal" class="modal modal-fixed-footer">
                 <div class="modal-content">
                     <h4 class="fwbold font-size-20">아름다운 무늬</h4>
 
-                    <p class="right-align font-size-15">정말 완료 하시겠습니까 ?</p>
+                    <p id="modal_status" class="right-align font-size-15">정말 완료 하시겠습니까 ?</p>
 
                     <h4 class="shipping-address">내 정보를 입력해 주세요.</h4>
 
@@ -118,12 +124,13 @@
                 </div>
                 <div class="modal-footer">
                     <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">취소</a>
-                    <a href="paint-result.html"
-                       class="modal-action modal-close waves-effect waves-green btn-flat ">완료</a>
+                    <button id="pattern_submit" class="modal-action waves-effect waves-green btn-flat ">완료</button>
                 </div>
             </div>
 
         </div> <!-- End of Main Contents -->
+
+        <!-- Footer -->
         <div w3-include-html="views/include/footer.html"></div>
     </div> <!-- End of Page Content -->
 </div> <!-- End of Page Container -->
@@ -140,6 +147,11 @@
 <script src="js/chart.min.js"></script>
 <script src="js/custom.js"></script>
 <script src="js/drawing.js"></script>
+<script src="js/temp_domain.js"></script>
+<scirpt>
+    <!--var pattern = window.location.search.substring(1);-->
+    <!--console.log(pattern);-->
+</scirpt>
 
 </body>
 </html>

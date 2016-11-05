@@ -5,18 +5,15 @@
 </head>
 
 <body>
-<div id="fb-root"></div>
-<script src="js/facebook.js"></script>
 <div class="m-scene" id="main"> <!-- Main Container -->
 
-    <!-- leftSideBar -->
+    <!-- SideBar -->
     <ul id="slide-out-left" class="side-nav collapsible">
         <div w3-include-html="views/include/left-panel.html"></div>
     </ul>
-
-    <ul id="slide-out-right" class="side-nav collapsible">
-        <div w3-include-html="views/include/right-panel.html"></div>
-    </ul>
+    <!--<ul id="slide-out-right" class="side-nav collapsible">-->
+        <!--<div w3-include-html="views/include/right-panel.html"></div>-->
+    <!--</ul>-->
 
     <!-- Page Content -->
     <div id="content" class="page">
@@ -27,8 +24,9 @@
                 <i class="cus-color-1 ion-android-menu"></i>
             </div>
             <span class="cus-background-1 title">소원을 담은 문양</span>
-            <div class="cus-color-1 open-right" id="open-right" data-activates="slide-out-right">
-                <i class="cus-color-1 ion-android-search"></i>
+            <div class="open-right" id="like-btn" data-activates="slide-out-right">
+                <input id="like-status" type="hidden" value='false'><!--안눌러져있는상태 default-->
+                <i id="heart-icon" class="cus-color-black ion-heart"></i>
             </div>
         </div>
 
@@ -36,21 +34,9 @@
         <div class="hero-header animated fadein">
             <!-- Slider -->
             <div class="swiper-container slider m-b-20">
-                <!--facebook 좋아요 btn-->
-                <div class="pos-ab z-index-front p-20 width-100 right-align">
-                    <div class="fb-like"
-                         data-href="http://naver.com"
-                         data-layout="button_count"
-                         data-action="like"
-                         data-size="small"
-                         data-show-faces="true"
-                         data-share="false">
-                    </div>
-                </div>
-                <!--  -->
                 <div id="item-slide" class="swiper-wrapper">
                     <!--<div class="swiper-slide">-->
-                        <!--<img src="img/product.jpg" alt="">-->
+                    <!--<img src="img/product.jpg" alt="">-->
                     <!--</div>-->
                 </div>
                 <!-- Add Pagination -->

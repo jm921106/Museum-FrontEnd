@@ -5,23 +5,53 @@
 </head>
 
 <body>
+<div id="fb-root"></div>
+<script>
+//    window.fbAsyncInit = function () {
+//        FB.init({
+//            appId: '1698354810427614',
+//            xfbml: true,
+//            version: 'v2.8'
+//        });
+//        $(document).ajaxComplete(function(){
+//            try{
+//                FB.AppEvents.logPageView();
+////                FB.XFBML.parse();
+//            }catch(ex){}
+//        });
+//    };
+
+    //     (function(d, s, id) {
+    //         console.log('facebook api test')
+    //         console.log(d.getElementsByTagName(s)[0])
+    //         var js, fjs = d.getElementsByTagName(s)[0];
+    //         if (d.getElementById(id)) return;
+    //         js = d.createElement(s); js.id = id;
+    //         js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8&appId=268198800203862";
+    //         fjs.parentNode.insertBefore(js, fjs);
+    //     }(document, 'script', 'facebook-jssdk'));
+</script>
 <div class="m-scene" id="main"> <!-- Main Container -->
 
+    <!-- SideBar -->
     <ul id="slide-out-left" class="side-nav collapsible">
         <div w3-include-html="views/include/left-panel.html"></div>
+    </ul>
+    <ul id="slide-out-right" class="side-nav collapsible">
+        <div w3-include-html="views/include/right-panel.html"></div>
     </ul>
 
     <!-- Page Content -->
     <div id="content" class="page">
 
         <!-- Toolbar -->
-        <div id="toolbar" class="primary-color">
+        <div id="toolbar" class="tool-bar white">
             <div class="open-left" id="open-left" data-activates="slide-out-left">
-                <i class="ion-android-menu"></i>
+                <i class="cus-color-1 ion-android-menu"></i>
             </div>
-            <span class="title">display-content</span>
-            <div class="open-right" id="open-right" data-activates="slide-out">
-                <i class="ion-android-favorite"></i>
+            <span class="cus-background-1 title">소원을 담은 문양</span>
+            <div class="cus-color-1 open-right" id="open-right" data-activates="slide-out-right">
+                <i class="cus-color-1 ion-android-search"></i>
             </div>
         </div>
 
@@ -29,9 +59,21 @@
         <div class="hero-header animated fadein">
             <!-- Slider -->
             <div class="swiper-container slider m-b-20">
+                <!--facebook 좋아요 btn-->
+                <div class="pos-ab z-index-front p-20 width-100 right-align">
+                    <div class="fb-like"
+                         data-href="http://naver.com"
+                         data-layout="button_count"
+                         data-action="like"
+                         data-size="small"
+                         data-show-faces="true"
+                         data-share="false">
+                    </div>
+                </div>
+                <!--  -->
                 <div id="item-slide" class="swiper-wrapper">
                     <!--<div class="swiper-slide">-->
-                        <!--<img src="img/product.jpg" alt="">-->
+                    <!--<img src="img/product.jpg" alt="">-->
                     <!--</div>-->
                 </div>
                 <!-- Add Pagination -->
@@ -41,7 +83,7 @@
 
             <!-- Floating Action Button -->
             <div class="floating-button scrollable-fab animated bouncein delay-3">
-                <a href="#" class="btn-floating btn-large waves-effect waves-light accent-color btn z-depth-1">
+                <a href="#" class="btn-floating btn-large waves-effect waves-light cus-background-basic btn z-depth-1">
                     <i class="ion-volume-high" id="voicePlay"></i>
                 </a>
             </div>
@@ -50,22 +92,28 @@
         <!-- Article Content -->
         <div class="animated fadeinup delay-1 m-20">
 
-                <h5 id="item-title">아이템 제목이 들어가는 곳</h5>
-                <p id="item-content" class="text-flow">
-                    아이템 내용이 들어가는 곳
-                </p>
 
-                <!--&lt;!&ndash; Share &ndash;&gt;-->
-                <!--<div class="share center-align m-t-30">-->
-                    <!--<h3 class="uppercase">Share it!</h3>-->
-                    <!--<i class="ion-social-facebook p-20 blue-text text-darken-4"></i>-->
-                    <!--<i class="ion-social-twitter p-20 blue-text"></i>-->
-                    <!--<i class="ion-social-pinterest p-20 red-text"></i>-->
-                <!--</div>-->
-            </div>
-        <div w3-include-html="views/include/footer.html"></div>
+            <h5 id="item-title">아이템 제목이 들어가는 곳</h5>
+            <p id="item-content" class="text-flow">
+                아이템 내용이 들어가는 곳
+            </p>
+
+            <!--&lt;!&ndash; Share &ndash;&gt;-->
+            <!--<div class="share center-align m-t-30">-->
+            <!--<h3 class="uppercase">Share it!</h3>-->
+            <!--<i class="ion-social-facebook p-20 blue-text text-darken-4"></i>-->
+            <!--<i class="ion-social-twitter p-20 blue-text"></i>-->
+            <!--<i class="ion-social-pinterest p-20 red-text"></i>-->
+            <!--</div>-->
         </div>
-    </div> <!-- End of Page Content -->
+        <!--<div w3-include-html="views/include/footer.html"></div>-->
+    </div>
+    <footer class="page-footer cus-background-1 bottom-fixed">
+        <div class="footer-copyright cus-background-1 darken-1 bottom-fixed width-100 center-align vamiddle">
+            <img class="center-align logo-img-resizing" src="img/museum/museum-logo.png">
+        </div>
+    </footer>
+</div> <!-- End of Page Content -->
 </div> <!-- End of Page Container -->
 
 

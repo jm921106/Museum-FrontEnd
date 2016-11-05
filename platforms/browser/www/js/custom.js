@@ -205,9 +205,10 @@ function initiate_plugins() {
 
 
     /**
-     * html include
+     * w3IncludeHTML [HTML INCLUDE]
      *
      */
+// w3IncludeHTML - html include code
     $(function w3IncludeHTML() {
         var z, i, a, file, xhttp;
         z = document.getElementsByTagName("*");
@@ -231,106 +232,231 @@ function initiate_plugins() {
         }
     })
 
-
     /**
-     * play part [in ajax]
+     * global val
      *
      */
-    $(function () {
-        var xmlhttp = new XMLHttpRequest();
-        var url = "data/patterns.json";
+    var audio = new Audio();
+    var item;
+    var category;
 
-        xmlhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                jsonRender(this.responseText);
-            }
+    /**
+     * Play Part
+     * [1] pattern summit
+     * [2] result contents
+     * [3]
+     * [4]
+     * [5]
+     *
+     */
+
+// [1] 
+    $('#pattern_submit').click(function () {
+        var name = $('#name').val();
+        var phone = $('#phone').val();
+        var address = $('#address').val();
+
+        if (name == "" || phone == "" || address == "") {
+            $('#modal_status').html('값을 정확히 입력해 주세요!').css("color", "red");
+            return;
         }
-        xmlhttp.open("GET", url, true);
-        xmlhttp.send();
 
-        function jsonRender(response) {
-            var arr = JSON.parse(response);
+        // var result = null;
+        var canvas = document.getElementById('myCanvas');
+        var dataURL = canvas.toDataURL();
 
-            for (var i = 0; i < arr.patterns.length; i++) {
-                $('#pattern_grid').append(
-                    patternDiv(
-                        arr.patterns[i].src,
-                        arr.patterns[i].name,
-                        arr.patterns[i].content
-                    )
-                )
-            }
+        var url = window.temp_domain + "patternInsert";
+        var post_data = {
+            "user_id": "jm921106",
+            "name": name,
+            "phone": phone,
+            "address": address,
+            "result": dataURL
+        }
+        $.post(url, {
+            user_id: "jm921106",
+            name: name,
+            phone: phone,
+            address: address,
+            result: dataURL
+        }, function (data) {
+            console.log('post ok')
+            console.log(data)
+            if (data)
+                window.location.href = 'paint-result.html';
+            else
+                $('#modal_status').html('전송에 문제가 있습니다. 다시 시도해 주세요!').css("color", "red");
+        });
+    });
+
+// [2] 
+    $(function () {
+        var path = window.location.pathname;
+        var page = path.split("/").pop();
+        if (page == 'paint-result.html') {
+            var url = window.temp_domain + "patternFind";
+            $.get(url, function (datas) {
+                datas.forEach(function (data) {
+                    // console.log(data.imgURL)
+                    var img_url = window.temp_domain + "public/repository/" + data.imgURL;
+                    patternAdd(data.user_id, getDateFormat(new Date(data.date)), img_url);
+                })
+            });
         }
     });
 
     /**
-     * display part [in ajax]
+     * Panel Page [SET]
+     * [1]
+     * [2]
+     * [3]
+     * [4]
+     * [5]
+     * [6]
+     */
+// 페이지가 load시 today 수가 증가 - 한번만 되면 되기 때문에 initiate_plugins() 안에 처리하지 않음
+    $(function index_init() {
+        var path = window.location.pathname;
+        var page = path.split("/").pop();
+        if (page == 'index') {
+
+            var xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function () {
+                // if ( ajax 정상작동 했을시)
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log('today 작업 : ' + this.responseText)
+                    // document.getElementById("demo").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", window.temp_domain + "todayLoad", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send();
+        }
+    });
+
+    /**
+     * Display Part
+     * [1] display load
+     * [2] facebook api
+     * [3]
+     * [4]
+     * [5]
      *
      */
     $(function () {
         // [페이지 전환시 audio parse()]
         // if(audio.played) audio.pause();
-        var code = window.location.search.substring(1);
-        var category = window.location.search.substring(1);
+
+        var post_data = window.location.search.substring(1);
 
         var path = window.location.pathname;
         var page = path.split("/").pop();
-        switch(page) {
-            case 'display-intro.html':
-                $.ajax({
-                    url: './data/categorys.json',
-                    type: 'GET',
-                    dataType: 'json',
-                    success: function (data) {
-                        audioSet(category.mp3Url);
-                        $('#titleData').html(category.title);
-                        $('#contentData').html(category.introduce);
-                    }
-                });
-                break;
+        switch (page) {
+            // case 'display-intro.html':
+            //     $.ajax({
+            //         url: './data/categorys.json',
+            //         type: 'GET',
+            //         dataType: 'json',
+            //         success: function (data) {
+            //             audioSet(category.mp3Url);
+            //             $('#titleData').html(category.title);
+            //             $('#contentData').html(category.introduce);
+            //         }
+            //     });
+            //     break;
 
             case 'display-list.html':
+                // title setting & 전체 color 변경
+                console.log('display-list.html case >>> title color 변경 필요')
                 $.ajax({
                     url: './data/items.json',
                     type: 'GET',
                     dataType: 'json',
                     success: function (data) {
-                        data.forEach(function (item) {
-                            if (item.category == category) {
-                                listAdd(
-                                    item.code,
-                                    item.imgUrl[0],
-                                    item.title,
-                                    item.content_adult
-                                );
-                            }
+                        if(post_data == undefined)
+                            post_data = '1';
+
+                        data[post_data].forEach(function (cat) {
+                            // if (cat == category) {
+                            listAdd(
+                                post_data+'_'+cat.code,
+                                cat.srcImg[0],
+                                cat.title
+                            );
+                            // }
                         });
                     }
                 });
                 break;
-
             case 'display-content.html':
                 $.ajax({
                     url: './data/items.json',
                     type: 'GET',
                     dataType: 'json',
                     success: function (data) {
-                        data.forEach(function (item) {
-                            if (item.code == code) {
-                                item.imgUrl.forEach(function(imgUrl){
+                        var arr = post_data.split('_');
+                        if(arr[0]=="")
+                            var arr = ['1','1'];
+                        var cat = data[arr[0]];
+                        cat.forEach(function (item) {
+                            if(item.code == arr[1]) {
+                                item.srcImg.forEach(function (imgUrl) {
                                     imageSlideAdd(imgUrl);
-                                })
-                                audioSet(item.mp3Url);
-                                $('#item-title').html(item.title);
-                                $('#item-content').html(item.content_adult);
+                                });
+                                // audioSet(item.mp3Url);
+                                $('#item-title').html(item.subTitle);
+                                $('#item-content').html(item.content);
                             }
-                        });
+                        })
                     }
                 });
                 break;
         }
     });
 
+    // [2]
+    // window.fbAsyncInit = function() {
+    //     FB.init({
+    //         appId      : '1698354810427614',
+    //         xfbml      : true,
+    //         version    : 'v2.8'
+    //     });
+    //     FB.AppEvents.logPageView();
+    // };
+    $(function () {
+        var path = window.location.pathname;
+        var page = path.split("/").pop();
+        if(page == 'display-content.html') {
+            window.fbAsyncInit = function () {
+                FB.init({
+                    appId: '1698354810427614',
+                    xfbml: true,
+                    version: 'v2.8'
+                });
+                $(document).ajaxComplete(function(){
+                    try{
+                        FB.AppEvents.logPageView();
+//                FB.XFBML.parse();
+                    }catch(ex){}
+                });
+            };
+
+            $(function(d, s, id) {
+                console.log('facebook function in after method')
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {
+                    console.log(d.getElementById(id))
+                    return;
+                }
+                console.log(d.createElement(s))
+                console.log(id)
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8&appId=268198800203862";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        }
+    })
 }
 ////--> End of Call all function for Ajax, now from there recall all the functions <--////
 
@@ -530,41 +656,68 @@ var category;
 
 /**
  * Play Part
- * [1]
- * [2]
+ * [1] pattern summit
+ * [2] result contents
  * [3]
  * [4]
  * [5]
  *
  */
-// Pattern-Select
-$(function () {
-    var xmlhttp = new XMLHttpRequest();
-    var url = "data/patterns.json";
 
-    xmlhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) 
-            jsonRender(this.responseText);
-        
+// [1] 
+$('#pattern_submit').click(function () {
+    var name = $('#name').val();
+    var phone = $('#phone').val();
+    var address = $('#address').val();
+
+    if (name == "" || phone == "" || address == "") {
+        $('#modal_status').html('값을 정확히 입력해 주세요!').css("color", "red");
+        return;
     }
-    xmlhttp.open("GET", url, true);
-    xmlhttp.send();
 
-    function jsonRender(response) {
-        var arr = JSON.parse(response);
+    // var result = null;
+    var canvas = document.getElementById('myCanvas');
+    var dataURL = canvas.toDataURL();
 
-        for (var i = 0; i < arr.patterns.length; i++) {
-            $('#pattern_grid').append(
-                patternDiv(
-                    arr.patterns[i].src,
-                    arr.patterns[i].name,
-                    arr.patterns[i].content
-                )
-            )
-        }
+    var url = window.temp_domain + "patternInsert";
+    var post_data = {
+        "user_id": "jm921106",
+        "name": name,
+        "phone": phone,
+        "address": address,
+        "result": dataURL
     }
+    $.post(url, {
+        user_id: "jm921106",
+        name: name,
+        phone: phone,
+        address: address,
+        result: dataURL
+    }, function (data) {
+        console.log('post ok')
+        console.log(data)
+        if (data)
+            window.location.href = 'paint-result.html';
+        else
+            $('#modal_status').html('전송에 문제가 있습니다. 다시 시도해 주세요!').css("color", "red");
+    });
 });
 
+// [2] 
+$(function () {
+    var path = window.location.pathname;
+    var page = path.split("/").pop();
+    if (page == 'paint-result.html') {
+        var url = window.temp_domain + "patternFind";
+        $.get(url, function (datas) {
+            datas.forEach(function (data) {
+                // console.log(data.imgURL)
+                var img_url = window.temp_domain + "public/repository/" + data.imgURL;
+                patternAdd(data.user_id, getDateFormat(new Date(data.date)), img_url);
+            })
+        });
+    }
+});
 
 /**
  * Panel Page [SET]
@@ -598,8 +751,8 @@ $(function index_init() {
 
 /**
  * Display Part
- * [1]
- * [2]
+ * [1] display load
+ * [2] facebook api
  * [3]
  * [4]
  * [5]
@@ -609,66 +762,123 @@ $(function () {
     // [페이지 전환시 audio parse()]
     // if(audio.played) audio.pause();
 
-    var code = window.location.search.substring(1);
-    var category = window.location.search.substring(1);
+    var post_data = window.location.search.substring(1);
 
     var path = window.location.pathname;
     var page = path.split("/").pop();
-    switch(page) {
-        case 'display-intro.html':
-            $.ajax({
-                url: './data/categorys.json',
-                type: 'GET',
-                dataType: 'json',
-                success: function (data) {
-                    audioSet(category.mp3Url);
-                    $('#titleData').html(category.title);
-                    $('#contentData').html(category.introduce);
-                }
-            });
-            break;
+    switch (page) {
+        // case 'display-intro.html':
+        //     $.ajax({
+        //         url: './data/categorys.json',
+        //         type: 'GET',
+        //         dataType: 'json',
+        //         success: function (data) {
+        //             audioSet(category.mp3Url);
+        //             $('#titleData').html(category.title);
+        //             $('#contentData').html(category.introduce);
+        //         }
+        //     });
+        //     break;
 
         case 'display-list.html':
+            // title setting & 전체 color 변경
+            console.log('display-list.html case >>> title color 변경 필요')
             $.ajax({
                 url: './data/items.json',
                 type: 'GET',
                 dataType: 'json',
                 success: function (data) {
-                    data.forEach(function (item) {
-                        if (item.category == category) {
+                    if(post_data == undefined)
+                        post_data = '1';
+
+                    data[post_data].forEach(function (cat) {
+                        // if (cat == category) {
                             listAdd(
-                                item.code,
-                                item.imgUrl[0],
-                                item.title,
-                                item.content_adult
+                                post_data+'_'+cat.code,
+                                cat.srcImg[0],
+                                cat.title
                             );
-                        }
+                        // }
                     });
                 }
             });
             break;
-
         case 'display-content.html':
             $.ajax({
                 url: './data/items.json',
                 type: 'GET',
                 dataType: 'json',
                 success: function (data) {
-                    data.forEach(function (item) {
-                        if (item.code == code) {
-                            item.imgUrl.forEach(function(imgUrl){
+                    var arr = post_data.split('_');
+                    if(arr[0]=="")
+                        var arr = ['1','1'];
+                    var cat = data[arr[0]];
+                    cat.forEach(function (item) {
+                        if(item.code == arr[1]) {
+                            item.srcImg.forEach(function (imgUrl) {
                                 imageSlideAdd(imgUrl);
-                            })
-                            audioSet(item.mp3Url);
-                            $('#item-title').html(item.title);
-                            $('#item-content').html(item.content_adult);
+                            });
+                            // audioSet(item.mp3Url);
+                            $('#item-title').html(item.subTitle);
+                            $('#item-content').html(item.content);
                         }
-                    });
+                    })
                 }
             });
             break;
     }
 });
+
+// [2]
+// window.fbAsyncInit = function() {
+//     FB.init({
+//         appId      : '1698354810427614',
+//         xfbml      : true,
+//         version    : 'v2.8'
+//     });
+//     FB.AppEvents.logPageView();
+// };
+$(function () {
+    var path = window.location.pathname;
+    var page = path.split("/").pop();
+    if(page == 'display-content.html') {
+
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '1698354810427614',
+                xfbml: true,
+                version: 'v2.8'
+            });
+            $(document).ajaxComplete(function(){
+                try{
+                    FB.AppEvents.logPageView();
+//                FB.XFBML.parse();
+                }catch(ex){}
+            });
+        };
+
+        $(function(d, s, id) {
+            console.log('facebook reload method')
+            var js, fjs = d.getElementsByTagName(s)[0];
+            console.log(d.getElementById(id))
+            if (d.getElementById(id)) {
+                console.log(d.getElementById(id))
+                return;
+            }
+            console.log(d.createElement(s))
+            console.log(id)
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8&appId=268198800203862";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    }
+})
+
+/**
+ *  function util
+ *
+ */
+
 
 function audioSet(url) {
     audio = new Audio(url);
@@ -681,40 +891,83 @@ function audioSet(url) {
 function imageSlideAdd(imgUrl) {
     $('#item-slide').append(
         "<div class='swiper-slide'>" +
-        "<img src="+imgUrl+" alt=''>" +
+        "<img src=" + imgUrl + " alt=''>" +
         "</div>");
 }
 
-function listAdd(code, imgUrl, title, content) {
-    $('#itemList').append(
+
+function listAdd(code, imgUrl, title) {
+    $('#list_grid').append(
         "<div class='grid-item gallery-item-card'>" +
-        "<a href="+'display-content.html?'+code+">" +
+        "<a href=" + 'display-content.html?' + code + ">" +
         "<img src=" + imgUrl + ">" +
         "<div class='gallery-item-header'>" +
         "<div class='gallery-item-author'>" +
-        "<span>" + title + "</span>" +
-        "<span class='small'>" + content + "</span>" +
+        "<div>" +
+        title +
         "</div>" +
-        "</div> " +
+        "</div>" +
+        "</div>" +
         "</a>" +
-        "</div>");
+        "</div>"
+    );
 }
 
-function patternDiv(src, name, content) {
-    var patternDiv = "";
-    patternDiv += "<div class='grid-item gallery-item-card'>"
-    patternDiv += "<a href='" + src + "' class='swipebox no-smoothState' title='This is dummy caption.'>"
-    patternDiv += "<img src='" + src + "' alt='image'>"
-    patternDiv += "</a>"
-    patternDiv += "<div class='gallery-item-header'>"
-    patternDiv += "<div class='gallery-item-author'>"
-    patternDiv += "<span>'" + name + "'</span>"
-    patternDiv += "<span class='small'>" + content + "</span>"
-    patternDiv += "<a href='paint-draw.html' class='waves-effect waves-light btn primary-color font-size-12'>무늬 선택</a>"
-    patternDiv += "</div></div></div>"
-    return patternDiv;
+function patternAdd(user_id, date, img_url) {
+    $('#result_contents').append(
+        "<div class='blog-fullwidth animated fadeinup delay-1'>" +
+        "<div class='blog-header'>" +
+        "<div class='ml-m30'>" +
+        "<div class='font-size-18'>" + user_id + "</div>" +
+        "<div class='small'>" + date + "</div>" +
+        "</div>" +
+        "</div>" +
+        "<div class='blog-image m-20'>" +
+        "<img src=" + img_url + " alt=''>" +
+        "<div class='opacity-overlay-top'></div>" +
+        "</div>" +
+        "</div>"
+    );
 }
 
 
+
+
+function find() {
+    var temp = $("#findForm").val();
+    $("#findBox").html("");
+
+    $.ajax({
+        url: './data/items.json',
+        type: 'GET',
+        dataType: 'json',
+        success: function (data) {
+            for(var i = 1 ; i <= 5 ; i ++){
+
+                var cat=""+ i+"";
+                var arr = data[cat];
+                arr.forEach( function(arr){
+                    if (arr.title.match(temp)) { //타이틀이 같아야해
+                        var link = "./display-content.html?" + cat+"_"+arr.code;
+                        $("#findBox").append("<a href='" + link + "'><li>" + arr.title + "</li></a>");
+                    }
+                });
+
+            }
+        }
+    })
+}
+
+function getDateFormat(date) {
+    // 년월일 얻기
+    return date.getFullYear() + '-' + addZero(date.getMonth() + 1) + '-' + addZero(date.getDate());
+}
+
+function addZero(num) {
+    if (num < 10)
+        return '0' + num;
+    else
+        return num;
+}
 
 
