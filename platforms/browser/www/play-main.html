@@ -7,13 +7,12 @@
 <body>
 <div class="m-scene" id="main"> <!-- Main Container -->
 
-    <!-- SIDE LEFT-->
+    <!-- SideBar -->
     <ul id="slide-out-left" class="side-nav collapsible">
         <div w3-include-html="views/include/left-panel.html"></div>
     </ul>
-    <!-- SIDE RIGHT-->
     <ul id="slide-out-right" class="side-nav collapsible">
-
+        <div w3-include-html="views/include/right-panel.html"></div>
     </ul>
 
     <!-- Page Content -->
@@ -24,7 +23,7 @@
             <div class="open-left" id="open-left" data-activates="slide-out-left">
                 <i class="ion-android-menu"></i>
             </div>
-            <span class="title"></span>
+            <span class="center-align"></span>
             <div class="open-right" id="open-right" data-activates="slide-out-right">
                 <i class="ion-android-search"></i>
             </div>
@@ -41,19 +40,17 @@
                     <div class="swiper-slide bg-v-1">
                         <div class="opacity-overlay-black"></div>
                         <div class="bottom-abs left-align">
-                            <p class="slider-category white-text">mobile pattern painting</p>
-                            <h4 class="slider-title uppercase white-text">아름다운 무늬</h4>
+                            <!--<p class="slider-category white-text">mobile pattern painting</p>-->
+                            <h4 class="slider-category slider-title uppercase white-text">소원을 담은 문양</h4>
                             <p class="slider-text small white-text">
-                                스마트 폰으로 제공하는 무늬를 색칠해세요.<br/>
-                                무늬중 가장 마음에 드는 무늬를 선택하고<br/>
-                                그 무늬를 예쁜 색으로 색칠해 봅시다.<br/>
-                                매 달 가장 많은 투표를 받은 사람에게 <br/>
-                                소정에 상품을 보내드리니<br/>
-                                꼭 참여해 보세요 !
+                                마음에 드는 문양을 선택해서 예쁜 색으로<br>
+                                색칠해 보세요 ! 가장 많은 투표를 받은 분께 <br>
+                                소정의 선물을 드립니다 !
                             </p>
-                            <a class="waves-effect waves-light btn-large primary-color block animated bouncein delay-4" href="paint-intro.html">
-                                시 작 하 기
-                            </a>
+                            <span class="center-align">
+                                <a class="btn block animated bouncein delay-4" href="paint-select.html">시 작 하 기</a>
+                                <a class="btn  block animated bouncein delay-4" href="paint-intro.html">투 표 하 기</a>
+                            </span>
                         </div>
                     </div>
 

@@ -5,62 +5,78 @@
 </head>
 
 <body>
+
 <div class="m-scene" id="main"> <!-- Main Container -->
 
-    <!-- SIDE LEFT-->
+    <!-- SideBar -->
     <ul id="slide-out-left" class="side-nav collapsible">
         <div w3-include-html="views/include/left-panel.html"></div>
     </ul>
-    <!-- SIDE RIGHT-->
     <ul id="slide-out-right" class="side-nav collapsible">
-
+        <div w3-include-html="views/include/right-panel.html"></div>
     </ul>
+    <img class="pos-ab fullscreen" src="img/background/patternBG.jpg"/>
 
     <!-- Page Content -->
     <div id="content">
 
         <!-- Toolbar -->
-        <div id="toolbar" class="primary-color box-shad-none">
+        <div id="toolbar" class="box-shad-none">
             <div class="open-left" id="open-left" data-activates="slide-out-left">
                 <i id="left-side-icon" class="ion-android-menu"></i>
             </div>
             <span class="title none"></span>
             <!-- DESIGN PROBLEM [DELETE]-->
-            <!--<div class="open-right" id="open-right" data-activates="slide-out-right">-->
-                <!--<i class="ion-android-search"></i>-->
-            <!--</div>-->
-        </div>
-
-        <!-- Hero Header -->
-        <div class="h-banner animated fadeindown">
-            <div class="parallax primary-color">
-                <div class="floating-button animated bouncein delay-3">
-            <span class="btn-floating resize btn-large waves-effect waves-light accent-color btn z-depth-1">
-              <i class="ion-volume-high" id="voicePlay"></i>
-            </span>
-                </div>
-                <div class="banner-title">[전시페이지]</div>
+            <div class="open-right" id="open-right" data-activates="slide-out-right">
+                <i class="ion-android-search"></i>
             </div>
         </div>
 
         <!-- Main Content -->
         <div class="animated fadeinup delay-1">
-            <div class="page-content">
-                <div id="display-content">
-                    <p class="text-flow">
-                        <!-- Content [INPUT]-->
-                        <span class="dropcap">경</span>
-                        기도 박물관에 오신것을 환영합니다. 경기도 박물관에 오신것을 환영합니다. 경기도 박물관에 오신것을 환영합니다. 경기도 박물관에 오신것을 환영합니다. 경기도 박물관에 오신것을 환영합니다. 경기도 박물관에 오신것을 환영합니다. 경기도 박물관에 오신것을 환영합니다. 경기도 박물관에 오신것을 환영합니다.
-                    </p>
-                </div>
-                <div id="display-button" class="m-t-20">
-                    <a id="move-btn" class="waves-effect waves-light btn-large primary-color width-100" href="display-map.html">박물관 지도보기</a>
+            <div class="fullscreen vamiddle pos-re z-index-front">
+                <div class="full-square-outer vamiddle z-index-front">
+                    <div class="full-square z-index-front">
+                        <!-- title -->
+                        <div>
+                            <div class="width-100 pos-ab right-align">
+                                <!-- sound icon-->
+                                <a href="#"
+                                   class="btn-floating btn waves-effect waves-light cus-background-basic btn z-depth-1 m-20">
+                                    <i class="ion-volume-high" id="voicePlay"></i>
+                                </a>
+                            </div>
+                            <div style="padding: 20px" class="width-100 ">
+                                <!-- title -->
+                                <p class="font-size-10 lh-normal">경기도 박물관 개관 20주년 특별전</p>
+                                <p class="font-size-15  fwbold cus-color-deepRed">조선의 옷 매무새 VI</p>
+                            </div>
+                        </div>
+
+                        <!--contents -->
+                        <div class="width-100 center-align">
+                            <img class="title-img-resizing" src="img/museum/display_title.png">
+
+                            <div class=" m-20">
+                                contents contents contents contents contents contents contents contents contents contents
+                                contents contents contents contents contents contents contents contents contents contents
+                                contents contents contents contents contents contents contents contents contents contents
+                                contents contents contents contents contents contents contents contents contents contents
+                                contents contents contents contents contents contents contents contents contents contents
+                            </div>
+
+                            <!--button-->
+                            <a href="display-subTitle.html" class="btn center-align cus-background-basic">전시 입장</a>
+
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
         <!-- End of Main Contents -->
 
-        <div w3-include-html="views/include/footer.html"></div>
+        <!--<div w3-include-html="views/include/footer.html"></div>-->
     </div> <!-- End of Page Content -->
 </div> <!-- End of Page Container -->
 

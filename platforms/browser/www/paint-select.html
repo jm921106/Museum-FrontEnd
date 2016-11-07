@@ -27,52 +27,152 @@
 
 <div class="m-scene" id="main"> <!-- Main Container -->
 
-    <!-- leftSideBar -->
+    <!-- SideBar -->
     <ul id="slide-out-left" class="side-nav collapsible">
         <div w3-include-html="views/include/left-panel.html"></div>
-        <!--<li>-->
-            <!--<div class="sidenav-header primary-color">-->
-                <!--<div class="nav-social">-->
-                    <!--<i class="ion-social-facebook"></i>-->
-                    <!--<i class="ion-social-twitter"></i>-->
-                    <!--<i class="ion-social-tumblr"></i>-->
-                <!--</div>-->
-                <!--<div class="nav-avatar">-->
-                    <!--<img class="circle avatar" src="img/user.jpg" alt="">-->
-                    <!--<div class="avatar-body">-->
-                        <!--<h3>전시 제목</h3>-->
-                        <!--<p>경기도 박물관</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</li>-->
-        <!--<li><a href="shop.html" class="no-child"><i class="ion-android-playstore"></i> Display</a></li>-->
-        <!--<li><a href="play-main.html" class="no-child"><i class="ion-ios-videocam"></i> Play</a></li>-->
-        <!--<li><a href="view/ sketchJS/sketch.html" class="no-child"><i class="ion-ios-videocam"></i> SketchJS</a></li>-->
-        <!--<li><a href="#" class="no-child"><i class="ion-social-rss"></i> panel_1</a></li>-->
-        <!--<li><a href="#" class="no-child"><i class="ion-android-map"></i> panel_2</a></li>-->
-        <!--<li><a href="#" class="no-child"><i class="ion-android-map"></i> panel_3</a></li>-->
-        <!--<li><a href="#" class="no-child"><i class="ion-android-map"></i> panel_4</a></li>-->
-        <!--<li><a href="#" class="no-child"><i class="ion-android-map"></i> panel_5</a></li>-->
-        <!--<li><a href="#" class="no-child"><i class="ion-android-map"></i> panel_6</a></li>-->
+    </ul>
+    <ul id="slide-out-right" class="side-nav collapsible">
+        <div w3-include-html="views/include/right-panel.html"></div>
     </ul>
 
     <!-- Page Content -->
-    <div id="content" class="grey-blue page">
+    <div id="content" class="page">
 
         <!-- Toolbar -->
-        <div id="toolbar" class="primary-color">
+        <div id="toolbar" class="tool-bar white-color">
             <div class="open-left" id="open-left" data-activates="slide-out-left">
-                <i class="ion-android-menu"></i>
+                <i class="cus-color-1 ion-android-menu"></i>
             </div>
-            <span class="title">paint-select</span>
+            <span class="cus-background-1 title">소원을 담은 문양</span>
+            <div class="cus-color-1 open-right" id="open-right" data-activates="slide-out-right">
+                <i class="cus-color-1 ion-android-search"></i>
+            </div>
         </div>
 
         <!-- Main Content -->
         <div class="animated fadeinup delay-3">
 
-            <div id="pattern_grid" class="grid m-10">
-
+            <div id="pattern_grid" class="grid m-10-10-66-10">
+                <div class='grid-item gallery-item-card'>
+                    <a href="paint-draw.html?pattern=1" class='swipebox' title='This is dummy caption.'>
+                        <img src="img/patterns/pattern_1.png">
+                        <div class='gallery-item-header'>
+                            <div class='gallery-item-author'>
+                                <div class="one-line">
+                                    '구름' <div class='small'>장수 장생</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class='grid-item gallery-item-card'>
+                    <a href="paint-draw.html?pattern=1" class='swipebox' title='This is dummy caption.'>
+                        <img src="img/patterns/pattern_2.png">
+                        <div class='gallery-item-header'>
+                            <div class='gallery-item-author'>
+                                <div class="one-line">
+                                    '매화' <div class='small'>군자 지조</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class='grid-item gallery-item-card'>
+                    <a href="paint-draw.html?pattern=3" class='swipebox' title='This is dummy caption.'>
+                        <img src="img/patterns/pattern_3.png" alt='image'>
+                        <div class='gallery-item-header'>
+                            <div class='gallery-item-author'>
+                                <div class="one-line">
+                                    '모란' <div class='small'>부귀영화</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class='grid-item gallery-item-card'>
+                    <a href="paint-draw.html?pattern=4" class='swipebox' title='This is dummy caption.'>
+                        <img src="img/patterns/pattern_4.png" alt='image'>
+                        <div class='gallery-item-header'>
+                            <div class='gallery-item-author'>
+                                <div class="one-line">
+                                    '박쥐' <div class='small'>복</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class='grid-item gallery-item-card'>
+                    <a href="paint-draw.html?pattern=5" class='swipebox' title='This is dummy caption.'>
+                        <img src="img/patterns/pattern_5.png" alt='image'>
+                        <div class='gallery-item-header'>
+                            <div class='gallery-item-author'>
+                                <div class="one-line">
+                                    '새' <div class='small'>경사</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class='grid-item gallery-item-card'>
+                    <a href="paint-draw.html?pattern=6" class='swipebox' title='This is dummy caption.'>
+                        <img src="img/patterns/pattern_6.png" alt='image'>
+                        <div class='gallery-item-header'>
+                            <div class='gallery-item-author'>
+                                <div class="one-line">
+                                    '쌍어' <div class='small'>부귀 번영 행복</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class='grid-item gallery-item-card'>
+                    <a href="paint-draw.html?pattern=7" class='swipebox' title='This is dummy caption.'>
+                        <img src="img/patterns/pattern_7.png" alt='image'>
+                        <div class='gallery-item-header'>
+                            <div class='gallery-item-author'>
+                                <div class="one-line">
+                                    '여의보주' <div class='small'>천지조화</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class='grid-item gallery-item-card'>
+                    <a href="paint-draw.html?pattern=8" class='swipebox' title='This is dummy caption.'>
+                        <img src="img/patterns/pattern_8.png" alt='image'>
+                        <div class='gallery-item-header'>
+                            <div class='gallery-item-author'>
+                                <div class="one-line">
+                                    '연꽃' <div class='small'>풍족 합격 다산</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class='grid-item gallery-item-card'>
+                    <a href="paint-draw.html?pattern=9" class='swipebox' title='This is dummy caption.'>
+                        <img src="img/patterns/pattern_9.png" alt='image'>
+                        <div class='gallery-item-header'>
+                            <div class='gallery-item-author'>
+                                <div class="one-line">
+                                    '전보' <div class='small'>보배 다복</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class='grid-item gallery-item-card'>
+                    <a href="paint-draw.html?pattern=10" class='swipebox' title='This is dummy caption.'>
+                        <img src="img/patterns/pattern_10.png" alt='image'>
+                        <div class='gallery-item-header'>
+                            <div class='gallery-item-author'>
+                                <div class="one-line">
+                                    '호로' <div class='small'>자손 번창</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
         <!-- End of Main Contents -->
@@ -81,25 +181,9 @@
 
     <!-- Footer -->
     <!--<div w3-include-html="views/include/footer.html"></div>-->
-    <footer class="page-footer primary-color">
-        <div class="container">
-            <div class="row">
-                <div class="col s12">
-                    <p class="center-align grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-                    <div class="center-align">
-                        <i class="ion-social-facebook m-10 white-text"></i>
-                        <i class="ion-social-twitter m-10 white-text"></i>
-                        <i class="ion-social-pinterest m-10 white-text"></i>
-                        <i class="ion-social-dribbble m-10 white-text"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-copyright primary-color darken-1">
-            <div class="container">
-                2016 Codnauts
-                <a class="grey-text text-lighten-4 right" href="#!">Privacy Policy</a>
-            </div>
+    <footer class="page-footer cus-background-1 bottom-fixed">
+        <div class="footer-copyright cus-background-1 darken-1 bottom-fixed width-100 center-align vamiddle">
+            <img class="center-align logo-img-resizing" src="img/museum/museum-logo.png">
         </div>
     </footer>
 
@@ -111,7 +195,6 @@
 <script src="js/jquery.swipebox.min.js"></script>
 <script src="js/jquery.smoothState.min.js"></script>
 <script src="js/materialize.min.js"></script>
-<script src="js/swiper.min.js"></script>
 <script src="js/jquery.mixitup.min.js"></script>
 <script src="js/masonry.min.js"></script>
 <script src="js/chart.min.js"></script>
@@ -119,3 +202,4 @@
 
 </body>
 </html>
+

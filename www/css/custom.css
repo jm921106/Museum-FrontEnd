@@ -49,6 +49,13 @@
     background-color: #8a6d3b;
 }
 
+.cus-color-black {
+    color: #000000 !important;
+}
+
+.cus-background-black {
+    background-color: #000000 !important;
+}
 
 /* color */
 .primary-text {
@@ -256,6 +263,10 @@ canvas {
     background-color: white !important;
 }
 
+.black-text {
+    olor: black !important;
+}
+
 .one-line {
     /*display: inline-block !important;*/
     /*display:block !important;*/
@@ -287,4 +298,9 @@ canvas {
 
 .m-10-10-66-10 {
     margin : 10px 10px 66px 10px !important;
+}
+
+/* like btn css */
+.heart-btn {
+    color : red !important;
 }

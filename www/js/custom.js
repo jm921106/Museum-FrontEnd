@@ -205,9 +205,10 @@ function initiate_plugins() {
 
 
     /**
-     * html include
+     * w3IncludeHTML [HTML INCLUDE]
      *
      */
+// w3IncludeHTML - html include code
     $(function w3IncludeHTML() {
         var z, i, a, file, xhttp;
         z = document.getElementsByTagName("*");
@@ -231,6 +232,13 @@ function initiate_plugins() {
         }
     })
 
+    /**
+     * global val
+     *
+     */
+    var audio = new Audio();
+    var item;
+    var category;
 
     /**
      * Play Part
@@ -242,7 +250,7 @@ function initiate_plugins() {
      *
      */
 
-// [1]
+// [1] 
     $('#pattern_submit').click(function () {
         var name = $('#name').val();
         var phone = $('#phone').val();
@@ -281,7 +289,7 @@ function initiate_plugins() {
         });
     });
 
-// [2]
+// [2] 
     $(function () {
         var path = window.location.pathname;
         var page = path.split("/").pop();
@@ -329,8 +337,8 @@ function initiate_plugins() {
 
     /**
      * Display Part
-     * [1]
-     * [2]
+     * [1] display load
+     * [2] facebook api
      * [3]
      * [4]
      * [5]
@@ -366,13 +374,13 @@ function initiate_plugins() {
                     type: 'GET',
                     dataType: 'json',
                     success: function (data) {
-                        if(post_data == undefined)
+                        if (post_data == undefined)
                             post_data = '1';
 
                         data[post_data].forEach(function(cat) {
                             // if (cat == category) {
                             listAdd(
-                                post_data+'_'+cat.code,
+                                post_data + '_' + cat.code,
                                 cat.srcImg[0],
                                 cat.title
                             );
@@ -388,12 +396,13 @@ function initiate_plugins() {
                     dataType: 'json',
                     success: function(data) {
                         var arr = post_data.split('_');
-                        if(arr[0]=="")
-                            var arr = ['1','1'];
+                        if (arr[0] == "")
+                            var arr = ['1', '1'];
                         var cat = data[arr[0]];
                         cat.forEach(function (item) {
                             if(item.code == arr[1]) {
                                 item.srcImg.forEach(function(imgUrl) {
+
                                     imageSlideAdd(imgUrl);
                                 });
                                 // audioSet(item.mp3Url);
@@ -406,6 +415,49 @@ function initiate_plugins() {
                 break;
         }
     });
+
+    // [2]
+    // window.fbAsyncInit = function() {
+    //     FB.init({
+    //         appId      : '1698354810427614',
+    //         xfbml      : true,
+    //         version    : 'v2.8'
+    //     });
+    //     FB.AppEvents.logPageView();
+    // };
+//     $(function () {
+//         var path = window.location.pathname;
+//         var page = path.split("/").pop();
+//         if(page == 'display-content.html') {
+//             window.fbAsyncInit = function () {
+//                 FB.init({
+//                     appId: '1698354810427614',
+//                     xfbml: true,
+//                     version: 'v2.8'
+//                 });
+//                 $(document).ajaxComplete(function(){
+//                     try{
+//                         FB.AppEvents.logPageView();
+// //                FB.XFBML.parse();
+//                     }catch(ex){}
+//                 });
+//             };
+//
+//             $(function(d, s, id) {
+//                 console.log('facebook function in after method')
+//                 var js, fjs = d.getElementsByTagName(s)[0];
+//                 if (d.getElementById(id)) {
+//                     console.log(d.getElementById(id))
+//                     return;
+//                 }
+//                 console.log(d.createElement(s))
+//                 console.log(id)
+//                 js = d.createElement(s); js.id = id;
+//                 js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8&appId=268198800203862";
+//                 fjs.parentNode.insertBefore(js, fjs);
+//             }(document, 'script', 'facebook-jssdk'));
+//         }
+//     })
 }
 ////--> End of Call all function for Ajax, now from there recall all the functions <--////
 
@@ -546,7 +598,7 @@ $(function () {
             $container.mixItUp('changeLayout', {
                 containerClass: layout // change the container class to "grid"
             });
-            // Else if the current layout is a grid, change to list:  
+            // Else if the current layout is a grid, change to list:
         } else {
             layout = 'grid';
             $changeLayout.text('List'); // Update the button text
@@ -681,28 +733,57 @@ $(function () {
 $(function index_init() {
     var path = window.location.pathname;
     var page = path.split("/").pop();
-    if (page == 'index') {
-
-        var xhttp = new XMLHttpRequest();
-
-        xhttp.onreadystatechange = function () {
-            // if ( ajax 정상작동 했을시)
-            if (this.readyState == 4 && this.status == 200) {
-                console.log('today 작업 : ' + this.responseText)
-                // document.getElementById("demo").innerHTML = this.responseText;
+    switch (page) {
+        case 'index.html':
+            if(localStorage.getItem('user_id') == null) {
+                console.log('최초 접속 유저]');
+                var uniqueNumber = ID();
+                localStorage.setItem('user_id', uniqueNumber);
+            } else {
+                console.log('기존 접속 유저');
             }
-        };
-        xhttp.open("GET", window.temp_domain + "todayLoad", true);
-        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send();
+
+            url = window.temp_domain + "todayLoad";
+            $.get(url, function (data) {
+                console.log('today count complite')
+            });
+            break;
+        case 'side-notice.html':
+            var url = window.temp_domain + "getNotice";
+            $.get(url, function(data) {
+                data.forEach(function(notice, i) {
+                    var date_str = getDateFormat(new Date(notice.date))
+                    addNoticeList(notice.title, notice.contents, date_str, i)
+                });
+            });
+            break;
+        case 'side-myLike.html':
+            console.log('in ~ side-myLike.html')
+            // var url = window.temp_domain + "myLike";
+            // $.post(url, {
+            //     deviceInfo : localStorage.getItem('user_id')
+            // } ,function(data) {
+            //     console.log('post ok')
+            // //     // data.forEach(function(myLike) {
+            // //     //     myLikeAdd();
+            // //     // });
+            // });
+            break;
+
     }
 });
+var ID = function () {
+    // Math.random should be unique because of its seeding algorithm.
+    // Convert it to base 36 (numbers + letters), and grab the first 9 characters
+    // after the decimal.
+    return '_' + Math.random().toString(36).substr(2, 9);
+};
 
 /**
  * Display Part
- * [1]
- * [2]
- * [3]
+ * [1] display load
+ * [2] facebook api
+ * [3] like action
  * [4]
  * [5]
  *
@@ -737,16 +818,16 @@ $(function () {
                 type: 'GET',
                 dataType: 'json',
                 success: function (data) {
-                    if(post_data == undefined)
+                    if (post_data == undefined)
                         post_data = '1';
 
                     data[post_data].forEach(function(cat) {
                         // if (cat == category) {
-                            listAdd(
-                                post_data+'_'+cat.code,
-                                cat.srcImg[0],
-                                cat.title
-                            );
+                        listAdd(
+                            post_data + '_' + cat.code,
+                            cat.srcImg[0],
+                            cat.title
+                        );
                         // }
                     });
                 }
@@ -759,25 +840,77 @@ $(function () {
                 dataType: 'json',
                 success: function (data) {
                     var arr = post_data.split('_');
-                    if(arr[0]=="")
-                        var arr = ['1','1'];
+                    if (arr[0] == "")
+                        var arr = ['1', '1'];
                     var cat = data[arr[0]];
                     cat.forEach(function (item) {
-                        if(item.code == arr[1]) {
+                        if (item.code == arr[1]) {
                             item.srcImg.forEach(function (imgUrl) {
                                 imageSlideAdd(imgUrl);
                             });
                             // audioSet(item.mp3Url);
                             $('#item-title').html(item.subTitle);
                             $('#item-content').html(item.content);
+
+                            var url = window.temp_domain + "likeCall";
+                            $.post(url, {
+                                itemCode : post_data,
+                                deviceInfo : localStorage.getItem('user_id')
+                            } ,function (data) {
+                                if(data.status) {
+                                    $('#like-status').val('true');
+                                } else {
+                                    $('#like-status').val('false');
+                                }
+                                // 1. css 효과 변경
+                                if($('#like-status').val() == 'true') {
+                                    $('#heart-icon').addClass('heart-btn');
+                                    $('#heart-icon').removeClass('cus-color-black');
+
+                                } else {
+                                    $('#heart-icon').addClass('cus-color-black');
+                                    $('#heart-icon').removeClass('heart-btn');
+                                }
+                            });
                         }
                     })
                 }
             });
+            likeBtnSet(post_data);
             break;
     }
 });
 
+// [2]
+
+
+// [3] like btn
+var likeBtnSet = function (post_data) {
+   $('#like-btn').click(function () {
+       // 1. css 효과 변경
+       if($('#like-status').val() == 'true') {
+           // like true
+           $('#like-status').val('false');
+           $('#heart-icon').addClass('cus-color-black');
+           $('#heart-icon').removeClass('heart-btn');
+       } else {
+           // like false
+           $('#like-status').val('true');
+           $('#heart-icon').addClass('heart-btn');
+           $('#heart-icon').removeClass('cus-color-black');
+       }
+
+       // 2. post like data
+       var url = window.temp_domain + "likePlus";
+       $.post(url, {
+           itemCode : post_data,
+           deviceInfo : localStorage.getItem('user_id'),
+           likeStatus : $('#like-status').val()
+       } ,function (data) {
+
+       });
+   })
+};
 
 /**
  *  function util
@@ -835,7 +968,34 @@ function patternAdd(user_id, date, img_url) {
     );
 }
 
+function addNoticeList(title, content, date, delay){
+    $('#noticeList').append(""+
+        "<div class = 'single-news animated fadeinright delay-"+delay+"'>" +
+        "<h4 class='single-news-title'>" +
+        "<a href='#'>"+title+"</a>" +
+        "</h4>" +
+        "<span class='single-news-channel'>"+content+"<span class='single-news-category'>"+ date +"</span></span>"+
+        "</div>"
+    )
+};
 
+function myLikeAdd(code, title, subtitle, img_src, delay){
+    $('#myLikeList').append(""+
+        "<a href='display-content.html?"+code+"'>" +
+        "<div class='blog-fullwidth animated fadeinup delay-"+delay+"'>" +
+        "<div class='blog-header'>" +
+        "<div class='ml-m30'>" +
+        "<div class='font-size-18'>title</div>" +
+        "<div class='small'>subtitle</div>" +
+        "</div>" +
+        "</div>" +
+        "<div class='blog-image m-20'>" +
+        "<img src='"+img_src+"' alt=''>" +
+        "<div class='opacity-overlay-top'></div>" +
+        "</div>" +
+        "</div>" +
+        "</a>")
+};
 
 
 function find() {
@@ -847,14 +1007,14 @@ function find() {
         type: 'GET',
         dataType: 'json',
         success: function (data) {
-            for(var i = 1 ; i <= 5 ; i ++){
+            for (var i = 1; i <= 5; i++) {
 
-                var cat=""+ i+"";
+                var cat = "" + i + "";
                 var arr = data[cat];
-                arr.forEach( function(arr){
+                arr.forEach(function (arr) {
                     if (arr.title.match(temp)) { //타이틀이 같아야해
-                        var link = "./display-content.html?" + cat+"_"+arr.code;
-                        $("#findBox").append("<a href='" + link + "'><li>" + arr.title + "</li></a>");
+                        var link = "./display-content.html?" + cat + "_" + arr.code;
+                        $("#findBox").append("<a class = '' href='" + link + "'><li>" + arr.title + "</li></a>");
                     }
                 });
 

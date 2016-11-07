@@ -25,135 +25,50 @@
 <body class="backgroundImg">
 <div class="m-scene" id="main"> <!-- Main Container -->
 
+    <!-- SideBar -->
     <ul id="slide-out-left" class="side-nav collapsible">
         <div w3-include-html="views/include/left-panel.html"></div>
-        <!--<li>-->
-            <!--<div class="sidenav-header primary-color">-->
-                <!--<div class="nav-social">-->
-                    <!--<i class="ion-social-facebook"></i>-->
-                    <!--<i class="ion-social-twitter"></i>-->
-                    <!--<i class="ion-social-tumblr"></i>-->
-                <!--</div>-->
-                <!--<div class="nav-avatar">-->
-                    <!--<img class="circle avatar" src="img/user.jpg" alt="">-->
-                    <!--<div class="avatar-body">-->
-                        <!--<h3>전시 제목</h3>-->
-                        <!--<p>경기도 박물관</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</li>-->
-        <!--<li><a href="shop.html" class="no-child"><i class="ion-android-playstore"></i> Display</a></li>-->
-        <!--<li><a href="play-main.html" class="no-child"><i class="ion-ios-videocam"></i> Play</a></li>-->
-        <!--<li><a href="view/ sketchJS/sketch.html" class="no-child"><i class="ion-ios-videocam"></i> SketchJS</a></li>-->
-        <!--<li><a href="#" class="no-child"><i class="ion-social-rss"></i> panel_1</a></li>-->
-        <!--<li><a href="#" class="no-child"><i class="ion-android-map"></i> panel_2</a></li>-->
-        <!--<li><a href="#" class="no-child"><i class="ion-android-map"></i> panel_3</a></li>-->
-        <!--<li><a href="#" class="no-child"><i class="ion-android-map"></i> panel_4</a></li>-->
-        <!--<li><a href="#" class="no-child"><i class="ion-android-map"></i> panel_5</a></li>-->
-        <!--<li><a href="#" class="no-child"><i class="ion-android-map"></i> panel_6</a></li>-->
+    </ul>
+    <ul id="slide-out-right" class="side-nav collapsible">
+        <div w3-include-html="views/include/right-panel.html"></div>
     </ul>
 
     <!-- Page Content -->
     <div id="content" class="page">
 
         <!-- Toolbar -->
-        <div id="toolbar" class="primary-color">
+        <div id="toolbar" class="tool-bar white-color">
             <div class="open-left" id="open-left" data-activates="slide-out-left">
-                <i class="ion-android-menu"></i>
+                <i class="cus-color-1 ion-android-menu"></i>
             </div>
-            <span class="title">paint-result</span>
+            <span class="cus-background-1 title">소원을 담은 문양</span>
+            <div class="cus-color-1 open-right" id="open-right" data-activates="slide-out-right">
+                <i class="cus-color-1 ion-android-search"></i>
+            </div>
         </div>
 
         <!-- Main Content -->
-        <div class="animated fadeinup">
+        <div id="result_contents" class="animated fadeinup">
 
-            <div class="blog-fullwidth animated fadeinup delay-1">
-                <div class="blog-header">
-                    <!--<img class="avatar circle" src="img/user4.jpg" alt="">-->
-                    <div class="ml-m30">
-                        <div class="font-size-18">허정문</div>
-                        <div class="small">2016-11-06</div>
-                    </div>
-                </div>
-                <div class="blog-image m-20">
-                    <img src="img/product.jpg" alt="">
-                    <div class="opacity-overlay-top"></div>
-                </div>
-                <!--<div class="blog-preview p-20">-->
-                    <!--<h4 class="uppercase">It really makes no sense</h4>-->
-                    <!--<p>This is dummy caption. It has been placed here solely to demonstrate the look and feel of finished, typeset text.</p>-->
-                    <!--<a href="article.html" class="waves-effect waves-light btn primary-color">Read</a>-->
-                <!--</div>-->
-            </div>
-
-            <div class="blog-fullwidth animated fadeinup delay-1">
-                <div class="blog-header">
-                    <!--<img class="avatar circle" src="img/user4.jpg" alt="">-->
-                    <div class="ml-m30">
-                        <div class="font-size-18">허정문</div>
-                        <div class="small">2016-11-06</div>
-                    </div>
-                </div>
-                <div class="blog-image m-20">
-                    <img src="img/product.jpg" alt="">
-                    <div class="opacity-overlay-top"></div>
-                </div>
-                <!--<div class="blog-preview p-20">-->
-                <!--<h4 class="uppercase">It really makes no sense</h4>-->
-                <!--<p>This is dummy caption. It has been placed here solely to demonstrate the look and feel of finished, typeset text.</p>-->
-                <!--<a href="article.html" class="waves-effect waves-light btn primary-color">Read</a>-->
-                <!--</div>-->
-            </div>
-
-            <div class="blog-fullwidth animated fadeinup delay-1">
-                <div class="blog-header">
-                    <!--<img class="avatar circle" src="img/user4.jpg" alt="">-->
-                    <div class="ml-m30">
-                        <div class="font-size-18">허정문</div>
-                        <div class="small">2016-11-06</div>
-                    </div>
-                </div>
-                <div class="blog-image m-20">
-                    <img src="img/product.jpg" alt="">
-                    <div class="opacity-overlay-top"></div>
-                </div>
-                <!--<div class="blog-preview p-20">-->
-                <!--<h4 class="uppercase">It really makes no sense</h4>-->
-                <!--<p>This is dummy caption. It has been placed here solely to demonstrate the look and feel of finished, typeset text.</p>-->
-                <!--<a href="article.html" class="waves-effect waves-light btn primary-color">Read</a>-->
-                <!--</div>-->
-            </div>
-
-            <!-- Footer -->
-            <footer class="page-footer primary-color">
-                <div class="container">
-                    <div class="row">
-                        <div class="col s12">
-                            <p class="center-align grey-text text-lighten-4">You can use rows and columns here to
-                                organize your footer content.</p>
-                            <div class="center-align">
-                                <i class="ion-social-facebook m-10 white-text"></i>
-                                <i class="ion-social-twitter m-10 white-text"></i>
-                                <i class="ion-social-pinterest m-10 white-text"></i>
-                                <i class="ion-social-dribbble m-10 white-text"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-copyright primary-color darken-1">
-                    <div class="container">
-                        2016 Codnauts
-                        <a class="grey-text text-lighten-4 right" href="#!">Privacy Policy</a>
-                    </div>
-                </div>
-            </footer>
+            <!--<div class="blog-fullwidth animated fadeinup delay-1">-->
+            <!--<div class="blog-header">-->
+            <!--&lt;!&ndash;<img class="avatar circle" src="img/user4.jpg" alt="">&ndash;&gt;-->
+            <!--<div class="ml-m30">-->
+            <!--<div class="font-size-18">허정문</div>-->
+            <!--<div class="small">2016-11-06</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="blog-image m-20">-->
+            <!--<img src="img/product.jpg" alt="">-->
+            <!--<div class="opacity-overlay-top"></div>-->
+            <!--</div>-->
+            <!--</div>-->
 
         </div> <!-- End of Main Contents -->
 
-
+        <!-- Footer -->
+        <div w3-include-html="views/include/footer.html"></div>
     </div> <!-- End of Page Content -->
-
 </div> <!-- End of Page Container -->
 
 <script src="js/jquery-2.1.0.min.js"></script>
@@ -166,6 +81,7 @@
 <script src="js/chart.min.js"></script>
 <script src="js/custom.js"></script>
 <script src="js/drawing.js"></script>
+<script src="js/temp_domain.js"></script>
 
 </body>
 </html>
