@@ -235,21 +235,23 @@ canvas {
 }
 
 .cus-color-1 {
-    color : #8a6d3b !important;
+    color : black !important;
+    /*color : #8a6d3b !important;*/
 }
 
 .cus-color-background-1{
-    background-color : #8a6d3b !important;
+    background-color : black !important;
+    /*background-color : #8a6d3b !important;*/
 }
 
 .cus-background-1 {
-    background-color : #8a6d3b !important;
+    background-color : black !important;
     padding: 5px;
     font-size:20px !important;
 }
 
 .tool-bar {
-    border-bottom: 1px solid #8a6d3b !important;
+    border-bottom: 2px solid black !important;
 }
 
 .logo-img-resizing {
