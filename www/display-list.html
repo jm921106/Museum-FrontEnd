@@ -3,8 +3,9 @@
 <head>
     <div w3-include-html="views/include/includeCss.html"></div>
 </head>
+<scrip src="./css/font-awesome.min.css"></scrip>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
-<!--<body onload="init_paint_select()">-->
 <body>
 
 <div class="m-scene" id="main"> <!-- Main Container -->
@@ -14,17 +15,21 @@
         <div w3-include-html="views/include/left-panel.html"></div>
     </ul>
 
+    <ul id="slide-out-right" class="side-nav collapsible">
+        <div w3-include-html="views/include/right-panel.html"></div>
+    </ul>
+
     <!-- Page Content -->
     <div id="content" class="page">
 
         <!-- Toolbar -->
         <div id="toolbar" class="tool-bar white-color">
             <div class="open-left" id="open-left" data-activates="slide-out-left">
-                <i class="cus-color-1 ion-android-menu"></i>
+                <i class="fa fa-bars" style="color:black;"></i>
             </div>
             <span class="cus-background-1 title">Sub-Title</span>
             <div class="cus-color-1 open-right" id="open-right" data-activates="slide-out-right">
-                <i class="cus-color-1 ion-android-search"></i>
+                <i class=" fa fa-search" style="color:black;"></i>
             </div>
         </div>
 
