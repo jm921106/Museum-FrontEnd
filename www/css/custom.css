@@ -176,6 +176,12 @@ canvas {
 .width-100 {
     width : 100% !important;
 }
+.width-50 {
+    width : 50vw !important;
+    height : 15vh !important;
+    background-color: #8b1014;
+    float:right
+}
 .custom-middle{
     vertical-align: middle;
 }
@@ -278,7 +284,8 @@ canvas {
 /* paint-draw */
 
 .draw-pen-set {
-    width : 37vw !important;
+    width : 40vw !important;
+    display : inherit !important;
 }
 
 .draw-pen-status {
