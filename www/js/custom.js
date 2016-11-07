@@ -377,7 +377,7 @@ function initiate_plugins() {
                         if (post_data == undefined)
                             post_data = '1';
 
-                        data[post_data].forEach(function (cat) {
+                        data[post_data].forEach(function(cat) {
                             // if (cat == category) {
                             listAdd(
                                 post_data + '_' + cat.code,
@@ -394,14 +394,15 @@ function initiate_plugins() {
                     url: './data/items.json',
                     type: 'GET',
                     dataType: 'json',
-                    success: function (data) {
+                    success: function(data) {
                         var arr = post_data.split('_');
                         if (arr[0] == "")
                             var arr = ['1', '1'];
                         var cat = data[arr[0]];
                         cat.forEach(function (item) {
-                            if (item.code == arr[1]) {
-                                item.srcImg.forEach(function (imgUrl) {
+                            if(item.code == arr[1]) {
+                                item.srcImg.forEach(function(imgUrl) {
+
                                     imageSlideAdd(imgUrl);
                                 });
                                 // audioSet(item.mp3Url);
@@ -820,7 +821,7 @@ $(function () {
                     if (post_data == undefined)
                         post_data = '1';
 
-                    data[post_data].forEach(function (cat) {
+                    data[post_data].forEach(function(cat) {
                         // if (cat == category) {
                         listAdd(
                             post_data + '_' + cat.code,
@@ -1013,7 +1014,7 @@ function find() {
                 arr.forEach(function (arr) {
                     if (arr.title.match(temp)) { //타이틀이 같아야해
                         var link = "./display-content.html?" + cat + "_" + arr.code;
-                        $("#findBox").append("<a href='" + link + "'><li>" + arr.title + "</li></a>");
+                        $("#findBox").append("<a class = '' href='" + link + "'><li>" + arr.title + "</li></a>");
                     }
                 });
 

@@ -3,6 +3,8 @@
 <head>
     <div w3-include-html="views/include/includeCss.html"></div>
 </head>
+<scrip src="./css/font-awesome.min.css"></scrip>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
 <body>
 <div class="m-scene" id="main"> <!-- Main Container -->
@@ -21,9 +23,10 @@
         <!-- Toolbar -->
         <div id="toolbar" class="tool-bar white">
             <div class="open-left" id="open-left" data-activates="slide-out-left">
-                <i class="cus-color-1 ion-android-menu"></i>
+                <i id="left-side-icon" class="fa fa-bars" style="color:black;" ></i>
             </div>
             <span class="cus-background-1 title">소원을 담은 문양</span>
+
             <div class="open-right" id="like-btn" data-activates="slide-out-right">
                 <input id="like-status" type="hidden" value='false'><!--안눌러져있는상태 default-->
                 <i id="heart-icon" class="cus-color-black ion-heart"></i>
@@ -57,7 +60,7 @@
 
 
             <h5 id="item-title">아이템 제목이 들어가는 곳</h5>
-            <p id="item-content" class="text-flow">
+            <p id="item-content" style="padding-bottom:40px;" >
                 아이템 내용이 들어가는 곳
             </p>
 
