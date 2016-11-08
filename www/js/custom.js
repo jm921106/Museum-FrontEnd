@@ -150,7 +150,7 @@ function initiate_plugins() {
                 $container.mixItUp('changeLayout', {
                     containerClass: layout // change the container class to "grid"
                 });
-                // Else if the current layout is a grid, change to list:  
+                // Else if the current layout is a grid, change to list:
             } else {
                 layout = 'grid';
                 $changeLayout.text('List'); // Update the button text
@@ -232,13 +232,6 @@ function initiate_plugins() {
         }
     })
 
-    /**
-     * global val
-     *
-     */
-    var audio = new Audio();
-    var item;
-    var category;
 
     /**
      * Play Part
@@ -250,7 +243,7 @@ function initiate_plugins() {
      *
      */
 
-// [1] 
+// [1]
     $('#pattern_submit').click(function () {
         var name = $('#name').val();
         var phone = $('#phone').val();
@@ -267,7 +260,7 @@ function initiate_plugins() {
 
         var url = window.temp_domain + "patternInsert";
         var post_data = {
-            "user_id": "jm921106",
+            "user_id": localStorage.getItem('user_id'),
             "name": name,
             "phone": phone,
             "address": address,
@@ -289,18 +282,36 @@ function initiate_plugins() {
         });
     });
 
-// [2] 
+// [2]
+    var post_num;
     $(function () {
         var path = window.location.pathname;
         var page = path.split("/").pop();
         if (page == 'paint-result.html') {
+            post_num = 0;
             var url = window.temp_domain + "patternFind";
-            $.get(url, function (datas) {
+            $.post(url, {
+                post_num: post_num
+            }, function (datas) {
                 datas.forEach(function (data) {
                     // console.log(data.imgURL)
                     var img_url = window.temp_domain + "public/repository/" + data.imgURL;
-                    patternAdd(data.user_id, getDateFormat(new Date(data.date)), img_url);
+                    patternAdd(data.name, getDateFormat(new Date(data.date)), img_url);
                 })
+                post_num += 1;
+            });
+
+            $('#pattern_result_add').click(function () {
+                console.log(post_num)
+                $.post(url, {
+                    post_num: post_num
+                }, function (datas) {
+                    datas.forEach(function (data) {
+                        var img_url = window.temp_domain + "public/repository/" + data.imgURL;
+                        patternAdd(data.name, getDateFormat(new Date(data.date)), img_url);
+                    })
+                    post_num += 1;
+                });
             });
         }
     });
@@ -318,28 +329,73 @@ function initiate_plugins() {
     $(function index_init() {
         var path = window.location.pathname;
         var page = path.split("/").pop();
-        if (page == 'index') {
-
-            var xhttp = new XMLHttpRequest();
-
-            xhttp.onreadystatechange = function () {
-                // if ( ajax 정상작동 했을시)
-                if (this.readyState == 4 && this.status == 200) {
-                    console.log('today 작업 : ' + this.responseText)
-                    // document.getElementById("demo").innerHTML = this.responseText;
+        switch (page) {
+            case 'index.html':
+                if (localStorage.getItem('user_id') == null) {
+                    console.log('최초 접속 유저]');
+                    var uniqueNumber = ID();
+                    localStorage.setItem('user_id', uniqueNumber);
+                } else {
+                    console.log('기존 접속 유저');
                 }
-            };
-            xhttp.open("GET", window.temp_domain + "todayLoad", true);
-            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xhttp.send();
+
+                url = window.temp_domain + "todayLoad";
+                $.get(url, function (data) {
+                    console.log('today count complite')
+                });
+                break;
+            case 'side-notice.html':
+                console.log(window.temp_domain)
+                var url = window.temp_domain + "getNotice";
+                $.get(url, function (data) {
+                    data.forEach(function (notice, i) {
+                        var date_str = getDateFormat(new Date(notice.date))
+                        addNoticeList(notice.title, notice.contents, date_str, i)
+                    });
+                });
+                break;
+            case 'side-myLike.html':
+                var url = window.temp_domain + "myLike";
+                $.post(url, {
+                    deviceInfo: localStorage.getItem('user_id')
+                }, function (myLikeItems) {
+                    console.log('post ok');
+                    console.log(myLikeItems);
+
+                    $.ajax({
+                        url: './data/items.json',
+                        type: 'GET',
+                        dataType: 'json',
+                        success: function (items) {
+                            myLikeItems.forEach(function (myLikeItem) {
+                                var cat = myLikeItem.code.split('_')[0];
+                                items[cat].forEach(function (item, i) {
+                                    if (item.code == myLikeItem.code.split('_')[1]) {
+                                        // 여기서 작업 item으로
+                                        myLikeAdd(myLikeItem.code, item.title, item.subTitle, item.srcImg[0], i);
+                                    }
+                                });
+                            });
+                        }
+                    });
+
+                });
+                break;
+
         }
     });
+    var ID = function () {
+        // Math.random should be unique because of its seeding algorithm.
+        // Convert it to base 36 (numbers + letters), and grab the first 9 characters
+        // after the decimal.
+        return '_' + Math.random().toString(36).substr(2, 9);
+    };
 
     /**
      * Display Part
      * [1] display load
      * [2] facebook api
-     * [3]
+     * [3] like action
      * [4]
      * [5]
      *
@@ -353,22 +409,9 @@ function initiate_plugins() {
         var path = window.location.pathname;
         var page = path.split("/").pop();
         switch (page) {
-            // case 'display-intro.html':
-            //     $.ajax({
-            //         url: './data/categorys.json',
-            //         type: 'GET',
-            //         dataType: 'json',
-            //         success: function (data) {
-            //             audioSet(category.mp3Url);
-            //             $('#titleData').html(category.title);
-            //             $('#contentData').html(category.introduce);
-            //         }
-            //     });
-            //     break;
-
             case 'display-list.html':
                 // title setting & 전체 color 변경
-                console.log('display-list.html case >>> title color 변경 필요')
+                // console.log('display-list.html case >>> title color 변경 필요');
                 $.ajax({
                     url: './data/items.json',
                     type: 'GET',
@@ -376,8 +419,24 @@ function initiate_plugins() {
                     success: function (data) {
                         if (post_data == undefined)
                             post_data = '1';
-
-                        data[post_data].forEach(function(cat) {
+                        switch (post_data) {
+                            case '1':
+                                $('#sub-title').html('단령');
+                                break;
+                            case '2':
+                                $('#sub-title').html('원삼');
+                                break;
+                            case '3':
+                                $('#sub-title').html('심의');
+                                break;
+                            case '4':
+                                $('#sub-title').html('조복');
+                                break;
+                            case '5':
+                                $('#sub-title').html('배자');
+                                break;
+                        }
+                        data[post_data].forEach(function (cat) {
                             // if (cat == category) {
                             listAdd(
                                 post_data + '_' + cat.code,
@@ -394,71 +453,57 @@ function initiate_plugins() {
                     url: './data/items.json',
                     type: 'GET',
                     dataType: 'json',
-                    success: function(data) {
+                    success: function (data) {
                         var arr = post_data.split('_');
                         if (arr[0] == "")
                             var arr = ['1', '1'];
                         var cat = data[arr[0]];
                         cat.forEach(function (item) {
-                            if(item.code == arr[1]) {
-                                item.srcImg.forEach(function(imgUrl) {
-
+                            if (item.code == arr[1]) {
+                                $('#sub-title').html(item.title);
+                                item.srcImg.forEach(function (imgUrl) {
                                     imageSlideAdd(imgUrl);
                                 });
                                 // audioSet(item.mp3Url);
                                 $('#item-title').html(item.subTitle);
                                 $('#item-content').html(item.content);
+
+                                var url = window.temp_domain + "likeCall";
+                                $.post(url, {
+                                    itemCode: post_data,
+                                    deviceInfo: localStorage.getItem('user_id')
+                                }, function (data) {
+                                    if (data.status) {
+                                        $('#like-status').val('true');
+                                    } else {
+                                        $('#like-status').val('false');
+                                    }
+                                    // 1. css 효과 변경
+                                    if ($('#like-status').val() == 'true') {
+                                        $('#heart-icon').addClass('heart-btn');
+                                        $('#heart-icon').removeClass('cus-color-white');
+
+                                    } else {
+                                        $('#heart-icon').addClass('cus-color-white');
+                                        $('#heart-icon').removeClass('heart-btn');
+                                    }
+                                });
                             }
                         })
                     }
                 });
+                window.likeBtnSet(post_data);
                 break;
         }
     });
 
     // [2]
-    // window.fbAsyncInit = function() {
-    //     FB.init({
-    //         appId      : '1698354810427614',
-    //         xfbml      : true,
-    //         version    : 'v2.8'
-    //     });
-    //     FB.AppEvents.logPageView();
-    // };
-//     $(function () {
-//         var path = window.location.pathname;
-//         var page = path.split("/").pop();
-//         if(page == 'display-content.html') {
-//             window.fbAsyncInit = function () {
-//                 FB.init({
-//                     appId: '1698354810427614',
-//                     xfbml: true,
-//                     version: 'v2.8'
-//                 });
-//                 $(document).ajaxComplete(function(){
-//                     try{
-//                         FB.AppEvents.logPageView();
-// //                FB.XFBML.parse();
-//                     }catch(ex){}
-//                 });
-//             };
-//
-//             $(function(d, s, id) {
-//                 console.log('facebook function in after method')
-//                 var js, fjs = d.getElementsByTagName(s)[0];
-//                 if (d.getElementById(id)) {
-//                     console.log(d.getElementById(id))
-//                     return;
-//                 }
-//                 console.log(d.createElement(s))
-//                 console.log(id)
-//                 js = d.createElement(s); js.id = id;
-//                 js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8&appId=268198800203862";
-//                 fjs.parentNode.insertBefore(js, fjs);
-//             }(document, 'script', 'facebook-jssdk'));
-//         }
-//     })
+
 }
+////--> End of Call all function for Ajax, now from there recall all the functions <--////
+////--> End of Call all function for Ajax, now from there recall all the functions <--////
+////--> End of Call all function for Ajax, now from there recall all the functions <--////
+////--> End of Call all function for Ajax, now from there recall all the functions <--////
 ////--> End of Call all function for Ajax, now from there recall all the functions <--////
 
 // Tabs
@@ -647,13 +692,6 @@ $(function w3IncludeHTML() {
     }
 })
 
-/**
- * global val
- *
- */
-var audio = new Audio();
-var item;
-var category;
 
 /**
  * Play Part
@@ -682,7 +720,7 @@ $('#pattern_submit').click(function () {
 
     var url = window.temp_domain + "patternInsert";
     var post_data = {
-        "user_id": "jm921106",
+        "user_id": localStorage.getItem('user_id'),
         "name": name,
         "phone": phone,
         "address": address,
@@ -705,17 +743,101 @@ $('#pattern_submit').click(function () {
 });
 
 // [2] 
+var post_num;
 $(function () {
     var path = window.location.pathname;
     var page = path.split("/").pop();
     if (page == 'paint-result.html') {
+        post_num = 0;
         var url = window.temp_domain + "patternFind";
-        $.get(url, function (datas) {
-            datas.forEach(function (data) {
+        $.post(url, {
+            post_num: post_num
+        }, function (datas) {
+            datas.forEach(function (data, i) {
                 // console.log(data.imgURL)
                 var img_url = window.temp_domain + "public/repository/" + data.imgURL;
-                patternAdd(data.user_id, getDateFormat(new Date(data.date)), img_url);
+
+                patternAdd(data.imgURL, 'icon_'+data.imgURL, 'status_'+data.imgURL, data.name, getDateFormat(new Date(data.date)), img_url, i);
+
+                // post로 like 등록 했는지 확인
+
+                // app.post('/patternLikeCall', paint.likeCall);
+                // app.post('/patternLikePlus', paint.likePlus);
+                var url = window.temp_domain + "patternLikeCall";
+                $.post(url, {
+                    imgURL : data.imgURL,
+                    deviceInfo : localStorage.getItem('user_id')
+                }, function (data) {
+
+                    if (data.status) {
+                        $('#status_' + data.imgURL).val(true);
+                        $('#icon_' + data.imgURL).addClass('heart-btn');
+                        $('#icon_' + data.imgURL).removeClass('cus-color-white');
+                    } else {
+                        $('#status_' + data.imgURL).val(false);
+                        $('#icon_' + data.imgURL).addClass('cus-color-white');
+                        $('#icon_' + data.imgURL).removeClass('heart-btn');
+                    }
+
+                    // like-btn 클릭시
+                    $('#'+data.imgURL).click(function(){
+                        $.post(url, {
+                            imgURL : data.imgURL,
+                            likeStatus : $('#status_' + data.imgURL).val(),
+                            deviceInfo : localStorage.getItem('user_id')
+                        }, function (data) {
+                            console.log('like complite');
+                        })
+                    })
+                });
             })
+            post_num += 1;
+        });
+
+        $('#pattern_result_add').click(function () {
+            console.log(post_num)
+            $.post(url, {
+                post_num: post_num
+            }, function (datas) {
+                datas.forEach(function (data, i) {
+                    var img_url = window.temp_domain + "public/repository/" + data.imgURL;
+
+                    // patternAdd(like_btn_id, icon_id, like_status_id, data.name, getDateFormat(new Date(data.date)), img_url, i);
+                    patternAdd(data.imgURL, 'icon_'+data.imgURL, 'status_'+data.imgURL, data.name, getDateFormat(new Date(data.date)), img_url, i);
+
+                    // post로 like 등록 했는지 확인
+
+              
+                    var url = window.temp_domain + "patternLikeCall";
+                    $.post(url, {
+                        imgURL : data.imgURL,
+                        deviceInfo : localStorage.getItem('user_id')
+                    }, function (data) {
+
+                        if (data.status) {
+                            $('#status_' + data.imgURL).val(true);
+                            $('#icon_' + data.imgURL).addClass('heart-btn');
+                            $('#icon_' + data.imgURL).removeClass('cus-color-white');
+                        } else {
+                            $('#status_' + data.imgURL).val(false);
+                            $('#icon_' + data.imgURL).addClass('cus-color-white');
+                            $('#icon_' + data.imgURL).removeClass('heart-btn');
+                        }
+
+                        // like-btn 클릭시
+                        $('#'+data.imgURL).click(function(){
+                            $.post(url, {
+                                imgURL : data.imgURL,
+                                likeStatus : $('#status_' + data.imgURL).val(),
+                                deviceInfo : localStorage.getItem('user_id')
+                            }, function (data) {
+                                console.log('like complite');
+                            })
+                        })
+                    });
+                });
+                post_num += 1;
+            });
         });
     }
 });
@@ -735,7 +857,7 @@ $(function index_init() {
     var page = path.split("/").pop();
     switch (page) {
         case 'index.html':
-            if(localStorage.getItem('user_id') == null) {
+            if (localStorage.getItem('user_id') == null) {
                 console.log('최초 접속 유저]');
                 var uniqueNumber = ID();
                 localStorage.setItem('user_id', uniqueNumber);
@@ -749,25 +871,41 @@ $(function index_init() {
             });
             break;
         case 'side-notice.html':
+            console.log(window.temp_domain)
             var url = window.temp_domain + "getNotice";
-            $.get(url, function(data) {
-                data.forEach(function(notice, i) {
+            $.get(url, function (data) {
+                data.forEach(function (notice, i) {
                     var date_str = getDateFormat(new Date(notice.date))
                     addNoticeList(notice.title, notice.contents, date_str, i)
                 });
             });
             break;
         case 'side-myLike.html':
-            console.log('in ~ side-myLike.html')
-            // var url = window.temp_domain + "myLike";
-            // $.post(url, {
-            //     deviceInfo : localStorage.getItem('user_id')
-            // } ,function(data) {
-            //     console.log('post ok')
-            // //     // data.forEach(function(myLike) {
-            // //     //     myLikeAdd();
-            // //     // });
-            // });
+            var url = window.temp_domain + "myLike";
+            $.post(url, {
+                deviceInfo: localStorage.getItem('user_id')
+            }, function (myLikeItems) {
+                console.log('post ok');
+                console.log(myLikeItems);
+
+                $.ajax({
+                    url: './data/items.json',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (items) {
+                        myLikeItems.forEach(function (myLikeItem) {
+                            var cat = myLikeItem.code.split('_')[0];
+                            items[cat].forEach(function (item, i) {
+                                if (item.code == myLikeItem.code.split('_')[1]) {
+                                    // 여기서 작업 item으로
+                                    myLikeAdd(myLikeItem.code, item.title, item.subTitle, item.srcImg[0], i);
+                                }
+                            });
+                        });
+                    }
+                });
+
+            });
             break;
 
     }
@@ -797,22 +935,9 @@ $(function () {
     var path = window.location.pathname;
     var page = path.split("/").pop();
     switch (page) {
-        // case 'display-intro.html':
-        //     $.ajax({
-        //         url: './data/categorys.json',
-        //         type: 'GET',
-        //         dataType: 'json',
-        //         success: function (data) {
-        //             audioSet(category.mp3Url);
-        //             $('#titleData').html(category.title);
-        //             $('#contentData').html(category.introduce);
-        //         }
-        //     });
-        //     break;
-
         case 'display-list.html':
             // title setting & 전체 color 변경
-            console.log('display-list.html case >>> title color 변경 필요')
+            // console.log('display-list.html case >>> title color 변경 필요');
             $.ajax({
                 url: './data/items.json',
                 type: 'GET',
@@ -820,8 +945,24 @@ $(function () {
                 success: function (data) {
                     if (post_data == undefined)
                         post_data = '1';
-
-                    data[post_data].forEach(function(cat) {
+                    switch (post_data) {
+                        case '1':
+                            $('#sub-title').html('단령');
+                            break;
+                        case '2':
+                            $('#sub-title').html('원삼');
+                            break;
+                        case '3':
+                            $('#sub-title').html('심의');
+                            break;
+                        case '4':
+                            $('#sub-title').html('조복');
+                            break;
+                        case '5':
+                            $('#sub-title').html('배자');
+                            break;
+                    }
+                    data[post_data].forEach(function (cat) {
                         // if (cat == category) {
                         listAdd(
                             post_data + '_' + cat.code,
@@ -845,6 +986,7 @@ $(function () {
                     var cat = data[arr[0]];
                     cat.forEach(function (item) {
                         if (item.code == arr[1]) {
+                            $('#sub-title').html(item.title);
                             item.srcImg.forEach(function (imgUrl) {
                                 imageSlideAdd(imgUrl);
                             });
@@ -854,21 +996,21 @@ $(function () {
 
                             var url = window.temp_domain + "likeCall";
                             $.post(url, {
-                                itemCode : post_data,
-                                deviceInfo : localStorage.getItem('user_id')
-                            } ,function (data) {
-                                if(data.status) {
+                                itemCode: post_data,
+                                deviceInfo: localStorage.getItem('user_id')
+                            }, function (data) {
+                                if (data.status) {
                                     $('#like-status').val('true');
                                 } else {
                                     $('#like-status').val('false');
                                 }
                                 // 1. css 효과 변경
-                                if($('#like-status').val() == 'true') {
+                                if ($('#like-status').val() == 'true') {
                                     $('#heart-icon').addClass('heart-btn');
-                                    $('#heart-icon').removeClass('cus-color-black');
+                                    $('#heart-icon').removeClass('cus-color-white');
 
                                 } else {
-                                    $('#heart-icon').addClass('cus-color-black');
+                                    $('#heart-icon').addClass('cus-color-white');
                                     $('#heart-icon').removeClass('heart-btn');
                                 }
                             });
@@ -876,7 +1018,7 @@ $(function () {
                     })
                 }
             });
-            likeBtnSet(post_data);
+            window.likeBtnSet(post_data);
             break;
     }
 });
@@ -886,45 +1028,36 @@ $(function () {
 
 // [3] like btn
 var likeBtnSet = function (post_data) {
-   $('#like-btn').click(function () {
-       // 1. css 효과 변경
-       if($('#like-status').val() == 'true') {
-           // like true
-           $('#like-status').val('false');
-           $('#heart-icon').addClass('cus-color-black');
-           $('#heart-icon').removeClass('heart-btn');
-       } else {
-           // like false
-           $('#like-status').val('true');
-           $('#heart-icon').addClass('heart-btn');
-           $('#heart-icon').removeClass('cus-color-black');
-       }
+    $('#like-btn').click(function () {
+        // 1. css 효과 변경
+        if ($('#like-status').val() == 'true') {
+            // like true
+            $('#like-status').val('false');
+            $('#heart-icon').addClass('cus-color-white');
+            $('#heart-icon').removeClass('heart-btn');
+        } else {
+            // like false
+            $('#like-status').val('true');
+            $('#heart-icon').addClass('heart-btn');
+            $('#heart-icon').removeClass('cus-color-white');
+        }
 
-       // 2. post like data
-       var url = window.temp_domain + "likePlus";
-       $.post(url, {
-           itemCode : post_data,
-           deviceInfo : localStorage.getItem('user_id'),
-           likeStatus : $('#like-status').val()
-       } ,function (data) {
+        // 2. post like data
+        var url = window.temp_domain + "likePlus";
+        $.post(url, {
+            itemCode: post_data,
+            deviceInfo: localStorage.getItem('user_id'),
+            likeStatus: $('#like-status').val()
+        }, function (data) {
 
-       });
-   })
+        });
+    })
 };
 
 /**
  *  function util
  *
  */
-
-
-function audioSet(url) {
-    audio = new Audio(url);
-    $("#voicePlay").click(function () {
-        if (audio.paused) audio.play();
-        else audio.pause();
-    });
-}
 
 function imageSlideAdd(imgUrl) {
     $('#item-slide').append(
@@ -951,13 +1084,19 @@ function listAdd(code, imgUrl, title) {
     );
 }
 
-function patternAdd(user_id, date, img_url) {
+function patternAdd(like_btn_id, icon_id, like_status_id, user_id, date, img_url, delay) {
     $('#result_contents').append(
-        "<div class='blog-fullwidth animated fadeinup delay-1'>" +
+        "<div class='blog-fullwidth animated fadeinup delay-" + delay + "'>" +
+        "<div style='padding: 20px 40px 0px 0px' class='width-100 pos-ab right-align'>" +
+        "<button id=" + like_btn_id + " class='btn-floating btn waves-effect waves-light cus-background-black btn z-depth-1'>" +
+        "<input id=" + like_status_id + " type='hidden' value=false><!--안눌러져있는상태 default-->" +
+        "<i id=" + icon_id + "  class='fa ion-heart cus-color-white'></i>" +
+        "</button>" +
+        "</div>" +
         "<div class='blog-header'>" +
         "<div class='ml-m30'>" +
-        "<div class='font-size-18'>" + user_id + "</div>" +
-        "<div class='small'>" + date + "</div>" +
+        "<div class='font-size-18 black-text'>" + user_id + "</div>" +
+        "<div class='small black-text'>" + date + "</div>" +
         "</div>" +
         "</div>" +
         "<div class='blog-image m-20'>" +
@@ -968,35 +1107,34 @@ function patternAdd(user_id, date, img_url) {
     );
 }
 
-function addNoticeList(title, content, date, delay){
-    $('#noticeList').append(""+
-        "<div class = 'single-news animated fadeinright delay-"+delay+"'>" +
+function addNoticeList(title, content, date, delay) {
+    $('#noticeList').append("" +
+        "<div class = 'single-news animated fadeinright delay-" + delay + "'>" +
         "<h4 class='single-news-title'>" +
-        "<a href='#'>"+title+"</a>" +
+        "<a href='#'>" + title + "</a>" +
         "</h4>" +
-        "<span class='single-news-channel'>"+content+"<span class='single-news-category'>"+ date +"</span></span>"+
+        "<span class='single-news-channel'>" + content + "<span class='single-news-category'>" + date + "</span></span>" +
         "</div>"
     )
 };
 
-function myLikeAdd(code, title, subtitle, img_src, delay){
-    $('#myLikeList').append(""+
-        "<a href='display-content.html?"+code+"'>" +
-        "<div class='blog-fullwidth animated fadeinup delay-"+delay+"'>" +
+function myLikeAdd(code, title, subtitle, img_src, delay) {
+    $('#myLikeList').append("" +
+        "<a href='display-content.html?" + code + "'>" +
+        "<div class='blog-fullwidth animated fadeinup delay-" + delay + "'>" +
         "<div class='blog-header'>" +
         "<div class='ml-m30'>" +
-        "<div class='font-size-18'>title</div>" +
-        "<div class='small'>subtitle</div>" +
+        "<div class='font-size-18'>" + title + "</div>" +
+        "<div class='small'>" + subtitle + "</div>" +
         "</div>" +
         "</div>" +
         "<div class='blog-image m-20'>" +
-        "<img src='"+img_src+"' alt=''>" +
+        "<img src='" + img_src + "' alt=''>" +
         "<div class='opacity-overlay-top'></div>" +
         "</div>" +
         "</div>" +
         "</a>")
 };
-
 
 function find() {
     var temp = $("#findForm").val();

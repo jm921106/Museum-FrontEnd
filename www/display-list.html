@@ -18,28 +18,33 @@
         <div w3-include-html="views/include/right-panel.html"></div>
     </ul>
 
-    <ul id="slide-out-right" class="side-nav collapsible">
-        <div w3-include-html="views/include/right-panel.html"></div>
-    </ul>
-
     <!-- Page Content -->
     <div id="content" class="page">
 
         <!-- Toolbar -->
+        <!--<div id="toolbar" class="tool-bar white-color">-->
+            <!--<div class="open-left" id="open-left" data-activates="slide-out-left">-->
+                <!--<i class="fa fa-bars cus-color-black"></i>-->
+            <!--</div>-->
+            <!--<span class="cus-background-1 title">Sub-Title</span>-->
+            <!--<div class="cus-color-1 open-right" id="open-right" data-activates="slide-out-right">-->
+                <!--<i class="fa fa-search cus-color-black"></i>-->
+            <!--</div>-->
+        <!--</div>-->
+
         <div id="toolbar" class="tool-bar white-color">
             <div class="open-left" id="open-left" data-activates="slide-out-left">
-                <i class="fa fa-bars" style="color:black;"></i>
+                <i class="ion-android-menu cus-color-black"></i>
             </div>
-            <span class="cus-background-1 title">Sub-Title</span>
+            <span id="sub-title" class="cus-background-1 title"></span>
             <div class="cus-color-1 open-right" id="open-right" data-activates="slide-out-right">
-                <i class=" fa fa-search" style="color:black;"></i>
+                <i class="ion-android-search cus-color-black"></i>
             </div>
         </div>
 
         <!-- Main Content -->
         <div class="animated fadeinup delay-3">
-
-            <div id="list_grid" class="grid m-10">
+            <div id="list_grid" class="grid">
                 <!-- test contents -->
                 <!--<div class='grid-item gallery-item-card'>-->
                     <!--<a href="paint-draw.html?pattern=1" class='swipebox' title='This is dummy caption.'>-->

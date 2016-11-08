@@ -52,18 +52,25 @@
         <div id="draw-header">
 
             <div>
-                <div style="width:50vw; float:left;" class="center-align vamiddle m-t-30">
-                    <a class="btn-floating btn waves-effect waves-light red">
+                <div style="width:50vw; float:left;" class="center-align m-t-30">
+                    <a href="#" class="btn-floating btn waves-effect waves-light red">
                         <img src="img/workspace/eraser.svg">
                     </a>
-                    <a class="btn-floating btn waves-effect waves-light green">
+                    <a href="#" class="btn-floating btn waves-effect waves-light green">
                         <img src="img/workspace/school-material.svg">
                     </a>
-                    <a class="btn-floating btn waves-effect waves-light blue">
+                    <a href="#" class="btn-floating btn waves-effect waves-light blue">
                         <img src="img/workspace/paint-brush.svg">
                     </a>
                     <br>
-                    <input class="draw-pen-set" type="range" name="points" id="points" value="50" min="0" max="100"/>
+                    <div class="m-10">
+                        <input type="range" value="5" min="0" max="10"/>
+                        <!--<form>-->
+                            <!--<input type="range" name="foo" min="0" max="100">-->
+                            <!--<output for="foo" onforminput="value = foo.valueAsNumber;"></output>-->
+                        <!--</form>-->
+                    </div>
+
                 </div>
                 <div style="width:50vw; float:left; padding:20px 20px 20px 0px !important;">
                     <table style="width:100%; border:solid 2px black;">
