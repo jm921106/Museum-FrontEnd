@@ -47,6 +47,7 @@ $(function () {
     var smoothState = $('#main').smoothState(options).data('smoothState');
 });
 ////--> Call all function for Ajax <--////
+
 function initiate_plugins() {
 
     // Tabs
@@ -160,7 +161,6 @@ function initiate_plugins() {
             }
         });
     });
-
     // Material Layout
     $('.parallax').parallax();
     $(function () {
@@ -237,7 +237,7 @@ function initiate_plugins() {
      * Play Part
      * [1] pattern summit
      * [2] result contents
-     * [3]
+     * [3] drawing
      * [4]
      * [5]
      *
@@ -267,7 +267,7 @@ function initiate_plugins() {
             "result": dataURL
         }
         $.post(url, {
-            user_id: "jm921106",
+            user_id: localStorage.getItem('user_id'),
             name: name,
             phone: phone,
             address: address,
@@ -293,10 +293,71 @@ function initiate_plugins() {
             $.post(url, {
                 post_num: post_num
             }, function (datas) {
-                datas.forEach(function (data) {
+                datas.forEach(function (data, i) {
                     // console.log(data.imgURL)
                     var img_url = window.temp_domain + "public/repository/" + data.imgURL;
-                    patternAdd(data.name, getDateFormat(new Date(data.date)), img_url);
+
+                    // post로 like 등록 했는지 확인
+
+                    // app.post('/patternLikeCall', paint.likeCall);
+                    // app.post('/patternLikePlus', paint.likePlus);
+                    var url = window.temp_domain + "patternLikeCall";
+                    $.post(url, {
+                        imgURL: data.imgURL,
+                        deviceInfo: localStorage.getItem('user_id')
+                    }, function (likeData) {
+
+                        var like_btn_id = window.ID();
+                        like_btn_id = like_btn_id.substring(1, like_btn_id.length - 1);
+                        var like_status_id = window.ID();
+                        var icon_id = window.ID();
+
+                        patternAdd(like_btn_id, icon_id, like_status_id, data.name, getDateFormat(new Date(data.date)), img_url, i);
+
+                        // console.log(likeData.count)
+                        // console.log(likeData.status)
+                        likeData.status = true
+
+                        if (likeData.status) {
+                            $('#' + like_status_id).val(true);
+                            $('#' + icon_id).addClass('heart-btn');
+                            $('#' + icon_id).removeClass('cus-color-white');
+                        } else {
+                            $('#' + like_status_id).val(false);
+                            $('#' + icon_id).addClass('cus-color-white');
+                            $('#' + icon_id).removeClass('heart-btn');
+                        }
+
+                        // like-btn 클릭시
+                        console.log('test')
+                        // console.log('#' + like_btn_id)
+                        // console.log('#' + icon_id)
+                        // console.log('#' + like_status_id)
+                        console.log($('#' + like_btn_id))
+                        // console.log($('#' + icon_id))
+                        // console.log($('#' + like_status_id))
+
+                        console.log(like_btn_id)
+                        console.log(typeof(like_btn_id))
+                        var id = '#' + like_btn_id
+                        // console.log(id)
+                        // console.log('#test')
+                        $(document).on('click', id, function () {
+                            console.log('test')
+                        });
+
+                        // $($('#' + like_btn_id)).click(function(){
+                        //     console.log('Test')
+                        //     // var url = window.temp_domain + "patternLikePlus";
+                        //     // $.post(url, {
+                        //     //     imgURL : data.imgURL,
+                        //     //     likeStatus :  $('#' + like_status_id).val(),
+                        //     //     deviceInfo : localStorage.getItem('user_id')
+                        //     // }, function (data) {
+                        //     //     console.log('like complite');
+                        //     // })
+                        // })
+                    });
                 })
                 post_num += 1;
             });
@@ -306,13 +367,226 @@ function initiate_plugins() {
                 $.post(url, {
                     post_num: post_num
                 }, function (datas) {
-                    datas.forEach(function (data) {
+                    datas.forEach(function (data, i) {
                         var img_url = window.temp_domain + "public/repository/" + data.imgURL;
-                        patternAdd(data.name, getDateFormat(new Date(data.date)), img_url);
-                    })
+
+                        // patternAdd(like_btn_id, icon_id, like_status_id, data.name, getDateFormat(new Date(data.date)), img_url, i);
+                        patternAdd(data.imgURL, 'icon_' + data.imgURL, 'status_' + data.imgURL, data.name, getDateFormat(new Date(data.date)), img_url, i);
+
+                        // post로 like 등록 했는지 확인
+
+
+                        var url = window.temp_domain + "patternLikeCall";
+                        $.post(url, {
+                            imgURL: data.imgURL,
+                            deviceInfo: localStorage.getItem('user_id')
+                        }, function (data) {
+
+                            console.log(data.count)
+                            console.log(data.status)
+
+                            if (data.status) {
+                                $('#status_' + data.imgURL).val(true);
+                                $('#icon_' + data.imgURL).addClass('heart-btn');
+                                $('#icon_' + data.imgURL).removeClass('cus-color-white');
+                            } else {
+                                $('#status_' + data.imgURL).val(false);
+                                $('#icon_' + data.imgURL).addClass('cus-color-white');
+                                $('#icon_' + data.imgURL).removeClass('heart-btn');
+                            }
+
+                            // like-btn 클릭시
+
+                            $('#' + data.imgURL).click(function () {
+                                var url = window.temp_domain + "patternLikePlus";
+                                $.post(url, {
+                                    imgURL: data.imgURL,
+                                    likeStatus: $('#status_' + data.imgURL).val(),
+                                    deviceInfo: localStorage.getItem('user_id')
+                                }, function (data) {
+                                    console.log('like complite');
+                                })
+                            })
+                        });
+                    });
                     post_num += 1;
                 });
             });
+        }
+    });
+
+// [3]
+
+    $(function () {
+        var post_data = window.location.search.substring(1);
+
+        var path = window.location.pathname;
+        var page = path.split("/").pop();
+        if (page == 'paint-draw.html') {
+
+            pencilSelect();
+            //patternImage setting
+            outlineImage.onload = function () {
+                redraw();
+            };
+            outlineImage.src = "./img/patterns/pattern_" + post_data + ".png";
+            context = document.getElementById('myCanvas').getContext("2d");
+
+            // var canvasDiv = document.getElementById('canvasDiv');
+            // canvas = document.createElement('canvas');
+
+            // canvas.setAttribute('id', 'canvas');
+            // canvasDiv.appendChild(canvas);
+            // if(typeof G_vmlCanvasManager != 'undefined') {
+            //     canvas = G_vmlCanvasManager.initElement(canvas);
+            // }
+            // context = canvas.getContext("2d");
+
+
+            $('#myCanvas').on('touchstart', function (e) {
+                console.log('in touchstart');
+                // var mouseX = (e.changedTouches ? e.changedTouches[0].pageX : e.pageX) - this.offsetLeft,
+                //     mouseY = (e.changedTouches ? e.changedTouches[0].pageY : e.pageY) - this.offsetTop;
+                // var mouseX = event.touches[0].pageX-this.offset.left,
+                //     mouseY = event.touches[0].pageY-this.offset.top;
+                var mouseX = e.originalEvent.touches[0].pageX - this.offsetLeft,
+                    mouseY = e.originalEvent.touches[0].pageY - this.offsetTop;
+
+                console.log(mouseX, mouseY);
+                $('#testText').text('1 mouseX_1 start : ' + mouseX + 'mouseX_2 start : ' + mouseY)
+
+                paint = true;
+                addClick(mouseX, mouseY);
+                redraw();
+            });
+            $('#myCanvas').on('touchmove', function (e) {
+                console.log('in touchmove');
+                // var mouseX = event.touches[0].pageX-this.offset.left,
+                //     mouseY = event.touches[0].pageY-this.offset.top;
+                var mouseX = e.originalEvent.touches[0].pageX - this.offsetLeft,
+                    mouseY = e.originalEvent.touches[0].pageY - this.offsetTop;
+
+                console.log(mouseX, mouseY);
+                $('#testText').text('2 mouseX_1 start : ' + mouseX + 'mouseX_2 start : ' + mouseY)
+
+                if (paint) {
+                    addClick(mouseX, mouseY, true);
+                    redraw();
+                }
+            });
+            $('#myCanvas').on('touchend', function (e) {
+                console.log('in touchend');
+                paint = false;
+            });
+
+            // $('#myCanvas').mousedown(function(e){
+            //     // Mouse down location
+            //     var mouseX = (e.changedTouches ? e.changedTouches[0].pageX : e.pageX) - this.offsetLeft,
+            //         mouseY = (e.changedTouches ? e.changedTouches[0].pageY : e.pageY) - this.offsetTop
+            //     console.log(mouseX);
+            //     console.log(mouseY);
+            //
+            //     paint = true;
+            //     addClick(mouseX, mouseY);
+            //     redraw();
+            // });
+            // $('#myCanvas').mousemove(function(e){
+            //     var mouseX = (e.changedTouches ? e.changedTouches[0].pageX : e.pageX) - this.offsetLeft,
+            //         mouseY = (e.changedTouches ? e.changedTouches[0].pageY : e.pageY) - this.offsetTop;
+            //     if(paint){
+            //         addClick(mouseX, mouseY, true);
+            //         redraw();
+            //     }
+            // });
+            // $('#myCanvas').mouseup(function(e){
+            //     paint = false;
+            // });
+            // $('#myCanvas').mouseleave(function(e){
+            //     paint = false;
+            // });
+
+            function addClick(x, y, dragging) {
+                clickX.push(x);
+                clickY.push(y);
+                clickDrag.push(dragging);
+            }
+
+            function redraw() {
+                context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
+                // context.strokeStyle = ink;
+                //#df4b26
+                context.lineJoin = "round";
+                context.lineWidth = curSize;
+                clickColor.push(ink);
+                clickSize.push(curSize);
+
+                for (var i = 0; i < clickX.length; i++) {
+                    context.beginPath();
+                    if (clickDrag[i] && i) {
+                        context.moveTo(clickX[i - 1], clickY[i - 1]);
+                    } else {
+                        context.moveTo(clickX[i] - 1, clickY[i]);
+                    }
+                    context.strokeStyle = clickColor[i];
+                    context.lineTo(clickX[i], clickY[i]);
+                    context.closePath();
+                    context.strokeStyle = clickColor[i];
+                    context.lineWidth = clickSize[i];
+                    context.stroke();
+                }
+
+                context.drawImage(outlineImage, 0, 0, context.canvas.width, context.canvas.height);
+            }
+
+            function setColor(color) {
+                if (eraser == true) {
+                    pencilSelect();
+                }
+                ink = color;
+            }
+
+
+            function setCurSize() {
+                if (pencil == true) {
+                    curSize = $("#sizeSlider").val();
+                } else if (eraser == true) {
+                    curSize = $("#sizeSlider").val() * 2;
+                } else if (brush == true) {
+                    curSize = 20 + $("#sizeSlider").val() * 3;
+                }
+            }
+
+            function eraserSelect() {
+                setCurSize();
+                setColor("white");
+                eraser = true;
+                pencil = false;
+                brush = false;
+                $("#eraser").addClass("tool-select")
+                $("#pencil").removeClass("tool-select")
+                $("#brush").removeClass("tool-select")
+
+            }
+
+            function pencilSelect() {
+                eraser = false;
+                pencil = true;
+                brush = false;
+                setCurSize();
+                $("#eraser").removeClass("tool-select")
+                $("#pencil").addClass("tool-select")
+                $("#brush").removeClass("tool-select")
+            }
+
+            function brushSelect() {
+                eraser = false;
+                pencil = false;
+                brush = true;
+                setCurSize();
+                $("#eraser").removeClass("tool-select")
+                $("#pencil").removeClass("tool-select")
+                $("#brush").addClass("tool-select")
+            }
         }
     });
 
@@ -325,7 +599,8 @@ function initiate_plugins() {
      * [5]
      * [6]
      */
-// 페이지가 load시 today 수가 증가 - 한번만 되면 되기 때문에 initiate_plugins() 안에 처리하지 않음
+
+   // 페이지가 load시 today 수가 증가 - 한번만 되면 되기 때문에 initiate_plugins() 안에 처리하지 않음
     $(function index_init() {
         var path = window.location.pathname;
         var page = path.split("/").pop();
@@ -384,18 +659,12 @@ function initiate_plugins() {
 
         }
     });
-    var ID = function () {
-        // Math.random should be unique because of its seeding algorithm.
-        // Convert it to base 36 (numbers + letters), and grab the first 9 characters
-        // after the decimal.
-        return '_' + Math.random().toString(36).substr(2, 9);
-    };
 
     /**
      * Display Part
      * [1] display load
-     * [2] facebook api
-     * [3] like action
+     * [2] like action
+     * [3]
      * [4]
      * [5]
      *
@@ -496,9 +765,6 @@ function initiate_plugins() {
                 break;
         }
     });
-
-    // [2]
-
 }
 ////--> End of Call all function for Ajax, now from there recall all the functions <--////
 ////--> End of Call all function for Ajax, now from there recall all the functions <--////
@@ -697,7 +963,7 @@ $(function w3IncludeHTML() {
  * Play Part
  * [1] pattern summit
  * [2] result contents
- * [3]
+ * [3] drawing
  * [4]
  * [5]
  *
@@ -727,7 +993,7 @@ $('#pattern_submit').click(function () {
         "result": dataURL
     }
     $.post(url, {
-        user_id: "jm921106",
+        user_id: localStorage.getItem('user_id'),
         name: name,
         phone: phone,
         address: address,
@@ -757,38 +1023,66 @@ $(function () {
                 // console.log(data.imgURL)
                 var img_url = window.temp_domain + "public/repository/" + data.imgURL;
 
-                patternAdd(data.imgURL, 'icon_'+data.imgURL, 'status_'+data.imgURL, data.name, getDateFormat(new Date(data.date)), img_url, i);
-
                 // post로 like 등록 했는지 확인
 
                 // app.post('/patternLikeCall', paint.likeCall);
                 // app.post('/patternLikePlus', paint.likePlus);
                 var url = window.temp_domain + "patternLikeCall";
                 $.post(url, {
-                    imgURL : data.imgURL,
-                    deviceInfo : localStorage.getItem('user_id')
-                }, function (data) {
+                    imgURL: data.imgURL,
+                    deviceInfo: localStorage.getItem('user_id')
+                }, function (likeData) {
 
-                    if (data.status) {
-                        $('#status_' + data.imgURL).val(true);
-                        $('#icon_' + data.imgURL).addClass('heart-btn');
-                        $('#icon_' + data.imgURL).removeClass('cus-color-white');
+                    var like_btn_id = window.ID();
+                    like_btn_id = like_btn_id.substring(1, like_btn_id.length - 1);
+                    var like_status_id = window.ID();
+                    var icon_id = window.ID();
+
+                    patternAdd(like_btn_id, icon_id, like_status_id, data.name, getDateFormat(new Date(data.date)), img_url, i);
+
+                    // console.log(likeData.count)
+                    // console.log(likeData.status)
+                    likeData.status = true
+
+                    if (likeData.status) {
+                        $('#' + like_status_id).val(true);
+                        $('#' + icon_id).addClass('heart-btn');
+                        $('#' + icon_id).removeClass('cus-color-white');
                     } else {
-                        $('#status_' + data.imgURL).val(false);
-                        $('#icon_' + data.imgURL).addClass('cus-color-white');
-                        $('#icon_' + data.imgURL).removeClass('heart-btn');
+                        $('#' + like_status_id).val(false);
+                        $('#' + icon_id).addClass('cus-color-white');
+                        $('#' + icon_id).removeClass('heart-btn');
                     }
 
                     // like-btn 클릭시
-                    $('#'+data.imgURL).click(function(){
-                        $.post(url, {
-                            imgURL : data.imgURL,
-                            likeStatus : $('#status_' + data.imgURL).val(),
-                            deviceInfo : localStorage.getItem('user_id')
-                        }, function (data) {
-                            console.log('like complite');
-                        })
-                    })
+                    console.log('test')
+                    // console.log('#' + like_btn_id)
+                    // console.log('#' + icon_id)
+                    // console.log('#' + like_status_id)
+                    console.log($('#' + like_btn_id))
+                    // console.log($('#' + icon_id))
+                    // console.log($('#' + like_status_id))
+
+                    console.log(like_btn_id)
+                    console.log(typeof(like_btn_id))
+                    var id = '#' + like_btn_id
+                    // console.log(id)
+                    // console.log('#test')
+                    $(document).on('click', id, function () {
+                        console.log('test')
+                    });
+
+                    // $($('#' + like_btn_id)).click(function(){
+                    //     console.log('Test')
+                    //     // var url = window.temp_domain + "patternLikePlus";
+                    //     // $.post(url, {
+                    //     //     imgURL : data.imgURL,
+                    //     //     likeStatus :  $('#' + like_status_id).val(),
+                    //     //     deviceInfo : localStorage.getItem('user_id')
+                    //     // }, function (data) {
+                    //     //     console.log('like complite');
+                    //     // })
+                    // })
                 });
             })
             post_num += 1;
@@ -803,16 +1097,19 @@ $(function () {
                     var img_url = window.temp_domain + "public/repository/" + data.imgURL;
 
                     // patternAdd(like_btn_id, icon_id, like_status_id, data.name, getDateFormat(new Date(data.date)), img_url, i);
-                    patternAdd(data.imgURL, 'icon_'+data.imgURL, 'status_'+data.imgURL, data.name, getDateFormat(new Date(data.date)), img_url, i);
+                    patternAdd(data.imgURL, 'icon_' + data.imgURL, 'status_' + data.imgURL, data.name, getDateFormat(new Date(data.date)), img_url, i);
 
                     // post로 like 등록 했는지 확인
 
-              
+
                     var url = window.temp_domain + "patternLikeCall";
                     $.post(url, {
-                        imgURL : data.imgURL,
-                        deviceInfo : localStorage.getItem('user_id')
+                        imgURL: data.imgURL,
+                        deviceInfo: localStorage.getItem('user_id')
                     }, function (data) {
+
+                        console.log(data.count)
+                        console.log(data.status)
 
                         if (data.status) {
                             $('#status_' + data.imgURL).val(true);
@@ -825,11 +1122,13 @@ $(function () {
                         }
 
                         // like-btn 클릭시
-                        $('#'+data.imgURL).click(function(){
+
+                        $('#' + data.imgURL).click(function () {
+                            var url = window.temp_domain + "patternLikePlus";
                             $.post(url, {
-                                imgURL : data.imgURL,
-                                likeStatus : $('#status_' + data.imgURL).val(),
-                                deviceInfo : localStorage.getItem('user_id')
+                                imgURL: data.imgURL,
+                                likeStatus: $('#status_' + data.imgURL).val(),
+                                deviceInfo: localStorage.getItem('user_id')
                             }, function (data) {
                                 console.log('like complite');
                             })
@@ -839,6 +1138,180 @@ $(function () {
                 post_num += 1;
             });
         });
+    }
+});
+
+// [3]
+$(function () {
+    var post_data = window.location.search.substring(1);
+
+    var path = window.location.pathname;
+    var page = path.split("/").pop();
+    if (page == 'paint-draw.html') {
+
+        pencilSelect();
+        //patternImage setting
+        outlineImage.onload = function () {
+            redraw();
+        };
+        outlineImage.src = "./img/patterns/pattern_" + post_data + ".png";
+        context = document.getElementById('myCanvas').getContext("2d");
+
+        // var canvasDiv = document.getElementById('canvasDiv');
+        // canvas = document.createElement('canvas');
+
+        // canvas.setAttribute('id', 'canvas');
+        // canvasDiv.appendChild(canvas);
+        // if(typeof G_vmlCanvasManager != 'undefined') {
+        //     canvas = G_vmlCanvasManager.initElement(canvas);
+        // }
+        // context = canvas.getContext("2d");
+
+
+        $('#myCanvas').on('touchstart', function (e) {
+            console.log('in touchstart');
+            // var mouseX = (e.changedTouches ? e.changedTouches[0].pageX : e.pageX) - this.offsetLeft,
+            //     mouseY = (e.changedTouches ? e.changedTouches[0].pageY : e.pageY) - this.offsetTop;
+            // var mouseX = event.touches[0].pageX-this.offset.left,
+            //     mouseY = event.touches[0].pageY-this.offset.top;
+            var mouseX = e.originalEvent.touches[0].pageX - this.offsetLeft,
+                mouseY = e.originalEvent.touches[0].pageY - this.offsetTop;
+
+            console.log(mouseX, mouseY);
+            $('#testText').text('1 mouseX_1 start : ' + mouseX + 'mouseX_2 start : ' + mouseY)
+
+            paint = true;
+            addClick(mouseX, mouseY);
+            redraw();
+        });
+        $('#myCanvas').on('touchmove', function (e) {
+            console.log('in touchmove');
+            // var mouseX = event.touches[0].pageX-this.offset.left,
+            //     mouseY = event.touches[0].pageY-this.offset.top;
+            var mouseX = e.originalEvent.touches[0].pageX - this.offsetLeft,
+                mouseY = e.originalEvent.touches[0].pageY - this.offsetTop;
+
+            console.log(mouseX, mouseY);
+            $('#testText').text('2 mouseX_1 start : ' + mouseX + 'mouseX_2 start : ' + mouseY)
+
+            if (paint) {
+                addClick(mouseX, mouseY, true);
+                redraw();
+            }
+        });
+        $('#myCanvas').on('touchend', function (e) {
+            console.log('in touchend');
+            paint = false;
+        });
+
+        // $('#myCanvas').mousedown(function(e){
+        //     // Mouse down location
+        //     var mouseX = (e.changedTouches ? e.changedTouches[0].pageX : e.pageX) - this.offsetLeft,
+        //         mouseY = (e.changedTouches ? e.changedTouches[0].pageY : e.pageY) - this.offsetTop
+        //     console.log(mouseX);
+        //     console.log(mouseY);
+        //
+        //     paint = true;
+        //     addClick(mouseX, mouseY);
+        //     redraw();
+        // });
+        // $('#myCanvas').mousemove(function(e){
+        //     var mouseX = (e.changedTouches ? e.changedTouches[0].pageX : e.pageX) - this.offsetLeft,
+        //         mouseY = (e.changedTouches ? e.changedTouches[0].pageY : e.pageY) - this.offsetTop;
+        //     if(paint){
+        //         addClick(mouseX, mouseY, true);
+        //         redraw();
+        //     }
+        // });
+        // $('#myCanvas').mouseup(function(e){
+        //     paint = false;
+        // });
+        // $('#myCanvas').mouseleave(function(e){
+        //     paint = false;
+        // });
+
+        function addClick(x, y, dragging) {
+            clickX.push(x);
+            clickY.push(y);
+            clickDrag.push(dragging);
+        }
+
+        function redraw() {
+            context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
+            // context.strokeStyle = ink;
+            //#df4b26
+            context.lineJoin = "round";
+            context.lineWidth = curSize;
+            clickColor.push(ink);
+            clickSize.push(curSize);
+
+            for (var i = 0; i < clickX.length; i++) {
+                context.beginPath();
+                if (clickDrag[i] && i) {
+                    context.moveTo(clickX[i - 1], clickY[i - 1]);
+                } else {
+                    context.moveTo(clickX[i] - 1, clickY[i]);
+                }
+                context.strokeStyle = clickColor[i];
+                context.lineTo(clickX[i], clickY[i]);
+                context.closePath();
+                context.strokeStyle = clickColor[i];
+                context.lineWidth = clickSize[i];
+                context.stroke();
+            }
+
+            context.drawImage(outlineImage, 0, 0, context.canvas.width, context.canvas.height);
+        }
+
+        function setColor(color) {
+            if (eraser == true) {
+                pencilSelect();
+            }
+            ink = color;
+        }
+
+
+        function setCurSize() {
+            if (pencil == true) {
+                curSize = $("#sizeSlider").val();
+            } else if (eraser == true) {
+                curSize = $("#sizeSlider").val() * 2;
+            } else if (brush == true) {
+                curSize = 20 + $("#sizeSlider").val() * 3;
+            }
+        }
+
+        function eraserSelect() {
+            setCurSize();
+            setColor("white");
+            eraser = true;
+            pencil = false;
+            brush = false;
+            $("#eraser").addClass("tool-select")
+            $("#pencil").removeClass("tool-select")
+            $("#brush").removeClass("tool-select")
+
+        }
+
+        function pencilSelect() {
+            eraser = false;
+            pencil = true;
+            brush = false;
+            setCurSize();
+            $("#eraser").removeClass("tool-select")
+            $("#pencil").addClass("tool-select")
+            $("#brush").removeClass("tool-select")
+        }
+
+        function brushSelect() {
+            eraser = false;
+            pencil = false;
+            brush = true;
+            setCurSize();
+            $("#eraser").removeClass("tool-select")
+            $("#pencil").removeClass("tool-select")
+            $("#brush").addClass("tool-select")
+        }
     }
 });
 
@@ -910,12 +1383,6 @@ $(function index_init() {
 
     }
 });
-var ID = function () {
-    // Math.random should be unique because of its seeding algorithm.
-    // Convert it to base 36 (numbers + letters), and grab the first 9 characters
-    // after the decimal.
-    return '_' + Math.random().toString(36).substr(2, 9);
-};
 
 /**
  * Display Part
@@ -1023,10 +1490,32 @@ $(function () {
     }
 });
 
-// [2]
+/**
+ *  function util
+ *
+ */
+var eraser = false,
+    pencil = true,
+    brush = false,
+    outlineImage = new Image();
 
+var clickSize = new Array(),
+    clickColor = new Array(),
+    curSize = 5;
+clickColor.push("black");
 
-// [3] like btn
+var clickX = new Array(),
+    clickY = new Array(),
+    clickDrag = new Array();
+
+var paint;
+var ink = "black;"
+var ID = function () {
+    // Math.random should be unique because of its seeding algorithm.
+    // Convert it to base 36 (numbers + letters), and grab the first 9 characters
+    // after the decimal.
+    return '_' + Math.random().toString(36).substr(2, 9);
+};
 var likeBtnSet = function (post_data) {
     $('#like-btn').click(function () {
         // 1. css 효과 변경
@@ -1053,20 +1542,12 @@ var likeBtnSet = function (post_data) {
         });
     })
 };
-
-/**
- *  function util
- *
- */
-
 function imageSlideAdd(imgUrl) {
     $('#item-slide').append(
         "<div class='swiper-slide'>" +
         "<img src=" + imgUrl + " alt=''>" +
         "</div>");
 }
-
-
 function listAdd(code, imgUrl, title) {
     $('#list_grid').append(
         "<div class='grid-item gallery-item-card'>" +
@@ -1083,14 +1564,13 @@ function listAdd(code, imgUrl, title) {
         "</div>"
     );
 }
-
 function patternAdd(like_btn_id, icon_id, like_status_id, user_id, date, img_url, delay) {
     $('#result_contents').append(
         "<div class='blog-fullwidth animated fadeinup delay-" + delay + "'>" +
         "<div style='padding: 20px 40px 0px 0px' class='width-100 pos-ab right-align'>" +
-        "<button id=" + like_btn_id + " class='btn-floating btn waves-effect waves-light cus-background-black btn z-depth-1'>" +
-        "<input id=" + like_status_id + " type='hidden' value=false><!--안눌러져있는상태 default-->" +
-        "<i id=" + icon_id + "  class='fa ion-heart cus-color-white'></i>" +
+        "<button id='" + like_btn_id + "' class='btn-floating btn waves-effect waves-light cus-background-black z-depth-1'>" +
+        "<input id='" + like_status_id + "' type='hidden' value=false><!--안눌러져있는상태 default-->" +
+        "<i id='" + icon_id + "'  class='fa ion-heart cus-color-white'></i>" +
         "</button>" +
         "</div>" +
         "<div class='blog-header'>" +
@@ -1100,13 +1580,12 @@ function patternAdd(like_btn_id, icon_id, like_status_id, user_id, date, img_url
         "</div>" +
         "</div>" +
         "<div class='blog-image m-20'>" +
-        "<img src=" + img_url + " alt=''>" +
+        "<img src=" + img_url + ">" +
         "<div class='opacity-overlay-top'></div>" +
         "</div>" +
         "</div>"
     );
 }
-
 function addNoticeList(title, content, date, delay) {
     $('#noticeList').append("" +
         "<div class = 'single-news animated fadeinright delay-" + delay + "'>" +
@@ -1117,7 +1596,6 @@ function addNoticeList(title, content, date, delay) {
         "</div>"
     )
 };
-
 function myLikeAdd(code, title, subtitle, img_src, delay) {
     $('#myLikeList').append("" +
         "<a href='display-content.html?" + code + "'>" +
@@ -1135,7 +1613,6 @@ function myLikeAdd(code, title, subtitle, img_src, delay) {
         "</div>" +
         "</a>")
 };
-
 function find() {
     var temp = $("#findForm").val();
     $("#findBox").html("");
@@ -1160,12 +1637,10 @@ function find() {
         }
     })
 }
-
 function getDateFormat(date) {
     // 년월일 얻기
     return date.getFullYear() + '-' + addZero(date.getMonth() + 1) + '-' + addZero(date.getDate());
 }
-
 function addZero(num) {
     if (num < 10)
         return '0' + num;
