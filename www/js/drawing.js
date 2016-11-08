@@ -2,31 +2,42 @@
  * Created by superMoon on 2016-10-03.
  */
 // color setting
-var colorRed = "#ff0000";
-var colorPurple = "#cb3594";
-var colorGreen = "#659b41";
-var colorYellow = "#ffcf33";
-var colorBrown = "#986928";
-var colorBlue = "#0000ff";
+// var colorRed = "#ff0000";
+// var colorPurple = "#cb3594";
+// var colorGreen = "#659b41";
+// var colorYellow = "#ffcf33";
+// var colorBrown = "#986928";
+// var colorBlue = "#0000ff";
 
-// now color setting
-var curColor = colorPurple;
+var eraser =false;
+var pencil = true;
+var brush = false;
+var outlineImage = new Image();
 var clickColor = new Array();
 
 // clickSize setting
 var clickSize = new Array();
-var curSize = "normal";
+var curSize = 5;
 
 var clickX = new Array();
 var clickY = new Array();
 var clickDrag = new Array();
 var paint;
 
+var ink = "black;"
+clickColor.push("black");
+pencilSelect();
+
+//patternImage setting
+outlineImage.onload = function() {
+    redraw();
+};
+outlineImage.src = "./img/patterns/pattern_1.png";
 context = document.getElementById('myCanvas').getContext("2d");
+
 // var canvasDiv = document.getElementById('canvasDiv');
 // canvas = document.createElement('canvas');
-// canvas.setAttribute('width', 2000);
-// canvas.setAttribute('height', 2000);
+
 // canvas.setAttribute('id', 'canvas');
 // canvasDiv.appendChild(canvas);
 // if(typeof G_vmlCanvasManager != 'undefined') {
@@ -104,14 +115,19 @@ function addClick(x, y, dragging)
     clickX.push(x);
     clickY.push(y);
     clickDrag.push(dragging);
+
 }
 
 function redraw(){
     context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
-
-    context.strokeStyle = "#df4b26";
+    // context.strokeStyle = ink;
+    //#df4b26
     context.lineJoin = "round";
-    context.lineWidth = 5;
+    context.lineWidth = curSize;
+    clickColor.push(ink);
+    clickSize.push(curSize);
+
+
 
     for(var i=0; i < clickX.length; i++) {
         context.beginPath();
@@ -120,37 +136,65 @@ function redraw(){
         }else{
             context.moveTo(clickX[i]-1, clickY[i]);
         }
+        context.strokeStyle = clickColor[i];
         context.lineTo(clickX[i], clickY[i]);
         context.closePath();
+        context.strokeStyle = clickColor[i];
+        context.lineWidth = clickSize[i];
         context.stroke();
     }
+
+    context.drawImage(outlineImage,0,0, context.canvas.width, context.canvas.height);
+}
+
+function setColor(color){
+    if(eraser==true){
+        pencilSelect();
+    }
+    ink = color;
 }
 
 
-function changeToRed() {
-    curColor = colorRed
+    function setCurSize(){
+        if(pencil==true) {
+            curSize = $("#sizeSlider").val();
+        }else if(eraser==true){
+            curSize = $("#sizeSlider").val()*2;
+        }else if(brush==true){
+            curSize = 20 + $("#sizeSlider").val()*3;
+        }
+    }
+
+    function eraserSelect(){
+        setCurSize();
+        setColor("white");
+        eraser = true;
+        pencil = false;
+        brush = false;
+
+    $("#eraser").addClass("tool-select")
+    $("#pencil").removeClass("tool-select")
+    $("#brush").removeClass("tool-select")
+
 }
 
-function changeToBlue() {
-    curColor = colorBlue
+function pencilSelect(){
+    eraser = false;
+    pencil = true;
+    brush = false;
+    setCurSize();
+    $("#eraser").removeClass("tool-select")
+    $("#pencil").addClass("tool-select")
+    $("#brush").removeClass("tool-select")
 }
 
-function changeToGreen() {
-    curColor = colorGreen
+function brushSelect(){
+    eraser = false;
+    pencil = false;
+    brush = true;
+    setCurSize();
+    $("#eraser").removeClass("tool-select")
+    $("#pencil").removeClass("tool-select")
+    $("#brush").addClass("tool-select")
 }
 
-function changeToSmall() {
-    curSize = 'small'
-}
-
-function changeToNormal() {
-    curSize = 'normal'
-}
-
-function changeToLarge() {
-    curSize = 'large'
-}
-
-function changeToHuge() {
-    curSize = 'huge'
-}

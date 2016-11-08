@@ -135,12 +135,12 @@ canvas {
 }
 
 
+
 .canvasSize {
     position: relative;
-    width: 90% !important;
-    height: 90vw !important;
-    margin: 5vw !important;
-    /*padding: 0px 10px 10px 10px;*/
+    /*width: 90vw; !important;*/
+    border: 1px solid black; !important;
+
 }
 
 .pos-ab {
@@ -312,4 +312,9 @@ canvas {
 /* like btn css */
 .heart-btn {
     color : red !important;
+}
+
+.tool-select{
+    width:60px;
+    height:60px;
 }
