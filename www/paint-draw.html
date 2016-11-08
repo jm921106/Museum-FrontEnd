@@ -5,7 +5,7 @@
     <title>Museum</title>
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="x-ua-compatible">
-    <meta content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" name="viewport">
+    <meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=no;" />
     <meta content="yes" name="apple-mobile-web-app-capable">
     <meta content="yes" name="apple-touch-fullscreen">
     <!-- Fonts -->
@@ -52,6 +52,7 @@
         <div id="draw-header">
 
             <div>
+<<<<<<< HEAD
                 <div style="width:50vw; float:left;" class="center-align m-t-30">
                     <a href="#" class="btn-floating btn waves-effect waves-light red">
                         <img src="img/workspace/eraser.svg">
@@ -71,29 +72,43 @@
                         <!--</form>-->
                     </div>
 
+=======
+                <div id ="draw-tool"  style="padding-left:15px; width:50vw; float:left;" class="center-align vamiddle m-t-30">
+                    <a href="#" id="eraser" onClick="eraserSelect();" class="btn-floating btn waves-effect waves-light red">
+                        <img src="img/workspace/eraser.svg">
+                    </a>
+                    <a href="#" id="pencil" onClick="pencilSelect();" class="btn-floating btn waves-effect waves-light green">
+                        <img src="img/workspace/school-material.svg">
+                    </a>
+                    <a href="#" id="brush" onClick="brushSelect();" class="btn-floating btn waves-effect waves-light blue">
+                        <img src="img/workspace/paint-brush.svg">
+                    </a>
+                    <br>
+                    <input id="sizeSlider" class="draw-pen-set" type="range" onChange ="setCurSize();" value="5" min="0" max="10"/>
+>>>>>>> fe66bdb1e9d6f8a0ccf8a2b86ddcdf38dff70079
                 </div>
-                <div style="width:50vw; float:left; padding:20px 20px 20px 0px !important;">
+                <div id = "draw-table" style="width:50vw; float:left; padding:20px 20px 20px 0px !important;">
                     <table style="width:100%; border:solid 2px black;">
                         <tr>
-                            <td style="width:5vw; border:solid 2px black; background-color: white"></td>
-                            <td style="width:5vw; border:solid 2px black; background-color: black"></td>
-                            <td style="width:5vw; border:solid 2px black; background-color: red"></td>
-                            <td style="width:5vw; border:solid 2px black; background-color: green"></td>
-                            <td style="width:5vw; border:solid 2px black; background-color: blue"></td>
+                            <td id = "test" style="width:5vw; border:solid 2px black; background-color: white" onClick="setColor('white');"></td>
+                            <td style="width:5vw; border:solid 2px black; background-color: black" onClick="setColor('black');"></td>
+                            <td style="width:5vw; border:solid 2px black; background-color: red" onClick="setColor('red');"></td>
+                            <td style="width:5vw; border:solid 2px black; background-color: green" onClick="setColor('green');"></td>
+                            <td style="width:5vw; border:solid 2px black; background-color: blue" onClick="setColor('blue');"></td>
                         </tr>
                         <tr>
-                            <td style="width:5vw; border:solid 2px black; background-color: ivory"></td>
-                            <td style="width:5vw; border:solid 2px black; background-color: grey"></td>
-                            <td style="width:5vw; border:solid 2px black; background-color: pink"></td>
-                            <td style="width:5vw; border:solid 2px black; background-color: darkslategray"></td>
-                            <td style="width:5vw; border:solid 2px black; background-color: aqua"></td>
+                            <td style="width:5vw; border:solid 2px black; background-color: ivory"onClick="setColor('ivory');"></td>
+                            <td style="width:5vw; border:solid 2px black; background-color: grey" onClick="setColor('grey');"></td>
+                            <td style="width:5vw; border:solid 2px black; background-color: pink" onClick="setColor('pink');"></td>
+                            <td style="width:5vw; border:solid 2px black; background-color: darkslategray" onClick="setColor('darklategray');"></td>
+                            <td style="width:5vw; border:solid 2px black; background-color: aqua" onClick="setColor('aqua');"></td>
                         </tr>
                         <tr>
-                            <td style="width:5vw; border:solid 2px black; background-color: purple"></td>
-                            <td style="width:5vw; border:solid 2px black; background-color: black"></td>
-                            <td style="width:5vw; border:solid 2px black; background-color: orange"></td>
-                            <td style="width:5vw; border:solid 2px black; background-color: olive"></td>
-                            <td style="width:5vw; border:solid 2px black; background-color: lightblue"></td>
+                            <td style="width:5vw; border:solid 2px black; background-color: purple" onClick="setColor('purple');"></td>
+                            <td style="width:5vw; border:solid 2px black; background-color: black" onClick="setColor('black');"></td>
+                            <td style="width:5vw; border:solid 2px black; background-color: orange" onClick="setColor('orange');"></td>
+                            <td style="width:5vw; border:solid 2px black; background-color: olive" onClick="setColor('olive');"></td>
+                            <td style="width:5vw; border:solid 2px black; background-color: lightblue" onClick="setColor('lightblue');"></td>
                         </tr>
                     </table>
                 </div>
@@ -101,7 +116,11 @@
 
             <!-- play draw -->
             <!--<div class="canvasSize">-->
-            <canvas id="myCanvas" class="canvasSize" style="border: 1px solid black; margin: 0px 20px 10px 20px !important;"></canvas>
+            <div class="canvasWrapper">
+            <center>
+            <canvas id="myCanvas" class="canvasSize" width="320" height="320"></canvas>
+            </center>
+            </div>
             <!--<div id="canvasDiv"></div>-->
             <!--</div>-->
 
@@ -137,7 +156,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">취소</a>
+                    <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat ">취소</a>
                     <button id="pattern_submit" class="modal-action waves-effect waves-green btn-flat ">완료</button>
                 </div>
             </div>
