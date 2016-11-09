@@ -20,7 +20,9 @@
     <link href="css/swipebox.min.css" rel="stylesheet" type="text/css">
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <link href="css/custom.css" rel="stylesheet" type="text/css">
+
 </head>
+
 
 <body>
 
@@ -63,7 +65,8 @@
                         <img src="img/workspace/paint-brush.svg">
                     </a>
                     <br>
-                    <input id="sizeSlider" class="draw-pen-set" type="range" onChange ="setCurSize();" value="5" min="0" max="10"/>
+                    <input id="sizeSlider" name="foo" class="draw-pen-set" type="range"  onChange ="setCurSize();" value="5" min="1" max="10"/>
+
                 </div>
                 <div id = "draw-table" style="width:50vw; float:left; padding:20px 20px 20px 0px !important;">
                     <table style="width:100%; border:solid 2px black;">
@@ -159,10 +162,7 @@
 <script src="js/custom.js"></script>
 <script src="js/drawing.js"></script>
 <script src="js/temp_domain.js"></script>
-<scirpt>
-    <!--var pattern = window.location.search.substring(1);-->
-    <!--console.log(pattern);-->
-</scirpt>
+
 
 </body>
 </html>

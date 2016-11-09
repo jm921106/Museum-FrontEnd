@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <!--<div w3-include-html="views/include/includeCss.html"></div>-->
+    <title>Museum</title>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="x-ua-compatible">
+    <meta content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+    <!-- Icons -->
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="all" rel="stylesheet"
+          type="text/css">
+    <!-- Styles -->
+    <link href="css/keyframes.css" rel="stylesheet" type="text/css">
+    <link href="css/materialize.min.css" rel="stylesheet" type="text/css">
+    <link href="css/swiper.css" rel="stylesheet" type="text/css">
+    <link href="css/swipebox.min.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/custom.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body id="index_page">
+
+
+<div class="m-scene" id="main"> <!-- Main Container -->
+
+    <!-- SideBar -->
+    <ul id="slide-out-left" class="side-nav collapsible">
+        <div w3-include-html="views/include/left-panel.html"></div>
+    </ul>
+    <ul id="slide-out-right" class="side-nav collapsible">
+        <div w3-include-html="views/include/right-panel.html"></div>
+    </ul>
+
+    <!-- Page Content -->
+    <div id="content" class="page">
+        <div id="toolbar" class="tool-bar white-color">
+            <div class="open-left" id="open-left" data-activates="slide-out-left">
+                <i class="ion-android-menu cus-color-black"></i>
+            </div>
+            <span  class="cus-background-1 title">박물관 안내</span>
+            <div class="cus-color-1 open-right" id="open-right" data-activates="slide-out-right">
+                <i class="ion-android-search cus-color-black"></i>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="animated fadeinup delay-3">
+            <h1>관 람 시 간</h1>
+            <p>화~일요일 10:00AM ~ 18:00PM</p>
+            <p>휴관일  매주 월요일 , 1월 1일 ,설날</p>
+            <p>-입장은 폐관 1시간 전에 마감됩니다.</p>
+
+            <h1>관 람 요 금 </h1>
+        </div>
+
+
+        <div class="blog-card animated fadeinup delay-5">
+            <div class="map-card-header">
+                <i class="ion-ios-location left"></i>
+                <i class="ion-android-refresh right"></i>
+                <div class="map-card-author">
+                    <span>박물관 찾아오시는 길</span>
+                </div>
+            </div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d202875.4306761021!2d126.8813489144609!3d37.391520678238294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b5abe6b3bf323%3A0xe5e302fa908893ce!2z6rK96riw64-E67CV66y86rSA!5e0!3m2!1sko!2sit!4v1478625664931" width="300" height="100%" frameborder="0" style="border:0" ></iframe><br><br><br>
+        </div>
+
+
+        <!-- End of Main Contents -->
+
+    </div>
+
+    <!-- Footer -->
+    <!--<div w3-include-html="views/include/footer.html"></div>-->
+    <footer class="page-footer cus-background-1 bottom-fixed">
+        <div class="footer-copyright cus-background-1 darken-1 bottom-fixed width-100 center-align vamiddle">
+            <img class="center-align logo-img-resizing" src="img/museum/museum-logo.png">
+        </div>
+    </footer>
+
+</div> <!-- End of Page Container -->
+
+<!--<div w3-include-html="views/include/includeScript.html"></div>-->
+<!-- themeforest default -->
+<script src="js/temp_domain.js"></script>
+<script src="js/jquery-2.1.0.min.js"></script>
+<script src="js/jquery.swipebox.min.js"></script>
+<script src="js/jquery.smoothState.min.js"></script>
+<script src="js/materialize.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/jquery.mixitup.min.js"></script>
+<script src="js/masonry.min.js"></script>
+<script src="js/chart.min.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/drawing.js"></script>
+
+</body>
+</html>
