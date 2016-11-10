@@ -21,10 +21,7 @@ var paint;
 pencilSelect();
 var ink = "black";
 
-//patternImage setting
-outlineImage.onload = function() {
-    redraw();
-};
+
 outlineImage.src = "./img/patterns/pattern_1.png";
 context = document.getElementById('myCanvas').getContext("2d");
 
