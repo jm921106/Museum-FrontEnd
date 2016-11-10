@@ -26,38 +26,56 @@
 <body>
 <div class="m-scene" id="main"> <!-- Main Container -->
 
+    <!-- SIDE LEFT-->
+    <ul id="slide-out-left" class="side-nav collapsible">
+        <div w3-include-html="views/include/left-panel.html"></div>
+    </ul>
+    <!-- SIDE RIGHT-->
+    <ul id="slide-out-right" class="side-nav collapsible">
+        <div w3-include-html="views/include/right-panel.html"></div>
+    </ul>
+
     <!-- Page Content -->
-    <div id="content">
+    <div id="content" class="page">
 
         <!-- Toolbar -->
-        <div id="toolbar" class="primary-color">
-            <a class="open-left" href="javascript:history.back()">
-                <i class="ion-android-arrow-back"></i>
-            </a>
-            <span class="title">앱 구성정보</span>
+        <div id="toolbar" class="tool-bar white-color">
+            <div class="open-left" id="open-left" data-activates="slide-out-left">
+                <i class="cus-color-1 ion-android-menu"></i>
+            </div>
+            <span class="cus-background-1 title">구성정보</span>
+            <div class="cus-color-1 open-right" id="open-right" data-activates="slide-out-right">
+                <i class="cus-color-1 ion-android-search"></i>
+            </div>
         </div>
 
         <!-- Main Content -->
         <div style="height: calc(100vh - 56px);" class="animated fadeinup valign-wrapper fullscreen center-align">
-            <a style="margin: 0 auto;" href="#" class="waves-effect waves-light btn-large primary-color valign animated bouncein delay-2">
+            <a style="margin: 0 auto;" href="#" class="waves-effect waves-light btn-large valign animated bouncein delay-2 cus-background-black">
                 Version  : 0.1V Test
             </a>
         </div> <!-- End of Main Contents -->
 
 
     </div> <!-- End of Page Content -->
+    <footer class="page-footer cus-background-1 bottom-fixed">
+        <div class="footer-copyright cus-background-1 darken-1 bottom-fixed width-100 center-align vamiddle">
+            <img class="center-align logo-img-resizing" src="img/museum/museum-logo.png">
+        </div>
+    </footer>
 
 </div> <!-- End of Page Container -->
 
+<script src="js/jquery-2.1.0.min.js"></script>
+<script src="js/jquery.swipebox.min.js"></script>
+<script src="js/jquery.smoothState.min.js"></script>
+<script src="js/materialize.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/jquery.mixitup.min.js"></script>
+<script src="js/masonry.min.js"></script>
+<script src="js/chart.min.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/temp_domain.js"></script>
 
-<script src="../../js/jquery-2.1.0.min.js"></script>
-<script src="../../js/jquery.swipebox.min.js"></script>
-<script src="../../js/jquery.smoothState.min.js"></script>
-<script src="../../js/materialize.min.js"></script>
-<script src="../../js/swiper.min.js"></script>
-<script src="../../js/jquery.mixitup.min.js"></script>
-<script src="../../js/masonry.min.js"></script>
-<script src="../../js/chart.min.js"></script>
-<script src="../../js/functions.js"></script>
 </body>
 </html>

@@ -601,7 +601,7 @@ function initiate_plugins() {
      */
 
     // 페이지가 load시 today 수가 증가 - 한번만 되면 되기 때문에 initiate_plugins() 안에 처리하지 않음
-    $(function index_init() {
+    $(function() {
         var path = window.location.pathname;
         var page = path.split("/").pop();
         switch (page) {
@@ -656,7 +656,36 @@ function initiate_plugins() {
 
                 });
                 break;
-
+            case 'side-today.html':
+                console.log('test')
+                // LINE GRAPH
+                var lineChartData = {
+                    labels: ["1", "2", "3", "4", "5", "6", "7"],
+                    datasets: [{
+                        label: "My First dataset",
+                        fillColor: "rgba(100, 181, 246, 0.5)",
+                        strokeColor: "#90caf9",
+                        pointColor: "transparent",
+                        pointStrokeColor: "rgba(41, 128, 185, 0)",
+                        pointHighlightFill: "rgba(41, 128, 185, 0.9)",
+                        pointHighlightStroke: "rgba(41, 128, 185, 0)",
+                        data: [100, 70, 20, 155, 50, 70, 50]
+                    }, {
+                        label: "My Second dataset",
+                        fillColor: "rgba(155, 89, 182, 0.5)",
+                        strokeColor: "rgba(155, 89, 182, 0.6)",
+                        pointColor: "rgba(155, 89, 182, 0.9)",
+                        pointStrokeColor: "rgba(231, 76, 60, 255, 0)",
+                        pointHighlightFill: "rgba(155, 89, 182, 0.9)",
+                        pointHighlightStroke: "rgba(231, 76, 60, 0)",
+                        data: [28, 54, 40, 19, 37, 20, 90]
+                    }]
+                }
+                var ctx = document.getElementById("canvas").getContext("2d");
+                window.myLine = new Chart(ctx).Line(lineChartData, {
+                    responsive: true,
+                });
+                break;
         }
     });
 
@@ -1302,15 +1331,15 @@ $(function () {
 
 /**
  * Panel Page [SET]
- * [1]
- * [2]
- * [3]
+ * [1] index
+ * [2] mylike
+ * [3] graph - today
  * [4]
  * [5]
  * [6]
  */
 // 페이지가 load시 today 수가 증가 - 한번만 되면 되기 때문에 initiate_plugins() 안에 처리하지 않음
-$(function index_init() {
+$(function () {
     var path = window.location.pathname;
     var page = path.split("/").pop();
     switch (page) {
@@ -1365,7 +1394,35 @@ $(function index_init() {
 
             });
             break;
-
+        case 'side-today.html':
+            // LINE GRAPH
+            var lineChartData = {
+                labels: ["x월 \ny주", "x월 \ny주", "x월 \ny주", "x월 \ny주", "x월 \ny주"],
+                datasets: [{
+                    label: "My First dataset",
+                    fillColor: "rgba(100, 181, 246, 0.5)",
+                    strokeColor: "#90caf9",
+                    pointColor: "transparent",
+                    pointStrokeColor: "rgba(41, 128, 185, 0)",
+                    pointHighlightFill: "rgba(41, 128, 185, 0.9)",
+                    pointHighlightStroke: "rgba(41, 128, 185, 0)",
+                    data: [100, 70, 20, 155, 50]
+                }, {
+                    label: "My Second dataset",
+                    fillColor: "rgba(155, 89, 182, 0.5)",
+                    strokeColor: "rgba(155, 89, 182, 0.6)",
+                    pointColor: "rgba(155, 89, 182, 0.9)",
+                    pointStrokeColor: "rgba(231, 76, 60, 255, 0)",
+                    pointHighlightFill: "rgba(155, 89, 182, 0.9)",
+                    pointHighlightStroke: "rgba(231, 76, 60, 0)",
+                    data: [70, 50, 30, 20, 20]
+                }]
+            }
+            var ctx = document.getElementById("canvas").getContext("2d");
+            window.myLine = new Chart(ctx).Line(lineChartData, {
+                responsive: true,
+            });
+            break;
     }
 });
 
