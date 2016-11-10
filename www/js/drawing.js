@@ -22,6 +22,9 @@ pencilSelect();
 var ink = "black";
 
 
+
+
+
 outlineImage.src = "./img/patterns/pattern_1.png";
 context = document.getElementById('myCanvas').getContext("2d");
 
@@ -85,8 +88,6 @@ function addClick(x, y, dragging)
 function redraw(){
     context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
     context.lineJoin = "round";
-
-
 
     for(var i=1; i < clickX.length; i++) {
         context.beginPath();
@@ -162,3 +163,4 @@ function brushSelect(){
     $("#pencil").removeClass("tool-select");
     $("#brush").addClass("tool-select");
 }
+

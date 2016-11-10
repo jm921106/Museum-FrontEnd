@@ -198,6 +198,12 @@ canvas {
     border: 3px solid grey;
     background-color:rgba(0,0,0,0.6) !important;
 }
+
+.custom-color2{
+    padding: 20px; !important;
+    background-color:rgba(0,0,0,0.6) !important;
+}
+
 .custom-white{
     background-color:white;!important;
 }
@@ -248,6 +254,8 @@ canvas {
     color : black !important;
     /*color : #444 !important;*/
 }
+
+
 
 .cus-color-background-1{
     background-color : #444 !important;

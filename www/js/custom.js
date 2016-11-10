@@ -423,6 +423,7 @@ function initiate_plugins() {
         var path = window.location.pathname;
         var page = path.split("/").pop();
         if (page == 'paint-draw.html') {
+            reset();
 
             pencilSelect();
             //patternImage setting
@@ -587,6 +588,16 @@ function initiate_plugins() {
                 $("#pencil").removeClass("tool-select")
                 $("#brush").addClass("tool-select")
             }
+
+            function reset(){
+                clickX=[];
+                clickY=[];
+                clickDrag=[];
+                clickColor=[];
+                clickSize=[];
+                console.log("reset");
+            }
+
         }
     });
 
@@ -1546,8 +1557,15 @@ function imageSlideAdd(imgUrl) {
     $('#item-slide').append(
         "<div class='swiper-slide'>" +
         "<img src=" + imgUrl + " alt=''>" +
-        "</div>");
+        "</div>")
+
+    $('#item-slide div').removeClass("swiper-slide").addClass("swiper-slide");
+    $("#pagination").removeClass("swiper-pagination").addClass("swiper-pagination");
+    console.log("pagination")
 }
+
+
+
 function listAdd(code, imgUrl, title) {
     $('#list_grid').append(
         "<div class='grid-item gallery-item-card'>" +
@@ -1646,6 +1664,15 @@ function addZero(num) {
         return '0' + num;
     else
         return num;
+}
+
+function reset(){
+    clickX=[];
+    clickY=[];
+    clickDrag=[];
+    clickColor=[];
+    clickSize=[];
+    console.log("reset");
 }
 
 
