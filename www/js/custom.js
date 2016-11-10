@@ -611,8 +611,8 @@ function initiate_plugins() {
      * [6]
      */
 
-   // 페이지가 load시 today 수가 증가 - 한번만 되면 되기 때문에 initiate_plugins() 안에 처리하지 않음
-    $(function index_init() {
+    // 페이지가 load시 today 수가 증가 - 한번만 되면 되기 때문에 initiate_plugins() 안에 처리하지 않음
+    $(function () {
         var path = window.location.pathname;
         var page = path.split("/").pop();
         switch (page) {
@@ -667,7 +667,36 @@ function initiate_plugins() {
 
                 });
                 break;
-
+            case 'side-today.html':
+                console.log('test')
+                // LINE GRAPH
+                var lineChartData = {
+                    labels: ["1", "2", "3", "4", "5", "6", "7"],
+                    datasets: [{
+                        label: "My First dataset",
+                        fillColor: "rgba(100, 181, 246, 0.5)",
+                        strokeColor: "#90caf9",
+                        pointColor: "transparent",
+                        pointStrokeColor: "rgba(41, 128, 185, 0)",
+                        pointHighlightFill: "rgba(41, 128, 185, 0.9)",
+                        pointHighlightStroke: "rgba(41, 128, 185, 0)",
+                        data: [100, 70, 20, 155, 50, 70, 50]
+                    }, {
+                        label: "My Second dataset",
+                        fillColor: "rgba(155, 89, 182, 0.5)",
+                        strokeColor: "rgba(155, 89, 182, 0.6)",
+                        pointColor: "rgba(155, 89, 182, 0.9)",
+                        pointStrokeColor: "rgba(231, 76, 60, 255, 0)",
+                        pointHighlightFill: "rgba(155, 89, 182, 0.9)",
+                        pointHighlightStroke: "rgba(231, 76, 60, 0)",
+                        data: [28, 54, 40, 19, 37, 20, 90]
+                    }]
+                }
+                var ctx = document.getElementById("canvas").getContext("2d");
+                window.myLine = new Chart(ctx).Line(lineChartData, {
+                    responsive: true,
+                });
+                break;
         }
     });
 
@@ -1045,57 +1074,42 @@ $(function () {
                 }, function (likeData) {
 
                     var like_btn_id = window.ID();
-                    like_btn_id = like_btn_id.substring(1, like_btn_id.length - 1);
                     var like_status_id = window.ID();
                     var icon_id = window.ID();
 
                     patternAdd(like_btn_id, icon_id, like_status_id, data.name, getDateFormat(new Date(data.date)), img_url, i);
 
-                    // console.log(likeData.count)
-                    // console.log(likeData.status)
-                    likeData.status = true
-
                     if (likeData.status) {
-                        $('#' + like_status_id).val(true);
+                        $('#' + like_status_id).val('true');
                         $('#' + icon_id).addClass('heart-btn');
                         $('#' + icon_id).removeClass('cus-color-white');
                     } else {
-                        $('#' + like_status_id).val(false);
+                        $('#' + like_status_id).val('false');
                         $('#' + icon_id).addClass('cus-color-white');
                         $('#' + icon_id).removeClass('heart-btn');
                     }
 
-                    // like-btn 클릭시
-                    console.log('test')
-                    // console.log('#' + like_btn_id)
-                    // console.log('#' + icon_id)
-                    // console.log('#' + like_status_id)
-                    console.log($('#' + like_btn_id))
-                    // console.log($('#' + icon_id))
-                    // console.log($('#' + like_status_id))
-
-                    console.log(like_btn_id)
-                    console.log(typeof(like_btn_id))
-                    var id = '#' + like_btn_id
-                    // console.log(id)
-                    // console.log('#test')
-                    $(document).on('click', id, function () {
-                        console.log('test')
+                    $('#' + like_btn_id).click(function () {
+                        if ($('#' + like_status_id).val() == 'true') {
+                            $('#' + like_status_id).val('false');
+                            $('#' + icon_id).addClass('cus-color-white');
+                            $('#' + icon_id).removeClass('heart-btn');
+                        } else {
+                            $('#' + like_status_id).val('true');
+                            $('#' + icon_id).addClass('heart-btn');
+                            $('#' + icon_id).removeClass('cus-color-white');
+                        }
+                        var url = window.temp_domain + "patternLikePlus";
+                        $.post(url, {
+                            imgURL: data.imgURL,
+                            likeStatus: $('#' + like_status_id).val(),
+                            deviceInfo: localStorage.getItem('user_id')
+                        }, function (data) {
+                            console.log(data);
+                        })
                     });
-
-                    // $($('#' + like_btn_id)).click(function(){
-                    //     console.log('Test')
-                    //     // var url = window.temp_domain + "patternLikePlus";
-                    //     // $.post(url, {
-                    //     //     imgURL : data.imgURL,
-                    //     //     likeStatus :  $('#' + like_status_id).val(),
-                    //     //     deviceInfo : localStorage.getItem('user_id')
-                    //     // }, function (data) {
-                    //     //     console.log('like complite');
-                    //     // })
-                    // })
                 });
-            })
+            });
             post_num += 1;
         });
 
@@ -1108,43 +1122,43 @@ $(function () {
                     var img_url = window.temp_domain + "public/repository/" + data.imgURL;
 
                     // patternAdd(like_btn_id, icon_id, like_status_id, data.name, getDateFormat(new Date(data.date)), img_url, i);
-                    patternAdd(data.imgURL, 'icon_' + data.imgURL, 'status_' + data.imgURL, data.name, getDateFormat(new Date(data.date)), img_url, i);
-
-                    // post로 like 등록 했는지 확인
-
-
-                    var url = window.temp_domain + "patternLikeCall";
-                    $.post(url, {
-                        imgURL: data.imgURL,
-                        deviceInfo: localStorage.getItem('user_id')
-                    }, function (data) {
-
-                        console.log(data.count)
-                        console.log(data.status)
-
-                        if (data.status) {
-                            $('#status_' + data.imgURL).val(true);
-                            $('#icon_' + data.imgURL).addClass('heart-btn');
-                            $('#icon_' + data.imgURL).removeClass('cus-color-white');
-                        } else {
-                            $('#status_' + data.imgURL).val(false);
-                            $('#icon_' + data.imgURL).addClass('cus-color-white');
-                            $('#icon_' + data.imgURL).removeClass('heart-btn');
-                        }
-
-                        // like-btn 클릭시
-
-                        $('#' + data.imgURL).click(function () {
-                            var url = window.temp_domain + "patternLikePlus";
-                            $.post(url, {
-                                imgURL: data.imgURL,
-                                likeStatus: $('#status_' + data.imgURL).val(),
-                                deviceInfo: localStorage.getItem('user_id')
-                            }, function (data) {
-                                console.log('like complite');
-                            })
-                        })
-                    });
+                    // patternAdd(data.imgURL, 'icon_' + data.imgURL, 'status_' + data.imgURL, data.name, getDateFormat(new Date(data.date)), img_url, i);
+                    //
+                    // // post로 like 등록 했는지 확인
+                    //
+                    //
+                    // var url = window.temp_domain + "patternLikeCall";
+                    // $.post(url, {
+                    //     imgURL: data.imgURL,
+                    //     deviceInfo: localStorage.getItem('user_id')
+                    // }, function (data) {
+                    //
+                    //     console.log(data.count)
+                    //     console.log(data.status)
+                    //
+                    //     if (data.status) {
+                    //         $('#status_' + data.imgURL).val(true);
+                    //         $('#icon_' + data.imgURL).addClass('heart-btn');
+                    //         $('#icon_' + data.imgURL).removeClass('cus-color-white');
+                    //     } else {
+                    //         $('#status_' + data.imgURL).val(false);
+                    //         $('#icon_' + data.imgURL).addClass('cus-color-white');
+                    //         $('#icon_' + data.imgURL).removeClass('heart-btn');
+                    //     }
+                    //
+                    //     // like-btn 클릭시
+                    //
+                    //     $('#' + data.imgURL).click(function () {
+                    //         var url = window.temp_domain + "patternLikePlus";
+                    //         $.post(url, {
+                    //             imgURL: data.imgURL,
+                    //             likeStatus: $('#status_' + data.imgURL).val(),
+                    //             deviceInfo: localStorage.getItem('user_id')
+                    //         }, function (data) {
+                    //             console.log('like complite');
+                    //         })
+                    //     })
+                    // });
                 });
                 post_num += 1;
             });
@@ -1328,15 +1342,15 @@ $(function () {
 
 /**
  * Panel Page [SET]
- * [1]
- * [2]
- * [3]
+ * [1] index
+ * [2] mylike
+ * [3] graph - today
  * [4]
  * [5]
  * [6]
  */
 // 페이지가 load시 today 수가 증가 - 한번만 되면 되기 때문에 initiate_plugins() 안에 처리하지 않음
-$(function index_init() {
+$(function () {
     var path = window.location.pathname;
     var page = path.split("/").pop();
     switch (page) {
@@ -1391,9 +1405,111 @@ $(function index_init() {
 
             });
             break;
+        case 'side-today.html':
+            $('#today-refresh').click(function () {
+                window.location.href = 'side-today.html'
+            })
 
+            url = window.temp_domain + "todaySearch";
+            $.get(url, function (datas) {
+                var today = new Date();
+                var todayString = today.getFullYear() + '-' + today.getMonth() + '-' + today.getDate();
+
+                var datasets =   [{
+                    label: "My First dataset",
+                    fillColor: "rgba(180, 70, 70, 0.5)",
+                    strokeColor: "rgba(180, 70, 70, 0.6)",
+                    pointColor: "rgba(180, 70, 70, 0.9)",
+                    pointStrokeColor: "rgba(180, 70, 70, 255, 0)",
+                    pointHighlightFill: "rgba(180, 70, 70, 0.9)",
+                    pointHighlightStroke: "rgba(180, 70, 70, 0)",
+                    // data: [100, 0, 0, 0, 0]
+                    data: [null, null, null, null, null]
+                }, {
+                    label: "My Second dataset",
+                    fillColor: "rgba(70, 180, 70, 0.5)",
+                    strokeColor: "rgba(70, 180, 70, 0.6)",
+                    pointColor: "rgba(70, 180, 70, 0.9)",
+                    pointStrokeColor: "rgba(231, 76, 60, 255, 0)",
+                    pointHighlightFill: "rgba(155, 89, 182, 0.9)",
+                    pointHighlightStroke: "rgba(231, 76, 60, 0)",
+                    // data: [0, 100, 0, 0, 0]
+                    data: [null, null, null, null, null]
+                }, {
+                    label: "My Thrid dataset",
+                    fillColor: "rgba(100, 181, 246, 0.5)",
+                    strokeColor: "rgba(41, 128, 185, 0.6)",
+                    pointColor: "rgba(41, 128, 185, 0.9)",
+                    pointStrokeColor: "rgba(41, 128, 185, 0)",
+                    pointHighlightFill: "rgba(41, 128, 185, 0.9)",
+                    pointHighlightStroke: "rgba(231, 76, 60, 0)",
+                    // data: [0, 0, 100, 0, 0]
+                    data: [null, null, null, null, null]
+                }, {
+                    label: "My Fours dataset",
+                    fillColor: "rgba(155, 89, 182, 0.5)",
+                    strokeColor: "rgba(155, 89, 182, 0.6)",
+                    pointColor: "rgba(155, 89, 182, 0.9)",
+                    pointStrokeColor: "rgba(231, 76, 60, 255, 0)",
+                    pointHighlightFill: "rgba(155, 89, 182, 0.9)",
+                    pointHighlightStroke: "rgba(231, 76, 60, 0)",
+                    // data: [0, 0, 0, 100, 0]
+                    data: [null, null, null, null, null]
+                }]
+                
+                datas.forEach(function (data) {
+                    console.log(data.dateString)
+                    console.log(todayString)
+                    if(data.dateString == todayString) {
+                        $('#today-count').html(new Intl.NumberFormat().format(data.count));
+                    }
+
+                    data.date = new Date(data.date);
+
+                    switch(data.date.getMonth()+1) {
+                        case 11 :
+                            datasets[0].data[getWeek(data.date.getDate())] += data.count;
+                            break;
+                        case 12 :
+                            datasets[1].data[getWeek(data.date.getDate())] += data.count;
+                            break;
+                        case 2 :
+                            datasets[2].data[getWeek(data.date.getDate())] += data.count;
+                            break;
+                        case 1 :
+                            datasets[3].data[getWeek(data.date.getDate())] += data.count;
+                            break;
+                    }
+                });
+
+                // LINE GRAPH
+                var lineChartData = {
+                    labels: ["1주", "2주", "3주", "4주", "5주"],
+                    datasets: datasets
+                }
+                var ctx = document.getElementById("canvas").getContext("2d");
+                window.myLine = new Chart(ctx).Line(lineChartData, {
+                    responsive: true,
+                });
+
+            });
     }
 });
+
+var getWeek = function(date) {
+    switch(true) {
+        case date <= 7:
+            return 0;
+        case date <= 14:
+            return 1;
+        case date <= 21:
+            return 2;
+        case date <= 28:
+            return 3;
+        case date <= 31:
+            return 4;
+    }
+}
 
 /**
  * Display Part
@@ -1584,10 +1700,11 @@ function listAdd(code, imgUrl, title) {
 }
 function patternAdd(like_btn_id, icon_id, like_status_id, user_id, date, img_url, delay) {
     $('#result_contents').append(
-        "<div class='blog-fullwidth animated fadeinup delay-" + delay + "'>" +
+        "<div id='" + like_btn_id + "' class='blog-fullwidth animated fadeinup delay-" + delay + "'>" +
         "<div style='padding: 20px 40px 0px 0px' class='width-100 pos-ab right-align'>" +
-        "<button id='" + like_btn_id + "' class='btn-floating btn waves-effect waves-light cus-background-black z-depth-1'>" +
-        "<input id='" + like_status_id + "' type='hidden' value=false><!--안눌러져있는상태 default-->" +
+        // "<button id='" + like_btn_id + "' class='btn-floating btn waves-effect waves-light cus-background-black'>" +
+        "<button class='btn-floating btn waves-effect waves-light cus-background-black'>" +
+        "<input id='" + like_status_id + "' type='hidden' value='false'><!--안눌러져있는상태 default-->" +
         "<i id='" + icon_id + "'  class='fa ion-heart cus-color-white'></i>" +
         "</button>" +
         "</div>" +

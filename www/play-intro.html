@@ -20,17 +20,16 @@
     <link href="css/swipebox.min.css" rel="stylesheet" type="text/css">
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <link href="css/custom.css" rel="stylesheet" type="text/css">
-
 </head>
 
 <body>
+
 <div class="m-scene" id="main"> <!-- Main Container -->
 
-    <!-- SIDE LEFT-->
+    <!-- SideBar -->
     <ul id="slide-out-left" class="side-nav collapsible">
         <div w3-include-html="views/include/left-panel.html"></div>
     </ul>
-    <!-- SIDE RIGHT-->
     <ul id="slide-out-right" class="side-nav collapsible">
         <div w3-include-html="views/include/right-panel.html"></div>
     </ul>
@@ -38,34 +37,62 @@
     <!-- Page Content -->
     <div id="content" class="page">
 
-        <!-- Toolbar -->
         <div id="toolbar" class="tool-bar white-color">
             <div class="open-left" id="open-left" data-activates="slide-out-left">
-                <i class="cus-color-1 ion-android-menu"></i>
+                <i class="ion-android-menu cus-color-black"></i>
             </div>
-            <span class="cus-background-1 title">구성정보</span>
+            <span id="sub-title" class="cus-background-1 title">체험활동</span>
             <div class="cus-color-1 open-right" id="open-right" data-activates="slide-out-right">
-                <i class="cus-color-1 ion-android-search"></i>
+                <i class="ion-android-search cus-color-black"></i>
             </div>
         </div>
 
-        <!-- Main Content -->
-        <div style="height: calc(100vh - 56px);" class="animated fadeinup valign-wrapper fullscreen center-align">
-            <a style="margin: 0 auto;" href="#" class="waves-effect waves-light btn-large valign animated bouncein delay-2 cus-background-black">
-                Version  : 0.1V Test
-            </a>
-        </div> <!-- End of Main Contents -->
+        <!-- Hero Header -->
+        <div class="hero-header animated fadein">
+            <!-- Slider -->
+            <div class="swiper-container slider m-b-20">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="img/product.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/product2.jpg" alt="">
+                    </div>
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+            <!-- End of Slider -->
 
-
-    </div> <!-- End of Page Content -->
-    <footer class="page-footer cus-background-1 bottom-fixed">
-        <div class="footer-copyright cus-background-1 darken-1 bottom-fixed width-100 center-align vamiddle">
-            <img class="center-align logo-img-resizing" src="img/museum/museum-logo.png">
+            <!-- Floating Action Button -->
+            <!--<div class="floating-button scrollable-fab animated bouncein delay-3">-->
+                <!--<a href="paint-draw.html"-->
+                   <!--class="btn-floating btn-large waves-effect waves-light accent-color btn z-depth-1">-->
+                    <!--<i class="ion-android-create"></i>-->
+                <!--</a>-->
+            <!--</div>-->
         </div>
-    </footer>
+        <!-- Article Content -->
+        <div class="animated fadeinup delay-3 cus-background-black height-100">
+            <div class="page-content animated fadeinup delay-5">
+                <h3 class="white-text font-size-18" style="margin : 5px 20px 5px 10px !important;">내손으로 만든 소중한 배자</h3>
+                <p class="text-flow" style="margin: 5px 20px 0px 20px !important;;">
+                    시간 : 2016.12.24 12.26.12 <br>
+                    장소 : 경기도박물관 교육실
+                </p>
+            </div>
+        </div>
 
+        <!--<footer class="page-footer cus-background-1 bottom-fixed">-->
+            <!--<div class="footer-copyright cus-background-1 darken-1 bottom-fixed width-100 center-align vamiddle">-->
+                <!--<img class="center-align logo-img-resizing" src="img/museum/museum-logo.png">-->
+            <!--</div>-->
+        <!--</footer>-->
+    </div> <!-- End of Page Content -->
 </div> <!-- End of Page Container -->
 
+<!--<div w3-include-html="views/include/includeScript.html"></div>-->
+<!-- themeforest default -->
 <script src="js/jquery-2.1.0.min.js"></script>
 <script src="js/jquery.swipebox.min.js"></script>
 <script src="js/jquery.smoothState.min.js"></script>
@@ -75,7 +102,6 @@
 <script src="js/masonry.min.js"></script>
 <script src="js/chart.min.js"></script>
 <script src="js/custom.js"></script>
-<script src="js/temp_domain.js"></script>
 
 </body>
 </html>
