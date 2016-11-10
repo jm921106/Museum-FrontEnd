@@ -375,3 +375,14 @@ output:after {
     height:60px;
 }
 
+.vw50 {
+    width:50%;
+}
+
+.overflow{
+    width:300px !important;
+    white-space:nowrap !important;
+    text-overflow:ellipsis !important;
+    overflow:hidden !important;
+
+}

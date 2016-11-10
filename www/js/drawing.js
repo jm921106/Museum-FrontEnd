@@ -121,7 +121,7 @@ function redraw(){
             curSize = $("#sizeSlider").val();
             console.log("set pencil Size");
         }else if(eraser==true){
-            curSize = $("#sizeSlider").val()*2;
+            curSize = $("#sizeSlider").val()*5;
             console.log("set  eraser Size");
         }else if(brush==true){
             curSize = 20 + $("#sizeSlider").val()*3;
