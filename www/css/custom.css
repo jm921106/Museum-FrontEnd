@@ -19,6 +19,10 @@
     font-size: 20px;
 }
 
+.font-size-24 {
+    font-size: 20px;
+}
+
 /* line height*/
 .lh-normal {
     line-height: normal;
@@ -155,6 +159,12 @@ canvas {
      position: absolute;
  }
 
+.pos-ab-center {
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+
 .pos-re {
     position: relative;
 }
@@ -204,8 +214,12 @@ canvas {
 }
 
 .custom-color2{
-    padding: 20px; !important;
+    /*padding: 10px; !important;*/
     background-color:rgba(0,0,0,0.6) !important;
+}
+
+.custom-color3 {
+    background-color:rgba(0,0,0,0.1) !important;
 }
 
 .custom-white{
@@ -277,6 +291,12 @@ canvas {
 }
 
 .logo-img-resizing {
+    width : 30vw !important;
+    height: auto;
+    display:inline !important;
+}
+
+.index-bottom-center {
     width : 30vw !important;
     height: auto;
     display:inline !important;

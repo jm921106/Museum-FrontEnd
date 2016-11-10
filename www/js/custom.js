@@ -204,6 +204,7 @@ function initiate_plugins() {
     });
 
 
+
     /**
      * w3IncludeHTML [HTML INCLUDE]
      *
@@ -308,60 +309,46 @@ function initiate_plugins() {
                     }, function (likeData) {
 
                         var like_btn_id = window.ID();
-                        like_btn_id = like_btn_id.substring(1, like_btn_id.length - 1);
                         var like_status_id = window.ID();
                         var icon_id = window.ID();
 
                         patternAdd(like_btn_id, icon_id, like_status_id, data.name, getDateFormat(new Date(data.date)), img_url, i);
 
-                        // console.log(likeData.count)
-                        // console.log(likeData.status)
-                        likeData.status = true
-
                         if (likeData.status) {
-                            $('#' + like_status_id).val(true);
+                            $('#' + like_status_id).val('true');
                             $('#' + icon_id).addClass('heart-btn');
                             $('#' + icon_id).removeClass('cus-color-white');
                         } else {
-                            $('#' + like_status_id).val(false);
+                            $('#' + like_status_id).val('false');
                             $('#' + icon_id).addClass('cus-color-white');
                             $('#' + icon_id).removeClass('heart-btn');
                         }
 
-                        // like-btn 클릭시
-                        console.log('test')
-                        // console.log('#' + like_btn_id)
-                        // console.log('#' + icon_id)
-                        // console.log('#' + like_status_id)
-                        console.log($('#' + like_btn_id))
-                        // console.log($('#' + icon_id))
-                        // console.log($('#' + like_status_id))
-
-                        console.log(like_btn_id)
-                        console.log(typeof(like_btn_id))
-                        var id = '#' + like_btn_id
-                        // console.log(id)
-                        // console.log('#test')
-                        $(document).on('click', id, function () {
-                            console.log('test')
+                        $('#' + like_btn_id).click(function () {
+                            if ($('#' + like_status_id).val() == 'true') {
+                                $('#' + like_status_id).val('false');
+                                $('#' + icon_id).addClass('cus-color-white');
+                                $('#' + icon_id).removeClass('heart-btn');
+                            } else {
+                                $('#' + like_status_id).val('true');
+                                $('#' + icon_id).addClass('heart-btn');
+                                $('#' + icon_id).removeClass('cus-color-white');
+                            }
+                            var url = window.temp_domain + "patternLikePlus";
+                            $.post(url, {
+                                imgURL: data.imgURL,
+                                likeStatus: $('#' + like_status_id).val(),
+                                deviceInfo: localStorage.getItem('user_id')
+                            }, function (data) {
+                                console.log(data);
+                            })
                         });
-
-                        // $($('#' + like_btn_id)).click(function(){
-                        //     console.log('Test')
-                        //     // var url = window.temp_domain + "patternLikePlus";
-                        //     // $.post(url, {
-                        //     //     imgURL : data.imgURL,
-                        //     //     likeStatus :  $('#' + like_status_id).val(),
-                        //     //     deviceInfo : localStorage.getItem('user_id')
-                        //     // }, function (data) {
-                        //     //     console.log('like complite');
-                        //     // })
-                        // })
                     });
-                })
+                }); // datas for문 종료 지점
                 post_num += 1;
             });
 
+            // 결과 버튼 클릭시에
             $('#pattern_result_add').click(function () {
                 console.log(post_num)
                 $.post(url, {
@@ -370,60 +357,68 @@ function initiate_plugins() {
                     datas.forEach(function (data, i) {
                         var img_url = window.temp_domain + "public/repository/" + data.imgURL;
 
-                        // patternAdd(like_btn_id, icon_id, like_status_id, data.name, getDateFormat(new Date(data.date)), img_url, i);
-                        patternAdd(data.imgURL, 'icon_' + data.imgURL, 'status_' + data.imgURL, data.name, getDateFormat(new Date(data.date)), img_url, i);
-
                         // post로 like 등록 했는지 확인
 
-
+                        // app.post('/patternLikeCall', paint.likeCall);
+                        // app.post('/patternLikePlus', paint.likePlus);
                         var url = window.temp_domain + "patternLikeCall";
                         $.post(url, {
                             imgURL: data.imgURL,
                             deviceInfo: localStorage.getItem('user_id')
-                        }, function (data) {
+                        }, function (likeData) {
 
-                            console.log(data.count)
-                            console.log(data.status)
+                            var like_btn_id = window.ID();
+                            var like_status_id = window.ID();
+                            var icon_id = window.ID();
 
-                            if (data.status) {
-                                $('#status_' + data.imgURL).val(true);
-                                $('#icon_' + data.imgURL).addClass('heart-btn');
-                                $('#icon_' + data.imgURL).removeClass('cus-color-white');
+                            patternAdd(like_btn_id, icon_id, like_status_id, data.name, getDateFormat(new Date(data.date)), img_url, i);
+
+                            if (likeData.status) {
+                                $('#' + like_status_id).val('true');
+                                $('#' + icon_id).addClass('heart-btn');
+                                $('#' + icon_id).removeClass('cus-color-white');
                             } else {
-                                $('#status_' + data.imgURL).val(false);
-                                $('#icon_' + data.imgURL).addClass('cus-color-white');
-                                $('#icon_' + data.imgURL).removeClass('heart-btn');
+                                $('#' + like_status_id).val('false');
+                                $('#' + icon_id).addClass('cus-color-white');
+                                $('#' + icon_id).removeClass('heart-btn');
                             }
 
-                            // like-btn 클릭시
-
-                            $('#' + data.imgURL).click(function () {
+                            $('#' + like_btn_id).click(function () {
+                                if ($('#' + like_status_id).val() == 'true') {
+                                    $('#' + like_status_id).val('false');
+                                    $('#' + icon_id).addClass('cus-color-white');
+                                    $('#' + icon_id).removeClass('heart-btn');
+                                } else {
+                                    $('#' + like_status_id).val('true');
+                                    $('#' + icon_id).addClass('heart-btn');
+                                    $('#' + icon_id).removeClass('cus-color-white');
+                                }
                                 var url = window.temp_domain + "patternLikePlus";
                                 $.post(url, {
                                     imgURL: data.imgURL,
-                                    likeStatus: $('#status_' + data.imgURL).val(),
+                                    likeStatus: $('#' + like_status_id).val(),
                                     deviceInfo: localStorage.getItem('user_id')
                                 }, function (data) {
-                                    console.log('like complite');
+                                    console.log(data);
                                 })
-                            })
+                            });
                         });
-                    });
-                    post_num += 1;
+
+                    }); // datas for문 종료 지점
+                    if(datas != null)
+                        post_num += 1;
                 });
             });
         }
     });
 
 // [3]
-
     $(function () {
         var post_data = window.location.search.substring(1);
 
         var path = window.location.pathname;
         var page = path.split("/").pop();
         if (page == 'paint-draw.html') {
-            reset();
 
             pencilSelect();
             //patternImage setting
@@ -433,78 +428,30 @@ function initiate_plugins() {
             outlineImage.src = "./img/patterns/pattern_" + post_data + ".png";
             context = document.getElementById('myCanvas').getContext("2d");
 
-            // var canvasDiv = document.getElementById('canvasDiv');
-            // canvas = document.createElement('canvas');
-
-            // canvas.setAttribute('id', 'canvas');
-            // canvasDiv.appendChild(canvas);
-            // if(typeof G_vmlCanvasManager != 'undefined') {
-            //     canvas = G_vmlCanvasManager.initElement(canvas);
-            // }
-            // context = canvas.getContext("2d");
-
-
+            // Pen Start
             $('#myCanvas').on('touchstart', function (e) {
-                console.log('in touchstart');
-                // var mouseX = (e.changedTouches ? e.changedTouches[0].pageX : e.pageX) - this.offsetLeft,
-                //     mouseY = (e.changedTouches ? e.changedTouches[0].pageY : e.pageY) - this.offsetTop;
-                // var mouseX = event.touches[0].pageX-this.offset.left,
-                //     mouseY = event.touches[0].pageY-this.offset.top;
                 var mouseX = e.originalEvent.touches[0].pageX - this.offsetLeft,
                     mouseY = e.originalEvent.touches[0].pageY - this.offsetTop;
-
-                console.log(mouseX, mouseY);
                 $('#testText').text('1 mouseX_1 start : ' + mouseX + 'mouseX_2 start : ' + mouseY)
-
                 paint = true;
                 addClick(mouseX, mouseY);
                 redraw();
             });
+            // Pen Move
             $('#myCanvas').on('touchmove', function (e) {
-                console.log('in touchmove');
-                // var mouseX = event.touches[0].pageX-this.offset.left,
-                //     mouseY = event.touches[0].pageY-this.offset.top;
                 var mouseX = e.originalEvent.touches[0].pageX - this.offsetLeft,
                     mouseY = e.originalEvent.touches[0].pageY - this.offsetTop;
-
-                console.log(mouseX, mouseY);
                 $('#testText').text('2 mouseX_1 start : ' + mouseX + 'mouseX_2 start : ' + mouseY)
-
                 if (paint) {
                     addClick(mouseX, mouseY, true);
                     redraw();
                 }
             });
+            // Pen End
             $('#myCanvas').on('touchend', function (e) {
                 console.log('in touchend');
                 paint = false;
             });
-
-            // $('#myCanvas').mousedown(function(e){
-            //     // Mouse down location
-            //     var mouseX = (e.changedTouches ? e.changedTouches[0].pageX : e.pageX) - this.offsetLeft,
-            //         mouseY = (e.changedTouches ? e.changedTouches[0].pageY : e.pageY) - this.offsetTop
-            //     console.log(mouseX);
-            //     console.log(mouseY);
-            //
-            //     paint = true;
-            //     addClick(mouseX, mouseY);
-            //     redraw();
-            // });
-            // $('#myCanvas').mousemove(function(e){
-            //     var mouseX = (e.changedTouches ? e.changedTouches[0].pageX : e.pageX) - this.offsetLeft,
-            //         mouseY = (e.changedTouches ? e.changedTouches[0].pageY : e.pageY) - this.offsetTop;
-            //     if(paint){
-            //         addClick(mouseX, mouseY, true);
-            //         redraw();
-            //     }
-            // });
-            // $('#myCanvas').mouseup(function(e){
-            //     paint = false;
-            // });
-            // $('#myCanvas').mouseleave(function(e){
-            //     paint = false;
-            // });
 
             function addClick(x, y, dragging) {
                 clickX.push(x);
@@ -535,83 +482,21 @@ function initiate_plugins() {
                     context.lineWidth = clickSize[i];
                     context.stroke();
                 }
-
                 context.drawImage(outlineImage, 0, 0, context.canvas.width, context.canvas.height);
             }
-
-            function setColor(color) {
-                if (eraser == true) {
-                    pencilSelect();
-                }
-                ink = color;
-            }
-
-
-            function setCurSize() {
-                if (pencil == true) {
-                    curSize = $("#sizeSlider").val();
-                } else if (eraser == true) {
-                    curSize = $("#sizeSlider").val() * 2;
-                } else if (brush == true) {
-                    curSize = 20 + $("#sizeSlider").val() * 3;
-                }
-            }
-
-            function eraserSelect() {
-                setCurSize();
-                setColor("white");
-                eraser = true;
-                pencil = false;
-                brush = false;
-                $("#eraser").addClass("tool-select")
-                $("#pencil").removeClass("tool-select")
-                $("#brush").removeClass("tool-select")
-
-            }
-
-            function pencilSelect() {
-                eraser = false;
-                pencil = true;
-                brush = false;
-                setCurSize();
-                $("#eraser").removeClass("tool-select")
-                $("#pencil").addClass("tool-select")
-                $("#brush").removeClass("tool-select")
-            }
-
-            function brushSelect() {
-                eraser = false;
-                pencil = false;
-                brush = true;
-                setCurSize();
-                $("#eraser").removeClass("tool-select")
-                $("#pencil").removeClass("tool-select")
-                $("#brush").addClass("tool-select")
-            }
-
-            function reset(){
-                clickX=[];
-                clickY=[];
-                clickDrag=[];
-                clickColor=[];
-                clickSize=[];
-                console.log("reset");
-            }
-
         }
     });
 
     /**
      * Panel Page [SET]
-     * [1]
-     * [2]
-     * [3]
+     * [1] index
+     * [2] mylike
+     * [3] graph - today
      * [4]
      * [5]
      * [6]
      */
 
-    // 페이지가 load시 today 수가 증가 - 한번만 되면 되기 때문에 initiate_plugins() 안에 처리하지 않음
     $(function () {
         var path = window.location.pathname;
         var page = path.split("/").pop();
@@ -668,47 +553,107 @@ function initiate_plugins() {
                 });
                 break;
             case 'side-today.html':
-                console.log('test')
-                // LINE GRAPH
-                var lineChartData = {
-                    labels: ["1", "2", "3", "4", "5", "6", "7"],
-                    datasets: [{
+                $('#today-refresh').click(function () {
+                    window.location.href = 'side-today.html'
+                })
+
+                url = window.temp_domain + "todaySearch";
+                $.get(url, function (datas) {
+                    var today = new Date();
+                    var todayString = today.getFullYear() + '-' + today.getMonth() + '-' + today.getDate();
+
+                    var datasets = [{
                         label: "My First dataset",
-                        fillColor: "rgba(100, 181, 246, 0.5)",
-                        strokeColor: "#90caf9",
-                        pointColor: "transparent",
-                        pointStrokeColor: "rgba(41, 128, 185, 0)",
-                        pointHighlightFill: "rgba(41, 128, 185, 0.9)",
-                        pointHighlightStroke: "rgba(41, 128, 185, 0)",
-                        data: [100, 70, 20, 155, 50, 70, 50]
+                        fillColor: "rgba(180, 70, 70, 0.5)",
+                        strokeColor: "rgba(180, 70, 70, 0.6)",
+                        pointColor: "rgba(180, 70, 70, 0.9)",
+                        pointStrokeColor: "rgba(180, 70, 70, 255, 0)",
+                        pointHighlightFill: "rgba(180, 70, 70, 0.9)",
+                        pointHighlightStroke: "rgba(180, 70, 70, 0)",
+                        // data: [100, 0, 0, 0, 0]
+                        data: [null, null, null, null, null]
                     }, {
                         label: "My Second dataset",
+                        fillColor: "rgba(70, 180, 70, 0.5)",
+                        strokeColor: "rgba(70, 180, 70, 0.6)",
+                        pointColor: "rgba(70, 180, 70, 0.9)",
+                        pointStrokeColor: "rgba(231, 76, 60, 255, 0)",
+                        pointHighlightFill: "rgba(155, 89, 182, 0.9)",
+                        pointHighlightStroke: "rgba(231, 76, 60, 0)",
+                        // data: [0, 100, 0, 0, 0]
+                        data: [null, null, null, null, null]
+                    }, {
+                        label: "My Thrid dataset",
+                        fillColor: "rgba(100, 181, 246, 0.5)",
+                        strokeColor: "rgba(41, 128, 185, 0.6)",
+                        pointColor: "rgba(41, 128, 185, 0.9)",
+                        pointStrokeColor: "rgba(41, 128, 185, 0)",
+                        pointHighlightFill: "rgba(41, 128, 185, 0.9)",
+                        pointHighlightStroke: "rgba(231, 76, 60, 0)",
+                        // data: [0, 0, 100, 0, 0]
+                        data: [null, null, null, null, null]
+                    }, {
+                        label: "My Fours dataset",
                         fillColor: "rgba(155, 89, 182, 0.5)",
                         strokeColor: "rgba(155, 89, 182, 0.6)",
                         pointColor: "rgba(155, 89, 182, 0.9)",
                         pointStrokeColor: "rgba(231, 76, 60, 255, 0)",
                         pointHighlightFill: "rgba(155, 89, 182, 0.9)",
                         pointHighlightStroke: "rgba(231, 76, 60, 0)",
-                        data: [28, 54, 40, 19, 37, 20, 90]
+                        // data: [0, 0, 0, 100, 0]
+                        data: [null, null, null, null, null]
                     }]
-                }
-                var ctx = document.getElementById("canvas").getContext("2d");
-                window.myLine = new Chart(ctx).Line(lineChartData, {
-                    responsive: true,
+
+                    datas.forEach(function (data) {
+                        console.log(data.dateString)
+                        console.log(todayString)
+                        if (data.dateString == todayString) {
+                            $('#today-count').html(new Intl.NumberFormat().format(data.count));
+                        }
+
+                        data.date = new Date(data.date);
+
+                        switch (data.date.getMonth() + 1) {
+                            case 11 :
+                                datasets[0].data[getWeek(data.date.getDate())] += data.count;
+                                break;
+                            case 12 :
+                                datasets[1].data[getWeek(data.date.getDate())] += data.count;
+                                break;
+                            case 2 :
+                                datasets[2].data[getWeek(data.date.getDate())] += data.count;
+                                break;
+                            case 1 :
+                                datasets[3].data[getWeek(data.date.getDate())] += data.count;
+                                break;
+                        }
+                    });
+
+                    // LINE GRAPH
+                    var lineChartData = {
+                        labels: ["1주", "2주", "3주", "4주", "5주"],
+                        datasets: datasets
+                    }
+                    var ctx = document.getElementById("canvas").getContext("2d");
+                    window.myLine = new Chart(ctx).Line(lineChartData, {
+                        responsive: true,
+                    });
+
                 });
-                break;
         }
     });
+
 
     /**
      * Display Part
      * [1] display load
-     * [2] like action
-     * [3]
+     * [2] facebook api
+     * [3] like action
      * [4]
      * [5]
      *
      */
+
     $(function () {
         // [페이지 전환시 audio parse()]
         // if(audio.played) audio.pause();
@@ -1069,8 +1014,6 @@ $(function () {
 
                 // post로 like 등록 했는지 확인
 
-                // app.post('/patternLikeCall', paint.likeCall);
-                // app.post('/patternLikePlus', paint.likePlus);
                 var url = window.temp_domain + "patternLikeCall";
                 $.post(url, {
                     imgURL: data.imgURL,
@@ -1113,10 +1056,11 @@ $(function () {
                         })
                     });
                 });
-            });
+            }); // datas for문 종료 지점
             post_num += 1;
         });
 
+        // 결과 버튼 클릭시에
         $('#pattern_result_add').click(function () {
             console.log(post_num)
             $.post(url, {
@@ -1125,46 +1069,56 @@ $(function () {
                 datas.forEach(function (data, i) {
                     var img_url = window.temp_domain + "public/repository/" + data.imgURL;
 
-                    // patternAdd(like_btn_id, icon_id, like_status_id, data.name, getDateFormat(new Date(data.date)), img_url, i);
-                    // patternAdd(data.imgURL, 'icon_' + data.imgURL, 'status_' + data.imgURL, data.name, getDateFormat(new Date(data.date)), img_url, i);
-                    //
-                    // // post로 like 등록 했는지 확인
-                    //
-                    //
-                    // var url = window.temp_domain + "patternLikeCall";
-                    // $.post(url, {
-                    //     imgURL: data.imgURL,
-                    //     deviceInfo: localStorage.getItem('user_id')
-                    // }, function (data) {
-                    //
-                    //     console.log(data.count)
-                    //     console.log(data.status)
-                    //
-                    //     if (data.status) {
-                    //         $('#status_' + data.imgURL).val(true);
-                    //         $('#icon_' + data.imgURL).addClass('heart-btn');
-                    //         $('#icon_' + data.imgURL).removeClass('cus-color-white');
-                    //     } else {
-                    //         $('#status_' + data.imgURL).val(false);
-                    //         $('#icon_' + data.imgURL).addClass('cus-color-white');
-                    //         $('#icon_' + data.imgURL).removeClass('heart-btn');
-                    //     }
-                    //
-                    //     // like-btn 클릭시
-                    //
-                    //     $('#' + data.imgURL).click(function () {
-                    //         var url = window.temp_domain + "patternLikePlus";
-                    //         $.post(url, {
-                    //             imgURL: data.imgURL,
-                    //             likeStatus: $('#status_' + data.imgURL).val(),
-                    //             deviceInfo: localStorage.getItem('user_id')
-                    //         }, function (data) {
-                    //             console.log('like complite');
-                    //         })
-                    //     })
-                    // });
-                });
-                post_num += 1;
+                    // post로 like 등록 했는지 확인
+
+                    // app.post('/patternLikeCall', paint.likeCall);
+                    // app.post('/patternLikePlus', paint.likePlus);
+                    var url = window.temp_domain + "patternLikeCall";
+                    $.post(url, {
+                        imgURL: data.imgURL,
+                        deviceInfo: localStorage.getItem('user_id')
+                    }, function (likeData) {
+
+                        var like_btn_id = window.ID();
+                        var like_status_id = window.ID();
+                        var icon_id = window.ID();
+
+                        patternAdd(like_btn_id, icon_id, like_status_id, data.name, getDateFormat(new Date(data.date)), img_url, i);
+
+                        if (likeData.status) {
+                            $('#' + like_status_id).val('true');
+                            $('#' + icon_id).addClass('heart-btn');
+                            $('#' + icon_id).removeClass('cus-color-white');
+                        } else {
+                            $('#' + like_status_id).val('false');
+                            $('#' + icon_id).addClass('cus-color-white');
+                            $('#' + icon_id).removeClass('heart-btn');
+                        }
+
+                        $('#' + like_btn_id).click(function () {
+                            if ($('#' + like_status_id).val() == 'true') {
+                                $('#' + like_status_id).val('false');
+                                $('#' + icon_id).addClass('cus-color-white');
+                                $('#' + icon_id).removeClass('heart-btn');
+                            } else {
+                                $('#' + like_status_id).val('true');
+                                $('#' + icon_id).addClass('heart-btn');
+                                $('#' + icon_id).removeClass('cus-color-white');
+                            }
+                            var url = window.temp_domain + "patternLikePlus";
+                            $.post(url, {
+                                imgURL: data.imgURL,
+                                likeStatus: $('#' + like_status_id).val(),
+                                deviceInfo: localStorage.getItem('user_id')
+                            }, function (data) {
+                                console.log(data);
+                            })
+                        });
+                    });
+
+                }); // datas for문 종료 지점
+                if(datas != null)
+                    post_num += 1;
             });
         });
     }
@@ -1178,7 +1132,9 @@ $(function () {
     var page = path.split("/").pop();
     if (page == 'paint-draw.html') {
 
+        // default pen set
         pencilSelect();
+
         //patternImage setting
         outlineImage.onload = function () {
             redraw();
@@ -1186,78 +1142,30 @@ $(function () {
         outlineImage.src = "./img/patterns/pattern_" + post_data + ".png";
         context = document.getElementById('myCanvas').getContext("2d");
 
-        // var canvasDiv = document.getElementById('canvasDiv');
-        // canvas = document.createElement('canvas');
-
-        // canvas.setAttribute('id', 'canvas');
-        // canvasDiv.appendChild(canvas);
-        // if(typeof G_vmlCanvasManager != 'undefined') {
-        //     canvas = G_vmlCanvasManager.initElement(canvas);
-        // }
-        // context = canvas.getContext("2d");
-
-
+        // Pen Start
         $('#myCanvas').on('touchstart', function (e) {
-            console.log('in touchstart');
-            // var mouseX = (e.changedTouches ? e.changedTouches[0].pageX : e.pageX) - this.offsetLeft,
-            //     mouseY = (e.changedTouches ? e.changedTouches[0].pageY : e.pageY) - this.offsetTop;
-            // var mouseX = event.touches[0].pageX-this.offset.left,
-            //     mouseY = event.touches[0].pageY-this.offset.top;
             var mouseX = e.originalEvent.touches[0].pageX - this.offsetLeft,
                 mouseY = e.originalEvent.touches[0].pageY - this.offsetTop;
-
-            console.log(mouseX, mouseY);
             $('#testText').text('1 mouseX_1 start : ' + mouseX + 'mouseX_2 start : ' + mouseY)
-
             paint = true;
             addClick(mouseX, mouseY);
             redraw();
         });
+        // Pen Move
         $('#myCanvas').on('touchmove', function (e) {
-            console.log('in touchmove');
-            // var mouseX = event.touches[0].pageX-this.offset.left,
-            //     mouseY = event.touches[0].pageY-this.offset.top;
             var mouseX = e.originalEvent.touches[0].pageX - this.offsetLeft,
                 mouseY = e.originalEvent.touches[0].pageY - this.offsetTop;
-
-            console.log(mouseX, mouseY);
             $('#testText').text('2 mouseX_1 start : ' + mouseX + 'mouseX_2 start : ' + mouseY)
-
             if (paint) {
                 addClick(mouseX, mouseY, true);
                 redraw();
             }
         });
+        // Pen End
         $('#myCanvas').on('touchend', function (e) {
             console.log('in touchend');
             paint = false;
         });
-
-        // $('#myCanvas').mousedown(function(e){
-        //     // Mouse down location
-        //     var mouseX = (e.changedTouches ? e.changedTouches[0].pageX : e.pageX) - this.offsetLeft,
-        //         mouseY = (e.changedTouches ? e.changedTouches[0].pageY : e.pageY) - this.offsetTop
-        //     console.log(mouseX);
-        //     console.log(mouseY);
-        //
-        //     paint = true;
-        //     addClick(mouseX, mouseY);
-        //     redraw();
-        // });
-        // $('#myCanvas').mousemove(function(e){
-        //     var mouseX = (e.changedTouches ? e.changedTouches[0].pageX : e.pageX) - this.offsetLeft,
-        //         mouseY = (e.changedTouches ? e.changedTouches[0].pageY : e.pageY) - this.offsetTop;
-        //     if(paint){
-        //         addClick(mouseX, mouseY, true);
-        //         redraw();
-        //     }
-        // });
-        // $('#myCanvas').mouseup(function(e){
-        //     paint = false;
-        // });
-        // $('#myCanvas').mouseleave(function(e){
-        //     paint = false;
-        // });
 
         function addClick(x, y, dragging) {
             clickX.push(x);
@@ -1288,58 +1196,7 @@ $(function () {
                 context.lineWidth = clickSize[i];
                 context.stroke();
             }
-
             context.drawImage(outlineImage, 0, 0, context.canvas.width, context.canvas.height);
-        }
-
-        function setColor(color) {
-            if (eraser == true) {
-                pencilSelect();
-            }
-            ink = color;
-        }
-
-
-        function setCurSize() {
-            if (pencil == true) {
-                curSize = $("#sizeSlider").val();
-            } else if (eraser == true) {
-                curSize = $("#sizeSlider").val() * 2;
-            } else if (brush == true) {
-                curSize = 20 + $("#sizeSlider").val() * 3;
-            }
-        }
-
-        function eraserSelect() {
-            setCurSize();
-            setColor("white");
-            eraser = true;
-            pencil = false;
-            brush = false;
-            $("#eraser").addClass("tool-select")
-            $("#pencil").removeClass("tool-select")
-            $("#brush").removeClass("tool-select")
-
-        }
-
-        function pencilSelect() {
-            eraser = false;
-            pencil = true;
-            brush = false;
-            setCurSize();
-            $("#eraser").removeClass("tool-select")
-            $("#pencil").addClass("tool-select")
-            $("#brush").removeClass("tool-select")
-        }
-
-        function brushSelect() {
-            eraser = false;
-            pencil = false;
-            brush = true;
-            setCurSize();
-            $("#eraser").removeClass("tool-select")
-            $("#pencil").removeClass("tool-select")
-            $("#brush").addClass("tool-select")
         }
     }
 });
@@ -1353,7 +1210,7 @@ $(function () {
  * [5]
  * [6]
  */
-// 페이지가 load시 today 수가 증가 - 한번만 되면 되기 때문에 initiate_plugins() 안에 처리하지 않음
+
 $(function () {
     var path = window.location.pathname;
     var page = path.split("/").pop();
@@ -1419,7 +1276,7 @@ $(function () {
                 var today = new Date();
                 var todayString = today.getFullYear() + '-' + today.getMonth() + '-' + today.getDate();
 
-                var datasets =   [{
+                var datasets = [{
                     label: "My First dataset",
                     fillColor: "rgba(180, 70, 70, 0.5)",
                     strokeColor: "rgba(180, 70, 70, 0.6)",
@@ -1460,17 +1317,17 @@ $(function () {
                     // data: [0, 0, 0, 100, 0]
                     data: [null, null, null, null, null]
                 }]
-                
+
                 datas.forEach(function (data) {
                     console.log(data.dateString)
                     console.log(todayString)
-                    if(data.dateString == todayString) {
+                    if (data.dateString == todayString) {
                         $('#today-count').html(new Intl.NumberFormat().format(data.count));
                     }
 
                     data.date = new Date(data.date);
 
-                    switch(data.date.getMonth()+1) {
+                    switch (data.date.getMonth() + 1) {
                         case 11 :
                             datasets[0].data[getWeek(data.date.getDate())] += data.count;
                             break;
@@ -1500,20 +1357,6 @@ $(function () {
     }
 });
 
-var getWeek = function(date) {
-    switch(true) {
-        case date <= 7:
-            return 0;
-        case date <= 14:
-            return 1;
-        case date <= 21:
-            return 2;
-        case date <= 28:
-            return 3;
-        case date <= 31:
-            return 4;
-    }
-}
 
 /**
  * Display Part
@@ -1524,6 +1367,7 @@ var getWeek = function(date) {
  * [5]
  *
  */
+
 $(function () {
     // [페이지 전환시 audio parse()]
     // if(audio.played) audio.pause();
@@ -1641,6 +1485,52 @@ var clickX = new Array(),
 
 var paint;
 var ink = "black;"
+
+function setColor(color) {
+    if (eraser == true) {
+        pencilSelect();
+    }
+    ink = color;
+}
+function setCurSize() {
+    if (pencil == true) {
+        curSize = $("#sizeSlider").val();
+    } else if (eraser == true) {
+        curSize = $("#sizeSlider").val() * 2;
+    } else if (brush == true) {
+        curSize = 20 + $("#sizeSlider").val() * 3;
+    }
+}
+function eraserSelect() {
+    setCurSize();
+    setColor("white");
+    eraser = true;
+    pencil = false;
+    brush = false;
+    $("#eraser").addClass("tool-select")
+    $("#pencil").removeClass("tool-select")
+    $("#brush").removeClass("tool-select")
+}
+function pencilSelect() {
+    eraser = false;
+    pencil = true;
+    brush = false;
+    setCurSize();
+    $("#eraser").removeClass("tool-select")
+    $("#pencil").addClass("tool-select")
+    $("#brush").removeClass("tool-select")
+}
+function brushSelect() {
+    eraser = false;
+    pencil = false;
+    brush = true;
+    setCurSize();
+    $("#eraser").removeClass("tool-select")
+    $("#pencil").removeClass("tool-select")
+    $("#brush").addClass("tool-select")
+}
+
+
 var ID = function () {
     // Math.random should be unique because of its seeding algorithm.
     // Convert it to base 36 (numbers + letters), and grab the first 9 characters
@@ -1679,9 +1569,6 @@ function imageSlideAdd(imgUrl) {
         "<img src=" + imgUrl + " alt=''>" +
         "</div>" );
 }
-
-
-
 function listAdd(code, imgUrl, title) {
     $('#list_grid').append(
         "<div class='grid-item gallery-item-card'>" +
@@ -1700,10 +1587,11 @@ function listAdd(code, imgUrl, title) {
 }
 function patternAdd(like_btn_id, icon_id, like_status_id, user_id, date, img_url, delay) {
     $('#result_contents').append(
-        "<div id='" + like_btn_id + "' class='blog-fullwidth animated fadeinup delay-" + delay + "'>" +
+        // "<div id='" + like_btn_id + "' class='blog-fullwidth animated fadeinup delay-" + delay + "'>" +
+        "<div class='blog-fullwidth animated fadeinup delay-" + delay + "'>" +
         "<div style='padding: 20px 40px 0px 0px' class='width-100 pos-ab right-align'>" +
-        // "<button id='" + like_btn_id + "' class='btn-floating btn waves-effect waves-light cus-background-black'>" +
-        "<button class='btn-floating btn waves-effect waves-light cus-background-black'>" +
+        "<button id='" + like_btn_id + "' class='btn-floating btn waves-effect waves-light cus-background-black z-index-front'>" +
+        // "<button class='btn-floating btn waves-effect waves-light cus-background-black'>" +
         "<input id='" + like_status_id + "' type='hidden' value='false'><!--안눌러져있는상태 default-->" +
         "<i id='" + icon_id + "'  class='fa ion-heart cus-color-white'></i>" +
         "</button>" +
@@ -1782,14 +1670,26 @@ function addZero(num) {
     else
         return num;
 }
-
-function reset(){
-    clickX=[];
-    clickY=[];
-    clickDrag=[];
-    clickColor=[];
-    clickSize=[];
+function reset() {
+    clickX = [];
+    clickY = [];
+    clickDrag = [];
+    clickColor = [];
+    clickSize = [];
     console.log("reset");
 }
-
+var getWeek = function (date) {
+    switch (true) {
+        case date <= 7:
+            return 0;
+        case date <= 14:
+            return 1;
+        case date <= 21:
+            return 2;
+        case date <= 28:
+            return 3;
+        case date <= 31:
+            return 4;
+    }
+}
 
