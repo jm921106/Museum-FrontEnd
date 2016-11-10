@@ -204,7 +204,6 @@ function initiate_plugins() {
     });
 
 
-
     /**
      * w3IncludeHTML [HTML INCLUDE]
      *
@@ -300,8 +299,6 @@ function initiate_plugins() {
 
                     // post로 like 등록 했는지 확인
 
-                    // app.post('/patternLikeCall', paint.likeCall);
-                    // app.post('/patternLikePlus', paint.likePlus);
                     var url = window.temp_domain + "patternLikeCall";
                     $.post(url, {
                         imgURL: data.imgURL,
@@ -420,7 +417,11 @@ function initiate_plugins() {
         var page = path.split("/").pop();
         if (page == 'paint-draw.html') {
 
+            reset();
+
+            // default pen set
             pencilSelect();
+
             //patternImage setting
             outlineImage.onload = function () {
                 redraw();
@@ -708,7 +709,6 @@ function initiate_plugins() {
                     type: 'GET',
                     dataType: 'json',
                     success: function (data) {
-
                         var arr = post_data.split('_');
                         if (arr[0] == "")
                             var arr = ['1', '1'];
@@ -720,9 +720,6 @@ function initiate_plugins() {
                                     imageSlideAdd(imgUrl);
                                 });
                                 // audioSet(item.mp3Url);
-
-
-
                                 $('#item-title').html(item.subTitle);
                                 $('#item-content').html(item.content);
 
@@ -1131,6 +1128,8 @@ $(function () {
     var path = window.location.pathname;
     var page = path.split("/").pop();
     if (page == 'paint-draw.html') {
+
+        reset();
 
         // default pen set
         pencilSelect();
