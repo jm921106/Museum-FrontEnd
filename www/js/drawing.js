@@ -1,10 +1,8 @@
-
-
 /**
  * Created by superMoon on 2016-10-03.
  */
 
-var eraser =false;
+var eraser = false;
 var pencil = false;
 var brush = false;
 var outlineImage = new Image();
@@ -21,62 +19,30 @@ var paint;
 pencilSelect();
 var ink = "black";
 
-
-
-
-
 outlineImage.src = "./img/patterns/pattern_1.png";
 context = document.getElementById('myCanvas').getContext("2d");
 
-// var canvasDiv = document.getElementById('canvasDiv');
-// canvas = document.createElement('canvas');
 
-// canvas.setAttribute('id', 'canvas');
-// canvasDiv.appendChild(canvas);
-// if(typeof G_vmlCanvasManager != 'undefined') {
-//     canvas = G_vmlCanvasManager.initElement(canvas);
-// }
-// context = canvas.getContext("2d");
-
-
-$('#myCanvas').on('touchstart', function(e) {
-    // console.log('in touchstart');
-    // var mouseX = (e.changedTouches ? e.changedTouches[0].pageX : e.pageX) - this.offsetLeft,
-    //     mouseY = (e.changedTouches ? e.changedTouches[0].pageY : e.pageY) - this.offsetTop;
-    // var mouseX = event.touches[0].pageX-this.offset.left,
-    //     mouseY = event.touches[0].pageY-this.offset.top;
+$('#myCanvas').on('touchstart', function (e) {
     var mouseX = e.originalEvent.touches[0].pageX - this.offsetLeft,
         mouseY = e.originalEvent.touches[0].pageY - this.offsetTop;
-
-    // console.log(mouseX, mouseY);
-    // $('#testText').text('1 mouseX_1 start : ' + mouseX + 'mouseX_2 start : ' + mouseY)
-
     paint = true;
     addClick(mouseX, mouseY);
     redraw();
 });
-$('#myCanvas').on('touchmove', function(e) {
-    // console.log('in touchmove');
-    // var mouseX = event.touches[0].pageX-this.offset.left,
-    //     mouseY = event.touches[0].pageY-this.offset.top;
+$('#myCanvas').on('touchmove', function (e) {
     var mouseX = e.originalEvent.touches[0].pageX - this.offsetLeft,
         mouseY = e.originalEvent.touches[0].pageY - this.offsetTop;
-
-    // console.log(mouseX, mouseY);
-    // $('#testText').text('2 mouseX_1 start : ' + mouseX + 'mouseX_2 start : ' + mouseY)
-
-    if(paint){
+    if (paint) {
         addClick(mouseX, mouseY, true);
         redraw();
     }
 });
-$('#myCanvas').on('touchend', function(e) {
+$('#myCanvas').on('touchend', function (e) {
     // console.log('in touchend');
     paint = false;
 });
-
-function addClick(x, y, dragging)
-{
+function addClick(x, y, dragging) {
     clickX.push(x);
     clickY.push(y);
     clickDrag.push(dragging);
@@ -84,17 +50,16 @@ function addClick(x, y, dragging)
     clickSize.push(curSize);
     console.log("x,y,dragging push");
 }
-
-function redraw(){
+function redraw() {
     context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
     context.lineJoin = "round";
 
-    for(var i=1; i < clickX.length; i++) {
+    for (var i = 1; i < clickX.length; i++) {
         context.beginPath();
-        if(clickDrag[i] && i){
-            context.moveTo(clickX[i-1], clickY[i-1]);
-        }else{
-            context.moveTo(clickX[i]-1, clickY[i]);
+        if (clickDrag[i] && i) {
+            context.moveTo(clickX[i - 1], clickY[i - 1]);
+        } else {
+            context.moveTo(clickX[i] - 1, clickY[i]);
         }
         context.strokeStyle = clickColor[i];
         context.lineTo(clickX[i], clickY[i]);
@@ -103,46 +68,40 @@ function redraw(){
         context.lineWidth = clickSize[i];
         context.stroke();
     }
-
-    context.drawImage(outlineImage,0,0, context.canvas.width, context.canvas.height);
+    context.drawImage(outlineImage, 0, 0, context.canvas.width, context.canvas.height);
 }
-
-    function setColor(color){
-        console.log("color select");
-        if(eraser==true){
-            pencilSelect();
-        }
-        ink = color;
+function setColor(color) {
+    console.log("color select");
+    if (eraser == true) {
+        pencilSelect();
     }
-
-
-    function setCurSize(){
-        if(pencil==true) {
-            curSize = $("#sizeSlider").val();
-            console.log("set pencil Size");
-        }else if(eraser==true){
-            curSize = $("#sizeSlider").val()*2;
-            console.log("set  eraser Size");
-        }else if(brush==true){
-            curSize = 20 + $("#sizeSlider").val()*3;
-            console.log("set brush Size");
-        }
+    ink = color;
+}
+function setCurSize() {
+    if (pencil == true) {
+        curSize = $("#sizeSlider").val();
+        console.log("set pencil Size");
+    } else if (eraser == true) {
+        curSize = $("#sizeSlider").val() * 2;
+        console.log("set  eraser Size");
+    } else if (brush == true) {
+        curSize = 20 + $("#sizeSlider").val() * 3;
+        console.log("set brush Size");
     }
-
-    function eraserSelect(){
-        setColor("white");
-        eraser = true;
-        pencil = false;
-        brush = false;
-        console.log("is eraser");
-        setCurSize();
+}
+function eraserSelect() {
+    setColor("white");
+    eraser = true;
+    pencil = false;
+    brush = false;
+    console.log("is eraser");
+    setCurSize();
 
     $("#eraser").addClass("tool-select");
     $("#pencil").removeClass("tool-select");
     $("#brush").removeClass("tool-select");
-    }
-
-function pencilSelect(){
+}
+function pencilSelect() {
     eraser = false;
     pencil = true;
     brush = false;
@@ -152,8 +111,7 @@ function pencilSelect(){
     $("#pencil").addClass("tool-select");
     $("#brush").removeClass("tool-select");
 }
-
-function brushSelect(){
+function brushSelect() {
     eraser = false;
     pencil = false;
     brush = true;
