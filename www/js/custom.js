@@ -763,6 +763,7 @@ function initiate_plugins() {
                     type: 'GET',
                     dataType: 'json',
                     success: function (data) {
+
                         var arr = post_data.split('_');
                         if (arr[0] == "")
                             var arr = ['1', '1'];
@@ -774,6 +775,9 @@ function initiate_plugins() {
                                     imageSlideAdd(imgUrl);
                                 });
                                 // audioSet(item.mp3Url);
+
+
+
                                 $('#item-title').html(item.subTitle);
                                 $('#item-content').html(item.content);
 
@@ -1673,11 +1677,7 @@ function imageSlideAdd(imgUrl) {
     $('#item-slide').append(
         "<div class='swiper-slide'>" +
         "<img src=" + imgUrl + " alt=''>" +
-        "</div>")
-
-    $('#item-slide div').removeClass("swiper-slide").addClass("swiper-slide");
-    $("#pagination").removeClass("swiper-pagination").addClass("swiper-pagination");
-    console.log("pagination")
+        "</div>" );
 }
 
 
@@ -1689,7 +1689,7 @@ function listAdd(code, imgUrl, title) {
         "<img src=" + imgUrl + ">" +
         "<div class='gallery-item-header'>" +
         "<div class='gallery-item-author'>" +
-        "<div>" +
+        "<div class='overflow'>" +
         title +
         "</div>" +
         "</div>" +

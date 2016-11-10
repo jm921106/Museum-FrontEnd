@@ -379,10 +379,17 @@ output:after {
     width:50%;
 }
 
+.vw100 {
+    width:100vw !important;
+}
+
 .overflow{
-    width:300px !important;
     white-space:nowrap !important;
     text-overflow:ellipsis !important;
     overflow:hidden !important;
 
+}
+
+.inline{
+    display:inline !important;
 }

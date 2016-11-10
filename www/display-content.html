@@ -21,11 +21,11 @@
     <div id="content" class="page">
 
         <!-- Toolbar -->
-        <div id="toolbar" class="tool-bar white-color overflow">
+        <div id="toolbar" class="tool-bar white-color">
                     <div class="open-left" id="open-left" data-activates="slide-out-left">
                         <i class="ion-android-menu cus-color-black"></i>
                     </div>
-                  <span id="sub-title" class="cus-background-1 title overflow" ></span>
+                 <div class=" overflow"> <span id="sub-title" class="cus-background-1 title" ></span></div>
                     <div class="cus-color-1 open-right" id="open-right" data-activates="slide-out-right">
                             <i class="ion-android-search cus-color-black"></i>
                     </div>
@@ -34,17 +34,15 @@
         <!-- Hero Header -->
         <div class="hero-header animated fadein">
             <!-- Slider -->
-            <div class="swiper-container slider m-b-20">
+            <div id = "item-slideParent"class="swiper-container slider m-b-20">
                 <div id="item-slide" class="swiper-wrapper">
                     <!--<div class="swiper-slide">-->
                     <!--<img src="img/product.jpg" alt="">-->
                     <!--</div>-->
                 </div>
-                <!-- Add Arrows -->
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <!-- Add Pagination -->
+                 <!--Add Pagination -->
                 <div id="pagination" class="swiper-pagination"></div>
+
             </div>
             <!-- End of Slider -->
 
