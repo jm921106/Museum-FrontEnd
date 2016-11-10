@@ -601,7 +601,7 @@ function initiate_plugins() {
      */
 
     // 페이지가 load시 today 수가 증가 - 한번만 되면 되기 때문에 initiate_plugins() 안에 처리하지 않음
-    $(function() {
+    $(function () {
         var path = window.location.pathname;
         var page = path.split("/").pop();
         switch (page) {
@@ -1395,36 +1395,110 @@ $(function () {
             });
             break;
         case 'side-today.html':
-            // LINE GRAPH
-            var lineChartData = {
-                labels: ["x월 \ny주", "x월 \ny주", "x월 \ny주", "x월 \ny주", "x월 \ny주"],
-                datasets: [{
+            $('#today-refresh').click(function () {
+                window.location.href = 'side-today.html'
+            })
+
+            url = window.temp_domain + "todaySearch";
+            $.get(url, function (datas) {
+                var today = new Date();
+                var todayString = today.getFullYear() + '-' + today.getMonth() + '-' + today.getDate();
+
+                var datasets =   [{
                     label: "My First dataset",
-                    fillColor: "rgba(100, 181, 246, 0.5)",
-                    strokeColor: "#90caf9",
-                    pointColor: "transparent",
-                    pointStrokeColor: "rgba(41, 128, 185, 0)",
-                    pointHighlightFill: "rgba(41, 128, 185, 0.9)",
-                    pointHighlightStroke: "rgba(41, 128, 185, 0)",
-                    data: [100, 70, 20, 155, 50]
+                    fillColor: "rgba(180, 70, 70, 0.5)",
+                    strokeColor: "rgba(180, 70, 70, 0.6)",
+                    pointColor: "rgba(180, 70, 70, 0.9)",
+                    pointStrokeColor: "rgba(180, 70, 70, 255, 0)",
+                    pointHighlightFill: "rgba(180, 70, 70, 0.9)",
+                    pointHighlightStroke: "rgba(180, 70, 70, 0)",
+                    // data: [100, 0, 0, 0, 0]
+                    data: [null, null, null, null, null]
                 }, {
                     label: "My Second dataset",
+                    fillColor: "rgba(70, 180, 70, 0.5)",
+                    strokeColor: "rgba(70, 180, 70, 0.6)",
+                    pointColor: "rgba(70, 180, 70, 0.9)",
+                    pointStrokeColor: "rgba(231, 76, 60, 255, 0)",
+                    pointHighlightFill: "rgba(155, 89, 182, 0.9)",
+                    pointHighlightStroke: "rgba(231, 76, 60, 0)",
+                    // data: [0, 100, 0, 0, 0]
+                    data: [null, null, null, null, null]
+                }, {
+                    label: "My Thrid dataset",
+                    fillColor: "rgba(100, 181, 246, 0.5)",
+                    strokeColor: "rgba(41, 128, 185, 0.6)",
+                    pointColor: "rgba(41, 128, 185, 0.9)",
+                    pointStrokeColor: "rgba(41, 128, 185, 0)",
+                    pointHighlightFill: "rgba(41, 128, 185, 0.9)",
+                    pointHighlightStroke: "rgba(231, 76, 60, 0)",
+                    // data: [0, 0, 100, 0, 0]
+                    data: [null, null, null, null, null]
+                }, {
+                    label: "My Fours dataset",
                     fillColor: "rgba(155, 89, 182, 0.5)",
                     strokeColor: "rgba(155, 89, 182, 0.6)",
                     pointColor: "rgba(155, 89, 182, 0.9)",
                     pointStrokeColor: "rgba(231, 76, 60, 255, 0)",
                     pointHighlightFill: "rgba(155, 89, 182, 0.9)",
                     pointHighlightStroke: "rgba(231, 76, 60, 0)",
-                    data: [70, 50, 30, 20, 20]
+                    // data: [0, 0, 0, 100, 0]
+                    data: [null, null, null, null, null]
                 }]
-            }
-            var ctx = document.getElementById("canvas").getContext("2d");
-            window.myLine = new Chart(ctx).Line(lineChartData, {
-                responsive: true,
+                
+                datas.forEach(function (data) {
+                    console.log(data.dateString)
+                    console.log(todayString)
+                    if(data.dateString == todayString) {
+                        $('#today-count').html(new Intl.NumberFormat().format(data.count));
+                    }
+
+                    data.date = new Date(data.date);
+
+                    switch(data.date.getMonth()+1) {
+                        case 11 :
+                            datasets[0].data[getWeek(data.date.getDate())] += data.count;
+                            break;
+                        case 12 :
+                            datasets[1].data[getWeek(data.date.getDate())] += data.count;
+                            break;
+                        case 2 :
+                            datasets[2].data[getWeek(data.date.getDate())] += data.count;
+                            break;
+                        case 1 :
+                            datasets[3].data[getWeek(data.date.getDate())] += data.count;
+                            break;
+                    }
+                });
+
+                // LINE GRAPH
+                var lineChartData = {
+                    labels: ["1주", "2주", "3주", "4주", "5주"],
+                    datasets: datasets
+                }
+                var ctx = document.getElementById("canvas").getContext("2d");
+                window.myLine = new Chart(ctx).Line(lineChartData, {
+                    responsive: true,
+                });
+
             });
-            break;
     }
 });
+
+var getWeek = function(date) {
+    switch(true) {
+        case date <= 7:
+            return 0;
+        case date <= 14:
+            return 1;
+        case date <= 21:
+            return 2;
+        case date <= 28:
+            return 3;
+        case date <= 31:
+            return 4;
+    }
+}
 
 /**
  * Display Part

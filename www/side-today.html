@@ -5,41 +5,57 @@
 </head>
 
 <body>
+
 <div class="m-scene" id="main"> <!-- Main Container -->
 
-    <!-- SIDE LEFT-->
+    <!-- SideBar -->
     <ul id="slide-out-left" class="side-nav collapsible">
         <div w3-include-html="views/include/left-panel.html"></div>
     </ul>
-    <!-- SIDE RIGHT-->
     <ul id="slide-out-right" class="side-nav collapsible">
         <div w3-include-html="views/include/right-panel.html"></div>
     </ul>
 
     <!-- Page Content -->
-    <div id="content" style="height: 100vh !important;">
+    <div id="content" class="page">
 
-        <!-- Toolbar -->
         <div id="toolbar" class="tool-bar white-color">
             <div class="open-left" id="open-left" data-activates="slide-out-left">
-                <i class="cus-color-1 ion-android-menu"></i>
+                <i class="ion-android-menu cus-color-black"></i>
             </div>
-            <span class="cus-background-1 title">박물관 투데이</span>
+            <span id="sub-title" class="cus-background-1 title">박물관 투데이</span>
             <div class="cus-color-1 open-right" id="open-right" data-activates="slide-out-right">
-                <i class="cus-color-1 ion-android-search"></i>
+                <i class="ion-android-search cus-color-black"></i>
             </div>
         </div>
-
         <!-- Main Content -->
         <div id="myLikeList" class="animated fadeinup">
             <!-- 여기에 item 추가-->
+            <h2 style="margin : 20px 20px 10px 10vw !important;" class="uppercase font-size-18">
+                today count :
+            </h2>
+            <p class="right-align" style="margin-right : 10vw !important;">
+                <span id="today-count" style="font-size: 30px; border-bottom: 1px solid #444; font-weight: 700;">
+
+                </span>
+                명 방문하였습니다.
+            </p>
 
             <!-- Line chart -->
             <div id="line_chart" class="card animated fadeinup">
+
                 <div class="legend">
-                    <h5 class="uppercase">Traffic <i class="ion-android-refresh right text-color"></i></h5>
-                    <p><span class="data-color blue lighten-3"></span>Free</p>
-                    <p><span class="data-color purple lighten-4"></span>Paid</p>
+                    <h5 class="uppercase">지난 방문자 기록<i id="today-refresh" class="ion-android-refresh right text-color"></i></h5>
+                    <table style="width:100%" class="p-5">
+                        <tr>
+                            <td class="p-5"><span class="data-color red lighten-3"></span>2016-11</td>
+                            <td class="p-5"><span class="data-color green lighten-3"></span>2016-12</td>
+                        </tr>
+                        <tr>
+                            <td class="p-5"><span class="data-color blue lighten-3"></span>2017-1</td>
+                            <td class="p-5"><span class="data-color purple lighten-3"></span>2017-2</td>
+                        </tr>
+                    </table>
                 </div>
 
                 <div class="lineChartCont">

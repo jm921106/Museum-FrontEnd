@@ -27,51 +27,60 @@
 
 
 <div class="m-scene" id="main"> <!-- Main Container -->
-    <img src="img/background/background-1.jpg" style="height: 100vh; width: 100vw; position: absolute;">
 
+    <!-- SideBar -->
     <ul id="slide-out-left" class="side-nav collapsible">
         <div w3-include-html="views/include/left-panel.html"></div>
     </ul>
+    <ul id="slide-out-right" class="side-nav collapsible">
+        <div w3-include-html="views/include/right-panel.html"></div>
+    </ul>
 
     <!-- Page Content -->
-    <div id="content">
-
-
+    <div id="content" class="page">
+        <div id="toolbar" class="tool-bar white-color">
+            <div class="open-left" id="open-left" data-activates="slide-out-left">
+                <i class="ion-android-menu cus-color-black"></i>
+            </div>
+            <span  class="cus-background-1 title">박물관 안내</span>
+            <div class="cus-color-1 open-right" id="open-right" data-activates="slide-out-right">
+                <i class="ion-android-search cus-color-black"></i>
+            </div>
+        </div>
 
         <!-- Main Content -->
-        <div class="animated fadeinup">
+        <div class="animated fadeinup delay-3">
+            <h1>관 람 시 간</h1>
+            <p>화~일요일 10:00AM ~ 18:00PM</p>
+            <p>휴관일  매주 월요일 , 1월 1일 ,설날</p>
+            <p>-입장은 폐관 1시간 전에 마감됩니다.</p>
 
-            <!-- Slider -->
-            <div class="swiper-container steps">
-                <div class="swiper-wrapper slider-steps">
-                    <div class="swiper-slide grey-blue">
-                        <div class="valign-wrapper">
-                            <div class="valign center-align p-l-r-50">
-                                <img src="img/background/splash1.png" style="height:100%; position:relative">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide grey-blue">
-                        <div class="valign-wrapper">
-                            <div class="valign center-align p-l-r-50">
-                                <img src="img/background/splash2.png" style="height:100%; position:relative">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="steps-controllers ">
-                    <!-- Add Arrows -->
-                    <div><a href="index.html">SKIP</a></div>
-                    <div class="swiper-button-prev">이전</div>
-                    <div class="swiper-button-next">다음</div>
+            <h1>관 람 요 금 </h1>
+        </div>
+
+
+        <div class="blog-card animated fadeinup delay-5">
+            <div class="map-card-header">
+                <i class="ion-ios-location left"></i>
+                <i class="ion-android-refresh right"></i>
+                <div class="map-card-author">
+                    <span>박물관 찾아오시는 길</span>
                 </div>
             </div>
-            <!-- End of Slider -->
-
-        </div> <!-- End of Main Contents -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3150.675635364337!2d127.10724917912864!3d37.26780054442127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe5e302fa908893ce!2z6rK96riw64-E67CV66y86rSA!5e0!3m2!1sko!2sit!4v1478683699417" width="320" height="320" frameborder="0" style="border:0" allowfullscreen></iframe>        </div>
 
 
-    </div> <!-- End of Page Content -->
+        <!-- End of Main Contents -->
+
+    </div>
+
+    <!-- Footer -->
+    <!--<div w3-include-html="views/include/footer.html"></div>-->
+    <footer class="page-footer cus-background-1 bottom-fixed">
+        <div class="footer-copyright cus-background-1 darken-1 bottom-fixed width-100 center-align vamiddle">
+            <img class="center-align logo-img-resizing" src="img/museum/museum-logo.png">
+        </div>
+    </footer>
 
 </div> <!-- End of Page Container -->
 
