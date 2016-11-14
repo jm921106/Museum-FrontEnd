@@ -410,7 +410,7 @@ function initiate_plugins() {
         }
     });
 
-// [3]
+[3]
     $(function () {
         var post_data = window.location.search.substring(1);
 
@@ -439,7 +439,8 @@ function initiate_plugins() {
             $('#myCanvas').on('touchstart', function (e) {
                 var mouseX = e.originalEvent.touches[0].pageX - this.offsetLeft,
                     mouseY = e.originalEvent.touches[0].pageY - this.offsetTop;
-                $('#testText').text('1 mouseX_1 start : ' + mouseX + 'mouseX_2 start : ' + mouseY)
+                // $('#testText').text('1 mouseX_1 start : ' + mouseX + 'mouseX_2 start : ' + mouseY)
+                console.log('1 mouseX_1 start : ' + mouseX + 'mouseX_2 start : ' + mouseY);
                 paint = true;
                 addClick(mouseX, mouseY);
                 redraw();
@@ -448,7 +449,7 @@ function initiate_plugins() {
             $('#myCanvas').on('touchmove', function (e) {
                 var mouseX = e.originalEvent.touches[0].pageX - this.offsetLeft,
                     mouseY = e.originalEvent.touches[0].pageY - this.offsetTop;
-                $('#testText').text('2 mouseX_1 start : ' + mouseX + 'mouseX_2 start : ' + mouseY)
+                // $('#testText').text('2 mouseX_1 start : ' + mouseX + 'mouseX_2 start : ' + mouseY)
                 if (paint) {
                     addClick(mouseX, mouseY, true);
                     redraw();
@@ -464,25 +465,28 @@ function initiate_plugins() {
                 clickX.push(x);
                 clickY.push(y);
                 clickDrag.push(dragging);
+
+                clickColor.push(ink);
+                clickSize.push(curSize);
             }
 
             function redraw() {
+                console.log('redraw')
                 context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
-                // context.strokeStyle = ink;
+                context.strokeStyle = ink;
                 //#df4b26
                 context.lineJoin = "round";
-                context.lineWidth = curSize;
-                clickColor.push(ink);
-                clickSize.push(curSize);
+
+
+
 
                 for (var i = 0; i < clickX.length; i++) {
                     context.beginPath();
                     if (clickDrag[i] && i) {
                         context.moveTo(clickX[i - 1], clickY[i - 1]);
                     } else {
-                        context.moveTo(clickX[i] - 1, clickY[i]);
+                        context.moveTo(clickX[i]-1, clickY[i]);
                     }
-                    context.strokeStyle = clickColor[i];
                     context.lineTo(clickX[i], clickY[i]);
                     context.closePath();
                     context.strokeStyle = clickColor[i];
@@ -1177,88 +1181,88 @@ $(function () {
 });
 
 // [3]
-$(function () {
-    var post_data = window.location.search.substring(1);
-
-    var path = window.location.pathname;
-    var page = path.split("/").pop();
-    if (page == 'paint-draw.html') {
-
-        reset();
-
-        // default pen set
-        pencilSelect();
-
-        //patternImage setting
-        outlineImage.onload = function () {
-            redraw();
-        };
-        outlineImage.src = "./img/patterns/pattern_" + post_data + ".png";
-
-        var canvas = document.getElementById('myCanvas')
-        canvas.width = window.innerWidth * 9 / 10;
-        canvas.height = window.innerWidth * 9 / 10;
-
-        context = document.getElementById('myCanvas').getContext("2d");
-
-        // Pen Start
-        $('#myCanvas').on('touchstart', function (e) {
-            var mouseX = e.originalEvent.touches[0].pageX - this.offsetLeft,
-                mouseY = e.originalEvent.touches[0].pageY - this.offsetTop;
-            $('#testText').text('1 mouseX_1 start : ' + mouseX + 'mouseX_2 start : ' + mouseY)
-            paint = true;
-            addClick(mouseX, mouseY);
-            redraw();
-        });
-        // Pen Move
-        $('#myCanvas').on('touchmove', function (e) {
-            var mouseX = e.originalEvent.touches[0].pageX - this.offsetLeft,
-                mouseY = e.originalEvent.touches[0].pageY - this.offsetTop;
-            $('#testText').text('2 mouseX_1 start : ' + mouseX + 'mouseX_2 start : ' + mouseY)
-            if (paint) {
-                addClick(mouseX, mouseY, true);
-                redraw();
-            }
-        });
-        // Pen End
-        $('#myCanvas').on('touchend', function (e) {
-            console.log('in touchend');
-            paint = false;
-        });
-
-        function addClick(x, y, dragging) {
-            clickX.push(x);
-            clickY.push(y);
-            clickDrag.push(dragging);
-        }
-
-        function redraw() {
-            context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
-            // context.strokeStyle = ink;
-            //#df4b26
-            context.lineJoin = "round";
-            context.lineWidth = curSize;
-            clickColor.push(ink);
-            clickSize.push(curSize);
-
-            for (var i = 0; i < clickX.length; i++) {
-                context.beginPath();
-                if (clickDrag[i] && i) {
-                    context.moveTo(clickX[i - 1], clickY[i - 1]);
-                } else {
-                    context.moveTo(clickX[i] - 1, clickY[i]);
-                }
-                context.strokeStyle = clickColor[i];
-                context.lineTo(clickX[i], clickY[i]);
-                context.closePath();
-                context.strokeStyle = clickColor[i];
-                context.lineWidth = clickSize[i];
-                context.stroke();
-            }
-            context.drawImage(outlineImage, 0, 0, context.canvas.width, context.canvas.height);
-        }
-    }
-});
+// $(function () {
+//     var post_data = window.location.search.substring(1);
+//
+//     var path = window.location.pathname;
+//     var page = path.split("/").pop();
+//     if (page == 'paint-draw.html') {
+//
+//         reset();
+//
+//         // default pen set
+//         pencilSelect();
+//
+//         //patternImage setting
+//         outlineImage.onload = function () {
+//             redraw();
+//         };
+//         outlineImage.src = "./img/patterns/pattern_" + post_data + ".png";
+//
+//         var canvas = document.getElementById('myCanvas')
+//         canvas.width = window.innerWidth * 9 / 10;
+//         canvas.height = window.innerWidth * 9 / 10;
+//
+//         context = document.getElementById('myCanvas').getContext("2d");
+//
+//         // Pen Start
+//         $('#myCanvas').on('touchstart', function (e) {
+//             var mouseX = e.originalEvent.touches[0].pageX - this.offsetLeft,
+//                 mouseY = e.originalEvent.touches[0].pageY - this.offsetTop;
+//             $('#testText').text('1 mouseX_1 start : ' + mouseX + 'mouseX_2 start : ' + mouseY)
+//             paint = true;
+//             addClick(mouseX, mouseY);
+//             redraw();
+//         });
+//         // Pen Move
+//         $('#myCanvas').on('touchmove', function (e) {
+//             var mouseX = e.originalEvent.touches[0].pageX - this.offsetLeft,
+//                 mouseY = e.originalEvent.touches[0].pageY - this.offsetTop;
+//             $('#testText').text('2 mouseX_1 start : ' + mouseX + 'mouseX_2 start : ' + mouseY)
+//             if (paint) {
+//                 addClick(mouseX, mouseY, true);
+//                 redraw();
+//             }
+//         });
+//         // Pen End
+//         $('#myCanvas').on('touchend', function (e) {
+//             console.log('in touchend');
+//             paint = false;
+//         });
+//
+//         function addClick(x, y, dragging) {
+//             clickX.push(x);
+//             clickY.push(y);
+//             clickDrag.push(dragging);
+//         }
+//
+//         function redraw() {
+//             context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
+//             // context.strokeStyle = ink;
+//             //#df4b26
+//             context.lineJoin = "round";
+//             context.lineWidth = curSize;
+//             clickColor.push(ink);
+//             clickSize.push(curSize);
+//
+//             for (var i = 0; i < clickX.length; i++) {
+//                 context.beginPath();
+//                 if (clickDrag[i] && i) {
+//                     context.moveTo(clickX[i - 1], clickY[i - 1]);
+//                 } else {
+//                     context.moveTo(clickX[i] - 1, clickY[i]);
+//                 }
+//                 context.strokeStyle = clickColor[i];
+//                 context.lineTo(clickX[i], clickY[i]);
+//                 context.closePath();
+//                 context.strokeStyle = clickColor[i];
+//                 context.lineWidth = clickSize[i];
+//                 context.stroke();
+//             }
+//             context.drawImage(outlineImage, 0, 0, context.canvas.width, context.canvas.height);
+//         }
+//     }
+// });
 
 /**
  * Panel Page [SET]
@@ -1591,7 +1595,7 @@ var clickX = new Array(),
     clickDrag = new Array();
 
 var paint;
-var ink = "black;"
+var ink = "black";
 
 function setColor(color) {
     if (eraser == true) {
