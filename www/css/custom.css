@@ -480,3 +480,8 @@ output:after {
 .inline{
     display:inline !important;
 }
+
+.cus-page {
+    margin-top: 56px;
+    /*overflow: auto;*/
+}

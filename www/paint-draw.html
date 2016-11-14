@@ -5,7 +5,7 @@
     <title>Museum</title>
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="x-ua-compatible">
-    <meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=no;" />
+    <meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=no;"/>
     <meta content="yes" name="apple-mobile-web-app-capable">
     <meta content="yes" name="apple-touch-fullscreen">
     <!-- Fonts -->
@@ -25,9 +25,7 @@
 
 
 <body>
-
-
-<div class="m-scene" id="main"> <!-- Main Container -->
+<div  id="main"> <!-- Main Container -->
     <!-- SideBar -->
     <ul id="slide-out-left" class="side-nav collapsible">
         <div w3-include-html="views/include/left-panel.html"></div>
@@ -37,7 +35,7 @@
     </ul>
 
     <!-- Page Content -->
-    <div id="content" class="page">
+    <div id="content" class="cus-page">
 
         <!-- Toolbar -->
         <div id="toolbar" class="tool-bar white-color">
@@ -53,101 +51,112 @@
 
         <!-- Main Content -->
         <div id="draw-header">
-
             <div>
-                <div id ="draw-tool"  style="padding-left:15px; width:50vw; float:left;" class="center-align vamiddle m-t-30">
-                    <a href="#" id="eraser" onClick="eraserSelect();" class="btn-floating btn waves-effect waves-light red">
+                <div id="draw-tool" style="padding-left:15px; width:50vw; float:left;"
+                     class="center-align vamiddle m-t-30">
+                    <a href="#" id="eraser" onClick="eraserSelect();"
+                       class="btn-floating btn waves-effect waves-light red">
                         <img src="img/workspace/eraser.svg">
                     </a>
-                    <a href="#" id="pencil" onClick="pencilSelect();" class="btn-floating btn waves-effect waves-light green">
+                    <a href="#" id="pencil" onClick="pencilSelect();"
+                       class="btn-floating btn waves-effect waves-light green">
                         <img src="img/workspace/school-material.svg">
                     </a>
-                    <a href="#" id="brush" onClick="brushSelect();" class="btn-floating btn waves-effect waves-light blue">
+                    <a href="#" id="brush" onClick="brushSelect();"
+                       class="btn-floating btn waves-effect waves-light blue">
                         <img src="img/workspace/paint-brush.svg">
                     </a>
                     <br>
-                    <input id="sizeSlider" name="foo" class="draw-pen-set" type="range"  onChange ="setCurSize();" value="5" min="1" max="10"/>
-
+                    <input id="sizeSlider" name="foo" class="draw-pen-set" type="range" onChange="setCurSize();"
+                           value="5" min="1" max="10"/>
                 </div>
-                <div id = "draw-table" style="width:50vw; float:left; padding:20px 20px 20px 0px !important;">
+                <div id="draw-table" style="width:50vw; float:left; padding:20px 20px 20px 0px !important;">
                     <table style="width:100%; border:solid 2px black;">
                         <tr>
-                            <td id="test" style="width:5vw; border:solid 2px black; background-color: pink" onClick="setColor('pink');"></td>
-                            <td style="width:5vw; border:solid 2px black; background-color: orange" onClick="setColor('orange');"></td>
-                            <td style="width:5vw; border:solid 2px black; background-color: red" onClick="setColor('red');"></td>
-                            <td style="width:5vw; border:solid 2px black; background-color: #c51162" onClick="setColor('#c51162');"></td>
-                            <td style="width:5vw; border:solid 2px black; background-color: #9c27b0" onClick="setColor('#9c27b0');"></td>
+                            <td id="test" style="width:5vw; border:solid 2px black; background-color: pink"
+                                onClick="setColor('pink');"></td>
+                            <td style="width:5vw; border:solid 2px black; background-color: orange"
+                                onClick="setColor('orange');"></td>
+                            <td style="width:5vw; border:solid 2px black; background-color: red"
+                                onClick="setColor('red');"></td>
+                            <td style="width:5vw; border:solid 2px black; background-color: #c51162"
+                                onClick="setColor('#c51162');"></td>
+                            <td style="width:5vw; border:solid 2px black; background-color: #9c27b0"
+                                onClick="setColor('#9c27b0');"></td>
                         </tr>
                         <tr>
-                            <td style="width:5vw;border:solid 2px black; background-color: ivory"onClick="setColor('ivory');"></td>
-                            <td style="width:5vw;border:solid 2px black; background-color: yellow"onClick="setColor('yellow');"></td>
-                            <td style="width:5vw;border:solid 2px black; background-color: yellowgreen"onClick="setColor('yellowgreen');"></td>
-                            <td style="width:5vw;border:solid 2px black; background-color: green"onClick="setColor('green');"></td>
-                            <td style="width:5vw;border:solid 2px black; background-color: olive"onClick="setColor('olive');"></td>
+                            <td style="width:5vw;border:solid 2px black; background-color: ivory"
+                                onClick="setColor('ivory');"></td>
+                            <td style="width:5vw;border:solid 2px black; background-color: yellow"
+                                onClick="setColor('yellow');"></td>
+                            <td style="width:5vw;border:solid 2px black; background-color: yellowgreen"
+                                onClick="setColor('yellowgreen');"></td>
+                            <td style="width:5vw;border:solid 2px black; background-color: green"
+                                onClick="setColor('green');"></td>
+                            <td style="width:5vw;border:solid 2px black; background-color: olive"
+                                onClick="setColor('olive');"></td>
                         </tr>
                         <tr>
-                            <td style="width:5vw;border:solid 2px black; background-color: lightblue" onClick="setColor('lightblue');"></td>
-                            <td style="width:5vw;border:solid 2px black; background-color: cornflowerblue" onClick="setColor('cornflowerblue');"></td>
-                            <td style="width:5vw;border:solid 2px black; background-color: blue" onClick="setColor('blue');"></td>
-                            <td style="width:5vw;border:solid 2px black; background-color: #4a148c" onClick="setColor('#4a148c');"></td>
-                            <td style="width:5vw;border:solid 2px black; background-color: black" onClick="setColor('black');"></td>
+                            <td style="width:5vw;border:solid 2px black; background-color: lightblue"
+                                onClick="setColor('lightblue');"></td>
+                            <td style="width:5vw;border:solid 2px black; background-color: cornflowerblue"
+                                onClick="setColor('cornflowerblue');"></td>
+                            <td style="width:5vw;border:solid 2px black; background-color: blue"
+                                onClick="setColor('blue');"></td>
+                            <td style="width:5vw;border:solid 2px black; background-color: #4a148c"
+                                onClick="setColor('#4a148c');"></td>
+                            <td style="width:5vw;border:solid 2px black; background-color: black"
+                                onClick="setColor('black');"></td>
                         </tr>
                     </table>
                 </div>
             </div>
+        </div>
 
-            <!-- play draw -->
-            <!--<div class="canvasSize">-->
-            <div style="margin-bottom: 20px !important;" class="canvasWrapper center-align">
-               <!--<canvas id="myCanvas" class="canvasSize" width="320" height="320"></canvas>-->
-               <canvas id="myCanvas" class="canvasSize"></canvas>
+        <!-- play draw -->
+        <div style="margin-bottom: 20px !important;" class="canvasWrapper center-align">
+            <canvas id="myCanvas" class="canvasSize"></canvas>
+        </div>
+
+
+        <!-- Modal Trigger -->
+        <div class="draw-btn-div">
+            <a id="modal-btn" style="padding:5px 10px 5px 10px !important; margin : 0px 20px 0px 10px !important;"
+               href="#modal"
+               class="modal-trigger center-align cus-background-black p-0 white-text font-size-18 m-20">
+                색 칠 완 료
+            </a>
+        </div>
+        <br>
+
+        <!-- Modal Structure -->
+        <div id="modal" class="modal bottom-sheet">
+            <div class="modal-content font-size-15">
+                <h4 id="modal_status">내정보를 입력해 주세요.</h4>
+                <input id="name" type="text" placeholder="이름을 입력해 주세요.">
+                <input id="phone" type="text" placeholder="핸드폰을 입력해 주세요.">
             </div>
-            <!--<div id="canvasDiv"></div>-->
-            <!--</div>-->
-
-            <!-- Modal Trigger -->
-            <div class="draw-btn-div">
-                <!--<a id="modal-btn"-->
-                   <!--class="modal-trigger waves-effect waves-light btn center-align m-20 font-size-18 cus-color-background-1"-->
-                   <!--href="#modal">-->
-                    <!--색칠 완료-->
-                <!--</a>-->
-
-                <a id="modal-btn" style="padding:5px 10px 5px 10px !important; margin-top : 10px !important;" href="#modal"
-                   class="modal-trigger center-align cus-background-black p-0 white-text font-size-18 m-20">
-                    색 칠 완 료
-                </a>
-            </div>
-            <!-- Modal Structure -->
-            <div id="modal" class="modal bottom-sheet">
-                <div class="modal-content font-size-15">
-                    <h4 id="modal_status">내정보를 입력해 주세요.</h4>
-                        <input id="name" type="text" placeholder="이름을 입력해 주세요.">
-                        <input id="phone" type="text" placeholder="핸드폰을 입력해 주세요.">
-                </div>
                 <div class="modal-footer">
                         <a href="#" class="modal-close waves-effect waves-green btn-flat">취소</a>
                         <button id="pattern_submit" class="modal-action waves-effect waves-green btn-flat">확인</button>
                 </div>
-            </div>
-        </div> <!-- End of Main Contents -->
-
-    </div> <!-- End of Page Content -->
+        </div>
+    </div>
 </div> <!-- End of Page Container -->
 
-<!--<div w3-include-html="views/include/includeScript.html"></div>-->
-<!-- themeforest default -->
-<script src="js/jquery-2.1.0.min.js"></script>
-<script src="js/jquery.swipebox.min.js"></script>
-<script src="js/jquery.smoothState.min.js"></script>
-<script src="js/materialize.min.js"></script>
-<script src="js/swiper.min.js"></script>
-<script src="js/jquery.mixitup.min.js"></script>
-<script src="js/masonry.min.js"></script>
-<script src="js/chart.min.js"></script>
-<script src="js/custom.js"></script>
-<script src="js/drawing.js"></script>
-<script src="js/temp_domain.js"></script>
+    <!--<div w3-include-html="views/include/includeScript.html"></div>-->
+    <!-- themeforest default -->
+    <script src="js/jquery-2.1.0.min.js"></script>
+    <script src="js/jquery.swipebox.min.js"></script>
+    <script src="js/jquery.smoothState.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/jquery.mixitup.min.js"></script>
+    <script src="js/masonry.min.js"></script>
+    <script src="js/chart.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/drawing.js"></script>
+    <script src="js/temp_domain.js"></script>
 
 
 </body>
