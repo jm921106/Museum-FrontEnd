@@ -715,64 +715,64 @@ function initiate_plugins() {
                 });
                 break;
             case 'display-content.html':
-                var url = window.temp_domain + "itemViewCount";
-                $.post(url, {
-                    code : post_data
-                }, function(view_count) {
-                    $.ajax({
-                        url: './data/items.json',
-                        type: 'GET',
-                        dataType: 'json',
-                        success: function (data) {
-                            var arr = post_data.split('_');
-                            if (arr[0] == "")
-                                var arr = ['1', '1'];
-                            var cat = data[arr[0]];
-                            cat.forEach(function (item) {
-                                if (item.code == arr[1]) {
 
-                                    $('#sub-title').html(item.title);
+                $.ajax({
+                    url: './data/items.json',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        var arr = post_data.split('_');
+                        if (arr[0] == "")
+                            var arr = ['1', '1'];
+                        var cat = data[arr[0]];
+                        cat.forEach(function (item) {
+                            if (item.code == arr[1]) {
+
+                                item.srcImg.forEach(function (imgUrl) {
+                                    imageSlideAdd(imgUrl);
+                                });
+
+                                // Swiper Sliders
+                                var swiper = new Swiper('.slider', {
+                                    pagination: '.swiper-pagination',
+                                    paginationClickable: true,
+                                    nextButton: '.swiper-button-next',
+                                    prevButton: '.swiper-button-prev',
+                                    autoplay: 5000,
+                                    loop: true
+                                });
+                                var swiper = new Swiper('.slider-sliced', {
+                                    pagination: '.swiper-pagination',
+                                    paginationClickable: true,
+                                    autoplay: 5000,
+                                });
+                                var swiper = new Swiper('.steps', {
+                                    pagination: '.swiper-pagination',
+                                    paginationClickable: true,
+                                    nextButton: '.swiper-button-next',
+                                    prevButton: '.swiper-button-prev',
+                                    effect: 'fade',
+                                });
+                                var swiper = new Swiper('.slider-drawer', {
+                                    pagination: '.swiper-pagination',
+                                    paginationClickable: true,
+                                });
+                                var swiper = new Swiper('.slider-vertical', {
+                                    pagination: '.swiper-pagination',
+                                    paginationClickable: true,
+                                    autoplay: 5000,
+                                    direction: 'vertical'
+                                });
+
+                                $('#item-title').html(item.subTitle);
+                                $('#item-content').html(item.content);
+
+                                $('#sub-title').html(item.title);
+                                var url = window.temp_domain + "itemViewCount";
+                                $.post(url, {
+                                    code: post_data
+                                }, function (view_count) {
                                     $('#view-count').html(view_count);
-
-                                    item.srcImg.forEach(function (imgUrl) {
-                                        imageSlideAdd(imgUrl);
-                                    });
-
-                                    // Swiper Sliders
-                                    var swiper = new Swiper('.slider', {
-                                        pagination: '.swiper-pagination',
-                                        paginationClickable: true,
-                                        nextButton: '.swiper-button-next',
-                                        prevButton: '.swiper-button-prev',
-                                        autoplay: 5000,
-                                        loop: true
-                                    });
-                                    var swiper = new Swiper('.slider-sliced', {
-                                        pagination: '.swiper-pagination',
-                                        paginationClickable: true,
-                                        autoplay: 5000,
-                                    });
-                                    var swiper = new Swiper('.steps', {
-                                        pagination: '.swiper-pagination',
-                                        paginationClickable: true,
-                                        nextButton: '.swiper-button-next',
-                                        prevButton: '.swiper-button-prev',
-                                        effect: 'fade',
-                                    });
-                                    var swiper = new Swiper('.slider-drawer', {
-                                        pagination: '.swiper-pagination',
-                                        paginationClickable: true,
-                                    });
-                                    var swiper = new Swiper('.slider-vertical', {
-                                        pagination: '.swiper-pagination',
-                                        paginationClickable: true,
-                                        autoplay: 5000,
-                                        direction: 'vertical'
-                                    });
-
-                                    // audioSet(item.mp3Url);
-                                    $('#item-title').html(item.subTitle);
-                                    $('#item-content').html(item.content);
 
                                     var url = window.temp_domain + "likeCall";
                                     $.post(url, {
@@ -796,10 +796,10 @@ function initiate_plugins() {
                                             $('#heart-icon').removeClass('heart-btn');
                                         }
                                     });
-                                }
-                            })
-                        }
-                    });
+                                });
+                            }
+                        })
+                    }
                 });
                 window.likeBtnSet(post_data);
                 break;
@@ -1481,64 +1481,64 @@ $(function () {
             });
             break;
         case 'display-content.html':
-            var url = window.temp_domain + "itemViewCount";
-            $.post(url, {
-                code : post_data
-            }, function(view_count) {
-                $.ajax({
-                    url: './data/items.json',
-                    type: 'GET',
-                    dataType: 'json',
-                    success: function (data) {
-                        var arr = post_data.split('_');
-                        if (arr[0] == "")
-                            var arr = ['1', '1'];
-                        var cat = data[arr[0]];
-                        cat.forEach(function (item) {
-                            if (item.code == arr[1]) {
 
-                                $('#sub-title').html(item.title);
+            $.ajax({
+                url: './data/items.json',
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    var arr = post_data.split('_');
+                    if (arr[0] == "")
+                        var arr = ['1', '1'];
+                    var cat = data[arr[0]];
+                    cat.forEach(function (item) {
+                        if (item.code == arr[1]) {
+
+                            item.srcImg.forEach(function (imgUrl) {
+                                imageSlideAdd(imgUrl);
+                            });
+
+                            // Swiper Sliders
+                            var swiper = new Swiper('.slider', {
+                                pagination: '.swiper-pagination',
+                                paginationClickable: true,
+                                nextButton: '.swiper-button-next',
+                                prevButton: '.swiper-button-prev',
+                                autoplay: 5000,
+                                loop: true
+                            });
+                            var swiper = new Swiper('.slider-sliced', {
+                                pagination: '.swiper-pagination',
+                                paginationClickable: true,
+                                autoplay: 5000,
+                            });
+                            var swiper = new Swiper('.steps', {
+                                pagination: '.swiper-pagination',
+                                paginationClickable: true,
+                                nextButton: '.swiper-button-next',
+                                prevButton: '.swiper-button-prev',
+                                effect: 'fade',
+                            });
+                            var swiper = new Swiper('.slider-drawer', {
+                                pagination: '.swiper-pagination',
+                                paginationClickable: true,
+                            });
+                            var swiper = new Swiper('.slider-vertical', {
+                                pagination: '.swiper-pagination',
+                                paginationClickable: true,
+                                autoplay: 5000,
+                                direction: 'vertical'
+                            });
+
+                            $('#item-title').html(item.subTitle);
+                            $('#item-content').html(item.content);
+
+                            $('#sub-title').html(item.title);
+                            var url = window.temp_domain + "itemViewCount";
+                            $.post(url, {
+                                code: post_data
+                            }, function (view_count) {
                                 $('#view-count').html(view_count);
-                                
-                                item.srcImg.forEach(function (imgUrl) {
-                                    imageSlideAdd(imgUrl);
-                                });
-
-                                // Swiper Sliders
-                                var swiper = new Swiper('.slider', {
-                                    pagination: '.swiper-pagination',
-                                    paginationClickable: true,
-                                    nextButton: '.swiper-button-next',
-                                    prevButton: '.swiper-button-prev',
-                                    autoplay: 5000,
-                                    loop: true
-                                });
-                                var swiper = new Swiper('.slider-sliced', {
-                                    pagination: '.swiper-pagination',
-                                    paginationClickable: true,
-                                    autoplay: 5000,
-                                });
-                                var swiper = new Swiper('.steps', {
-                                    pagination: '.swiper-pagination',
-                                    paginationClickable: true,
-                                    nextButton: '.swiper-button-next',
-                                    prevButton: '.swiper-button-prev',
-                                    effect: 'fade',
-                                });
-                                var swiper = new Swiper('.slider-drawer', {
-                                    pagination: '.swiper-pagination',
-                                    paginationClickable: true,
-                                });
-                                var swiper = new Swiper('.slider-vertical', {
-                                    pagination: '.swiper-pagination',
-                                    paginationClickable: true,
-                                    autoplay: 5000,
-                                    direction: 'vertical'
-                                });
-
-                                // audioSet(item.mp3Url);
-                                $('#item-title').html(item.subTitle);
-                                $('#item-content').html(item.content);
 
                                 var url = window.temp_domain + "likeCall";
                                 $.post(url, {
@@ -1562,10 +1562,10 @@ $(function () {
                                         $('#heart-icon').removeClass('heart-btn');
                                     }
                                 });
-                            }
-                        })
-                    }
-                });
+                            });
+                        }
+                    })
+                }
             });
             window.likeBtnSet(post_data);
             break;
@@ -1662,10 +1662,11 @@ var likeBtnSet = function (post_data) {
         // 2. post like data
         var url = window.temp_domain + "likePlus";
         $.post(url, {
-            code : post_data,
+            code: post_data,
             deviceInfo: localStorage.getItem('user_id'),
             likeStatus: $('#like-status').val()
-        }, function (data) {});
+        }, function (data) {
+        });
     })
 };
 function imageSlideAdd(imgUrl) {
