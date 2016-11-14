@@ -1339,7 +1339,7 @@ li.your-comment {
     height: 10px;
 }
 .swiper-pagination-bullet-active {
-    background: #2196F3;
+    background: #444;
 }
 .swiper-pagination.white-bullet .swiper-pagination-bullet {
     background-color: #fff;

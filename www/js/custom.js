@@ -90,6 +90,7 @@ function initiate_plugins() {
     // Row Height for Drawer
     var grandparent_height = $('#grandparent').height();
     $('.child').height(grandparent_height * 0.25);
+
     // Swiper Sliders
     var swiper = new Swiper('.slider', {
         pagination: '.swiper-pagination',
@@ -402,14 +403,14 @@ function initiate_plugins() {
                         });
 
                     }); // datas for문 종료 지점
-                    if(datas != null)
+                    if (datas != null)
                         post_num += 1;
                 });
             });
         }
     });
 
-// [3]
+[3]
     $(function () {
         var post_data = window.location.search.substring(1);
 
@@ -427,13 +428,19 @@ function initiate_plugins() {
                 redraw();
             };
             outlineImage.src = "./img/patterns/pattern_" + post_data + ".png";
+
+            var canvas = document.getElementById('myCanvas')
+            canvas.width = window.innerWidth * 9 / 10;
+            canvas.height = window.innerWidth * 9 / 10;
+
             context = document.getElementById('myCanvas').getContext("2d");
 
             // Pen Start
             $('#myCanvas').on('touchstart', function (e) {
                 var mouseX = e.originalEvent.touches[0].pageX - this.offsetLeft,
                     mouseY = e.originalEvent.touches[0].pageY - this.offsetTop;
-                $('#testText').text('1 mouseX_1 start : ' + mouseX + 'mouseX_2 start : ' + mouseY)
+                // $('#testText').text('1 mouseX_1 start : ' + mouseX + 'mouseX_2 start : ' + mouseY)
+                console.log('1 mouseX_1 start : ' + mouseX + 'mouseX_2 start : ' + mouseY);
                 paint = true;
                 addClick(mouseX, mouseY);
                 redraw();
@@ -442,7 +449,7 @@ function initiate_plugins() {
             $('#myCanvas').on('touchmove', function (e) {
                 var mouseX = e.originalEvent.touches[0].pageX - this.offsetLeft,
                     mouseY = e.originalEvent.touches[0].pageY - this.offsetTop;
-                $('#testText').text('2 mouseX_1 start : ' + mouseX + 'mouseX_2 start : ' + mouseY)
+                // $('#testText').text('2 mouseX_1 start : ' + mouseX + 'mouseX_2 start : ' + mouseY)
                 if (paint) {
                     addClick(mouseX, mouseY, true);
                     redraw();
@@ -458,25 +465,28 @@ function initiate_plugins() {
                 clickX.push(x);
                 clickY.push(y);
                 clickDrag.push(dragging);
+
+                clickColor.push(ink);
+                clickSize.push(curSize);
             }
 
             function redraw() {
+                console.log('redraw')
                 context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
-                // context.strokeStyle = ink;
+                context.strokeStyle = ink;
                 //#df4b26
                 context.lineJoin = "round";
-                context.lineWidth = curSize;
-                clickColor.push(ink);
-                clickSize.push(curSize);
+
+
+
 
                 for (var i = 0; i < clickX.length; i++) {
                     context.beginPath();
                     if (clickDrag[i] && i) {
                         context.moveTo(clickX[i - 1], clickY[i - 1]);
                     } else {
-                        context.moveTo(clickX[i] - 1, clickY[i]);
+                        context.moveTo(clickX[i]-1, clickY[i]);
                     }
-                    context.strokeStyle = clickColor[i];
                     context.lineTo(clickX[i], clickY[i]);
                     context.closePath();
                     context.strokeStyle = clickColor[i];
@@ -522,7 +532,12 @@ function initiate_plugins() {
                 $.get(url, function (data) {
                     data.forEach(function (notice, i) {
                         var date_str = getDateFormat(new Date(notice.date))
-                        addNoticeList(notice.title, notice.contents, date_str, i)
+                        var noticeStr = "";
+                        noticeStr += addNoticeList(notice.title, notice.contents, date_str, i);
+
+                        console.log(noticeStr)
+
+                        $('#noticeList').append(noticeStr)
                     });
                 });
                 break;
@@ -676,19 +691,19 @@ function initiate_plugins() {
                             post_data = '1';
                         switch (post_data) {
                             case '1':
-                                $('#sub-title').html('단령');
+                                $('#sub-title').html('공무용 예복, 흑색 단령');
                                 break;
                             case '2':
-                                $('#sub-title').html('원삼');
+                                $('#sub-title').html('여성의 예복, 녹색 원삼');
                                 break;
                             case '3':
-                                $('#sub-title').html('심의');
+                                $('#sub-title').html('유학자의 예복, 백색 심의');
                                 break;
                             case '4':
-                                $('#sub-title').html('조복');
+                                $('#sub-title').html('의례용 예복, 홍색 조복');
                                 break;
                             case '5':
-                                $('#sub-title').html('배자');
+                                $('#sub-title').html('남녀 덧옷, 배자');
                                 break;
                         }
                         data[post_data].forEach(function (cat) {
@@ -704,48 +719,91 @@ function initiate_plugins() {
                 });
                 break;
             case 'display-content.html':
-                $.ajax({
-                    url: './data/items.json',
-                    type: 'GET',
-                    dataType: 'json',
-                    success: function (data) {
-                        var arr = post_data.split('_');
-                        if (arr[0] == "")
-                            var arr = ['1', '1'];
-                        var cat = data[arr[0]];
-                        cat.forEach(function (item) {
-                            if (item.code == arr[1]) {
-                                $('#sub-title').html(item.title);
-                                item.srcImg.forEach(function (imgUrl) {
-                                    imageSlideAdd(imgUrl);
-                                });
-                                // audioSet(item.mp3Url);
-                                $('#item-title').html(item.subTitle);
-                                $('#item-content').html(item.content);
+                var url = window.temp_domain + "itemViewCount";
+                $.post(url, {
+                    code : post_data
+                }, function(view_count) {
+                    $.ajax({
+                        url: './data/items.json',
+                        type: 'GET',
+                        dataType: 'json',
+                        success: function (data) {
+                            var arr = post_data.split('_');
+                            if (arr[0] == "")
+                                var arr = ['1', '1'];
+                            var cat = data[arr[0]];
+                            cat.forEach(function (item) {
+                                if (item.code == arr[1]) {
 
-                                var url = window.temp_domain + "likeCall";
-                                $.post(url, {
-                                    itemCode: post_data,
-                                    deviceInfo: localStorage.getItem('user_id')
-                                }, function (data) {
-                                    if (data.status) {
-                                        $('#like-status').val('true');
-                                    } else {
-                                        $('#like-status').val('false');
-                                    }
-                                    // 1. css 효과 변경
-                                    if ($('#like-status').val() == 'true') {
-                                        $('#heart-icon').addClass('heart-btn');
-                                        $('#heart-icon').removeClass('cus-color-white');
+                                    $('#sub-title').html(item.title);
+                                    $('#view-count').html(view_count);
 
-                                    } else {
-                                        $('#heart-icon').addClass('cus-color-white');
-                                        $('#heart-icon').removeClass('heart-btn');
-                                    }
-                                });
-                            }
-                        })
-                    }
+                                    item.srcImg.forEach(function (imgUrl) {
+                                        imageSlideAdd(imgUrl);
+                                    });
+
+                                    // Swiper Sliders
+                                    var swiper = new Swiper('.slider', {
+                                        pagination: '.swiper-pagination',
+                                        paginationClickable: true,
+                                        nextButton: '.swiper-button-next',
+                                        prevButton: '.swiper-button-prev',
+                                        autoplay: 5000,
+                                        loop: true
+                                    });
+                                    var swiper = new Swiper('.slider-sliced', {
+                                        pagination: '.swiper-pagination',
+                                        paginationClickable: true,
+                                        autoplay: 5000,
+                                    });
+                                    var swiper = new Swiper('.steps', {
+                                        pagination: '.swiper-pagination',
+                                        paginationClickable: true,
+                                        nextButton: '.swiper-button-next',
+                                        prevButton: '.swiper-button-prev',
+                                        effect: 'fade',
+                                    });
+                                    var swiper = new Swiper('.slider-drawer', {
+                                        pagination: '.swiper-pagination',
+                                        paginationClickable: true,
+                                    });
+                                    var swiper = new Swiper('.slider-vertical', {
+                                        pagination: '.swiper-pagination',
+                                        paginationClickable: true,
+                                        autoplay: 5000,
+                                        direction: 'vertical'
+                                    });
+
+                                    // audioSet(item.mp3Url);
+                                    $('#item-title').html(item.subTitle);
+                                    $('#item-content').html(item.content);
+
+                                    var url = window.temp_domain + "likeCall";
+                                    $.post(url, {
+                                        code: post_data,
+                                        deviceInfo: localStorage.getItem('user_id')
+                                    }, function (data) {
+                                        // console.log(data.count)
+                                        $('#like-count').html(data.count);
+                                        if (data.status) {
+                                            $('#like-status').val('true');
+                                        } else {
+                                            $('#like-status').val('false');
+                                        }
+                                        // 1. css 효과 변경
+                                        if ($('#like-status').val() == 'true') {
+                                            $('#heart-icon').addClass('heart-btn');
+                                            $('#heart-icon').removeClass('cus-color-white');
+
+                                        } else {
+                                            $('#heart-icon').addClass('cus-color-white');
+                                            $('#heart-icon').removeClass('heart-btn');
+                                        }
+                                    });
+                                }
+                            })
+                        }
+                    });
                 });
                 window.likeBtnSet(post_data);
                 break;
@@ -796,6 +854,7 @@ $(window).scroll(function () {
 // Row Height for Drawer
 var grandparent_height = $('#grandparent').height();
 $('.child').height(grandparent_height * 0.25);
+
 // Swiper sliders
 var swiper = new Swiper('.slider', {
     pagination: '.swiper-pagination',
@@ -1114,7 +1173,7 @@ $(function () {
                     });
 
                 }); // datas for문 종료 지점
-                if(datas != null)
+                if (datas != null)
                     post_num += 1;
             });
         });
@@ -1122,83 +1181,88 @@ $(function () {
 });
 
 // [3]
-$(function () {
-    var post_data = window.location.search.substring(1);
-
-    var path = window.location.pathname;
-    var page = path.split("/").pop();
-    if (page == 'paint-draw.html') {
-
-        reset();
-
-        // default pen set
-        pencilSelect();
-
-        //patternImage setting
-        outlineImage.onload = function () {
-            redraw();
-        };
-        outlineImage.src = "./img/patterns/pattern_" + post_data + ".png";
-        context = document.getElementById('myCanvas').getContext("2d");
-
-        // Pen Start
-        $('#myCanvas').on('touchstart', function (e) {
-            var mouseX = e.originalEvent.touches[0].pageX - this.offsetLeft,
-                mouseY = e.originalEvent.touches[0].pageY - this.offsetTop;
-            $('#testText').text('1 mouseX_1 start : ' + mouseX + 'mouseX_2 start : ' + mouseY)
-            paint = true;
-            addClick(mouseX, mouseY);
-            redraw();
-        });
-        // Pen Move
-        $('#myCanvas').on('touchmove', function (e) {
-            var mouseX = e.originalEvent.touches[0].pageX - this.offsetLeft,
-                mouseY = e.originalEvent.touches[0].pageY - this.offsetTop;
-            $('#testText').text('2 mouseX_1 start : ' + mouseX + 'mouseX_2 start : ' + mouseY)
-            if (paint) {
-                addClick(mouseX, mouseY, true);
-                redraw();
-            }
-        });
-        // Pen End
-        $('#myCanvas').on('touchend', function (e) {
-            console.log('in touchend');
-            paint = false;
-        });
-
-        function addClick(x, y, dragging) {
-            clickX.push(x);
-            clickY.push(y);
-            clickDrag.push(dragging);
-        }
-
-        function redraw() {
-            context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
-            // context.strokeStyle = ink;
-            //#df4b26
-            context.lineJoin = "round";
-            context.lineWidth = curSize;
-            clickColor.push(ink);
-            clickSize.push(curSize);
-
-            for (var i = 0; i < clickX.length; i++) {
-                context.beginPath();
-                if (clickDrag[i] && i) {
-                    context.moveTo(clickX[i - 1], clickY[i - 1]);
-                } else {
-                    context.moveTo(clickX[i] - 1, clickY[i]);
-                }
-                context.strokeStyle = clickColor[i];
-                context.lineTo(clickX[i], clickY[i]);
-                context.closePath();
-                context.strokeStyle = clickColor[i];
-                context.lineWidth = clickSize[i];
-                context.stroke();
-            }
-            context.drawImage(outlineImage, 0, 0, context.canvas.width, context.canvas.height);
-        }
-    }
-});
+// $(function () {
+//     var post_data = window.location.search.substring(1);
+//
+//     var path = window.location.pathname;
+//     var page = path.split("/").pop();
+//     if (page == 'paint-draw.html') {
+//
+//         reset();
+//
+//         // default pen set
+//         pencilSelect();
+//
+//         //patternImage setting
+//         outlineImage.onload = function () {
+//             redraw();
+//         };
+//         outlineImage.src = "./img/patterns/pattern_" + post_data + ".png";
+//
+//         var canvas = document.getElementById('myCanvas')
+//         canvas.width = window.innerWidth * 9 / 10;
+//         canvas.height = window.innerWidth * 9 / 10;
+//
+//         context = document.getElementById('myCanvas').getContext("2d");
+//
+//         // Pen Start
+//         $('#myCanvas').on('touchstart', function (e) {
+//             var mouseX = e.originalEvent.touches[0].pageX - this.offsetLeft,
+//                 mouseY = e.originalEvent.touches[0].pageY - this.offsetTop;
+//             $('#testText').text('1 mouseX_1 start : ' + mouseX + 'mouseX_2 start : ' + mouseY)
+//             paint = true;
+//             addClick(mouseX, mouseY);
+//             redraw();
+//         });
+//         // Pen Move
+//         $('#myCanvas').on('touchmove', function (e) {
+//             var mouseX = e.originalEvent.touches[0].pageX - this.offsetLeft,
+//                 mouseY = e.originalEvent.touches[0].pageY - this.offsetTop;
+//             $('#testText').text('2 mouseX_1 start : ' + mouseX + 'mouseX_2 start : ' + mouseY)
+//             if (paint) {
+//                 addClick(mouseX, mouseY, true);
+//                 redraw();
+//             }
+//         });
+//         // Pen End
+//         $('#myCanvas').on('touchend', function (e) {
+//             console.log('in touchend');
+//             paint = false;
+//         });
+//
+//         function addClick(x, y, dragging) {
+//             clickX.push(x);
+//             clickY.push(y);
+//             clickDrag.push(dragging);
+//         }
+//
+//         function redraw() {
+//             context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
+//             // context.strokeStyle = ink;
+//             //#df4b26
+//             context.lineJoin = "round";
+//             context.lineWidth = curSize;
+//             clickColor.push(ink);
+//             clickSize.push(curSize);
+//
+//             for (var i = 0; i < clickX.length; i++) {
+//                 context.beginPath();
+//                 if (clickDrag[i] && i) {
+//                     context.moveTo(clickX[i - 1], clickY[i - 1]);
+//                 } else {
+//                     context.moveTo(clickX[i] - 1, clickY[i]);
+//                 }
+//                 context.strokeStyle = clickColor[i];
+//                 context.lineTo(clickX[i], clickY[i]);
+//                 context.closePath();
+//                 context.strokeStyle = clickColor[i];
+//                 context.lineWidth = clickSize[i];
+//                 context.stroke();
+//             }
+//             context.drawImage(outlineImage, 0, 0, context.canvas.width, context.canvas.height);
+//         }
+//     }
+// });
 
 /**
  * Panel Page [SET]
@@ -1234,7 +1298,12 @@ $(function () {
             $.get(url, function (data) {
                 data.forEach(function (notice, i) {
                     var date_str = getDateFormat(new Date(notice.date))
-                    addNoticeList(notice.title, notice.contents, date_str, i)
+                    var noticeStr = "";
+                    noticeStr += addNoticeList(notice.title, notice.contents, date_str, i);
+
+                    console.log(noticeStr)
+
+                    $('#noticeList').append(noticeStr)
                 });
             });
             break;
@@ -1388,19 +1457,19 @@ $(function () {
                         post_data = '1';
                     switch (post_data) {
                         case '1':
-                            $('#sub-title').html('단령');
+                            $('#sub-title').html('공무용 예복, 흑색 단령');
                             break;
                         case '2':
-                            $('#sub-title').html('원삼');
+                            $('#sub-title').html('여성의 예복, 녹색 원삼');
                             break;
                         case '3':
-                            $('#sub-title').html('심의');
+                            $('#sub-title').html('유학자의 예복, 백색 심의');
                             break;
                         case '4':
-                            $('#sub-title').html('조복');
+                            $('#sub-title').html('의례용 예복, 홍색 조복');
                             break;
                         case '5':
-                            $('#sub-title').html('배자');
+                            $('#sub-title').html('남녀 덧옷, 배자');
                             break;
                     }
                     data[post_data].forEach(function (cat) {
@@ -1416,48 +1485,91 @@ $(function () {
             });
             break;
         case 'display-content.html':
-            $.ajax({
-                url: './data/items.json',
-                type: 'GET',
-                dataType: 'json',
-                success: function (data) {
-                    var arr = post_data.split('_');
-                    if (arr[0] == "")
-                        var arr = ['1', '1'];
-                    var cat = data[arr[0]];
-                    cat.forEach(function (item) {
-                        if (item.code == arr[1]) {
-                            $('#sub-title').html(item.title);
-                            item.srcImg.forEach(function (imgUrl) {
-                                imageSlideAdd(imgUrl);
-                            });
-                            // audioSet(item.mp3Url);
-                            $('#item-title').html(item.subTitle);
-                            $('#item-content').html(item.content);
+            var url = window.temp_domain + "itemViewCount";
+            $.post(url, {
+                code : post_data
+            }, function(view_count) {
+                $.ajax({
+                    url: './data/items.json',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        var arr = post_data.split('_');
+                        if (arr[0] == "")
+                            var arr = ['1', '1'];
+                        var cat = data[arr[0]];
+                        cat.forEach(function (item) {
+                            if (item.code == arr[1]) {
 
-                            var url = window.temp_domain + "likeCall";
-                            $.post(url, {
-                                itemCode: post_data,
-                                deviceInfo: localStorage.getItem('user_id')
-                            }, function (data) {
-                                if (data.status) {
-                                    $('#like-status').val('true');
-                                } else {
-                                    $('#like-status').val('false');
-                                }
-                                // 1. css 효과 변경
-                                if ($('#like-status').val() == 'true') {
-                                    $('#heart-icon').addClass('heart-btn');
-                                    $('#heart-icon').removeClass('cus-color-white');
+                                $('#sub-title').html(item.title);
+                                $('#view-count').html(view_count);
+                                
+                                item.srcImg.forEach(function (imgUrl) {
+                                    imageSlideAdd(imgUrl);
+                                });
 
-                                } else {
-                                    $('#heart-icon').addClass('cus-color-white');
-                                    $('#heart-icon').removeClass('heart-btn');
-                                }
-                            });
-                        }
-                    })
-                }
+                                // Swiper Sliders
+                                var swiper = new Swiper('.slider', {
+                                    pagination: '.swiper-pagination',
+                                    paginationClickable: true,
+                                    nextButton: '.swiper-button-next',
+                                    prevButton: '.swiper-button-prev',
+                                    autoplay: 5000,
+                                    loop: true
+                                });
+                                var swiper = new Swiper('.slider-sliced', {
+                                    pagination: '.swiper-pagination',
+                                    paginationClickable: true,
+                                    autoplay: 5000,
+                                });
+                                var swiper = new Swiper('.steps', {
+                                    pagination: '.swiper-pagination',
+                                    paginationClickable: true,
+                                    nextButton: '.swiper-button-next',
+                                    prevButton: '.swiper-button-prev',
+                                    effect: 'fade',
+                                });
+                                var swiper = new Swiper('.slider-drawer', {
+                                    pagination: '.swiper-pagination',
+                                    paginationClickable: true,
+                                });
+                                var swiper = new Swiper('.slider-vertical', {
+                                    pagination: '.swiper-pagination',
+                                    paginationClickable: true,
+                                    autoplay: 5000,
+                                    direction: 'vertical'
+                                });
+
+                                // audioSet(item.mp3Url);
+                                $('#item-title').html(item.subTitle);
+                                $('#item-content').html(item.content);
+
+                                var url = window.temp_domain + "likeCall";
+                                $.post(url, {
+                                    code: post_data,
+                                    deviceInfo: localStorage.getItem('user_id')
+                                }, function (data) {
+                                    // console.log(data.count)
+                                    $('#like-count').html(data.count);
+                                    if (data.status) {
+                                        $('#like-status').val('true');
+                                    } else {
+                                        $('#like-status').val('false');
+                                    }
+                                    // 1. css 효과 변경
+                                    if ($('#like-status').val() == 'true') {
+                                        $('#heart-icon').addClass('heart-btn');
+                                        $('#heart-icon').removeClass('cus-color-white');
+
+                                    } else {
+                                        $('#heart-icon').addClass('cus-color-white');
+                                        $('#heart-icon').removeClass('heart-btn');
+                                    }
+                                });
+                            }
+                        })
+                    }
+                });
             });
             window.likeBtnSet(post_data);
             break;
@@ -1483,7 +1595,7 @@ var clickX = new Array(),
     clickDrag = new Array();
 
 var paint;
-var ink = "black;"
+var ink = "black";
 
 function setColor(color) {
     if (eraser == true) {
@@ -1554,19 +1666,18 @@ var likeBtnSet = function (post_data) {
         // 2. post like data
         var url = window.temp_domain + "likePlus";
         $.post(url, {
-            itemCode: post_data,
+            code : post_data,
             deviceInfo: localStorage.getItem('user_id'),
             likeStatus: $('#like-status').val()
-        }, function (data) {
-
-        });
+        }, function (data) {});
     })
 };
 function imageSlideAdd(imgUrl) {
     $('#item-slide').append(
         "<div class='swiper-slide'>" +
         "<img src=" + imgUrl + " alt=''>" +
-        "</div>" );
+        "</div>"
+    );
 }
 function listAdd(code, imgUrl, title) {
     $('#list_grid').append(
@@ -1589,10 +1700,10 @@ function patternAdd(like_btn_id, icon_id, like_status_id, user_id, date, img_url
         // "<div id='" + like_btn_id + "' class='blog-fullwidth animated fadeinup delay-" + delay + "'>" +
         "<div class='blog-fullwidth animated fadeinup delay-" + delay + "'>" +
         "<div style='padding: 20px 40px 0px 0px' class='width-100 pos-ab right-align'>" +
-        "<button id='" + like_btn_id + "' class='btn-floating btn waves-effect waves-light cus-background-black z-index-front'>" +
+        "<button id='" + like_btn_id + "' class='btn-floating btn waves-effect waves-light cus-background-transparent z-index-middle'>" +
         // "<button class='btn-floating btn waves-effect waves-light cus-background-black'>" +
         "<input id='" + like_status_id + "' type='hidden' value='false'><!--안눌러져있는상태 default-->" +
-        "<i id='" + icon_id + "'  class='fa ion-heart cus-color-white'></i>" +
+        "<i id='" + icon_id + "'  class='ion-heart cus-color-transparent2'></i>" +
         "</button>" +
         "</div>" +
         "<div class='blog-header'>" +
@@ -1603,20 +1714,20 @@ function patternAdd(like_btn_id, icon_id, like_status_id, user_id, date, img_url
         "</div>" +
         "<div class='blog-image m-20'>" +
         "<img src=" + img_url + ">" +
-        "<div class='opacity-overlay-top'></div>" +
+        // "<div class='opacity-overlay-top'></div>" +
+        "<div></div>" +
         "</div>" +
         "</div>"
     );
 }
 function addNoticeList(title, content, date, delay) {
-    $('#noticeList').append("" +
-        "<div class = 'single-news animated fadeinright delay-" + delay + "'>" +
+    var returnStr = "<div class = 'single-news animated fadeinright delay-" + delay + "'>" +
         "<h4 class='single-news-title'>" +
         "<a href='#'>" + title + "</a>" +
         "</h4>" +
         "<span class='single-news-channel'>" + content + "<span class='single-news-category'>" + date + "</span></span>" +
         "</div>"
-    )
+    return returnStr;
 };
 function myLikeAdd(code, title, subtitle, img_src, delay) {
     $('#myLikeList').append("" +

@@ -21,38 +21,54 @@
     <div id="content" class="page">
 
         <!-- Toolbar -->
-        <div id="toolbar" class="tool-bar white-color">
-                    <div class="open-left" id="open-left" data-activates="slide-out-left">
-                        <i class="ion-android-menu cus-color-black"></i>
-                    </div>
-                    <span id="sub-title" class="cus-background-1 title" ></span>
-                    <div class="cus-color-1 open-right" id="open-right" data-activates="slide-out-right">
-                            <i class="ion-android-search cus-color-black"></i>
-                    </div>
+        <div id="toolbar" class="tool-bar white-color z-index-front">
+            <div class="open-left" id="open-left" data-activates="slide-out-left">
+                <i class="ion-android-menu cus-color-black"></i>
+            </div>
+            <span id="sub-title" class="title cus-color-black fwbold ml0 font-size-18"></span>
+            <div class="cus-color-1 open-right" id="open-right" data-activates="slide-out-right">
+                <i class="ion-android-search cus-color-black"></i>
+            </div>
         </div>
 
         <!-- Hero Header -->
+        <!--<div class="width-100 right-align pos-ab z-index-1 p-20">-->
+        <!--&lt;!&ndash;<div class="width-100 right-align pos-ab p-20">&ndash;&gt;-->
+            <!--<button id="like-btn"-->
+            <!--class="btn-floating btn waves-effect waves-light cus-background-transparent btn z-index-2">-->
+            <!--<input id="like-status" type="hidden" value='false'>&lt;!&ndash;안눌러져있는상태 default&ndash;&gt;-->
+            <!--<i id="heart-icon" class="ion-heart cus-color-transparent"></i>-->
+            <!--</button>-->
+        <!--</div>-->
+
         <div class="hero-header animated fadein">
             <!-- Slider -->
-            <div id = "item-slideParent"class="swiper-container slider m-b-20">
+            <div id = "item-slideParent"class="swiper-container slider">
                 <div id="item-slide" class="swiper-wrapper">
                     <!--<div class="swiper-slide">-->
                     <!--<img src="img/product.jpg" alt="">-->
                     <!--</div>-->
+                    <!--<div class="swiper-slide">-->
+                        <!--<img src="img/product.jpg" alt="">-->
+                    <!--</div>-->
+                    <!--<div class="swiper-slide">-->
+                        <!--<img src="img/product.jpg" alt="">-->
+                    <!--</div>-->
                 </div>
                  <!--Add Pagination -->
-                <div id="pagination" class="swiper-pagination"></div>
-
+                <div id="pagination" class="swiper-pagination">
+                </div>
             </div>
-            <!-- End of Slider -->
 
-            <!-- Floating Action Button -->
-            <div class="floating-button scrollable-fab animated bouncein delay-3">
-                <button id="like-btn"
-                        class="btn-floating btn-large waves-effect waves-light cus-background-black btn z-depth-1">
-                    <input id="like-status" type="hidden" value='false'><!--안눌러져있는상태 default-->
-                    <i id="heart-icon" class="fa ion-heart cus-color-white"></i>
-                </button>
+            <div style="padding-right: 10px;" class="right-align">
+                <i id="eye-icon" class="ion-eye cus-color-transparent"></i>
+                <span id="view-count"></span>
+                &nbsp&nbsp&nbsp
+                <a id="like-btn">
+                    <i id="heart-icon" class="ion-heart cus-color-transparent"></i>
+                    <span id="like-count"></span>
+                </a>
+                <input id="like-status" type="hidden" value="false">
             </div>
         </div>
 
@@ -61,7 +77,7 @@
 
 
             <h5 id="item-title">아이템 제목이 들어가는 곳</h5>
-            <p id="item-content" style="padding-bottom:40px;">
+            <p id="item-content" style="padding-bottom:10px;">
                 아이템 내용이 들어가는 곳
             </p>
 
@@ -75,11 +91,11 @@
         </div>
 
         <!--<div w3-include-html="views/include/footer.html"></div>-->
-        <footer class="page-footer cus-background-1 bottom-fixed">
-            <div class="footer-copyright cus-background-1 darken-1 bottom-fixed width-100 center-align vamiddle">
-                <img class="center-align logo-img-resizing" src="img/museum/museum-logo.png">
-            </div>
-        </footer>
+        <!--<footer class="page-footer cus-background-1 bottom-fixed">-->
+            <!--<div class="footer-copyright cus-background-1 darken-1 bottom-fixed width-100 center-align vamiddle">-->
+                <!--<img class="center-align logo-img-resizing" src="img/museum/museum-logo.png">-->
+            <!--</div>-->
+        <!--</footer>-->
     </div>
 
 </div> <!-- End of Page Content -->
@@ -98,7 +114,6 @@
 <script src="js/masonry.min.js"></script>
 <script src="js/chart.min.js"></script>
 <script src="js/custom.js"></script>
-<script src="js/drawing.js"></script>
 
 </body>
 </html>

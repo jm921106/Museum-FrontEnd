@@ -1,4 +1,8 @@
 /*font-size*/
+.font-size-8 {
+    font-size: 8px !important;
+}
+
 .font-size-10 {
     font-size: 10px;
 }
@@ -12,11 +16,11 @@
 }
 
 .font-size-18 {
-    font-size: 18px;
+    font-size: 18px !important;
 }
 
 .font-size-20 {
-    font-size: 20px;
+    font-size: 20px !important;
 }
 
 .font-size-24 {
@@ -33,7 +37,11 @@
 }
 
 .fwbold {
-    font-weight: bold;
+    font-weight: 700 !important;
+}
+
+.fwbold {
+    font-weight: bold !important;
 }
 
 /* color */
@@ -55,6 +63,26 @@
 
 .cus-color-white {
     color: white !important;
+    /*border: solid 1px #444;*/
+    /*border: solid 1px #444 !important;*/
+}
+
+.cus-color-transparent {
+    color: rgba(0,0,0,0.2) !important;
+    /*border: solid 1px #444;*/
+    /*border: solid 1px #444 !important;*/
+}
+
+.cus-color-transparent2 {
+    /*color: yellow !important;*/
+    color: rgba(0,0,0,0.1) !important;
+    /*border: solid 1px #444;*/
+    /*border: solid 1px #444 !important;*/
+}
+
+.cus-slider-text {
+    opacity: 0.8;
+    margin-bottom: 20px;
 }
 
 .cus-color-black {
@@ -87,8 +115,20 @@
     margin-bottom: 0px !important;
 }
 
+.mb0 {
+    margin-bottom: 0px !important;
+}
+
 .mt0 {
     margin-top: 0px !important;
+}
+
+.mt10 {
+    margin-top: 10px !important;
+}
+
+.ml0 {
+    margin-left: 0px !important;
 }
 
 .mt20 {
@@ -103,6 +143,13 @@
     margin: 20px 20px 0px 20px !important;
 }
 
+.m-30 {
+    margin: 30px !important;
+}
+
+.m-5 {
+    margin: 5px !important;
+}
 
 .m-0-20-0-20 {
     margin: 0px 20px 0px 20px !important;
@@ -255,11 +302,15 @@ canvas {
     z-index: 5000;
 }
 
+.z-index-2 {
+    z-index: 2 !important;
+}
+
 
 /* display CSS */
 
 .title-img-resizing {
-    width : 55vw;
+    width : 40vw;
     height: auto;
     display : inline !important;
 }
@@ -286,12 +337,24 @@ canvas {
     font-size:20px !important;
 }
 
+.cus-background-black {
+    background-color : #444 !important;
+    /*padding: 5px;*/
+    /*font-size:20px !important;*/
+}
+
+.cus-background-transparent {
+    background-color : transparent !important;
+    /*padding: 5px;*/
+    /*font-size:20px !important;*/
+}
+
 .tool-bar {
     border-bottom: 2px solid #444 !important;
 }
 
 .logo-img-resizing {
-    width : 30vw !important;
+    width : 120px !important;
     height: auto;
     display:inline !important;
 }
@@ -341,7 +404,11 @@ canvas {
 }
 
 .p-5 {
-    padding : 5px !important;
+     padding : 5px !important;
+ }
+
+.p-0 {
+    padding : 0px !important;
 }
 
 .width-max {
