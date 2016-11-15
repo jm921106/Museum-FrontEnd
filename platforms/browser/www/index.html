@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <div w3-include-html="views/include/includeCss.html"></div>
+</head>
+
+<body id="index_page">
+<div class="m-scene" id="main"> <!-- Main Container -->
+    <img src="img/background/mainBG.png" style="height: 100vh; width: 100vw; position: absolute;">
+
+    <!-- SideBar -->
+    <ul id="slide-out-left" class="side-nav collapsible">
+        <div w3-include-html="views/include/left-panel.html"></div>
+    </ul>
+    <ul id="slide-out-right" class="side-nav collapsible">
+        <div w3-include-html="views/include/right-panel.html"></div>
+    </ul>
+
+    <!-- Page Content -->
+    <div id="content">
+
+        <!-- Toolbar -->
+        <div id="toolbar" class="">
+            <div class="open-left" id="open-left" data-activates="slide-out-left">
+                <i class="ion-android-menu"></i>
+            </div>
+            <!--<span class="title">경기도 박물관</span>-->
+            <div class="open-right" id="open-right" data-activates="slide-out-right">
+                <i class="ion-android-search"></i>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div style="height: calc(100vh);" class="animated fadeinup valign-wrapper fullscreen center-align p-20">
+        </div> <!-- End of Main Contents -->
+
+        <footer class="page-footer custom-color3 bottom-fixed">
+        <div class="footer-copyright bottom-fixed main-footer width-100 center-align vamiddle">
+        <!--<img class=" logo-img-resizing" src="img/museum/museum-logo.png">-->
+            <div style="border-left: solid 1px white" class="width-50 center-align custom-color2 black-blur vamiddle">
+                <a href="play-main.html"
+                   class="index-bottom-center font-size-20 white-text center-align">체 험 활 동</a>
+            </div>
+            <div class="width-50 center-align custom-color2 black-blur vamiddle">
+                <a href="display-main.html"
+                   class="index-bottom-center font-size-20 white-text center-align">전 시 관 람</a>
+            </div>
+        </div>
+        </footer>
+
+    </div> <!-- End of Page Content -->
+</div> <!-- End of Page Container -->
+<!-- themeforest default -->
+<script src="js/jquery-2.1.0.min.js"></script>
+<script src="js/jquery.swipebox.min.js"></script>
+<script src="js/jquery.smoothState.min.js"></script>
+<script src="js/materialize.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/jquery.mixitup.min.js"></script>
+<script src="js/masonry.min.js"></script>
+<script src="js/chart.min.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/temp_domain.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--<div w3-include-html="views/include/includeCss.html"></div>-->
+    <title>Museum</title>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="x-ua-compatible">
+    <meta content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+    <!-- Icons -->
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="all" rel="stylesheet"
+          type="text/css">
+    <!-- Styles -->
+    <link href="css/keyframes.css" rel="stylesheet" type="text/css">
+    <link href="css/materialize.min.css" rel="stylesheet" type="text/css">
+    <link href="css/swiper.css" rel="stylesheet" type="text/css">
+    <link href="css/swipebox.min.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/custom.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="m-scene" id="main"> <!-- Main Container -->
+
+    <!-- SideBar -->
+    <ul id="slide-out-left" class="side-nav collapsible">
+        <div w3-include-html="views/include/left-panel.html"></div>
+    </ul>
+    <ul id="slide-out-right" class="side-nav collapsible">
+        <div w3-include-html="views/include/right-panel.html"></div>
+    </ul>
+
+    <!-- Page Content -->
+    <div id="content" class="page">
+        <!-- Toolbar -->
+        <div id="toolbar" class="tool-bar white-color">
+            <div class="open-left" id="open-left" data-activates="slide-out-left">
+                <i class="ion-android-menu cus-color-black"></i>
+            </div>
+            <span id="sub-title" class="title cus-color-black fwbold ml0 font-size-18">박물관 안내</span>
+            <div class="cus-color-1 open-right" id="open-right" data-activates="slide-out-right">
+                <i class="ion-android-search cus-color-black"></i>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="animated fadeinup delay-3">
+
+            <div class="m-20 center-align">
+                <h4 style="font-weight: bold" class="left-align">관 람 시 간</h4>
+                <!--<br>-->
+                <div style="margin: 20px;" class="left-align">
+                    <h6>※ 화~일요일 10:00AM ~ 18:00PM</h6>
+                    <h6>※ 휴관일  매주 월요일 , 1월 1일 ,설날</h6>
+
+                    <h6> - 입장은 폐관 1시간 전에 마감됩니다.</h6>
+                </div>
+                <br>
+                <h4 style="font-weight: bold; padding-bottom: 0px" class="left-align">관 람 요 금 </h4>
+                <br>
+                <table style="margin: 0px !important; padding: 0px !important;" >
+                    <tr style="border-bottom: solid 1px #444 !important; border-top: solid 1px #444 !important;">
+                        <th style="padding: 5px !important; font-size: 11px; text-align: center; width : 22vw !important;" >구분</th>
+                        <th style="padding: 5px !important; font-size: 11px; text-align: center; width : 22vw !important;" >성인</th>
+                        <th style="padding: 5px !important; font-size: 11px; text-align: center; width : 22vw !important;">청소년·군인</th>
+                        <th style="padding: 5px !important; font-size: 11px; text-align: center; width : 22vw !important;">유아</th>
+                    </tr>
+                    <tr style="border-bottom: solid 1px #444 !important; ">
+                        <td style="padding: 5px !important; font-size: 11px; text-align: center; text-weiht : 500">개인</td>
+                        <td style="padding: 5px !important; font-size: 11px; text-align: center; text-weiht : 500">4,000</td>
+                        <td style="padding: 5px !important; font-size: 11px; text-align: center; text-weiht : 500">2,000</td>
+                        <td style="padding: 5px !important; font-size: 11px; text-align: center; text-weiht : 500" rowspan="2">무료</td>
+                    </tr>
+                    <tr style="border-bottom: solid 1px #444 !important; ">
+                        <td style="padding: 5px !important; font-size: 11px; text-align: center;">단체</td>
+                        <td style="padding: 5px !important; font-size: 11px; text-align: center;">2,000</td>
+                        <td style="padding: 5px !important; font-size: 11px; text-align: center;">1,000</td>
+                    </tr>
+                </table>
+            </div>
+
+            <br>
+            <div class="width-90 blog-card animated fadeinup delay-5 center-align">
+                <!--<hr>-->
+                <h4 style="margin : 20px 60px 20px 60px !important; padding : 10px !important; font-weight: bold; border: solid 1px #444" class="font-size-15">찾아오시는 길</h4>
+                <!--<hr>-->
+
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3150.675635364337!2d127.10724917912864!3d37.26780054442127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe5e302fa908893ce!2z6rK96riw64-E67CV66y86rSA!5e0!3m2!1sko!2sit!4v1478683699417"
+                        frameborder="0" style="border:0; width:90vw; height:90vw;" allowfullscreen>
+                </iframe>
+
+            </div>
+        </div>
+        <!-- End of Main Contents -->
+     </div>
+</div> <!-- End of Page Container -->
+
+<!--<div w3-include-html="views/include/includeScript.html"></div>-->
+<!-- themeforest default -->
+<script src="js/temp_domain.js"></script>
+<script src="js/jquery-2.1.0.min.js"></script>
+<script src="js/jquery.swipebox.min.js"></script>
+<script src="js/jquery.smoothState.min.js"></script>
+<script src="js/materialize.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/jquery.mixitup.min.js"></script>
+<script src="js/masonry.min.js"></script>
+<script src="js/chart.min.js"></script>
+<script src="js/custom.js"></script>
+
+</body>
+</html>

@@ -1670,6 +1670,7 @@ var likeBtnSet = function (post_data) {
             deviceInfo: localStorage.getItem('user_id'),
             likeStatus: $('#like-status').val()
         }, function (data) {
+            window.location.href='display-content.html?' + post_data
         });
     })
 };
