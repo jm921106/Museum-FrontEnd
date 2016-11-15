@@ -501,13 +501,12 @@ function initiate_plugins() {
         switch (page) {
             case 'index.html':
                 if (localStorage.getItem('user_id') == null) {
-                    console.log('최초 접속 유저]');
+                    console.log('[최초 접속 유저]');
                     var uniqueNumber = ID();
                     localStorage.setItem('user_id', uniqueNumber);
                 } else {
-                    console.log('기존 접속 유저');
+                    console.log('[기존 접속 유저]');
                 }
-
                 url = window.temp_domain + "todayLoad";
                 $.get(url, function (data) {
                     console.log('today count complite')
@@ -1247,13 +1246,12 @@ $(function () {
     switch (page) {
         case 'index.html':
             if (localStorage.getItem('user_id') == null) {
-                console.log('최초 접속 유저]');
+                console.log('[최초 접속 유저]');
                 var uniqueNumber = ID();
                 localStorage.setItem('user_id', uniqueNumber);
             } else {
-                console.log('기존 접속 유저');
+                console.log('[기존 접속 유저]');
             }
-
             url = window.temp_domain + "todayLoad";
             $.get(url, function (data) {
                 console.log('today count complite')
