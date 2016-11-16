@@ -209,7 +209,6 @@ function initiate_plugins() {
      * w3IncludeHTML [HTML INCLUDE]
      *
      */
-// w3IncludeHTML - html include code
     $(function w3IncludeHTML() {
         var z, i, a, file, xhttp;
         z = document.getElementsByTagName("*");
@@ -741,9 +740,9 @@ function initiate_plugins() {
                                 });
 
                                 $('#item-title').html(item.subTitle);
+                                $('#sub-title').html(item.title);
                                 $('#item-content').html(item.content);
 
-                                $('#sub-title').html(item.title);
                                 var url = window.temp_domain + "itemViewCount";
                                 $.post(url, {
                                     code: post_data
@@ -950,7 +949,6 @@ $(function () {
  * w3IncludeHTML [HTML INCLUDE]
  *
  */
-// w3IncludeHTML - html include code
 $(function w3IncludeHTML() {
     var z, i, a, file, xhttp;
     z = document.getElementsByTagName("*");
@@ -1485,9 +1483,9 @@ $(function () {
                             });
 
                             $('#item-title').html(item.subTitle);
+                            $('#sub-title').html(item.title);
                             $('#item-content').html(item.content);
 
-                            $('#sub-title').html(item.title);
                             var url = window.temp_domain + "itemViewCount";
                             $.post(url, {
                                 code: post_data
@@ -1598,7 +1596,7 @@ var ID = function () {
     return '_' + Math.random().toString(36).substr(2, 9);
 };
 var likeBtnSet = function (post_data) {
-    $('#like-btn').click(function () {
+    $('#heart-icon').click(function () {
         // 1. css 효과 변경
         if ($('#like-status').val() == 'true') {
             // like true
@@ -1619,7 +1617,26 @@ var likeBtnSet = function (post_data) {
             deviceInfo: localStorage.getItem('user_id'),
             likeStatus: $('#like-status').val()
         }, function (data) {
-            window.location.href='display-content.html?' + post_data
+            var url = window.temp_domain + "itemViewCount";
+            $.post(url, {
+                code: post_data,
+                status: true // plus를 통한 post 인지 확인
+            }, function (view_count) {
+                $('#view-count').html(view_count);
+                $('#like-count').html(data.count);
+                if (data.status)
+                    $('#like-status').val('true');
+                else
+                    $('#like-status').val('false');
+                if ($('#like-status').val() == 'true') {
+                    $('#heart-icon').addClass('heart-btn');
+                    $('#heart-icon').removeClass('cus-color-white');
+                } else {
+                    $('#heart-icon').addClass('cus-color-white');
+                    $('#heart-icon').removeClass('heart-btn');
+                }
+            });
+            // window.location.href='display-content.html?' + post_data
         });
     })
 };
