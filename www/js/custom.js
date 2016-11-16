@@ -205,7 +205,6 @@ function initiate_plugins() {
     });
 
 
-
     /**
      * w3IncludeHTML [HTML INCLUDE]
      *
@@ -245,16 +244,23 @@ function initiate_plugins() {
      *
      */
 
-// [1]
+    // [1]
     $('#pattern_submit').click(function () {
         var name = $('#name').val();
         var phone = $('#phone').val();
-        var address = $('#address').val();
+        var email = $('#email').val();
 
-        if (name == "" || phone == "" || address == "") {
-            $('#modal_status').html('값을 정확히 입력해 주세요!').css("color", "red");
+        if (!email_validate(email)) {
+            $('#modal_status').html(now_status).css("color", "red");
             return;
         }
+        if($('#post_status').val() == 'true') {
+            $('#modal_status').html('전송중 입니다. 잠시만 기다려 주세요.').css("color", "red");
+            return;
+        }
+
+        if($('#post_status').val() == 'false')
+            $('#post_status').val('true');
 
         // var result = null;
         var canvas = document.getElementById('myCanvas');
@@ -265,18 +271,10 @@ function initiate_plugins() {
             "user_id": localStorage.getItem('user_id'),
             "name": name,
             "phone": phone,
-            "address": address,
+            "email": email,
             "result": dataURL
         }
-        $.post(url, {
-            user_id: localStorage.getItem('user_id'),
-            name: name,
-            phone: phone,
-            address: address,
-            result: dataURL
-        }, function (data) {
-            console.log('post ok')
-            console.log(data)
+        $.post(url, post_data, function (data) {
             if (data)
                 window.location.href = 'paint-result.html';
             else
@@ -284,7 +282,7 @@ function initiate_plugins() {
         });
     });
 
-// [2]
+    // [2]
     var post_num;
     $(function () {
         var path = window.location.pathname;
@@ -306,13 +304,12 @@ function initiate_plugins() {
                         imgURL: data.imgURL,
                         deviceInfo: localStorage.getItem('user_id')
                     }, function (likeData) {
-
                         var like_btn_id = window.ID();
                         var like_status_id = window.ID();
                         var icon_id = window.ID();
-
-                        patternAdd(like_btn_id, icon_id, like_status_id, data.name, getDateFormat(new Date(data.date)), img_url, i);
-
+                        var user_info = data.email.split('@')[0];
+                        var user_info = name_hide(user_info);
+                        patternAdd(like_btn_id, icon_id, like_status_id, user_info, getDateFormat(new Date(data.date)), img_url, i);
                         if (likeData.status) {
                             $('#' + like_status_id).val('true');
                             $('#' + icon_id).addClass('heart-btn');
@@ -412,7 +409,7 @@ function initiate_plugins() {
     });
 
 
-// [3]
+    // [3]
     $(function () {
         var post_data = window.location.search.substring(1);
         var path = window.location.pathname;
@@ -427,7 +424,7 @@ function initiate_plugins() {
             };
             outlineImage.src = "./img/patterns/pattern_" + post_data + ".png";
 
-            var canvas = document.getElementById('myCanvas')
+            var canvas = document.getElementById('myCanvas');
             canvas.width = window.innerWidth * 9 / 10;
             canvas.height = window.innerWidth * 9 / 10;
             context = document.getElementById('myCanvas').getContext("2d");
@@ -462,7 +459,6 @@ function initiate_plugins() {
             }
 
             function redraw() {
-                console.log('redraw')
                 context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
                 context.strokeStyle = ink;
                 //#df4b26
@@ -832,36 +828,36 @@ var grandparent_height = $('#grandparent').height();
 $('.child').height(grandparent_height * 0.25);
 
 // Swiper sliders
-var swiper = new Swiper('.slider', {
-    pagination: '.swiper-pagination',
-    paginationClickable: true,
-    nextButton: '.swiper-button-next',
-    prevButton: '.swiper-button-prev',
-    autoplay: 5000,
-    loop: true
-});
-var swiper = new Swiper('.slider-sliced', {
-    pagination: '.swiper-pagination',
-    paginationClickable: true,
-    autoplay: 5000,
-});
-var swiper = new Swiper('.steps', {
-    pagination: '.swiper-pagination',
-    paginationClickable: true,
-    nextButton: '.swiper-button-next',
-    prevButton: '.swiper-button-prev',
-    effect: 'fade',
-});
-var swiper = new Swiper('.slider-drawer', {
-    pagination: '.swiper-pagination',
-    paginationClickable: true,
-});
-var swiper = new Swiper('.slider-vertical', {
-    pagination: '.swiper-pagination',
-    paginationClickable: true,
-    autoplay: 5000,
-    direction: 'vertical'
-});
+// var swiper = new Swiper('.slider', {
+//     pagination: '.swiper-pagination',
+//     paginationClickable: true,
+//     nextButton: '.swiper-button-next',
+//     prevButton: '.swiper-button-prev',
+//     autoplay: 5000,
+//     loop: true
+// });
+// var swiper = new Swiper('.slider-sliced', {
+//     pagination: '.swiper-pagination',
+//     paginationClickable: true,
+//     autoplay: 5000,
+// });
+// var swiper = new Swiper('.steps', {
+//     pagination: '.swiper-pagination',
+//     paginationClickable: true,
+//     nextButton: '.swiper-button-next',
+//     prevButton: '.swiper-button-prev',
+//     effect: 'fade',
+// });
+// var swiper = new Swiper('.slider-drawer', {
+//     pagination: '.swiper-pagination',
+//     paginationClickable: true,
+// });
+// var swiper = new Swiper('.slider-vertical', {
+//     pagination: '.swiper-pagination',
+//     paginationClickable: true,
+//     autoplay: 5000,
+//     direction: 'vertical'
+// });
 
 // Material Layout
 $('.parallax').parallax();
@@ -990,16 +986,22 @@ $(function w3IncludeHTML() {
  *
  */
 
-// [1] 
+// [1]
 $('#pattern_submit').click(function () {
     var name = $('#name').val();
     var phone = $('#phone').val();
-    var address = $('#address').val();
+    var email = $('#email').val();
 
-    if (name == "" || phone == "" || address == "") {
-        $('#modal_status').html('값을 정확히 입력해 주세요!').css("color", "red");
+    if (!email_validate(email)) {
+        $('#modal_status').html(now_status).css("color", "red");
+        return;
+    } else if($('#post_status').val() == 'true') {
+        $('#modal_status').html('전송중 입니다. 잠시만 기다려 주세요.').css("color", "red");
         return;
     }
+
+    if($('#post_status').val() == 'false')
+        $('#post_status').val('true');
 
     // var result = null;
     var canvas = document.getElementById('myCanvas');
@@ -1010,18 +1012,10 @@ $('#pattern_submit').click(function () {
         "user_id": localStorage.getItem('user_id'),
         "name": name,
         "phone": phone,
-        "address": address,
+        "email": email,
         "result": dataURL
     }
-    $.post(url, {
-        user_id: localStorage.getItem('user_id'),
-        name: name,
-        phone: phone,
-        address: address,
-        result: dataURL
-    }, function (data) {
-        console.log('post ok')
-        console.log(data)
+    $.post(url, post_data, function (data) {
         if (data)
             window.location.href = 'paint-result.html';
         else
@@ -1029,7 +1023,7 @@ $('#pattern_submit').click(function () {
     });
 });
 
-// [2] 
+// [2]
 var post_num;
 $(function () {
     var path = window.location.pathname;
@@ -1051,13 +1045,12 @@ $(function () {
                     imgURL: data.imgURL,
                     deviceInfo: localStorage.getItem('user_id')
                 }, function (likeData) {
-
                     var like_btn_id = window.ID();
                     var like_status_id = window.ID();
                     var icon_id = window.ID();
-
-                    patternAdd(like_btn_id, icon_id, like_status_id, data.name, getDateFormat(new Date(data.date)), img_url, i);
-
+                    var user_info = data.email.split('@')[0];
+                    var user_info = name_hide(user_info);
+                    patternAdd(like_btn_id, icon_id, like_status_id, user_info, getDateFormat(new Date(data.date)), img_url, i);
                     if (likeData.status) {
                         $('#' + like_status_id).val('true');
                         $('#' + icon_id).addClass('heart-btn');
@@ -1172,7 +1165,7 @@ $(function () {
         };
         outlineImage.src = "./img/patterns/pattern_" + post_data + ".png";
 
-        var canvas = document.getElementById('myCanvas')
+        var canvas = document.getElementById('myCanvas');
         canvas.width = window.innerWidth * 9 / 10;
         canvas.height = window.innerWidth * 9 / 10;
         context = document.getElementById('myCanvas').getContext("2d");
@@ -1207,7 +1200,6 @@ $(function () {
         }
 
         function redraw() {
-            console.log('redraw')
             context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
             context.strokeStyle = ink;
             //#df4b26
@@ -1758,4 +1750,32 @@ var getWeek = function (date) {
             return 4;
     }
 }
-
+// 이메일
+var now_status = "";
+function regexEmail(email) {
+    var reg = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    if (reg.test(email))    return true;
+    else return false;
+}
+// Email Check Logic
+function email_validate(email) {
+    if (email.length === 0) {
+        now_status = "EMAIL주소를 입력해주세요.";
+        return false;
+    }
+    if (!regexEmail(email)) {
+        now_status = "올바른 EMAIL 형식이 아닙니다.";
+        return false;
+    }
+    return true;
+}
+function name_hide(name) {
+    var returnStr = "";
+    for(var i=0; i<name.length; i++) {
+        if(parseInt(Math.random() * 6 + 1) == 6)
+            returnStr += '*';
+        else
+            returnStr += name[i];
+    }
+    return returnStr;
+}
