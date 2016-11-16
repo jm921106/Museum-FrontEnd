@@ -7,6 +7,9 @@
         "files": {}
     },
     "installed_plugins": {
+        "NetworkStatus": {
+            "PACKAGE_NAME": "com.phonegap.museum-front"
+        },
         "cordova-plugin-battery-status": {
             "PACKAGE_NAME": "com.phonegap.museum-front"
         },
