@@ -634,7 +634,6 @@ function initiate_plugins() {
         }
     });
 
-
     /**
      * Display Part
      * [1] display load
@@ -1016,10 +1015,13 @@ $('#pattern_submit').click(function () {
         "result": dataURL
     }
     $.post(url, post_data, function (data) {
-        if (data)
+        if (data) {
+            reset();
+            $('#post_status').val('false');
             window.location.href = 'paint-result.html';
-        else
+        } else {
             $('#modal_status').html('전송에 문제가 있습니다. 다시 시도해 주세요!').css("color", "red");
+        }
     });
 });
 
