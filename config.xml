@@ -28,6 +28,9 @@
   <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1"/>
   <icon src="icon.png"/>
   <platform name="android">
+    <feature name="NetworkStatus">
+      <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
+    </feature>
     <icon src="www/res/icon/android/drawable-ldpi-icon.png" density="ldpi"/>
     <icon src="www/res/icon/android/drawable-mdpi-icon.png" density="mdpi"/>
     <icon src="www/res/icon/android/drawable-hdpi-icon.png" density="hdpi"/>
