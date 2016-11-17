@@ -307,7 +307,7 @@ function initiate_plugins() {
                         var like_status_id = window.ID();
                         var icon_id = window.ID();
                         var user_info = data.email.split('@')[0];
-                        var user_info = name_hide(user_info);
+                        user_info = name_hide(user_info);
                         patternAdd(like_btn_id, icon_id, like_status_id, user_info, getDateFormat(new Date(data.date)), img_url, i);
                         if (likeData.status) {
                             $('#' + like_status_id).val('true');
@@ -365,8 +365,9 @@ function initiate_plugins() {
                             var like_btn_id = window.ID();
                             var like_status_id = window.ID();
                             var icon_id = window.ID();
-
-                            patternAdd(like_btn_id, icon_id, like_status_id, data.name, getDateFormat(new Date(data.date)), img_url, i);
+                            var user_info = data.email.split('@')[0];
+                            user_info = name_hide(user_info);
+                            patternAdd(like_btn_id, icon_id, like_status_id, user_info, getDateFormat(new Date(data.date)), img_url, i);
 
                             if (likeData.status) {
                                 $('#' + like_status_id).val('true');
@@ -1049,7 +1050,7 @@ $(function () {
                     var like_status_id = window.ID();
                     var icon_id = window.ID();
                     var user_info = data.email.split('@')[0];
-                    var user_info = name_hide(user_info);
+                    user_info = name_hide(user_info);
                     patternAdd(like_btn_id, icon_id, like_status_id, user_info, getDateFormat(new Date(data.date)), img_url, i);
                     if (likeData.status) {
                         $('#' + like_status_id).val('true');
@@ -1107,8 +1108,9 @@ $(function () {
                         var like_btn_id = window.ID();
                         var like_status_id = window.ID();
                         var icon_id = window.ID();
-
-                        patternAdd(like_btn_id, icon_id, like_status_id, data.name, getDateFormat(new Date(data.date)), img_url, i);
+                        var user_info = data.email.split('@')[0];
+                        user_info = name_hide(user_info);
+                        patternAdd(like_btn_id, icon_id, like_status_id, user_info, getDateFormat(new Date(data.date)), img_url, i);
 
                         if (likeData.status) {
                             $('#' + like_status_id).val('true');
@@ -1791,7 +1793,7 @@ function email_validate(email) {
 function name_hide(name) {
     var returnStr = "";
     for(var i=0; i<name.length; i++) {
-        if(parseInt(Math.random() * 6 + 1) == 6)
+        if(parseInt(Math.random() * 7 + 1) == 7 || i == name.length-1)
             returnStr += '*';
         else
             returnStr += name[i];
