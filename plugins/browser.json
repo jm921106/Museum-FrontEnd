@@ -7,71 +7,68 @@
         "files": {}
     },
     "installed_plugins": {
-        "NetworkStatus": {
-            "PACKAGE_NAME": "com.phonegap.museum-front"
-        },
         "cordova-plugin-battery-status": {
-            "PACKAGE_NAME": "com.phonegap.museum-front"
+            "PACKAGE_NAME": "com.jj.MuseumInfo"
         },
         "cordova-plugin-camera": {
-            "PACKAGE_NAME": "com.phonegap.museum-front"
+            "PACKAGE_NAME": "com.jj.MuseumInfo"
         },
         "cordova-plugin-media-capture": {
-            "PACKAGE_NAME": "com.phonegap.museum-front"
+            "PACKAGE_NAME": "com.jj.MuseumInfo"
         },
         "cordova-plugin-console": {
-            "PACKAGE_NAME": "com.phonegap.museum-front"
+            "PACKAGE_NAME": "com.jj.MuseumInfo"
         },
         "cordova-plugin-contacts": {
-            "PACKAGE_NAME": "com.phonegap.museum-front"
+            "PACKAGE_NAME": "com.jj.MuseumInfo"
         },
         "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.phonegap.museum-front"
+            "PACKAGE_NAME": "com.jj.MuseumInfo"
         },
         "cordova-plugin-device-motion": {
-            "PACKAGE_NAME": "com.phonegap.museum-front"
+            "PACKAGE_NAME": "com.jj.MuseumInfo"
         },
         "cordova-plugin-device-orientation": {
-            "PACKAGE_NAME": "com.phonegap.museum-front"
+            "PACKAGE_NAME": "com.jj.MuseumInfo"
         },
         "cordova-plugin-dialogs": {
-            "PACKAGE_NAME": "com.phonegap.museum-front"
+            "PACKAGE_NAME": "com.jj.MuseumInfo"
         },
         "cordova-plugin-file": {
-            "PACKAGE_NAME": "com.phonegap.museum-front"
+            "PACKAGE_NAME": "com.jj.MuseumInfo"
         },
         "cordova-plugin-file-transfer": {
-            "PACKAGE_NAME": "com.phonegap.museum-front"
+            "PACKAGE_NAME": "com.jj.MuseumInfo"
         },
         "cordova-plugin-geolocation": {
-            "PACKAGE_NAME": "com.phonegap.museum-front"
+            "PACKAGE_NAME": "com.jj.MuseumInfo"
         },
         "cordova-plugin-globalization": {
-            "PACKAGE_NAME": "com.phonegap.museum-front"
+            "PACKAGE_NAME": "com.jj.MuseumInfo"
         },
         "cordova-plugin-inappbrowser": {
-            "PACKAGE_NAME": "com.phonegap.museum-front"
+            "PACKAGE_NAME": "com.jj.MuseumInfo"
         },
         "cordova-plugin-media": {
-            "PACKAGE_NAME": "com.phonegap.museum-front"
+            "PACKAGE_NAME": "com.jj.MuseumInfo"
         },
         "cordova-plugin-network-information": {
-            "PACKAGE_NAME": "com.phonegap.museum-front"
+            "PACKAGE_NAME": "com.jj.MuseumInfo"
         },
         "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.phonegap.museum-front"
+            "PACKAGE_NAME": "com.jj.MuseumInfo"
         },
         "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.phonegap.museum-front"
+            "PACKAGE_NAME": "com.jj.MuseumInfo"
         },
         "cordova-plugin-vibration": {
-            "PACKAGE_NAME": "com.phonegap.museum-front"
+            "PACKAGE_NAME": "com.jj.MuseumInfo"
         },
         "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.phonegap.museum-front"
+            "PACKAGE_NAME": "com.jj.MuseumInfo"
         },
         "cordova-plugin-compat": {
-            "PACKAGE_NAME": "com.phonegap.museum-front"
+            "PACKAGE_NAME": "com.jj.MuseumInfo"
         }
     },
     "dependent_plugins": {}
