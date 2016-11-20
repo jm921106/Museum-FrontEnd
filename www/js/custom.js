@@ -744,6 +744,11 @@ function initiate_plugins() {
                 break;
         }
     });
+
+    $('#materialize-lean-overlay-1').click(function () {
+        console.log('test')
+        $(this).attr('display', 'none')
+    });
 }
 ////--> End of Call all function for Ajax, now from there recall all the functions <--////
 ////--> End of Call all function for Ajax, now from there recall all the functions <--////
@@ -1757,3 +1762,8 @@ function silderSet() {
         direction: 'vertical'
     });
 }
+
+$('#materialize-lean-overlay-1').click(function () {
+    console.log('test')
+    $(this).attr('display', 'none')
+});
