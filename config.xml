@@ -1,10 +1,10 @@
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.jj.MuseumInfo" version="1.0.2">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.jj.MuseumInfo" version="1.0.3">
   <name>의문의 조선</name>
 
-  <description>경기도박물관 특별전 ,의문의 조선2</description>
+  <description>경기도박물관 특별전 ,의문의 조선 </description>
 
   <author href="http://phonegap.com" email="support@phonegap.com">PhoneGap Team</author>
-  <content src="index.html"/>
+  <content src="./www/index.html"/>
   <preference name="DisallowOverscroll" value="true"/>
   <preference name="android-minSdkVersion" value="14"/>
   <plugin name="cordova-plugin-battery-status" source="npm" spec="~1.1.1"/>
@@ -29,6 +29,10 @@
   <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1"/>
 
   <icon src="icon.png"/>
+
+  <feature name="NetworkStatus">
+    <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
+  </feature>
 
   <platform name = "ios">
     <icon src="icons/ios/icon.png" width="57" height="57" />
