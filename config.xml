@@ -1,5 +1,5 @@
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.jj.MuseumInfo"
-        version="1.0.1">
+        version="1.0.4">
     <name>의문의 조선</name>
 
     <description>경기도박물관 특별전 ,의문의 조선2</description>
@@ -30,10 +30,10 @@
     <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1"/>
     <icon src="icon.png"/>
     <platform name="ios">
-        <icon src="icons/ios/icon.png" width="57" height="57"/>
-        <icon src="icons/ios/icon-72.png" width="72" height="72"/>
-        <icon src="icons/ios/icon_at_2x.png" width="114" height="114"/>
-        <icon src="icons/ios/icon-72_at_2x.png" width="144" height="144"/>
+        <icon src="res/icons/ios/icon.png" width="57" height="57"/>
+        <icon src="res/icons/ios/icon-72.png" width="72" height="72"/>
+        <icon src="res/icons/ios/icon_at_2x.png" width="114" height="114"/>
+        <icon src="res/icons/ios/icon-72_at_2x.png" width="144" height="144"/>
     </platform>
     <platform name="android">
         <icon src="res/icons/android/icon-36-ldpi.png" gap:density="ldpi"/>

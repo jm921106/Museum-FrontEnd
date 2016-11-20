@@ -19,32 +19,7 @@
     <link href="css/swipebox.min.css" rel="stylesheet" type="text/css">
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <link href="css/custom.css" rel="stylesheet" type="text/css">
-    <!--<script type="text/javascript" charset="utf-8" src="cordova-1.8.0.js"></script>-->
-    <script type="text/javascript" charset="utf-8">
-
-        // Call onDeviceReady when Cordova is loaded.
-        //
-        // At this point, the document has loaded but cordova-1.8.0.js has not.
-        // When Cordova is loaded and talking with the native device,
-        // it will call the event `deviceready`.
-        //
-        function onLoad() {
-            document.addEventListener("deviceready", onDeviceReady, false);
-        }
-
-        // Cordova is loaded and it is now safe to call Cordova methods
-        //
-        function onDeviceReady() {
-            // Register the event listener
-            document.addEventListener("backbutton", onBackKeyDown, false);
-        }
-
-        // Handle the back button
-        //
-        function onBackKeyDown() {
-            console.log('test')
-        }
-    </script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 </head>
 <body onload="onLoad()">
 <div id="background-black-bur" style="display: none;"></div>
@@ -195,6 +170,5 @@
 <script src="js/chart.min.js"></script>
 <script src="js/custom.js"></script>
 <script src="js/temp_domain.js"></script>
-<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 </body>
 </html>
