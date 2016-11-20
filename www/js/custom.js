@@ -491,8 +491,8 @@ function initiate_plugins() {
                 $.get(url, function (data) {
                     console.log('today count complite');
                 });
-                document.getElementById("loader").style.display = "none";
-                document.getElementById("background-black-bur").style.display = "none";
+                // document.getElementById("loader").style.display = "none";
+                // document.getElementById("background-black-bur").style.display = "none";
                 break;
             case 'side-notice.html':
                 console.log(window.temp_domain)
@@ -1219,8 +1219,8 @@ $(function () {
             $.get(url, function (data) {
                 console.log('today count complite');
             });
-            document.getElementById("loader").style.display = "none";
-            document.getElementById("background-black-bur").style.display = "none";
+            // document.getElementById("loader").style.display = "none";
+            // document.getElementById("background-black-bur").style.display = "none";
             break;
         case 'side-notice.html':
             console.log(window.temp_domain)
