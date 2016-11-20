@@ -199,7 +199,6 @@ function initiate_plugins() {
         }
     })
 
-
     /**
      * Play Part
      * [1] pattern summit
@@ -210,7 +209,7 @@ function initiate_plugins() {
      *
      */
 
-    // [1]
+// [1]
     $('#pattern_submit').click(function () {
 
         var name = $('#name').val();
@@ -232,9 +231,8 @@ function initiate_plugins() {
         var canvas = document.getElementById('myCanvas');
         var dataURL = canvas.toDataURL();
 
-        document.getElementById("loader").style.display = "inherit";
-        document.getElementById("background-black-bur").style.display = "inherit";
-
+        document.getElementById("loader").style.display = "block";
+        document.getElementById("background-black-bur").style.display = "block";
         var url = window.temp_domain + "patternInsert";
         var post_data = {
             "user_id": localStorage.getItem('user_id'),
@@ -258,8 +256,7 @@ function initiate_plugins() {
         });
     });
 
-
-    // [2]
+// [2]
     var post_num;
     $(function () {
         var path = window.location.pathname;
@@ -390,7 +387,7 @@ function initiate_plugins() {
     });
 
 
-    // [3]
+// [3]
     $(function () {
         var post_data = window.location.search.substring(1);
         var path = window.location.pathname;
@@ -627,26 +624,6 @@ function initiate_plugins() {
         }
     });
 
-    function kakaoShare() {
-        // // // 사용할 앱의 Javascript 키를 설정해 주세요.
-        // Kakao.init('3928c10a89b73f2b4aa1a003fba1d0b8');
-
-        // 카카오톡 링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
-        Kakao.Link.createTalkLinkButton({
-            container: '#kakao-link-btn',
-            label: '구글스토어에 <의문의 조선>을 검색해 주세요 !',
-            image: {
-                src: 'http://54.165.224.112/public/image/icon.png',
-                width: '300',
-                height: '300'
-            },
-            webButton: {
-                text: '경기도박물관 <특별전> 의문의 조선',
-                url: 'https://play.google.com/store/apps/details?id=com.jj.MuseumInfo' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
-            }
-        });
-    }
-
     /**
      * Display Part
      * [1] display load
@@ -765,7 +742,6 @@ function initiate_plugins() {
     });
 
     $('.lean-overlay').click(function () {
-        console.log('test')
         $(this).remove();
     });
 }
@@ -1355,39 +1331,6 @@ $(function () {
     }
 });
 
-// // 사용할 앱의 Javascript 키를 설정해 주세요.
-Kakao.init('3928c10a89b73f2b4aa1a003fba1d0b8');
-// 카카오톡 링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
-Kakao.Link.createTalkLinkButton({
-    container: '#kakao-link-btn',
-    label: '구글스토어에 <의문의 조선>을 검색해 주세요 !',
-    image: {
-        src: 'http://54.165.224.112/public/image/icon.png',
-        width: '300',
-        height: '300'
-    },
-    webButton: {
-        text: '경기도박물관 <특별전> 의문의 조선',
-        url: 'https://play.google.com/store/apps/details?id=com.jj.MuseumInfo' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
-    }
-});
-function kakaoShare() {
-    // 카카오톡 링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
-    Kakao.Link.createTalkLinkButton({
-        container: '#kakao-link-btn',
-        label: '구글스토어에 <의문의 조선>을 검색해 주세요 !',
-        image: {
-            src: 'http://54.165.224.112/public/image/icon.png',
-            width: '300',
-            height: '300'
-        },
-        webButton: {
-            text: '경기도박물관 <특별전> 의문의 조선',
-            url: 'https://play.google.com/store/apps/details?id=com.jj.MuseumInfo' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
-        }
-    });
-}
-
 /**
  * Display Part
  * [1] display load
@@ -1505,6 +1448,7 @@ $(function () {
     }
 });
 
+
 /**
  *  function util
  *
@@ -1569,8 +1513,6 @@ function brushSelect() {
     $("#pencil").removeClass("tool-select")
     $("#brush").addClass("tool-select")
 }
-
-
 var ID = function () {
     // Math.random should be unique because of its seeding algorithm.
     // Convert it to base 36 (numbers + letters), and grab the first 9 characters
@@ -1813,10 +1755,32 @@ function silderSet() {
         direction: 'vertical'
     });
 }
-
 $('.lean-overlay').click(function () {
     console.log('test')
     $(this).remove();
 });
 
+/*
+*  kakao talk share
+*
+* */
+
+// // 사용할 앱의 Javascript 키를 설정해 주세요.
+Kakao.init('3928c10a89b73f2b4aa1a003fba1d0b8');
+function kakaoShare() {
+    // 카카오톡 링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
+    Kakao.Link.createTalkLinkButton({
+        container: '#kakao-link-btn',
+        label: '구글스토어에 <의문의 조선>을 검색해 주세요 !',
+        image: {
+            src: 'http://54.165.224.112/public/image/icon.png',
+            width: '300',
+            height: '300'
+        },
+        webButton: {
+            text: '경기도박물관 <특별전> 의문의 조선',
+            url: 'https://play.google.com/store/apps/details?id=com.jj.MuseumInfo' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
+        }
+    });
+}
 
