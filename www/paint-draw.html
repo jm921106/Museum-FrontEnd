@@ -19,9 +19,37 @@
     <link href="css/swipebox.min.css" rel="stylesheet" type="text/css">
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <link href="css/custom.css" rel="stylesheet" type="text/css">
+    <!--<script type="text/javascript" charset="utf-8" src="cordova-1.8.0.js"></script>-->
+    <script type="text/javascript" charset="utf-8">
+
+        // Call onDeviceReady when Cordova is loaded.
+        //
+        // At this point, the document has loaded but cordova-1.8.0.js has not.
+        // When Cordova is loaded and talking with the native device,
+        // it will call the event `deviceready`.
+        //
+        function onLoad() {
+            document.addEventListener("deviceready", onDeviceReady, false);
+        }
+
+        // Cordova is loaded and it is now safe to call Cordova methods
+        //
+        function onDeviceReady() {
+            // Register the event listener
+            document.addEventListener("backbutton", onBackKeyDown, false);
+        }
+
+        // Handle the back button
+        //
+        function onBackKeyDown() {
+            console.log('test')
+        }
+    </script>
 </head>
-<body>
-<div  id="main"> <!-- Main Container -->
+<body onload="onLoad()">
+<div id="background-black-bur" style="display: none;"></div>
+<div id="loader" style="display: none;"></div>
+<div id="main"> <!-- Main Container -->
     <!-- SideBar -->
     <ul id="slide-out-left" class="side-nav collapsible">
         <div w3-include-html="views/include/left-panel.html"></div>
@@ -116,7 +144,7 @@
 
 
         <!-- Modal Trigger -->
-        <input id="post_status" type="hidden" value="false" />
+        <input id="post_status" type="hidden" value="false"/>
         <div class="draw-btn-div">
             <a id="modal-btn" style="padding:5px 10px 5px 10px !important; margin : 0px 20px 0px 10px !important;"
                href="#modal"
@@ -128,32 +156,44 @@
 
         <!-- Modal Structure -->
         <div id="modal" class="modal bottom-sheet">
-            <div class="modal-content font-size-15">
-                <h4 id="modal_status">내정보를 입력해 주세요.</h4>
-                <p class="font-size-8">이메일은 상업적 목적 없이 이벤트 추첨을 위해 사용됩니다.</p>
-                <!--<input id="name" type="text" placeholder="이름을 입력해 주세요.">-->
-                <input id="email" type="text" placeholder="Email을 입력해 주세요.">
-            </div>
-                <div class="modal-footer">
-                        <a href="#" class="modal-close waves-effect waves-green btn-flat">취소</a>
-                        <button id="pattern_submit" class="modal-action waves-effect waves-green btn-flat">확인</button>
+            <div class="font-size-15">
+                <div style="width: 100%; position: absolute; text-align: right" class="p-20">
+
+                    <a style="padding:5px 10px 5px 10px !important; margin-top : 10px !important;"
+                       id="modal-close-btn"
+                       href="#"
+                       class="modal-close center-align cus-background-black p-0 white-text font-size-15">취소</a>
+
+                    <a style="padding:5px 10px 5px 10px !important; margin-top : 10px !important;"
+                       id="pattern_submit"
+                       href="#"
+                       class="modal-action center-align cus-background-black p-0 white-text font-size-15">확인</a>
                 </div>
+                <div style="width: 100%;" class="m-20">
+                    <h5 id="modal_status">내정보를 입력해 주세요.</h5>
+                    <p class="font-size-9">이메일은 상업적 목적 없이 <br>이벤트 추첨을 위해 사용됩니다.</p>
+                </div>
+
+                <!--<input id="name" type="text" placeholder="이름을 입력해 주세요.">-->
+                <input style="width:90%; margin: -10px 20px 20px 20px !important;" id="email" type="text" placeholder="Email을 입력해 주세요.">
+            </div>
+
         </div>
     </div>
 </div> <!-- End of Page Container -->
 
-    <!--<div w3-include-html="views/include/includeScript.html"></div>-->
-    <!-- themeforest default -->
-    <script src="js/jquery-2.1.0.min.js"></script>
-    <script src="js/jquery.swipebox.min.js"></script>
-    <script src="js/jquery.smoothState.min.js"></script>
-    <script src="js/materialize.min.js"></script>
-    <script src="js/swiper.min.js"></script>
-    <script src="js/jquery.mixitup.min.js"></script>
-    <script src="js/masonry.min.js"></script>
-    <script src="js/chart.min.js"></script>
-    <script src="js/custom.js"></script>
-    <script src="js/temp_domain.js"></script>
+<!--<div w3-include-html="views/include/includeScript.html"></div>-->
+<!-- themeforest default -->
+<script src="js/jquery-2.1.0.min.js"></script>
+<script src="js/jquery.swipebox.min.js"></script>
+<script src="js/jquery.smoothState.min.js"></script>
+<script src="js/materialize.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/jquery.mixitup.min.js"></script>
+<script src="js/masonry.min.js"></script>
+<script src="js/chart.min.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/temp_domain.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>Museum</title>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="x-ua-compatible">
+    <meta content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+    <!-- Icons -->
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="all" rel="stylesheet"
+          type="text/css">
+    <!-- Styles -->
+    <link href="css/keyframes.css" rel="stylesheet" type="text/css">
+    <link href="css/materialize.min.css" rel="stylesheet" type="text/css">
+    <link href="css/swiper.css" rel="stylesheet" type="text/css">
+    <link href="css/swipebox.min.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/custom.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="m-scene" id="main"> <!-- Main Container -->
+
+    <!-- SideBar -->
+    <ul id="slide-out-left" class="side-nav collapsible">
+        <div w3-include-html="views/include/left-panel.html"></div>
+    </ul>
+    <ul id="slide-out-right" class="side-nav collapsible">
+        <div w3-include-html="views/include/right-panel.html"></div>
+    </ul>
+
+    <!-- Page Content -->
+    <div id="content" class="page">
+
+        <div id="toolbar" class="tool-bar white-color">
+            <div class="open-left" id="open-left" data-activates="slide-out-left">
+                <i class="ion-android-menu cus-color-black"></i>
+            </div>
+            <span id="sub-title" class="title cus-color-black fwbold ml0 font-size-18">체험활동</span>
+            <div class="cus-color-1 open-right" id="open-right" data-activates="slide-out-right">
+                <i class="ion-android-search cus-color-black"></i>
+            </div>
+        </div>
+
+        <!-- Hero Header -->
+        <div class="hero-header animated fadein">
+            <!-- Slider -->
+            <div class="swiper-container slider m-b-20">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="img/museum/play_3_main.jpg" alt="">
+                    </div>
+                    <!--<div class="swiper-slide">-->
+                    <!--<img src="img/product2.jpg" alt="">-->
+                    <!--</div>-->
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+            <!-- End of Slider -->
+
+            <!-- Floating Action Button -->
+            <!--<div class="floating-button scrollable-fab animated bouncein delay-3">-->
+            <!--<a href="paint-draw.html"-->
+            <!--class="btn-floating btn-large waves-effect waves-light accent-color btn z-depth-1">-->
+            <!--<i class="ion-android-create"></i>-->
+            <!--</a>-->
+            <!--</div>-->
+        </div>
+        <!-- Article Content -->
+        <div class="animated fadeInLeft delay-5 cus-background-black height-100">
+            <div class="page-content animated fadeInLeft delay-5">
+                <h3 class="white-text font-size-18" style="margin : -5px 20px 20px 10px !important;">
+                    소원 담은 버선 트리
+                </h3>
+                <p class="text-flow" style="margin: 5px 20px -5px 10px !important; color: darkgray !important;">
+                    시간 : 2016.12. ~ 2017.1. <br>
+                    장소 : 경기도박물관
+                </p>
+            </div>
+        </div>
+
+        <div class="m-20 font-size-15" style="color : dimgrey">
+            즐거운 크리스마스와 풍성한 설을 맞이하여 소원을 담은 버선과 복주머니를 직접 만들어 보세요. 소원도 담고, 스마트폰도 담을 수도 있는 귀여운 아기 버선과 복주머니를 선생님의 지도를 따라 만들어
+            봅니다.
+        </div>
+
+        <div class="m-20 font-size-15" style="color : dimgrey">
+            <table>
+                <tr>
+                    <td style="padding: 5px">버선트리 일정&nbsp;&nbsp;</td>
+                    <td style="padding: 5px">
+                        12월 10일, 17일, 24일
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 5px">복주머니 일정&nbsp;&nbsp;</td>
+                    <td style="padding: 5px">
+                        1월 7일, 14일, 21일
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 5px">가격&nbsp;&nbsp;</td>
+                    <td style="padding: 5px">1인 5, 000원</td>
+                </tr>
+                <tr>
+                    <td style="padding: 5px">신청&nbsp;&nbsp;</td>
+                    <td style="padding: 5px"> 경기도박물관 홈페이지</td>
+                </tr>
+            </table>
+        </div>
+
+    </div> <!-- End of Page Content -->
+</div> <!-- End of Page Container -->
+
+<!--<div w3-include-html="views/include/includeScript.html"></div>-->
+<!-- themeforest default -->
+<script src="js/jquery-2.1.0.min.js"></script>
+<script src="js/jquery.swipebox.min.js"></script>
+<script src="js/jquery.smoothState.min.js"></script>
+<script src="js/materialize.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/jquery.mixitup.min.js"></script>
+<script src="js/masonry.min.js"></script>
+<script src="js/chart.min.js"></script>
+<script src="js/custom.js"></script>
+
+</body>
+</html>

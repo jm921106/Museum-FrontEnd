@@ -3,12 +3,24 @@
     font-size: 8px !important;
 }
 
+.font-size-9 {
+    font-size: 9px !important;
+}
+
 .font-size-10 {
     font-size: 10px;
 }
 
 .font-size-12 {
     font-size: 12px;
+}
+
+.font-size-13 {
+    font-size: 13px;
+}
+
+.font-size-14 {
+    font-size: 14px;
 }
 
 .font-size-15 {
@@ -24,8 +36,12 @@
 }
 
 .font-size-24 {
-    font-size: 20px;
+    font-size: 24px;
 }
+
+/*.font-size-24 {*/
+    /*font-size: 20px;*/
+/*}*/
 
 /* line height*/
 .lh-normal {
@@ -125,6 +141,10 @@
 
 .mt10 {
     margin-top: 10px !important;
+}
+
+.mt20 {
+    margin-top: 20px !important;
 }
 
 .ml0 {
@@ -310,7 +330,7 @@ canvas {
 /* display CSS */
 
 .title-img-resizing {
-    width : 40vw;
+    width : 50vw;
     height: auto;
     display : inline !important;
 }
@@ -484,4 +504,81 @@ output:after {
 .cus-page {
     margin-top: 56px;
     /*overflow: auto;*/
+}
+
+/*  loader */
+
+#loader {
+    /* container */
+    color : grey;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+
+    z-index: 10000;
+    width: 100vw;
+    height: 100vh;
+
+    fixed: header;
+
+    margin: -40px 0 0 -40px;
+
+    /* boarder */
+    border: 16px solid #444;
+    border-radius: 50%;
+    border-top: 16px solid ;
+    width: 80px;
+    height: 80px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+#background-black-bur {
+    z-index: 10000;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background:black;
+    background:rgba(0,0,0,0.5);
+}
+
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+    position: relative;
+    -webkit-animation-name: animatebottom;
+    -webkit-animation-duration: 1s;
+    animation-name: animatebottom;
+    animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+    from { bottom:-100px; opacity:0 }
+    to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom {
+    from{ bottom:-100px; opacity:0 }
+    to{ bottom:0; opacity:1 }
+}
+
+#myDiv {
+    display: none;
+    text-align: center;
+}
+
+.cus-slider-category {
+    text-transform: uppercase;
+    font-weight: 400;
+    border-bottom: 1px solid #444;
+    display: inline-block;
 }
