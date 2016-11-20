@@ -312,45 +312,48 @@ blockquote {
 }
 /* Background & Overlay */
 
-.bg-1 {
-    background: url(../img/1.jpg) no-repeat center / cover !important;
-}
-.bg-2 {
-    background: url(../img/2.jpg) no-repeat center / cover !important;
-}
-.bg-3 {
-    background: url(../img/3.jpg) no-repeat center / cover !important;
-}
-.bg-4 {
-    background: url(../img/4.jpg) no-repeat center / cover !important;
-}
-.bg-5 {
-    background: url(../img/5.jpg) no-repeat center / cover !important;
-}
-.bg-9 {
-    background: url(../img/9.jpg) no-repeat center / cover !important;
+/*.bg-1 {*/
+    /*background: url(../img/1.jpg) no-repeat center / cover !important;*/
+/*}*/
+/*.bg-2 {*/
+    /*background: url(../img/2.jpg) no-repeat center / cover !important;*/
+/*}*/
+/*.bg-3 {*/
+    /*background: url(../img/3.jpg) no-repeat center / cover !important;*/
+/*}*/
+/*.bg-4 {*/
+    /*background: url(../img/4.jpg) no-repeat center / cover !important;*/
+/*}*/
+/*.bg-5 {*/
+    /*background: url(../img/5.jpg) no-repeat center / cover !important;*/
+/*}*/
+/*.bg-9 {*/
+    /*background: url(../img/9.jpg) no-repeat center / cover !important;*/
+/*}*/
+.bg-v-0 {
+    background: url(../img/background/mainBG_black.jpg) no-repeat center / cover !important;
 }
 .bg-v-1 {
     background: url(../img/background/patternBG.jpg) no-repeat center / cover !important;
 }
 .bg-v-2 {
-    background: url(../img/background/patternBG.jpg) no-repeat center / cover !important;
+    background: url(../img/background/play_2_BG.jpg) no-repeat center / cover !important;
 }
 .bg-v-3 {
-    background: url(../img/background/patternBG.jpg) no-repeat center / cover !important;
+    background: url(../img/background/play_3_BG.jpg) no-repeat center / cover !important;
 }
 .bg-v-4 {
     background: url(../img/background/patternBG.jpg) no-repeat center / cover !important;
 }
-.bg-blur {
-    background: url(../img/blur.jpg) no-repeat center / cover !important;
-}
-.bg-opacity {
-    background: url(../img/opacity.jpg) no-repeat center / cover !important;
-}
-.bg-shop {
-    background: url(../img/banner.jpg) no-repeat center / cover !important;
-}
+/*.bg-blur {*/
+    /*background: url(../img/blur.jpg) no-repeat center / cover !important;*/
+/*}*/
+/*.bg-opacity {*/
+    /*background: url(../img/opacity.jpg) no-repeat center / cover !important;*/
+/*}*/
+/*.bg-shop {*/
+    /*background: url(../img/banner.jpg) no-repeat center / cover !important;*/
+/*}*/
 .opacity-overlay {
     position: absolute;
     top: 0;

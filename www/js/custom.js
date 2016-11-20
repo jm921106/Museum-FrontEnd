@@ -91,38 +91,6 @@ function initiate_plugins() {
     var grandparent_height = $('#grandparent').height();
     $('.child').height(grandparent_height * 0.25);
 
-    // // Swiper Sliders
-    // var swiper = new Swiper('.slider', {
-    //     pagination: '.swiper-pagination',
-    //     paginationClickable: true,
-    //     nextButton: '.swiper-button-next',
-    //     prevButton: '.swiper-button-prev',
-    //     autoplay: 5000,
-    //     loop: true
-    // });
-    // var swiper = new Swiper('.slider-sliced', {
-    //     pagination: '.swiper-pagination',
-    //     paginationClickable: true,
-    //     autoplay: 5000,
-    // });
-    // var swiper = new Swiper('.steps', {
-    //     pagination: '.swiper-pagination',
-    //     paginationClickable: true,
-    //     nextButton: '.swiper-button-next',
-    //     prevButton: '.swiper-button-prev',
-    //     effect: 'fade',
-    // });
-    // var swiper = new Swiper('.slider-drawer', {
-    //     pagination: '.swiper-pagination',
-    //     paginationClickable: true,
-    // });
-    // var swiper = new Swiper('.slider-vertical', {
-    //     pagination: '.swiper-pagination',
-    //     paginationClickable: true,
-    //     autoplay: 5000,
-    //     direction: 'vertical'
-    // });
-
     // MixItUP
     $(function () {
         var layout = 'grid', // Store the current layout as a variable
@@ -204,7 +172,6 @@ function initiate_plugins() {
         });
     });
 
-
     /**
      * w3IncludeHTML [HTML INCLUDE]
      *
@@ -245,6 +212,7 @@ function initiate_plugins() {
 
     // [1]
     $('#pattern_submit').click(function () {
+
         var name = $('#name').val();
         var phone = $('#phone').val();
         var email = $('#email').val();
@@ -252,8 +220,7 @@ function initiate_plugins() {
         if (!email_validate(email)) {
             $('#modal_status').html(now_status).css("color", "red");
             return;
-        }
-        if($('#post_status').val() == 'true') {
+        } else if($('#post_status').val() == 'true') {
             $('#modal_status').html('전송중 입니다. 잠시만 기다려 주세요.').css("color", "red");
             return;
         }
@@ -265,6 +232,9 @@ function initiate_plugins() {
         var canvas = document.getElementById('myCanvas');
         var dataURL = canvas.toDataURL();
 
+        document.getElementById("loader").style.display = "inherit";
+        document.getElementById("background-black-bur").style.display = "inherit";
+
         var url = window.temp_domain + "patternInsert";
         var post_data = {
             "user_id": localStorage.getItem('user_id'),
@@ -274,12 +244,20 @@ function initiate_plugins() {
             "result": dataURL
         }
         $.post(url, post_data, function (data) {
-            if (data)
+            if (data) {
+                reset();
+                $('#post_status').val('false');
                 window.location.href = 'paint-result.html';
-            else
+                document.getElementById("loader").style.display = "none";
+                document.getElementById("background-black-bur").style.display = "none";
+            } else {
                 $('#modal_status').html('전송에 문제가 있습니다. 다시 시도해 주세요!').css("color", "red");
+                document.getElementById("loader").style.display = "none";
+                document.getElementById("background-black-bur").style.display = "none";
+            }
         });
     });
+
 
     // [2]
     var post_num;
@@ -287,6 +265,8 @@ function initiate_plugins() {
         var path = window.location.pathname;
         var page = path.split("/").pop();
         if (page == 'paint-result.html') {
+            document.getElementById("loader").style.display = "inherit";
+            document.getElementById("background-black-bur").style.display = "inherit";
             post_num = 0;
             var url = window.temp_domain + "patternFind";
             $.post(url, {
@@ -295,9 +275,7 @@ function initiate_plugins() {
                 datas.forEach(function (data, i) {
                     // console.log(data.imgURL)
                     var img_url = window.temp_domain + "public/repository/" + data.imgURL;
-
                     // post로 like 등록 했는지 확인
-
                     var url = window.temp_domain + "patternLikeCall";
                     $.post(url, {
                         imgURL: data.imgURL,
@@ -318,7 +296,6 @@ function initiate_plugins() {
                             $('#' + icon_id).addClass('cus-color-white');
                             $('#' + icon_id).removeClass('heart-btn');
                         }
-
                         $('#' + like_btn_id).click(function () {
                             if ($('#' + like_status_id).val() == 'true') {
                                 $('#' + like_status_id).val('false');
@@ -338,6 +315,8 @@ function initiate_plugins() {
                                 console.log(data);
                             })
                         });
+                        document.getElementById("loader").style.display = "none";
+                        document.getElementById("background-black-bur").style.display = "none";
                     });
                 }); // datas for문 종료 지점
                 post_num += 1;
@@ -345,17 +324,14 @@ function initiate_plugins() {
 
             // 결과 버튼 클릭시에
             $('#pattern_result_add').click(function () {
-                console.log(post_num)
+                document.getElementById("loader").style.display = "inherit";
+                document.getElementById("background-black-bur").style.display = "inherit";
                 $.post(url, {
                     post_num: post_num
                 }, function (datas) {
                     datas.forEach(function (data, i) {
                         var img_url = window.temp_domain + "public/repository/" + data.imgURL;
-
                         // post로 like 등록 했는지 확인
-
-                        // app.post('/patternLikeCall', paint.likeCall);
-                        // app.post('/patternLikePlus', paint.likePlus);
                         var url = window.temp_domain + "patternLikeCall";
                         $.post(url, {
                             imgURL: data.imgURL,
@@ -378,7 +354,6 @@ function initiate_plugins() {
                                 $('#' + icon_id).addClass('cus-color-white');
                                 $('#' + icon_id).removeClass('heart-btn');
                             }
-
                             $('#' + like_btn_id).click(function () {
                                 if ($('#' + like_status_id).val() == 'true') {
                                     $('#' + like_status_id).val('false');
@@ -398,6 +373,8 @@ function initiate_plugins() {
                                     console.log(data);
                                 })
                             });
+                            document.getElementById("loader").style.display = "none";
+                            document.getElementById("background-black-bur").style.display = "none";
                         });
 
                     }); // datas for문 종료 지점
@@ -405,16 +382,22 @@ function initiate_plugins() {
                         post_num += 1;
                 });
             });
+
+        } else if (page == 'play-main.html') {
+            // Swiper sliders
+            silderSet();
         }
     });
 
 
-    // [3]
+// [3]
     $(function () {
         var post_data = window.location.search.substring(1);
         var path = window.location.pathname;
         var page = path.split("/").pop();
         if (page == 'paint-draw.html') {
+            // document.getElementById("loader").style.display = "none";
+            // document.getElementById("background-black-bur").style.display = "none";
             reset();
             // default pen set
             pencilSelect();
@@ -495,6 +478,7 @@ function initiate_plugins() {
         var path = window.location.pathname;
         var page = path.split("/").pop();
         switch (page) {
+            case '':
             case 'index.html':
                 if (localStorage.getItem('user_id') == null) {
                     console.log('[최초 접속 유저]');
@@ -505,8 +489,10 @@ function initiate_plugins() {
                 }
                 url = window.temp_domain + "todayLoad";
                 $.get(url, function (data) {
-                    console.log('today count complite')
+                    console.log('today count complite');
                 });
+                document.getElementById("loader").style.display = "none";
+                document.getElementById("background-black-bur").style.display = "none";
                 break;
             case 'side-notice.html':
                 console.log(window.temp_domain)
@@ -534,12 +520,14 @@ function initiate_plugins() {
                         success: function (items) {
                             myLikeItems.forEach(function (myLikeItem) {
                                 var cat = myLikeItem.code.split('_')[0];
-                                items[cat].forEach(function (item, i) {
-                                    if (item.code == myLikeItem.code.split('_')[1]) {
-                                        // 여기서 작업 item으로
-                                        myLikeAdd(myLikeItem.code, item.title, item.subTitle, item.srcImg[0], i);
-                                    }
-                                });
+                                if(cat != "") {
+                                    items[cat].forEach(function (item, i) {
+                                        if (item.code == myLikeItem.code.split('_')[1]) {
+                                            // 여기서 작업 item으로
+                                            myLikeAdd(myLikeItem.code, item.title, item.subTitle, item.srcImg[0], i);
+                                        }
+                                    });
+                                }
                             });
                         }
                     });
@@ -631,8 +619,14 @@ function initiate_plugins() {
                     });
 
                 });
+                break;
+
+            case 'side-info.html':
+                silderSet();
+                break;
         }
     });
+
 
     /**
      * Display Part
@@ -708,37 +702,7 @@ function initiate_plugins() {
                                     imageSlideAdd(imgUrl);
                                 });
 
-                                // Swiper Sliders
-                                var swiper = new Swiper('.slider', {
-                                    pagination: '.swiper-pagination',
-                                    paginationClickable: true,
-                                    nextButton: '.swiper-button-next',
-                                    prevButton: '.swiper-button-prev',
-                                    autoplay: 5000,
-                                    loop: true
-                                });
-                                var swiper = new Swiper('.slider-sliced', {
-                                    pagination: '.swiper-pagination',
-                                    paginationClickable: true,
-                                    autoplay: 5000,
-                                });
-                                var swiper = new Swiper('.steps', {
-                                    pagination: '.swiper-pagination',
-                                    paginationClickable: true,
-                                    nextButton: '.swiper-button-next',
-                                    prevButton: '.swiper-button-prev',
-                                    effect: 'fade',
-                                });
-                                var swiper = new Swiper('.slider-drawer', {
-                                    pagination: '.swiper-pagination',
-                                    paginationClickable: true,
-                                });
-                                var swiper = new Swiper('.slider-vertical', {
-                                    pagination: '.swiper-pagination',
-                                    paginationClickable: true,
-                                    autoplay: 5000,
-                                    direction: 'vertical'
-                                });
+                                silderSet();
 
                                 $('#item-title').html(item.subTitle);
                                 $('#sub-title').html(item.title);
@@ -825,38 +789,6 @@ $(window).scroll(function () {
 // Row Height for Drawer
 var grandparent_height = $('#grandparent').height();
 $('.child').height(grandparent_height * 0.25);
-
-// Swiper sliders
-// var swiper = new Swiper('.slider', {
-//     pagination: '.swiper-pagination',
-//     paginationClickable: true,
-//     nextButton: '.swiper-button-next',
-//     prevButton: '.swiper-button-prev',
-//     autoplay: 5000,
-//     loop: true
-// });
-// var swiper = new Swiper('.slider-sliced', {
-//     pagination: '.swiper-pagination',
-//     paginationClickable: true,
-//     autoplay: 5000,
-// });
-// var swiper = new Swiper('.steps', {
-//     pagination: '.swiper-pagination',
-//     paginationClickable: true,
-//     nextButton: '.swiper-button-next',
-//     prevButton: '.swiper-button-prev',
-//     effect: 'fade',
-// });
-// var swiper = new Swiper('.slider-drawer', {
-//     pagination: '.swiper-pagination',
-//     paginationClickable: true,
-// });
-// var swiper = new Swiper('.slider-vertical', {
-//     pagination: '.swiper-pagination',
-//     paginationClickable: true,
-//     autoplay: 5000,
-//     direction: 'vertical'
-// });
 
 // Material Layout
 $('.parallax').parallax();
@@ -986,6 +918,7 @@ $(function w3IncludeHTML() {
 
 // [1]
 $('#pattern_submit').click(function () {
+
     var name = $('#name').val();
     var phone = $('#phone').val();
     var email = $('#email').val();
@@ -1005,6 +938,8 @@ $('#pattern_submit').click(function () {
     var canvas = document.getElementById('myCanvas');
     var dataURL = canvas.toDataURL();
 
+    document.getElementById("loader").style.display = "block";
+    document.getElementById("background-black-bur").style.display = "block";
     var url = window.temp_domain + "patternInsert";
     var post_data = {
         "user_id": localStorage.getItem('user_id'),
@@ -1018,8 +953,12 @@ $('#pattern_submit').click(function () {
             reset();
             $('#post_status').val('false');
             window.location.href = 'paint-result.html';
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("background-black-bur").style.display = "none";
         } else {
             $('#modal_status').html('전송에 문제가 있습니다. 다시 시도해 주세요!').css("color", "red");
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("background-black-bur").style.display = "none";
         }
     });
 });
@@ -1030,6 +969,8 @@ $(function () {
     var path = window.location.pathname;
     var page = path.split("/").pop();
     if (page == 'paint-result.html') {
+        document.getElementById("loader").style.display = "inherit";
+        document.getElementById("background-black-bur").style.display = "inherit";
         post_num = 0;
         var url = window.temp_domain + "patternFind";
         $.post(url, {
@@ -1038,9 +979,7 @@ $(function () {
             datas.forEach(function (data, i) {
                 // console.log(data.imgURL)
                 var img_url = window.temp_domain + "public/repository/" + data.imgURL;
-
                 // post로 like 등록 했는지 확인
-
                 var url = window.temp_domain + "patternLikeCall";
                 $.post(url, {
                     imgURL: data.imgURL,
@@ -1061,7 +1000,6 @@ $(function () {
                         $('#' + icon_id).addClass('cus-color-white');
                         $('#' + icon_id).removeClass('heart-btn');
                     }
-
                     $('#' + like_btn_id).click(function () {
                         if ($('#' + like_status_id).val() == 'true') {
                             $('#' + like_status_id).val('false');
@@ -1081,6 +1019,8 @@ $(function () {
                             console.log(data);
                         })
                     });
+                    document.getElementById("loader").style.display = "none";
+                    document.getElementById("background-black-bur").style.display = "none";
                 });
             }); // datas for문 종료 지점
             post_num += 1;
@@ -1088,17 +1028,14 @@ $(function () {
 
         // 결과 버튼 클릭시에
         $('#pattern_result_add').click(function () {
-            console.log(post_num)
+            document.getElementById("loader").style.display = "inherit";
+            document.getElementById("background-black-bur").style.display = "inherit";
             $.post(url, {
                 post_num: post_num
             }, function (datas) {
                 datas.forEach(function (data, i) {
                     var img_url = window.temp_domain + "public/repository/" + data.imgURL;
-
                     // post로 like 등록 했는지 확인
-
-                    // app.post('/patternLikeCall', paint.likeCall);
-                    // app.post('/patternLikePlus', paint.likePlus);
                     var url = window.temp_domain + "patternLikeCall";
                     $.post(url, {
                         imgURL: data.imgURL,
@@ -1121,7 +1058,6 @@ $(function () {
                             $('#' + icon_id).addClass('cus-color-white');
                             $('#' + icon_id).removeClass('heart-btn');
                         }
-
                         $('#' + like_btn_id).click(function () {
                             if ($('#' + like_status_id).val() == 'true') {
                                 $('#' + like_status_id).val('false');
@@ -1141,6 +1077,8 @@ $(function () {
                                 console.log(data);
                             })
                         });
+                        document.getElementById("loader").style.display = "none";
+                        document.getElementById("background-black-bur").style.display = "none";
                     });
 
                 }); // datas for문 종료 지점
@@ -1148,6 +1086,10 @@ $(function () {
                     post_num += 1;
             });
         });
+
+    } else if (page == 'play-main.html') {
+        // Swiper sliders
+        silderSet();
     }
 });
 
@@ -1158,6 +1100,8 @@ $(function () {
     var path = window.location.pathname;
     var page = path.split("/").pop();
     if (page == 'paint-draw.html') {
+        // document.getElementById("loader").style.display = "none";
+        // document.getElementById("background-black-bur").style.display = "none";
         reset();
         // default pen set
         pencilSelect();
@@ -1238,6 +1182,7 @@ $(function () {
     var path = window.location.pathname;
     var page = path.split("/").pop();
     switch (page) {
+        case '':
         case 'index.html':
             if (localStorage.getItem('user_id') == null) {
                 console.log('[최초 접속 유저]');
@@ -1248,8 +1193,10 @@ $(function () {
             }
             url = window.temp_domain + "todayLoad";
             $.get(url, function (data) {
-                console.log('today count complite')
+                console.log('today count complite');
             });
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("background-black-bur").style.display = "none";
             break;
         case 'side-notice.html':
             console.log(window.temp_domain)
@@ -1277,12 +1224,14 @@ $(function () {
                     success: function (items) {
                         myLikeItems.forEach(function (myLikeItem) {
                             var cat = myLikeItem.code.split('_')[0];
-                            items[cat].forEach(function (item, i) {
-                                if (item.code == myLikeItem.code.split('_')[1]) {
-                                    // 여기서 작업 item으로
-                                    myLikeAdd(myLikeItem.code, item.title, item.subTitle, item.srcImg[0], i);
-                                }
-                            });
+                            if(cat != "") {
+                                items[cat].forEach(function (item, i) {
+                                    if (item.code == myLikeItem.code.split('_')[1]) {
+                                        // 여기서 작업 item으로
+                                        myLikeAdd(myLikeItem.code, item.title, item.subTitle, item.srcImg[0], i);
+                                    }
+                                });
+                            }
                         });
                     }
                 });
@@ -1374,6 +1323,11 @@ $(function () {
                 });
 
             });
+            break;
+
+        case 'side-info.html':
+            silderSet();
+            break;
     }
 });
 
@@ -1452,37 +1406,7 @@ $(function () {
                                 imageSlideAdd(imgUrl);
                             });
 
-                            // Swiper Sliders
-                            var swiper = new Swiper('.slider', {
-                                pagination: '.swiper-pagination',
-                                paginationClickable: true,
-                                nextButton: '.swiper-button-next',
-                                prevButton: '.swiper-button-prev',
-                                autoplay: 5000,
-                                loop: true
-                            });
-                            var swiper = new Swiper('.slider-sliced', {
-                                pagination: '.swiper-pagination',
-                                paginationClickable: true,
-                                autoplay: 5000,
-                            });
-                            var swiper = new Swiper('.steps', {
-                                pagination: '.swiper-pagination',
-                                paginationClickable: true,
-                                nextButton: '.swiper-button-next',
-                                prevButton: '.swiper-button-prev',
-                                effect: 'fade',
-                            });
-                            var swiper = new Swiper('.slider-drawer', {
-                                pagination: '.swiper-pagination',
-                                paginationClickable: true,
-                            });
-                            var swiper = new Swiper('.slider-vertical', {
-                                pagination: '.swiper-pagination',
-                                paginationClickable: true,
-                                autoplay: 5000,
-                                direction: 'vertical'
-                            });
+                            silderSet();
 
                             $('#item-title').html(item.subTitle);
                             $('#sub-title').html(item.title);
@@ -1630,6 +1554,7 @@ var likeBtnSet = function (post_data) {
                     $('#like-status').val('true');
                 else
                     $('#like-status').val('false');
+
                 if ($('#like-status').val() == 'true') {
                     $('#heart-icon').addClass('heart-btn');
                     $('#heart-icon').removeClass('cus-color-white');
@@ -1799,4 +1724,36 @@ function name_hide(name) {
             returnStr += name[i];
     }
     return returnStr;
+}
+function silderSet() {
+    var swiper = new Swiper('.slider', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        autoplay: 5000,
+        loop: true
+    });
+    var swiper = new Swiper('.slider-sliced', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        autoplay: 5000,
+    });
+    var swiper = new Swiper('.steps', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        effect: 'fade',
+    });
+    var swiper = new Swiper('.slider-drawer', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+    });
+    var swiper = new Swiper('.slider-vertical', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        autoplay: 5000,
+        direction: 'vertical'
+    });
 }
