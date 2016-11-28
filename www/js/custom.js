@@ -294,26 +294,6 @@ function initiate_plugins() {
                             $('#' + icon_status).addClass('cus-color-white');
                             $('#' + icon_status).removeClass('heart-btn');
                         }
-                        $('#' + like_btn_id).click(function () {
-                            if ($('#' + like_status_id).val() == 'true') {
-                                $('#' + like_status_id).val('false');
-                                $('#' + icon_status).addClass('cus-color-white');
-                                $('#' + icon_status).removeClass('heart-btn');
-                            } else {
-                                $('#' + like_status_id).val('true');
-                                $('#' + icon_status).addClass('heart-btn');
-                                $('#' + icon_status).removeClass('cus-color-white');
-                            }
-                            var url = window.temp_domain + "patternLikePlus";
-                            $.post(url, {
-                                imgURL: data.imgURL,
-                                likeStatus: $('#' + like_status_id).val(),
-                                deviceInfo: localStorage.getItem('user_id')
-                            }, function (data) {
-                                // count update !
-                                // console.log(data.conut)
-                            })
-                        });
                         // document.getElementById("loader").style.display = "none";
                         // document.getElementById("background-black-bur").style.display = "none";
                     });
@@ -352,25 +332,6 @@ function initiate_plugins() {
                                 $('#' + icon_status).addClass('cus-color-white');
                                 $('#' + icon_status).removeClass('heart-btn');
                             }
-                            $('#' + like_btn_id).click(function () {
-                                if ($('#' + like_status_id).val() == 'true') {
-                                    $('#' + like_status_id).val('false');
-                                    $('#' + icon_status).addClass('cus-color-white');
-                                    $('#' + icon_status).removeClass('heart-btn');
-                                } else {
-                                    $('#' + like_status_id).val('true');
-                                    $('#' + icon_status).addClass('heart-btn');
-                                    $('#' + icon_status).removeClass('cus-color-white');
-                                }
-                                var url = window.temp_domain + "patternLikePlus";
-                                $.post(url, {
-                                    imgURL: data.imgURL,
-                                    likeStatus: $('#' + like_status_id).val(),
-                                    deviceInfo: localStorage.getItem('user_id')
-                                }, function (data) {
-                                    console.log(data);
-                                })
-                            });
                             // document.getElementById("loader").style.display = "none";
                             // document.getElementById("background-black-bur").style.display = "none";
                         });
@@ -386,7 +347,6 @@ function initiate_plugins() {
             silderSet();
         }
     });
-
 
     // [3]
     $(function () {
@@ -1016,26 +976,6 @@ $(function () {
                         $('#' + icon_status).addClass('cus-color-white');
                         $('#' + icon_status).removeClass('heart-btn');
                     }
-                    $('#' + like_btn_id).click(function () {
-                        if ($('#' + like_status_id).val() == 'true') {
-                            $('#' + like_status_id).val('false');
-                            $('#' + icon_status).addClass('cus-color-white');
-                            $('#' + icon_status).removeClass('heart-btn');
-                        } else {
-                            $('#' + like_status_id).val('true');
-                            $('#' + icon_status).addClass('heart-btn');
-                            $('#' + icon_status).removeClass('cus-color-white');
-                        }
-                        var url = window.temp_domain + "patternLikePlus";
-                        $.post(url, {
-                            imgURL: data.imgURL,
-                            likeStatus: $('#' + like_status_id).val(),
-                            deviceInfo: localStorage.getItem('user_id')
-                        }, function (data) {
-                            // count update !
-                            // console.log(data.conut)
-                        })
-                    });
                     // document.getElementById("loader").style.display = "none";
                     // document.getElementById("background-black-bur").style.display = "none";
                 });
@@ -1074,26 +1014,6 @@ $(function () {
                             $('#' + icon_status).addClass('cus-color-white');
                             $('#' + icon_status).removeClass('heart-btn');
                         }
-                        $('#' + like_btn_id).click(function () {
-                            if ($('#' + like_status_id).val() == 'true') {
-                                $('#' + like_status_id).val('false');
-                                $('#' + icon_status).addClass('cus-color-white');
-                                $('#' + icon_status).removeClass('heart-btn');
-                            } else {
-                                $('#' + like_status_id).val('true');
-                                $('#' + icon_status).addClass('heart-btn');
-                                $('#' + icon_status).removeClass('cus-color-white');
-                            }
-                            var url = window.temp_domain + "patternLikePlus";
-                            $.post(url, {
-                                imgURL: data.imgURL,
-                                likeStatus: $('#' + like_status_id).val(),
-                                deviceInfo: localStorage.getItem('user_id')
-                            }, function (data) {
-                                // count update 필요 !
-                                // console.log(data.count);
-                            })
-                        });
                         // document.getElementById("loader").style.display = "none";
                         // document.getElementById("background-black-bur").style.display = "none";
                     });
@@ -1108,6 +1028,31 @@ $(function () {
         // Swiper sliders
         silderSet();
     }
+});
+
+// pattern like btn plus
+$(document).on('click', '.pattern-like-btn', function () {
+    var i = $(this);
+    if (i.find('div input').val() == 'true') {
+        i.find('div input').val('false');
+        i.find('div i').addClass('cus-color-white');
+        i.find('div i').removeClass('heart-btn');
+    } else {
+        i.find('div input').val('true');
+        i.find('div i').addClass('heart-btn');
+        i.find('div i').removeClass('cus-color-white');
+    }
+    console.log(i.find('div img').attr('src').substring(40));
+    var url = window.temp_domain + "patternLikePlus";
+    $.post(url, {
+        imgURL: i.find('div img').attr('src').substring(40),
+        likeStatus: i.find('div input').val(),
+        deviceInfo: localStorage.getItem('user_id')
+    }, function (data) {
+        // count update !
+        var countStr = data.count;
+        i.find('div span').text(countStr);
+    });
 });
 
 
@@ -1646,7 +1591,7 @@ function listAdd(code, imgUrl, title) {
 }
 function patternAdd(like_btn_id, icon_status, like_status_id, user_id, date, count_id, count, img_url, delay) {
     $('#result_contents').append(
-        "<div id='" + like_btn_id + "' class='blog-fullwidth animated fadeinleft delay-" + delay + "'>" +
+        "<div id='" + like_btn_id + "' class='pattern-like-btn blog-fullwidth animated fadeinleft delay-" + delay + "'>" +
         "<div class='blog-fullwidth animated fadeinup delay-" + delay + "'>" +
         "<div class='blog-header'>" +
         "<div class='ml-m30'>" +
@@ -1660,8 +1605,8 @@ function patternAdd(like_btn_id, icon_status, like_status_id, user_id, date, cou
 
         "<div style='padding-right: 10px;' class='right-align z-index-middle'>" +
         "<input id='" + like_status_id + "' type='hidden' value='false'>" +
-        "<i id='" + icon_status + "' class='ion-heart cus-color-transparent z-index-front'></i>" +
-        "<span id=" + count_id + "'>" + count + "</span>" +
+        "<i id='" + icon_status + "' class='ion-heart cus-color-transparent'></i>" +
+        "<span id=" + count_id + "' class='pattern-like-count'>" + count + "</span>" +
         "</div>" +
         "</div>" +
         "</div>"
