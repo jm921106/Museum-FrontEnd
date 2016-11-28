@@ -459,6 +459,20 @@ function initiate_plugins() {
                 }
                 context.drawImage(outlineImage, 0, 0, context.canvas.width, context.canvas.height);
             }
+            $("#rewind").click(function(){
+                // console.log("리와인드 클릭")
+                rewindSelect();
+            })
+            function rewindSelect(){
+                // console.log("리와인드 클릭됨");
+                clickX.pop();
+                clickY.pop();
+                clickDrag.pop();
+                clickColor.pop();
+                clickSize.pop();
+                redraw();
+            }
+
         }
     });
 
@@ -1076,7 +1090,8 @@ $(function () {
                                 likeStatus: $('#' + like_status_id).val(),
                                 deviceInfo: localStorage.getItem('user_id')
                             }, function (data) {
-                                console.log(data);
+                                // count update 필요 !
+                                // console.log(data.count);
                             })
                         });
                         // document.getElementById("loader").style.display = "none";
@@ -1167,7 +1182,27 @@ $(function () {
             }
             context.drawImage(outlineImage, 0, 0, context.canvas.width, context.canvas.height);
         }
+
+
+        $("#rewind").click(function(){
+            // console.log("리와인드 클릭")
+            rewindSelect();
+        })
+        function rewindSelect(){
+            // console.log("리와인드 클릭됨");
+            clickX.pop();
+            clickY.pop();
+            clickDrag.pop();
+            clickColor.pop();
+            clickSize.pop();
+            redraw();
+        }
+
+
+
     }
+
+
 });
 
 /**
@@ -1448,6 +1483,7 @@ $(function () {
             window.likeBtnSet(post_data);
             break;
     }
+
 });
 
 
@@ -1515,6 +1551,24 @@ function brushSelect() {
     $("#pencil").removeClass("tool-select")
     $("#brush").addClass("tool-select")
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var ID = function () {
     // Math.random should be unique because of its seeding algorithm.
     // Convert it to base 36 (numbers + letters), and grab the first 9 characters

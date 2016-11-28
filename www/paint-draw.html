@@ -55,7 +55,7 @@
                      class="center-align vamiddle m-t-30">
                     <a href="#" id="eraser" onClick="eraserSelect();"
                        class="btn-floating btn waves-effect waves-light red">
-                        <img src="img/workspace/eraser.svg">
+                        <img style="" src="img/workspace/eraser.svg">
                     </a>
                     <a href="#" id="pencil" onClick="pencilSelect();"
                        class="btn-floating btn waves-effect waves-light green">
@@ -66,8 +66,18 @@
                         <img src="img/workspace/paint-brush.svg">
                     </a>
                     <br>
-                    <input id="sizeSlider" name="foo" class="draw-pen-set" type="range" onChange="setCurSize();"
-                           value="5" min="1" max="10"/>
+                    <span class="center-align">
+                          <input style="width:70% !important;"
+                                 id="sizeSlider" name="foo" class="draw-pen-set" type="range"
+                                 onChange="setCurSize();"
+                                 value="5" min="1" max="10"/>
+                        <a href="#" id="rewind"
+                           style="width:25px; height:25px"
+                           class="btn-floating btn waves-effect waves-light cus-background-transparent">
+                            <img src="img/workspace/rewind.svg">
+                        </a>
+                    </span>
+
                 </div>
                 <div id="draw-table" style="width:50vw; float:left; padding:20px 20px 20px 0px !important;">
                     <table style="width:100%; border:solid 2px black;">
@@ -151,7 +161,8 @@
                 </div>
 
                 <!--<input id="name" type="text" placeholder="이름을 입력해 주세요.">-->
-                <input style="width:90%; margin: -10px 20px 20px 20px !important;" id="email" type="text" placeholder="Email을 입력해 주세요.">
+                <input style="width:90%; margin: -10px 20px 20px 20px !important;" id="email" type="text"
+                       placeholder="Email을 입력해 주세요.">
             </div>
 
         </div>
