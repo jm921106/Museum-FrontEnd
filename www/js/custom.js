@@ -219,13 +219,13 @@ function initiate_plugins() {
         if (!email_validate(email)) {
             $('#modal_status').html(now_status).css("color", "red");
             return;
-        } else if($('#post_status').val() == 'true') {
+        } else if ($('#post_status').val() == 'true') {
             $('#modal_status').html('전송중 입니다. 잠시만 기다려 주세요.').css("color", "red");
             return;
         }
 
 
-        if($('#post_status').val() == 'false')
+        if ($('#post_status').val() == 'false')
             $('#post_status').val('true');
         // var result = null;
         var canvas = document.getElementById('myCanvas');
@@ -280,29 +280,29 @@ function initiate_plugins() {
                     }, function (likeData) {
                         var like_btn_id = window.ID();
                         var like_status_id = window.ID();
-                        var icon_id = window.ID();
+                        var icon_status = window.ID();
+                        var count_id = window.ID();
                         var user_info = data.email.split('@')[0];
                         user_info = name_hide(user_info);
-                        console.log(likeData.count);
-                        patternAdd(like_btn_id, icon_id, like_status_id, user_info, getDateFormat(new Date(data.date)), likeData.count, img_url, i);
+                        patternAdd(like_btn_id, icon_status, like_status_id, user_info, getDateFormat(new Date(data.date)), count_id, likeData.count, img_url, i);
                         if (likeData.status) {
                             $('#' + like_status_id).val('true');
-                            $('#' + icon_id).addClass('heart-btn');
-                            $('#' + icon_id).removeClass('cus-color-white');
+                            $('#' + icon_status).addClass('heart-btn');
+                            $('#' + icon_status).removeClass('cus-color-white');
                         } else {
                             $('#' + like_status_id).val('false');
-                            $('#' + icon_id).addClass('cus-color-white');
-                            $('#' + icon_id).removeClass('heart-btn');
+                            $('#' + icon_status).addClass('cus-color-white');
+                            $('#' + icon_status).removeClass('heart-btn');
                         }
                         $('#' + like_btn_id).click(function () {
                             if ($('#' + like_status_id).val() == 'true') {
                                 $('#' + like_status_id).val('false');
-                                $('#' + icon_id).addClass('cus-color-white');
-                                $('#' + icon_id).removeClass('heart-btn');
+                                $('#' + icon_status).addClass('cus-color-white');
+                                $('#' + icon_status).removeClass('heart-btn');
                             } else {
                                 $('#' + like_status_id).val('true');
-                                $('#' + icon_id).addClass('heart-btn');
-                                $('#' + icon_id).removeClass('cus-color-white');
+                                $('#' + icon_status).addClass('heart-btn');
+                                $('#' + icon_status).removeClass('cus-color-white');
                             }
                             var url = window.temp_domain + "patternLikePlus";
                             $.post(url, {
@@ -310,7 +310,8 @@ function initiate_plugins() {
                                 likeStatus: $('#' + like_status_id).val(),
                                 deviceInfo: localStorage.getItem('user_id')
                             }, function (data) {
-                                console.log(data);
+                                // count update !
+                                // console.log(data.conut)
                             })
                         });
                         // document.getElementById("loader").style.display = "none";
@@ -322,8 +323,8 @@ function initiate_plugins() {
 
             // 결과 버튼 클릭시에
             $('#pattern_result_add').click(function () {
-                // document.getElementById("loader").style.display = "inherit";
-                // document.getElementById("background-black-bur").style.display = "inherit";
+                //     document.getElementById("loader").style.display = "inherit";
+                //     document.getElementById("background-black-bur").style.display = "inherit";
                 $.post(url, {
                     post_num: post_num
                 }, function (datas) {
@@ -335,33 +336,31 @@ function initiate_plugins() {
                             imgURL: data.imgURL,
                             deviceInfo: localStorage.getItem('user_id')
                         }, function (likeData) {
-
                             var like_btn_id = window.ID();
                             var like_status_id = window.ID();
-                            var icon_id = window.ID();
+                            var icon_status = window.ID();
+                            var count_id = window.ID();
                             var user_info = data.email.split('@')[0];
                             user_info = name_hide(user_info);
-                            console.log(likeData.count)
-                            patternAdd(like_btn_id, icon_id, like_status_id, user_info, getDateFormat(new Date(data.date)), likeData.count, img_url, i);
-
+                            patternAdd(like_btn_id, icon_status, like_status_id, user_info, getDateFormat(new Date(data.date)), count_id, likeData.count, img_url, i);
                             if (likeData.status) {
                                 $('#' + like_status_id).val('true');
-                                $('#' + icon_id).addClass('heart-btn');
-                                $('#' + icon_id).removeClass('cus-color-white');
+                                $('#' + icon_status).addClass('heart-btn');
+                                $('#' + icon_status).removeClass('cus-color-white');
                             } else {
                                 $('#' + like_status_id).val('false');
-                                $('#' + icon_id).addClass('cus-color-white');
-                                $('#' + icon_id).removeClass('heart-btn');
+                                $('#' + icon_status).addClass('cus-color-white');
+                                $('#' + icon_status).removeClass('heart-btn');
                             }
                             $('#' + like_btn_id).click(function () {
                                 if ($('#' + like_status_id).val() == 'true') {
                                     $('#' + like_status_id).val('false');
-                                    $('#' + icon_id).addClass('cus-color-white');
-                                    $('#' + icon_id).removeClass('heart-btn');
+                                    $('#' + icon_status).addClass('cus-color-white');
+                                    $('#' + icon_status).removeClass('heart-btn');
                                 } else {
                                     $('#' + like_status_id).val('true');
-                                    $('#' + icon_id).addClass('heart-btn');
-                                    $('#' + icon_id).removeClass('cus-color-white');
+                                    $('#' + icon_status).addClass('heart-btn');
+                                    $('#' + icon_status).removeClass('cus-color-white');
                                 }
                                 var url = window.temp_domain + "patternLikePlus";
                                 $.post(url, {
@@ -450,7 +449,7 @@ function initiate_plugins() {
                     if (clickDrag[i] && i) {
                         context.moveTo(clickX[i - 1], clickY[i - 1]);
                     } else {
-                        context.moveTo(clickX[i]-1, clickY[i]);
+                        context.moveTo(clickX[i] - 1, clickY[i]);
                     }
                     context.lineTo(clickX[i], clickY[i]);
                     context.closePath();
@@ -497,7 +496,7 @@ function initiate_plugins() {
                 console.log(window.temp_domain)
                 var url = window.temp_domain + "getNotice";
                 $.get(url, function (data) {
-                    if(data.length > 0) { // 공지가 0 이 아니라면
+                    if (data.length > 0) { // 공지가 0 이 아니라면
                         data.forEach(function (notice, i) {
                             var date_str = getDateFormat(new Date(notice.date))
                             var noticeStr = "";
@@ -519,7 +518,7 @@ function initiate_plugins() {
                         success: function (items) {
                             myLikeItems.forEach(function (myLikeItem) {
                                 var cat = myLikeItem.code.split('_')[0];
-                                if(cat != "") {
+                                if (cat != "") {
                                     items[cat].forEach(function (item, i) {
                                         if (item.code == myLikeItem.code.split('_')[1]) {
                                             // 여기서 작업 item으로
@@ -928,12 +927,12 @@ $('#pattern_submit').click(function () {
     if (!email_validate(email)) {
         $('#modal_status').html(now_status).css("color", "red");
         return;
-    } else if($('#post_status').val() == 'true') {
+    } else if ($('#post_status').val() == 'true') {
         $('#modal_status').html('전송중 입니다. 잠시만 기다려 주세요.').css("color", "red");
         return;
     }
 
-    if($('#post_status').val() == 'false')
+    if ($('#post_status').val() == 'false')
         $('#post_status').val('true');
 
     // var result = null;
@@ -989,35 +988,29 @@ $(function () {
                 }, function (likeData) {
                     var like_btn_id = window.ID();
                     var like_status_id = window.ID();
-                    var icon_id = window.ID();
+                    var icon_status = window.ID();
                     var count_id = window.ID();
                     var user_info = data.email.split('@')[0];
                     user_info = name_hide(user_info);
-                    patternAdd(like_btn_id, icon_id, like_status_id, user_info, getDateFormat(new Date(data.date)), count_id, likeData.count, img_url, i);
+                    patternAdd(like_btn_id, icon_status, like_status_id, user_info, getDateFormat(new Date(data.date)), count_id, likeData.count, img_url, i);
                     if (likeData.status) {
                         $('#' + like_status_id).val('true');
-                        $('#' + icon_id).addClass('heart-btn');
-                        $('#' + icon_id).removeClass('cus-color-white');
+                        $('#' + icon_status).addClass('heart-btn');
+                        $('#' + icon_status).removeClass('cus-color-white');
                     } else {
                         $('#' + like_status_id).val('false');
-                        $('#' + icon_id).addClass('cus-color-white');
-                        $('#' + icon_id).removeClass('heart-btn');
+                        $('#' + icon_status).addClass('cus-color-white');
+                        $('#' + icon_status).removeClass('heart-btn');
                     }
                     $('#' + like_btn_id).click(function () {
-                        // var url = window.temp_domain + "patternFind";
-                        // $.post(url, {
-                        //     post_num: post_num
-                        // }, function (datas) {
-                        //    
-                        // });
                         if ($('#' + like_status_id).val() == 'true') {
                             $('#' + like_status_id).val('false');
-                            $('#' + icon_id).addClass('cus-color-white');
-                            $('#' + icon_id).removeClass('heart-btn');
+                            $('#' + icon_status).addClass('cus-color-white');
+                            $('#' + icon_status).removeClass('heart-btn');
                         } else {
                             $('#' + like_status_id).val('true');
-                            $('#' + icon_id).addClass('heart-btn');
-                            $('#' + icon_id).removeClass('cus-color-white');
+                            $('#' + icon_status).addClass('heart-btn');
+                            $('#' + icon_status).removeClass('cus-color-white');
                         }
                         var url = window.temp_domain + "patternLikePlus";
                         $.post(url, {
@@ -1025,8 +1018,8 @@ $(function () {
                             likeStatus: $('#' + like_status_id).val(),
                             deviceInfo: localStorage.getItem('user_id')
                         }, function (data) {
-                            // console.log(data);
-                            $('#'+count_id).html(data.count)
+                            // count update !
+                            // console.log(data.conut)
                         })
                     });
                     // document.getElementById("loader").style.display = "none";
@@ -1038,8 +1031,8 @@ $(function () {
 
         // 결과 버튼 클릭시에
         $('#pattern_result_add').click(function () {
-        //     document.getElementById("loader").style.display = "inherit";
-        //     document.getElementById("background-black-bur").style.display = "inherit";
+            //     document.getElementById("loader").style.display = "inherit";
+            //     document.getElementById("background-black-bur").style.display = "inherit";
             $.post(url, {
                 post_num: post_num
             }, function (datas) {
@@ -1051,33 +1044,31 @@ $(function () {
                         imgURL: data.imgURL,
                         deviceInfo: localStorage.getItem('user_id')
                     }, function (likeData) {
-
                         var like_btn_id = window.ID();
                         var like_status_id = window.ID();
-                        var icon_id = window.ID();
+                        var icon_status = window.ID();
                         var count_id = window.ID();
                         var user_info = data.email.split('@')[0];
                         user_info = name_hide(user_info);
-                        patternAdd(like_btn_id, icon_id, like_status_id, user_info, getDateFormat(new Date(data.date)), count_id, likeData.count, img_url, i);
-
+                        patternAdd(like_btn_id, icon_status, like_status_id, user_info, getDateFormat(new Date(data.date)), count_id, likeData.count, img_url, i);
                         if (likeData.status) {
                             $('#' + like_status_id).val('true');
-                            $('#' + icon_id).addClass('heart-btn');
-                            $('#' + icon_id).removeClass('cus-color-white');
+                            $('#' + icon_status).addClass('heart-btn');
+                            $('#' + icon_status).removeClass('cus-color-white');
                         } else {
                             $('#' + like_status_id).val('false');
-                            $('#' + icon_id).addClass('cus-color-white');
-                            $('#' + icon_id).removeClass('heart-btn');
+                            $('#' + icon_status).addClass('cus-color-white');
+                            $('#' + icon_status).removeClass('heart-btn');
                         }
                         $('#' + like_btn_id).click(function () {
                             if ($('#' + like_status_id).val() == 'true') {
                                 $('#' + like_status_id).val('false');
-                                $('#' + icon_id).addClass('cus-color-white');
-                                $('#' + icon_id).removeClass('heart-btn');
+                                $('#' + icon_status).addClass('cus-color-white');
+                                $('#' + icon_status).removeClass('heart-btn');
                             } else {
                                 $('#' + like_status_id).val('true');
-                                $('#' + icon_id).addClass('heart-btn');
-                                $('#' + icon_id).removeClass('cus-color-white');
+                                $('#' + icon_status).addClass('heart-btn');
+                                $('#' + icon_status).removeClass('cus-color-white');
                             }
                             var url = window.temp_domain + "patternLikePlus";
                             $.post(url, {
@@ -1166,7 +1157,7 @@ $(function () {
                 if (clickDrag[i] && i) {
                     context.moveTo(clickX[i - 1], clickY[i - 1]);
                 } else {
-                    context.moveTo(clickX[i]-1, clickY[i]);
+                    context.moveTo(clickX[i] - 1, clickY[i]);
                 }
                 context.lineTo(clickX[i], clickY[i]);
                 context.closePath();
@@ -1213,7 +1204,7 @@ $(function () {
             console.log(window.temp_domain)
             var url = window.temp_domain + "getNotice";
             $.get(url, function (data) {
-                if(data.length > 0) { // 공지가 0 이 아니라면
+                if (data.length > 0) { // 공지가 0 이 아니라면
                     data.forEach(function (notice, i) {
                         var date_str = getDateFormat(new Date(notice.date))
                         var noticeStr = "";
@@ -1235,7 +1226,7 @@ $(function () {
                     success: function (items) {
                         myLikeItems.forEach(function (myLikeItem) {
                             var cat = myLikeItem.code.split('_')[0];
-                            if(cat != "") {
+                            if (cat != "") {
                                 items[cat].forEach(function (item, i) {
                                     if (item.code == myLikeItem.code.split('_')[1]) {
                                         // 여기서 작업 item으로
@@ -1599,17 +1590,10 @@ function listAdd(code, imgUrl, title) {
         "</div>"
     );
 }
-function patternAdd(like_btn_id, icon_id, like_status_id, user_id, date, count_id, count, img_url, delay) {
+function patternAdd(like_btn_id, icon_status, like_status_id, user_id, date, count_id, count, img_url, delay) {
     $('#result_contents').append(
-        // "<div id='" + like_btn_id + "' class='blog-fullwidth animated fadeinup delay-" + delay + "'>" +
+        "<div id='" + like_btn_id + "' class='blog-fullwidth animated fadeinleft delay-" + delay + "'>" +
         "<div class='blog-fullwidth animated fadeinup delay-" + delay + "'>" +
-        "<div style='padding: 20px 40px 0px 0px' class='width-100 pos-ab right-align'>" +
-        "<p id='"+ count_id +"'>"+ count + "&nbsp;&nbsp;&nbsp;" +"</p>" +
-        "<button id='" + like_btn_id + "' class='btn-floating btn waves-effect waves-light cus-background-transparent z-index-middle'>" +
-        "<input id='" + like_status_id + "' type='hidden' value='false'><!--안눌러져있는상태 default-->" +
-        "<i id='" + icon_id + "'  class='ion-heart cus-color-transparent2'></i>" +
-        "</button>" +
-        "</div>" +
         "<div class='blog-header'>" +
         "<div class='ml-m30'>" +
         "<div class='font-size-18 black-text'>" + user_id + "</div>" +
@@ -1618,8 +1602,13 @@ function patternAdd(like_btn_id, icon_id, like_status_id, user_id, date, count_i
         "</div>" +
         "<div class='blog-image m-20'>" +
         "<img src=" + img_url + ">" +
-        // "<div class='opacity-overlay-top'></div>" +
         "<div></div>" +
+
+        "<div style='padding-right: 10px;' class='right-align z-index-middle'>" +
+        "<input id='" + like_status_id + "' type='hidden' value='false'>" +
+        "<i id='" + icon_status + "' class='ion-heart cus-color-transparent z-index-front'></i>" +
+        "<span id=" + count_id + "'>" + count + "</span>" +
+        "</div>" +
         "</div>" +
         "</div>"
     );
@@ -1726,8 +1715,8 @@ function email_validate(email) {
 }
 function name_hide(name) {
     var returnStr = "";
-    for(var i=0; i<name.length; i++) {
-        if(parseInt(Math.random() * 7 + 1) == 7 || i == name.length-1)
+    for (var i = 0; i < name.length; i++) {
+        if (parseInt(Math.random() * 7 + 1) == 7 || i == name.length - 1)
             returnStr += '*';
         else
             returnStr += name[i];
@@ -1772,9 +1761,9 @@ $('.lean-overlay').click(function () {
 });
 
 /*
-*  kakao talk share
-*
-* */
+ *  kakao talk share
+ *
+ * */
 
 // // 사용할 앱의 Javascript 키를 설정해 주세요.
 Kakao.init('3928c10a89b73f2b4aa1a003fba1d0b8');
