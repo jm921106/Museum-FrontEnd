@@ -461,10 +461,6 @@ function initiate_plugins() {
                 context.drawImage(outlineImage, 0, 0, context.canvas.width, context.canvas.height);
             }
             $("#rewind").click(function(){
-                console.log("리와인드 클릭")
-                rewindSelect();
-            })
-            function rewindSelect(){
                 console.log("리와인드 클릭됨");
                 clickX.pop();
                 clickY.pop();
@@ -472,8 +468,7 @@ function initiate_plugins() {
                 clickColor.pop();
                 clickSize.pop();
                 redraw();
-            }
-
+            })
         }
     });
 
@@ -1147,6 +1142,7 @@ $(function () {
             paint = true;
             addClick(mouseX, mouseY);
             redraw();
+            console.log("클릭함");
         });
         // Pen Move
         $('#myCanvas').on('touchmove', function (e) {
@@ -1155,11 +1151,13 @@ $(function () {
             if (paint) {
                 addClick(mouseX, mouseY, true);
                 redraw();
+                console.log("움직임");
             }
         });
         // Pen End
         $('#myCanvas').on('touchend', function (e) {
             paint = false;
+            console.log("클릭이끝!");
         });
 
         function addClick(x, y, dragging) {
@@ -1168,6 +1166,7 @@ $(function () {
             clickDrag.push(dragging);
             clickColor.push(ink);
             clickSize.push(curSize);
+
         }
 
         function redraw() {
@@ -1193,10 +1192,6 @@ $(function () {
 
 
         $("#rewind").click(function(){
-            console.log("리와인드 클릭")
-            rewindSelect();
-        })
-        function rewindSelect(){
             console.log("리와인드 클릭됨");
             clickX.pop();
             clickY.pop();
@@ -1204,10 +1199,7 @@ $(function () {
             clickColor.pop();
             clickSize.pop();
             redraw();
-        }
-
-
-
+        })
     }
 
 
