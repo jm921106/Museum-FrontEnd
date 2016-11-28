@@ -50,16 +50,13 @@
         <!-- Main Content -->
         <div class="animated fadeinup fullscreen">
 
-            <!-- Slider -->
-            <div class="swiper-container slider slider-fullscreen">
+            <div class="swiper-container slider">
                 <div class="swiper-wrapper">
-
-                    <!-- 현장실습 1 -->
                     <div class="swiper-slide">
-                        <img style="width :100vw !important; height: 100vh !important; position: absolute !important;" src="img/background/patternBG.jpg">
+                        <img style="width :100vw !important; height: 100vh !important;" src="img/background/patternBG.jpg">
+                        <!--<img class="pos-ab" style="width :100vw !important; height: 100vh !important;" src="img/background/patternBG.jpg">-->
                         <div class="opacity-overlay-black"></div>
-                        <div class="bottom-abs left-align">
-                            <!--<p class="slider-category white-text">mobile pattern painting</p>-->
+                        <div class="bottom-abs left-align m-20">
                             <h4 class="slider-category slider-title uppercase white-text">소원을 담은 문양</h4>
                             <p class="slider-text small white-text">
                                 마음에 드는 문양을 선택해서 <br>
@@ -78,55 +75,42 @@
                         </div>
                     </div>
 
-                    <!-- 현장실습 2 -->
                     <div class="swiper-slide">
-                        <img style="width :100vw !important; height: 100vh !important; position: absolute !important; z-index: -1 !important;" src="img/background/play_3_BG.jpg">
+                        <img class="pos-ab" style="width :100vw !important; height: 100vh !important; z-index : -1 !important;" src="img/background/play_3_BG.jpg">
                         <div style="margin: 56px 20px 0px 0px" class="right-align">
-                            <!--<p class="slider-category white-text">mobile pattern painting</p>-->
-                            <h5 style="margin-bottom: 10px; color : #444; !important;" class="cus-slider-category slider-title uppercase font-size-24">소원 담은 버선 트리</h5>
-                            <div class="cus-slider-text right-align">
-                                <a style="padding:5px 10px 5px 10px !important; margin : 10px 5px 0px 0px !important;"
-                                   href="play-intro-2.html"
-                                   class="center-align cus-background-black p-0 white-text font-size-15">자세히 보기</a>
-                                <!--<a style="padding:5px 10px 5px 10px !important; margin-top : 10px !important;"-->
-                                <!--href="paint-result.html"-->
-                                <!--class="center-align cus-background-black p-0 white-text font-size-15">투 표 하 기</a>-->
-                            </div>
+                        <h5 style="margin-bottom: 10px; color : #444; !important;" class="cus-slider-category slider-title uppercase font-size-24">크리스마스 버선 만들기</h5>
+                        <div class="cus-slider-text right-align">
+                        <a style="padding:5px 10px 5px 10px !important; margin : 10px 5px 0px 0px !important;"
+                        href="play-intro-2.html"
+                        class="center-align cus-background-black p-0 white-text font-size-15">자세히 보기</a>
+                        </div>
                         </div>
                     </div>
 
-                    <!-- 현장실습 2 -->
                     <div class="swiper-slide">
-                        <img style="width :100vw !important; height: 100vh !important; position: absolute !important;" src="img/background/play_2_BG.jpg">
+                        <img style="width :100vw !important; height: 100vh !important; z-index : -1 !important;" src="img/background/play_2_BG.jpg">
                         <div class="opacity-overlay-black "></div>
                         <div class="bottom-abs center-align">
                             <!--<p class="slider-category white-text">mobile pattern painting</p>-->
-                            <h5 style="margin-bottom: 20px" class="slider-category slider-title uppercase white-text font-size-24">내 손으로 만든 배자</h5>
-                            <!--<p class="slider-text small white-text">-->
-                                <!--두번째 현장실습 이벤트 내용 설명<br/>-->
-                                <!--두번째 현장실습<br/>-->
-                            <!--</p>-->
+                            <h5 style="margin-bottom: 20px"
+                                class="slider-category slider-title uppercase white-text font-size-24">내 손으로 만든 배자</h5>
                             <div class="cus-slider-text center-align">
                                 <a style="padding:5px 10px 5px 10px !important; margin-top : 10px !important;"
                                    href="play-intro.html"
                                    class="center-align cus-background-black p-0 white-text font-size-15">자세히 보기</a>
-                                <!--<a style="padding:5px 10px 5px 10px !important; margin-top : 10px !important;"-->
-                                <!--href="paint-result.html"-->
-                                <!--class="center-align cus-background-black p-0 white-text font-size-15">투 표 하 기</a>-->
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Add Pagination -->
-                <div class="swiper-pagination white-bullet"></div>
-                <!-- End of Slider -->
+                <!--Add Pagination -->
+                <div id="pagination" class="swiper-pagination">
+                </div>
             </div>
         </div> <!-- End of Main Contents -->
 
     </div> <!-- End of Page Content -->
 </div> <!-- End of Page Container -->
 
-<!--<div w3-include-html="views/include/includeScript.html"></div>-->
 <!-- themeforest default -->
 <script src="js/jquery-2.1.0.min.js"></script>
 <script src="js/jquery.swipebox.min.js"></script>

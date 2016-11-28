@@ -224,15 +224,15 @@ function initiate_plugins() {
             return;
         }
 
+
         if($('#post_status').val() == 'false')
             $('#post_status').val('true');
-
         // var result = null;
         var canvas = document.getElementById('myCanvas');
         var dataURL = canvas.toDataURL();
 
-        document.getElementById("loader").style.display = "block";
-        document.getElementById("background-black-bur").style.display = "block";
+        // document.getElementById("loader").style.display = "block";
+        // document.getElementById("background-black-bur").style.display = "block";
         var url = window.temp_domain + "patternInsert";
         var post_data = {
             "user_id": localStorage.getItem('user_id'),
@@ -250,8 +250,8 @@ function initiate_plugins() {
                 document.getElementById("background-black-bur").style.display = "none";
             } else {
                 $('#modal_status').html('전송에 문제가 있습니다. 다시 시도해 주세요!').css("color", "red");
-                document.getElementById("loader").style.display = "none";
-                document.getElementById("background-black-bur").style.display = "none";
+                // document.getElementById("loader").style.display = "none";
+                // document.getElementById("background-black-bur").style.display = "none";
             }
         });
     });
@@ -262,8 +262,8 @@ function initiate_plugins() {
         var path = window.location.pathname;
         var page = path.split("/").pop();
         if (page == 'paint-result.html') {
-            document.getElementById("loader").style.display = "inherit";
-            document.getElementById("background-black-bur").style.display = "inherit";
+            // document.getElementById("loader").style.display = "inherit";
+            // document.getElementById("background-black-bur").style.display = "inherit";
             post_num = 0;
             var url = window.temp_domain + "patternFind";
             $.post(url, {
@@ -312,8 +312,8 @@ function initiate_plugins() {
                                 console.log(data);
                             })
                         });
-                        document.getElementById("loader").style.display = "none";
-                        document.getElementById("background-black-bur").style.display = "none";
+                        // document.getElementById("loader").style.display = "none";
+                        // document.getElementById("background-black-bur").style.display = "none";
                     });
                 }); // datas for문 종료 지점
                 post_num += 1;
@@ -321,8 +321,8 @@ function initiate_plugins() {
 
             // 결과 버튼 클릭시에
             $('#pattern_result_add').click(function () {
-                document.getElementById("loader").style.display = "inherit";
-                document.getElementById("background-black-bur").style.display = "inherit";
+                // document.getElementById("loader").style.display = "inherit";
+                // document.getElementById("background-black-bur").style.display = "inherit";
                 $.post(url, {
                     post_num: post_num
                 }, function (datas) {
@@ -370,8 +370,8 @@ function initiate_plugins() {
                                     console.log(data);
                                 })
                             });
-                            document.getElementById("loader").style.display = "none";
-                            document.getElementById("background-black-bur").style.display = "none";
+                            // document.getElementById("loader").style.display = "none";
+                            // document.getElementById("background-black-bur").style.display = "none";
                         });
 
                     }); // datas for문 종료 지점
@@ -938,8 +938,8 @@ $('#pattern_submit').click(function () {
     var canvas = document.getElementById('myCanvas');
     var dataURL = canvas.toDataURL();
 
-    document.getElementById("loader").style.display = "block";
-    document.getElementById("background-black-bur").style.display = "block";
+    // document.getElementById("loader").style.display = "block";
+    // document.getElementById("background-black-bur").style.display = "block";
     var url = window.temp_domain + "patternInsert";
     var post_data = {
         "user_id": localStorage.getItem('user_id'),
@@ -953,12 +953,12 @@ $('#pattern_submit').click(function () {
             reset();
             $('#post_status').val('false');
             window.location.href = 'paint-result.html';
-            document.getElementById("loader").style.display = "none";
-            document.getElementById("background-black-bur").style.display = "none";
+            // document.getElementById("loader").style.display = "none";
+            // document.getElementById("background-black-bur").style.display = "none";
         } else {
             $('#modal_status').html('전송에 문제가 있습니다. 다시 시도해 주세요!').css("color", "red");
-            document.getElementById("loader").style.display = "none";
-            document.getElementById("background-black-bur").style.display = "none";
+            // document.getElementById("loader").style.display = "none";
+            // document.getElementById("background-black-bur").style.display = "none";
         }
     });
 });
@@ -969,8 +969,8 @@ $(function () {
     var path = window.location.pathname;
     var page = path.split("/").pop();
     if (page == 'paint-result.html') {
-        document.getElementById("loader").style.display = "inherit";
-        document.getElementById("background-black-bur").style.display = "inherit";
+        // document.getElementById("loader").style.display = "inherit";
+        // document.getElementById("background-black-bur").style.display = "inherit";
         post_num = 0;
         var url = window.temp_domain + "patternFind";
         $.post(url, {
@@ -1019,8 +1019,8 @@ $(function () {
                             console.log(data);
                         })
                     });
-                    document.getElementById("loader").style.display = "none";
-                    document.getElementById("background-black-bur").style.display = "none";
+                    // document.getElementById("loader").style.display = "none";
+                    // document.getElementById("background-black-bur").style.display = "none";
                 });
             }); // datas for문 종료 지점
             post_num += 1;
@@ -1028,8 +1028,8 @@ $(function () {
 
         // 결과 버튼 클릭시에
         $('#pattern_result_add').click(function () {
-            document.getElementById("loader").style.display = "inherit";
-            document.getElementById("background-black-bur").style.display = "inherit";
+        //     document.getElementById("loader").style.display = "inherit";
+        //     document.getElementById("background-black-bur").style.display = "inherit";
             $.post(url, {
                 post_num: post_num
             }, function (datas) {
@@ -1077,8 +1077,8 @@ $(function () {
                                 console.log(data);
                             })
                         });
-                        document.getElementById("loader").style.display = "none";
-                        document.getElementById("background-black-bur").style.display = "none";
+                        // document.getElementById("loader").style.display = "none";
+                        // document.getElementById("background-black-bur").style.display = "none";
                     });
 
                 }); // datas for문 종료 지점
