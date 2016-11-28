@@ -209,7 +209,7 @@ function initiate_plugins() {
      *
      */
 
-// [1]
+    // [1]
     $('#pattern_submit').click(function () {
 
         var name = $('#name').val();
@@ -256,7 +256,7 @@ function initiate_plugins() {
         });
     });
 
-// [2]
+    // [2]
     var post_num;
     $(function () {
         var path = window.location.pathname;
@@ -283,7 +283,8 @@ function initiate_plugins() {
                         var icon_id = window.ID();
                         var user_info = data.email.split('@')[0];
                         user_info = name_hide(user_info);
-                        patternAdd(like_btn_id, icon_id, like_status_id, user_info, getDateFormat(new Date(data.date)), img_url, i);
+                        console.log(likeData.count);
+                        patternAdd(like_btn_id, icon_id, like_status_id, user_info, getDateFormat(new Date(data.date)), likeData.count, img_url, i);
                         if (likeData.status) {
                             $('#' + like_status_id).val('true');
                             $('#' + icon_id).addClass('heart-btn');
@@ -340,7 +341,8 @@ function initiate_plugins() {
                             var icon_id = window.ID();
                             var user_info = data.email.split('@')[0];
                             user_info = name_hide(user_info);
-                            patternAdd(like_btn_id, icon_id, like_status_id, user_info, getDateFormat(new Date(data.date)), img_url, i);
+                            console.log(likeData.count)
+                            patternAdd(like_btn_id, icon_id, like_status_id, user_info, getDateFormat(new Date(data.date)), likeData.count, img_url, i);
 
                             if (likeData.status) {
                                 $('#' + like_status_id).val('true');
@@ -387,7 +389,7 @@ function initiate_plugins() {
     });
 
 
-// [3]
+    // [3]
     $(function () {
         var post_data = window.location.search.substring(1);
         var path = window.location.pathname;
@@ -458,6 +460,20 @@ function initiate_plugins() {
                 }
                 context.drawImage(outlineImage, 0, 0, context.canvas.width, context.canvas.height);
             }
+            $("#rewind").click(function(){
+                console.log("리와인드 클릭")
+                rewindSelect();
+            })
+            function rewindSelect(){
+                console.log("리와인드 클릭됨");
+                clickX.pop();
+                clickY.pop();
+                clickDrag.pop();
+                clickColor.pop();
+                clickSize.pop();
+                redraw();
+            }
+
         }
     });
 
@@ -988,9 +1004,10 @@ $(function () {
                     var like_btn_id = window.ID();
                     var like_status_id = window.ID();
                     var icon_id = window.ID();
+                    var count_id = window.ID();
                     var user_info = data.email.split('@')[0];
                     user_info = name_hide(user_info);
-                    patternAdd(like_btn_id, icon_id, like_status_id, user_info, getDateFormat(new Date(data.date)), img_url, i);
+                    patternAdd(like_btn_id, icon_id, like_status_id, user_info, getDateFormat(new Date(data.date)), count_id, likeData.count, img_url, i);
                     if (likeData.status) {
                         $('#' + like_status_id).val('true');
                         $('#' + icon_id).addClass('heart-btn');
@@ -1001,6 +1018,12 @@ $(function () {
                         $('#' + icon_id).removeClass('heart-btn');
                     }
                     $('#' + like_btn_id).click(function () {
+                        // var url = window.temp_domain + "patternFind";
+                        // $.post(url, {
+                        //     post_num: post_num
+                        // }, function (datas) {
+                        //    
+                        // });
                         if ($('#' + like_status_id).val() == 'true') {
                             $('#' + like_status_id).val('false');
                             $('#' + icon_id).addClass('cus-color-white');
@@ -1016,7 +1039,8 @@ $(function () {
                             likeStatus: $('#' + like_status_id).val(),
                             deviceInfo: localStorage.getItem('user_id')
                         }, function (data) {
-                            console.log(data);
+                            // console.log(data);
+                            $('#'+count_id).html(data.count)
                         })
                     });
                     // document.getElementById("loader").style.display = "none";
@@ -1045,9 +1069,10 @@ $(function () {
                         var like_btn_id = window.ID();
                         var like_status_id = window.ID();
                         var icon_id = window.ID();
+                        var count_id = window.ID();
                         var user_info = data.email.split('@')[0];
                         user_info = name_hide(user_info);
-                        patternAdd(like_btn_id, icon_id, like_status_id, user_info, getDateFormat(new Date(data.date)), img_url, i);
+                        patternAdd(like_btn_id, icon_id, like_status_id, user_info, getDateFormat(new Date(data.date)), count_id, likeData.count, img_url, i);
 
                         if (likeData.status) {
                             $('#' + like_status_id).val('true');
@@ -1165,7 +1190,27 @@ $(function () {
             }
             context.drawImage(outlineImage, 0, 0, context.canvas.width, context.canvas.height);
         }
+
+
+        $("#rewind").click(function(){
+            console.log("리와인드 클릭")
+            rewindSelect();
+        })
+        function rewindSelect(){
+            console.log("리와인드 클릭됨");
+            clickX.pop();
+            clickY.pop();
+            clickDrag.pop();
+            clickColor.pop();
+            clickSize.pop();
+            redraw();
+        }
+
+
+
     }
+
+
 });
 
 /**
@@ -1446,6 +1491,7 @@ $(function () {
             window.likeBtnSet(post_data);
             break;
     }
+
 });
 
 
@@ -1513,6 +1559,24 @@ function brushSelect() {
     $("#pencil").removeClass("tool-select")
     $("#brush").addClass("tool-select")
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var ID = function () {
     // Math.random should be unique because of its seeding algorithm.
     // Convert it to base 36 (numbers + letters), and grab the first 9 characters
@@ -1588,13 +1652,13 @@ function listAdd(code, imgUrl, title) {
         "</div>"
     );
 }
-function patternAdd(like_btn_id, icon_id, like_status_id, user_id, date, img_url, delay) {
+function patternAdd(like_btn_id, icon_id, like_status_id, user_id, date, count_id, count, img_url, delay) {
     $('#result_contents').append(
         // "<div id='" + like_btn_id + "' class='blog-fullwidth animated fadeinup delay-" + delay + "'>" +
         "<div class='blog-fullwidth animated fadeinup delay-" + delay + "'>" +
         "<div style='padding: 20px 40px 0px 0px' class='width-100 pos-ab right-align'>" +
+        "<p id='"+ count_id +"'>"+ count + "&nbsp;&nbsp;&nbsp;" +"</p>" +
         "<button id='" + like_btn_id + "' class='btn-floating btn waves-effect waves-light cus-background-transparent z-index-middle'>" +
-        // "<button class='btn-floating btn waves-effect waves-light cus-background-black'>" +
         "<input id='" + like_status_id + "' type='hidden' value='false'><!--안눌러져있는상태 default-->" +
         "<i id='" + icon_id + "'  class='ion-heart cus-color-transparent2'></i>" +
         "</button>" +
