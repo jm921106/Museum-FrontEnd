@@ -1784,7 +1784,7 @@ function kakaoShare() {
         container: '#kakao-link-btn',
         label: '구글스토어에 <의문의 조선>을 검색해 주세요 !',
         image: {
-            src: 'http://54.165.224.112/public/image/icon.png',
+            src: 'http://54.165.224.112/public/image/kakao_icon.png',
             width: '300',
             height: '300'
         },
