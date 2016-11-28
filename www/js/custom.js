@@ -347,6 +347,31 @@ function initiate_plugins() {
             silderSet();
         }
     });
+    // pattern like btn plus
+    $(document).on('click', '.pattern-like-btn', function () {
+        var i = $(this);
+        if (i.find('div input').val() == 'true') {
+            i.find('div input').val('false');
+            i.find('div i').addClass('cus-color-white');
+            i.find('div i').removeClass('heart-btn');
+        } else {
+            i.find('div input').val('true');
+            i.find('div i').addClass('heart-btn');
+            i.find('div i').removeClass('cus-color-white');
+        }
+        console.log(i.find('div img').attr('src').substring(40));
+        var url = window.temp_domain + "patternLikePlus";
+        $.post(url, {
+            imgURL: i.find('div img').attr('src').substring(40),
+            likeStatus: i.find('div input').val(),
+            deviceInfo: localStorage.getItem('user_id')
+        }, function (data) {
+            // count update !
+            var countStr = data.count;
+            i.find('div span').text(countStr);
+        });
+    });
+    
 
     // [3]
     $(function () {
@@ -1079,7 +1104,7 @@ $(function () {
             paint = true;
             addClick(mouseX, mouseY);
             redraw();
-            console.log("클릭함");
+            // console.log("클릭함");
         });
         // Pen Move
         $('#myCanvas').on('touchmove', function (e) {
@@ -1088,13 +1113,13 @@ $(function () {
             if (paint) {
                 addClick(mouseX, mouseY, true);
                 redraw();
-                console.log("움직임");
+                // console.log("움직임");
             }
         });
         // Pen End
         $('#myCanvas').on('touchend', function (e) {
             paint = false;
-            console.log("클릭이끝!");
+            // console.log("클릭이끝!");
         });
 
         function addClick(x, y, dragging) {
@@ -1127,9 +1152,8 @@ $(function () {
             context.drawImage(outlineImage, 0, 0, context.canvas.width, context.canvas.height);
         }
 
-
         $("#rewind").click(function(){
-            console.log("리와인드 클릭됨");
+            // console.log("리와인드 클릭됨");
             clickX.pop();
             clickY.pop();
             clickDrag.pop();
@@ -1488,24 +1512,6 @@ function brushSelect() {
     $("#pencil").removeClass("tool-select")
     $("#brush").addClass("tool-select")
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 var ID = function () {
     // Math.random should be unique because of its seeding algorithm.
     // Convert it to base 36 (numbers + letters), and grab the first 9 characters
@@ -1747,7 +1753,6 @@ function silderSet() {
     });
 }
 $('.lean-overlay').click(function () {
-    console.log('test')
     $(this).remove();
 });
 
