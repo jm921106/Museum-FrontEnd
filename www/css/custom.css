@@ -305,7 +305,7 @@ canvas {
 }
 
 .full-square-outer {
-    width : 100vw !important;
+    width : 100% !important;
     height : 73vh !important;
     background-color: #8a6d3b;
 }

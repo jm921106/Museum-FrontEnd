@@ -23,92 +23,75 @@
 </head>
 <body>
 <div class="m-scene" id="main"> <!-- Main Container -->
-    <img src="img/background/background-1.jpg" style="height: 100vh; width: 100vw; position: absolute;">
 
+    <!-- SideBar -->
     <ul id="slide-out-left" class="side-nav collapsible">
         <div w3-include-html="views/include/left-panel.html"></div>
     </ul>
+    <ul id="slide-out-right" class="side-nav collapsible">
+        <div w3-include-html="views/include/right-panel.html"></div>
+    </ul>
+    <!--<img class="pos-ab fullscreen" src="img/background/patternBG.jpg"/>-->
 
     <!-- Page Content -->
     <div id="content">
 
-
+        <!-- Toolbar -->
+        <div id="toolbar" class="halo-nav box-shad-none">
+            <div class="open-left" id="open-left" data-activates="slide-out-left">
+                <i class="ion-android-menu"></i>
+            </div>
+            <span class="center-align"></span>
+            <div class="open-right" id="open-right" data-activates="slide-out-right">
+                <i class="ion-android-search"></i>
+            </div>
+        </div>
 
         <!-- Main Content -->
-        <div class="animated fadeinup">
+        <div class="animated fadeinup fullscreen">
 
             <!-- Slider -->
-            <div class="swiper-container steps">
-                <div class="swiper-wrapper slider-steps">
-                    <div class="swiper-slide grey-blue">
-                        <div class="valign-wrapper">
-                            <div class="valign center-align p-l-r-50">
-                                <img src="img/splash/splash1.jpg" style="height:100%; position:relative">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide grey-blue">
-                        <div class="valign-wrapper">
-                            <div class="valign center-align p-l-r-50">
-                                <img src="img/splash/splash2.jpg" style="height:100%; position:relative">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide grey-blue">
-                        <div class="valign-wrapper">
-                            <div class="valign center-align p-l-r-50">
-                                <img src="img/splash/splash3.jpg" style="height:100%; position:relative">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide grey-blue">
-                        <div class="valign-wrapper">
-                            <div class="valign center-align p-l-r-50">
-                                <img src="img/splash/splash4.jpg" style="height:100%; position:relative">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide grey-blue">
-                        <div class="valign-wrapper">
-                            <div class="valign center-align p-l-r-50">
-                                <img src="img/splash/splash5.jpg" style="height:100%; position:relative">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide grey-blue">
-                        <div class="valign-wrapper">
-                            <div class="valign center-align p-l-r-50">
-                                <img src="img/splash/splash6.jpg" style="height:100%; position:relative">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide grey-blue">
-                        <div class="valign-wrapper">
-                            <div class="valign center-align p-l-r-50">
-                                <img src="img/splash/splash7.jpg" style="height:100%; position:relative">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="steps-controllers ">
-                    <!-- Add Arrows -->
-                    <div><a href="index.html">HOME</a></div>
-                    <div class="swiper-button-prev">이전</div>
-                    <div class="swiper-button-next">다음</div>
-                </div>
-            </div>
-            <!-- End of Slider -->
+            <div class="swiper-container slider">
+                <div class="swiper-wrapper">
 
+                    <div class="swiper-slide">
+                        <img style="width :100vw !important; height: 100vh !important;" src="img/splash/splash1.jpg">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img style="width :100vw !important; height: 100vh !important;" src="img/splash/splash2.jpg">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img style="width :100vw !important; height: 100vh !important;" src="img/splash/splash3.jpg">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img style="width :100vw !important; height: 100vh !important;" src="img/splash/splash4.jpg">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img style="width :100vw !important; height: 100vh !important;" src="img/splash/splash5.jpg">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img style="width :100vw !important; height: 100vh !important;" src="img/splash/splash6.jpg">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img style="width :100vw !important; height: 100vh !important;" src="img/splash/splash7.jpg">
+                    </div>
+                </div>
+                <!--Add Pagination -->
+                <div id="pagination" class="swiper-pagination"></div>
+                <!-- End of Slider -->
+            </div>
         </div> <!-- End of Main Contents -->
 
-
     </div> <!-- End of Page Content -->
-
 </div> <!-- End of Page Container -->
 
-<!--<div w3-include-html="views/include/includeScript.html"></div>-->
 <!-- themeforest default -->
-<script src="js/temp_domain.js"></script>
 <script src="js/jquery-2.1.0.min.js"></script>
 <script src="js/jquery.swipebox.min.js"></script>
 <script src="js/jquery.smoothState.min.js"></script>
@@ -118,5 +101,6 @@
 <script src="js/masonry.min.js"></script>
 <script src="js/chart.min.js"></script>
 <script src="js/custom.js"></script>
+<script src="js/temp_domain.js"></script>
 </body>
 </html>

@@ -209,7 +209,7 @@ function initiate_plugins() {
      *
      */
 
-// [1]
+    // [1]
     $('#pattern_submit').click(function () {
 
         var name = $('#name').val();
@@ -224,15 +224,15 @@ function initiate_plugins() {
             return;
         }
 
+
         if($('#post_status').val() == 'false')
             $('#post_status').val('true');
-
         // var result = null;
         var canvas = document.getElementById('myCanvas');
         var dataURL = canvas.toDataURL();
 
-        document.getElementById("loader").style.display = "block";
-        document.getElementById("background-black-bur").style.display = "block";
+        // document.getElementById("loader").style.display = "block";
+        // document.getElementById("background-black-bur").style.display = "block";
         var url = window.temp_domain + "patternInsert";
         var post_data = {
             "user_id": localStorage.getItem('user_id'),
@@ -250,20 +250,20 @@ function initiate_plugins() {
                 document.getElementById("background-black-bur").style.display = "none";
             } else {
                 $('#modal_status').html('전송에 문제가 있습니다. 다시 시도해 주세요!').css("color", "red");
-                document.getElementById("loader").style.display = "none";
-                document.getElementById("background-black-bur").style.display = "none";
+                // document.getElementById("loader").style.display = "none";
+                // document.getElementById("background-black-bur").style.display = "none";
             }
         });
     });
 
-// [2]
+    // [2]
     var post_num;
     $(function () {
         var path = window.location.pathname;
         var page = path.split("/").pop();
         if (page == 'paint-result.html') {
-            document.getElementById("loader").style.display = "inherit";
-            document.getElementById("background-black-bur").style.display = "inherit";
+            // document.getElementById("loader").style.display = "inherit";
+            // document.getElementById("background-black-bur").style.display = "inherit";
             post_num = 0;
             var url = window.temp_domain + "patternFind";
             $.post(url, {
@@ -283,7 +283,8 @@ function initiate_plugins() {
                         var icon_id = window.ID();
                         var user_info = data.email.split('@')[0];
                         user_info = name_hide(user_info);
-                        patternAdd(like_btn_id, icon_id, like_status_id, user_info, getDateFormat(new Date(data.date)), img_url, i);
+                        console.log(likeData.count);
+                        patternAdd(like_btn_id, icon_id, like_status_id, user_info, getDateFormat(new Date(data.date)), likeData.count, img_url, i);
                         if (likeData.status) {
                             $('#' + like_status_id).val('true');
                             $('#' + icon_id).addClass('heart-btn');
@@ -312,8 +313,8 @@ function initiate_plugins() {
                                 console.log(data);
                             })
                         });
-                        document.getElementById("loader").style.display = "none";
-                        document.getElementById("background-black-bur").style.display = "none";
+                        // document.getElementById("loader").style.display = "none";
+                        // document.getElementById("background-black-bur").style.display = "none";
                     });
                 }); // datas for문 종료 지점
                 post_num += 1;
@@ -321,8 +322,8 @@ function initiate_plugins() {
 
             // 결과 버튼 클릭시에
             $('#pattern_result_add').click(function () {
-                document.getElementById("loader").style.display = "inherit";
-                document.getElementById("background-black-bur").style.display = "inherit";
+                // document.getElementById("loader").style.display = "inherit";
+                // document.getElementById("background-black-bur").style.display = "inherit";
                 $.post(url, {
                     post_num: post_num
                 }, function (datas) {
@@ -340,7 +341,8 @@ function initiate_plugins() {
                             var icon_id = window.ID();
                             var user_info = data.email.split('@')[0];
                             user_info = name_hide(user_info);
-                            patternAdd(like_btn_id, icon_id, like_status_id, user_info, getDateFormat(new Date(data.date)), img_url, i);
+                            console.log(likeData.count)
+                            patternAdd(like_btn_id, icon_id, like_status_id, user_info, getDateFormat(new Date(data.date)), likeData.count, img_url, i);
 
                             if (likeData.status) {
                                 $('#' + like_status_id).val('true');
@@ -370,8 +372,8 @@ function initiate_plugins() {
                                     console.log(data);
                                 })
                             });
-                            document.getElementById("loader").style.display = "none";
-                            document.getElementById("background-black-bur").style.display = "none";
+                            // document.getElementById("loader").style.display = "none";
+                            // document.getElementById("background-black-bur").style.display = "none";
                         });
 
                     }); // datas for문 종료 지점
@@ -387,7 +389,7 @@ function initiate_plugins() {
     });
 
 
-// [3]
+    // [3]
     $(function () {
         var post_data = window.location.search.substring(1);
         var path = window.location.pathname;
@@ -938,8 +940,8 @@ $('#pattern_submit').click(function () {
     var canvas = document.getElementById('myCanvas');
     var dataURL = canvas.toDataURL();
 
-    document.getElementById("loader").style.display = "block";
-    document.getElementById("background-black-bur").style.display = "block";
+    // document.getElementById("loader").style.display = "block";
+    // document.getElementById("background-black-bur").style.display = "block";
     var url = window.temp_domain + "patternInsert";
     var post_data = {
         "user_id": localStorage.getItem('user_id'),
@@ -953,12 +955,12 @@ $('#pattern_submit').click(function () {
             reset();
             $('#post_status').val('false');
             window.location.href = 'paint-result.html';
-            document.getElementById("loader").style.display = "none";
-            document.getElementById("background-black-bur").style.display = "none";
+            // document.getElementById("loader").style.display = "none";
+            // document.getElementById("background-black-bur").style.display = "none";
         } else {
             $('#modal_status').html('전송에 문제가 있습니다. 다시 시도해 주세요!').css("color", "red");
-            document.getElementById("loader").style.display = "none";
-            document.getElementById("background-black-bur").style.display = "none";
+            // document.getElementById("loader").style.display = "none";
+            // document.getElementById("background-black-bur").style.display = "none";
         }
     });
 });
@@ -969,8 +971,8 @@ $(function () {
     var path = window.location.pathname;
     var page = path.split("/").pop();
     if (page == 'paint-result.html') {
-        document.getElementById("loader").style.display = "inherit";
-        document.getElementById("background-black-bur").style.display = "inherit";
+        // document.getElementById("loader").style.display = "inherit";
+        // document.getElementById("background-black-bur").style.display = "inherit";
         post_num = 0;
         var url = window.temp_domain + "patternFind";
         $.post(url, {
@@ -988,9 +990,10 @@ $(function () {
                     var like_btn_id = window.ID();
                     var like_status_id = window.ID();
                     var icon_id = window.ID();
+                    var count_id = window.ID();
                     var user_info = data.email.split('@')[0];
                     user_info = name_hide(user_info);
-                    patternAdd(like_btn_id, icon_id, like_status_id, user_info, getDateFormat(new Date(data.date)), img_url, i);
+                    patternAdd(like_btn_id, icon_id, like_status_id, user_info, getDateFormat(new Date(data.date)), count_id, likeData.count, img_url, i);
                     if (likeData.status) {
                         $('#' + like_status_id).val('true');
                         $('#' + icon_id).addClass('heart-btn');
@@ -1001,6 +1004,12 @@ $(function () {
                         $('#' + icon_id).removeClass('heart-btn');
                     }
                     $('#' + like_btn_id).click(function () {
+                        // var url = window.temp_domain + "patternFind";
+                        // $.post(url, {
+                        //     post_num: post_num
+                        // }, function (datas) {
+                        //    
+                        // });
                         if ($('#' + like_status_id).val() == 'true') {
                             $('#' + like_status_id).val('false');
                             $('#' + icon_id).addClass('cus-color-white');
@@ -1016,11 +1025,12 @@ $(function () {
                             likeStatus: $('#' + like_status_id).val(),
                             deviceInfo: localStorage.getItem('user_id')
                         }, function (data) {
-                            console.log(data);
+                            // console.log(data);
+                            $('#'+count_id).html(data.count)
                         })
                     });
-                    document.getElementById("loader").style.display = "none";
-                    document.getElementById("background-black-bur").style.display = "none";
+                    // document.getElementById("loader").style.display = "none";
+                    // document.getElementById("background-black-bur").style.display = "none";
                 });
             }); // datas for문 종료 지점
             post_num += 1;
@@ -1028,8 +1038,8 @@ $(function () {
 
         // 결과 버튼 클릭시에
         $('#pattern_result_add').click(function () {
-            document.getElementById("loader").style.display = "inherit";
-            document.getElementById("background-black-bur").style.display = "inherit";
+        //     document.getElementById("loader").style.display = "inherit";
+        //     document.getElementById("background-black-bur").style.display = "inherit";
             $.post(url, {
                 post_num: post_num
             }, function (datas) {
@@ -1045,9 +1055,10 @@ $(function () {
                         var like_btn_id = window.ID();
                         var like_status_id = window.ID();
                         var icon_id = window.ID();
+                        var count_id = window.ID();
                         var user_info = data.email.split('@')[0];
                         user_info = name_hide(user_info);
-                        patternAdd(like_btn_id, icon_id, like_status_id, user_info, getDateFormat(new Date(data.date)), img_url, i);
+                        patternAdd(like_btn_id, icon_id, like_status_id, user_info, getDateFormat(new Date(data.date)), count_id, likeData.count, img_url, i);
 
                         if (likeData.status) {
                             $('#' + like_status_id).val('true');
@@ -1077,8 +1088,8 @@ $(function () {
                                 console.log(data);
                             })
                         });
-                        document.getElementById("loader").style.display = "none";
-                        document.getElementById("background-black-bur").style.display = "none";
+                        // document.getElementById("loader").style.display = "none";
+                        // document.getElementById("background-black-bur").style.display = "none";
                     });
 
                 }); // datas for문 종료 지점
@@ -1588,13 +1599,13 @@ function listAdd(code, imgUrl, title) {
         "</div>"
     );
 }
-function patternAdd(like_btn_id, icon_id, like_status_id, user_id, date, img_url, delay) {
+function patternAdd(like_btn_id, icon_id, like_status_id, user_id, date, count_id, count, img_url, delay) {
     $('#result_contents').append(
         // "<div id='" + like_btn_id + "' class='blog-fullwidth animated fadeinup delay-" + delay + "'>" +
         "<div class='blog-fullwidth animated fadeinup delay-" + delay + "'>" +
         "<div style='padding: 20px 40px 0px 0px' class='width-100 pos-ab right-align'>" +
+        "<p id='"+ count_id +"'>"+ count + "&nbsp;&nbsp;&nbsp;" +"</p>" +
         "<button id='" + like_btn_id + "' class='btn-floating btn waves-effect waves-light cus-background-transparent z-index-middle'>" +
-        // "<button class='btn-floating btn waves-effect waves-light cus-background-black'>" +
         "<input id='" + like_status_id + "' type='hidden' value='false'><!--안눌러져있는상태 default-->" +
         "<i id='" + icon_id + "'  class='ion-heart cus-color-transparent2'></i>" +
         "</button>" +
