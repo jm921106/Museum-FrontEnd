@@ -224,15 +224,15 @@ function initiate_plugins() {
             return;
         }
 
-
         if ($('#post_status').val() == 'false')
             $('#post_status').val('true');
+
         // var result = null;
         var canvas = document.getElementById('myCanvas');
         var dataURL = canvas.toDataURL();
 
-        // document.getElementById("loader").style.display = "block";
-        // document.getElementById("background-black-bur").style.display = "block";
+        document.getElementById("loader").style.display = "inherit";
+        document.getElementById("background-black-bur").style.display = "inherit";
         var url = window.temp_domain + "patternInsert";
         var post_data = {
             "user_id": localStorage.getItem('user_id'),
@@ -240,35 +240,35 @@ function initiate_plugins() {
             "phone": phone,
             "email": email,
             "result": dataURL
-        }
+        };
         $.post(url, post_data, function (data) {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("background-black-bur").style.display = "none";
             if (data) {
                 reset();
                 $('#post_status').val('false');
                 window.location.href = 'paint-result.html';
-                document.getElementById("loader").style.display = "none";
-                document.getElementById("background-black-bur").style.display = "none";
             } else {
                 $('#modal_status').html('전송에 문제가 있습니다. 다시 시도해 주세요!').css("color", "red");
-                // document.getElementById("loader").style.display = "none";
-                // document.getElementById("background-black-bur").style.display = "none";
             }
         });
     });
 
-    // [2]
+// [2]
     var post_num;
     $(function () {
         var path = window.location.pathname;
         var page = path.split("/").pop();
         if (page == 'paint-result.html') {
-            // document.getElementById("loader").style.display = "inherit";
-            // document.getElementById("background-black-bur").style.display = "inherit";
+            document.getElementById("loader").style.display = "inherit";
+            document.getElementById("background-black-bur").style.display = "inherit";
             post_num = 0;
             var url = window.temp_domain + "patternFind";
             $.post(url, {
                 post_num: post_num
             }, function (datas) {
+                document.getElementById("loader").style.display = "none";
+                document.getElementById("background-black-bur").style.display = "none";
                 datas.forEach(function (data, i) {
                     // console.log(data.imgURL)
                     var img_url = window.temp_domain + "public/repository/" + data.imgURL;
@@ -294,20 +294,20 @@ function initiate_plugins() {
                             $('#' + icon_status).addClass('cus-color-white');
                             $('#' + icon_status).removeClass('heart-btn');
                         }
-                        // document.getElementById("loader").style.display = "none";
-                        // document.getElementById("background-black-bur").style.display = "none";
                     });
                 }); // datas for문 종료 지점
                 post_num += 1;
             });
 
-            // 결과 버튼 클릭시에
+            // 그림 더보기 버튼 클릭시에
             $('#pattern_result_add').click(function () {
-                //     document.getElementById("loader").style.display = "inherit";
-                //     document.getElementById("background-black-bur").style.display = "inherit";
+                document.getElementById("loader").style.display = "inherit";
+                document.getElementById("background-black-bur").style.display = "inherit";
                 $.post(url, {
                     post_num: post_num
                 }, function (datas) {
+                    document.getElementById("loader").style.display = "none";
+                    document.getElementById("background-black-bur").style.display = "none";
                     datas.forEach(function (data, i) {
                         var img_url = window.temp_domain + "public/repository/" + data.imgURL;
                         // post로 like 등록 했는지 확인
@@ -332,10 +332,7 @@ function initiate_plugins() {
                                 $('#' + icon_status).addClass('cus-color-white');
                                 $('#' + icon_status).removeClass('heart-btn');
                             }
-                            // document.getElementById("loader").style.display = "none";
-                            // document.getElementById("background-black-bur").style.display = "none";
                         });
-
                     }); // datas for문 종료 지점
                     if (datas != null)
                         post_num += 1;
@@ -347,19 +344,22 @@ function initiate_plugins() {
             silderSet();
         }
     });
-    // pattern like btn plus
+
+// pattern like btn plus
     $(document).on('click', '.pattern-like-btn', function () {
         var i = $(this);
         if (i.find('div input').val() == 'true') {
             i.find('div input').val('false');
             i.find('div i').addClass('cus-color-white');
             i.find('div i').removeClass('heart-btn');
+            i.find('div span').text(parseInt(i.find('div span').text()) - 1);
         } else {
             i.find('div input').val('true');
             i.find('div i').addClass('heart-btn');
             i.find('div i').removeClass('cus-color-white');
+            i.find('div span').text(parseInt(i.find('div span').text()) + 1);
         }
-        console.log(i.find('div img').attr('src').substring(40));
+        // console.log(i.find('div img').attr('src').substring(40));
         var url = window.temp_domain + "patternLikePlus";
         $.post(url, {
             imgURL: i.find('div img').attr('src').substring(40),
@@ -367,13 +367,10 @@ function initiate_plugins() {
             deviceInfo: localStorage.getItem('user_id')
         }, function (data) {
             // count update !
-            var countStr = data.count;
-            i.find('div span').text(countStr);
         });
     });
-    
 
-    // [3]
+// [3]
     $(function () {
         var post_data = window.location.search.substring(1);
         var path = window.location.pathname;
@@ -401,6 +398,7 @@ function initiate_plugins() {
                 paint = true;
                 addClick(mouseX, mouseY);
                 redraw();
+                // console.log("클릭함");
             });
             // Pen Move
             $('#myCanvas').on('touchmove', function (e) {
@@ -409,11 +407,13 @@ function initiate_plugins() {
                 if (paint) {
                     addClick(mouseX, mouseY, true);
                     redraw();
+                    // console.log("움직임");
                 }
             });
             // Pen End
             $('#myCanvas').on('touchend', function (e) {
                 paint = false;
+                // console.log("클릭이끝!");
             });
 
             function addClick(x, y, dragging) {
@@ -422,6 +422,7 @@ function initiate_plugins() {
                 clickDrag.push(dragging);
                 clickColor.push(ink);
                 clickSize.push(curSize);
+
             }
 
             function redraw() {
@@ -444,8 +445,9 @@ function initiate_plugins() {
                 }
                 context.drawImage(outlineImage, 0, 0, context.canvas.width, context.canvas.height);
             }
-            $("#rewind").click(function(){
-                console.log("리와인드 클릭됨");
+
+            $("#rewind").click(function () {
+                // console.log("리와인드 클릭됨");
                 clickX.pop();
                 clickY.pop();
                 clickDrag.pop();
@@ -454,6 +456,8 @@ function initiate_plugins() {
                 redraw();
             })
         }
+
+
     });
 
     /**
@@ -734,6 +738,7 @@ function initiate_plugins() {
                 window.likeBtnSet(post_data);
                 break;
         }
+
     });
 
     $('.lean-overlay').click(function () {
@@ -933,8 +938,8 @@ $('#pattern_submit').click(function () {
     var canvas = document.getElementById('myCanvas');
     var dataURL = canvas.toDataURL();
 
-    // document.getElementById("loader").style.display = "block";
-    // document.getElementById("background-black-bur").style.display = "block";
+    document.getElementById("loader").style.display = "inherit";
+    document.getElementById("background-black-bur").style.display = "inherit";
     var url = window.temp_domain + "patternInsert";
     var post_data = {
         "user_id": localStorage.getItem('user_id'),
@@ -942,18 +947,16 @@ $('#pattern_submit').click(function () {
         "phone": phone,
         "email": email,
         "result": dataURL
-    }
+    };
     $.post(url, post_data, function (data) {
+        document.getElementById("loader").style.display = "none";
+        document.getElementById("background-black-bur").style.display = "none";
         if (data) {
             reset();
             $('#post_status').val('false');
             window.location.href = 'paint-result.html';
-            // document.getElementById("loader").style.display = "none";
-            // document.getElementById("background-black-bur").style.display = "none";
         } else {
             $('#modal_status').html('전송에 문제가 있습니다. 다시 시도해 주세요!').css("color", "red");
-            // document.getElementById("loader").style.display = "none";
-            // document.getElementById("background-black-bur").style.display = "none";
         }
     });
 });
@@ -964,13 +967,15 @@ $(function () {
     var path = window.location.pathname;
     var page = path.split("/").pop();
     if (page == 'paint-result.html') {
-        // document.getElementById("loader").style.display = "inherit";
-        // document.getElementById("background-black-bur").style.display = "inherit";
+        document.getElementById("loader").style.display = "inherit";
+        document.getElementById("background-black-bur").style.display = "inherit";
         post_num = 0;
         var url = window.temp_domain + "patternFind";
         $.post(url, {
             post_num: post_num
         }, function (datas) {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("background-black-bur").style.display = "none";
             datas.forEach(function (data, i) {
                 // console.log(data.imgURL)
                 var img_url = window.temp_domain + "public/repository/" + data.imgURL;
@@ -996,20 +1001,20 @@ $(function () {
                         $('#' + icon_status).addClass('cus-color-white');
                         $('#' + icon_status).removeClass('heart-btn');
                     }
-                    // document.getElementById("loader").style.display = "none";
-                    // document.getElementById("background-black-bur").style.display = "none";
                 });
             }); // datas for문 종료 지점
             post_num += 1;
         });
 
-        // 결과 버튼 클릭시에
+        // 그림 더보기 버튼 클릭시에
         $('#pattern_result_add').click(function () {
-            //     document.getElementById("loader").style.display = "inherit";
-            //     document.getElementById("background-black-bur").style.display = "inherit";
+            document.getElementById("loader").style.display = "inherit";
+            document.getElementById("background-black-bur").style.display = "inherit";
             $.post(url, {
                 post_num: post_num
             }, function (datas) {
+                document.getElementById("loader").style.display = "none";
+                document.getElementById("background-black-bur").style.display = "none";
                 datas.forEach(function (data, i) {
                     var img_url = window.temp_domain + "public/repository/" + data.imgURL;
                     // post로 like 등록 했는지 확인
@@ -1034,10 +1039,7 @@ $(function () {
                             $('#' + icon_status).addClass('cus-color-white');
                             $('#' + icon_status).removeClass('heart-btn');
                         }
-                        // document.getElementById("loader").style.display = "none";
-                        // document.getElementById("background-black-bur").style.display = "none";
                     });
-
                 }); // datas for문 종료 지점
                 if (datas != null)
                     post_num += 1;
@@ -1057,12 +1059,14 @@ $(document).on('click', '.pattern-like-btn', function () {
         i.find('div input').val('false');
         i.find('div i').addClass('cus-color-white');
         i.find('div i').removeClass('heart-btn');
+        i.find('div span').text(parseInt(i.find('div span').text()) - 1);
     } else {
         i.find('div input').val('true');
         i.find('div i').addClass('heart-btn');
         i.find('div i').removeClass('cus-color-white');
+        i.find('div span').text(parseInt(i.find('div span').text()) + 1);
     }
-    console.log(i.find('div img').attr('src').substring(40));
+    // console.log(i.find('div img').attr('src').substring(40));
     var url = window.temp_domain + "patternLikePlus";
     $.post(url, {
         imgURL: i.find('div img').attr('src').substring(40),
@@ -1070,11 +1074,8 @@ $(document).on('click', '.pattern-like-btn', function () {
         deviceInfo: localStorage.getItem('user_id')
     }, function (data) {
         // count update !
-        var countStr = data.count;
-        i.find('div span').text(countStr);
     });
 });
-
 
 // [3]
 $(function () {
@@ -1152,7 +1153,7 @@ $(function () {
             context.drawImage(outlineImage, 0, 0, context.canvas.width, context.canvas.height);
         }
 
-        $("#rewind").click(function(){
+        $("#rewind").click(function () {
             // console.log("리와인드 클릭됨");
             clickX.pop();
             clickY.pop();
@@ -1526,13 +1527,14 @@ var likeBtnSet = function (post_data) {
             $('#like-status').val('false');
             $('#heart-icon').addClass('cus-color-white');
             $('#heart-icon').removeClass('heart-btn');
+            $('#like-count').html(parseInt($('#like-count').html())-1);
         } else {
             // like false
             $('#like-status').val('true');
             $('#heart-icon').addClass('heart-btn');
             $('#heart-icon').removeClass('cus-color-white');
+            $('#like-count').html(parseInt($('#like-count').html())+1);
         }
-
         // 2. post like data
         var url = window.temp_domain + "likePlus";
         $.post(url, {
@@ -1540,26 +1542,6 @@ var likeBtnSet = function (post_data) {
             deviceInfo: localStorage.getItem('user_id'),
             likeStatus: $('#like-status').val()
         }, function (data) {
-            var url = window.temp_domain + "itemViewCount";
-            $.post(url, {
-                code: post_data,
-                status: true // plus를 통한 post 인지 확인
-            }, function (view_count) {
-                $('#view-count').html(view_count);
-                $('#like-count').html(data.count);
-                if (data.status)
-                    $('#like-status').val('true');
-                else
-                    $('#like-status').val('false');
-
-                if ($('#like-status').val() == 'true') {
-                    $('#heart-icon').addClass('heart-btn');
-                    $('#heart-icon').removeClass('cus-color-white');
-                } else {
-                    $('#heart-icon').addClass('cus-color-white');
-                    $('#heart-icon').removeClass('heart-btn');
-                }
-            });
             // window.location.href='display-content.html?' + post_data
         });
     })
