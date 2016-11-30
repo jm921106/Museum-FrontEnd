@@ -209,7 +209,7 @@ function initiate_plugins() {
      *
      */
 
-    // [1]
+// [1]
     $('#pattern_submit').click(function () {
 
         var name = $('#name').val();
@@ -267,8 +267,6 @@ function initiate_plugins() {
             $.post(url, {
                 post_num: post_num
             }, function (datas) {
-                document.getElementById("loader").style.display = "none";
-                document.getElementById("background-black-bur").style.display = "none";
                 datas.forEach(function (data, i) {
                     // console.log(data.imgURL)
                     var img_url = window.temp_domain + "public/repository/" + data.imgURL;
@@ -297,6 +295,8 @@ function initiate_plugins() {
                     });
                 }); // datas for문 종료 지점
                 post_num += 1;
+                document.getElementById("loader").style.display = "none";
+                document.getElementById("background-black-bur").style.display = "none";
             });
 
             // 그림 더보기 버튼 클릭시에
@@ -306,8 +306,6 @@ function initiate_plugins() {
                 $.post(url, {
                     post_num: post_num
                 }, function (datas) {
-                    document.getElementById("loader").style.display = "none";
-                    document.getElementById("background-black-bur").style.display = "none";
                     datas.forEach(function (data, i) {
                         var img_url = window.temp_domain + "public/repository/" + data.imgURL;
                         // post로 like 등록 했는지 확인
@@ -336,6 +334,8 @@ function initiate_plugins() {
                     }); // datas for문 종료 지점
                     if (datas != null)
                         post_num += 1;
+                    document.getElementById("loader").style.display = "none";
+                    document.getElementById("background-black-bur").style.display = "none";
                 });
             });
 
@@ -741,6 +741,7 @@ function initiate_plugins() {
 
     });
 
+
     $('.lean-overlay').click(function () {
         $(this).remove();
     });
@@ -974,8 +975,6 @@ $(function () {
         $.post(url, {
             post_num: post_num
         }, function (datas) {
-            document.getElementById("loader").style.display = "none";
-            document.getElementById("background-black-bur").style.display = "none";
             datas.forEach(function (data, i) {
                 // console.log(data.imgURL)
                 var img_url = window.temp_domain + "public/repository/" + data.imgURL;
@@ -1004,6 +1003,8 @@ $(function () {
                 });
             }); // datas for문 종료 지점
             post_num += 1;
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("background-black-bur").style.display = "none";
         });
 
         // 그림 더보기 버튼 클릭시에
@@ -1013,8 +1014,6 @@ $(function () {
             $.post(url, {
                 post_num: post_num
             }, function (datas) {
-                document.getElementById("loader").style.display = "none";
-                document.getElementById("background-black-bur").style.display = "none";
                 datas.forEach(function (data, i) {
                     var img_url = window.temp_domain + "public/repository/" + data.imgURL;
                     // post로 like 등록 했는지 확인
@@ -1043,6 +1042,8 @@ $(function () {
                 }); // datas for문 종료 지점
                 if (datas != null)
                     post_num += 1;
+                document.getElementById("loader").style.display = "none";
+                document.getElementById("background-black-bur").style.display = "none";
             });
         });
 
