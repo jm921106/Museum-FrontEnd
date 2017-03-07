@@ -30,10 +30,53 @@
 
     <!-- SideBar -->
     <ul id="slide-out-left" class="side-nav collapsible">
-        <div w3-include-html="views/include/left-panel.html"></div>
+        <li>
+            <!--style="border-bottom: solid 1px #455a64"-->
+            <div class="sidenav-header">
+                <div class="nav-social">
+                    <div>
+                        <a style="margin-left : 5px; width : 25px; float : left;" href="https://www.facebook.com/sharer/sharer.php?u=https://play.google.com/store/apps/details?id=com.jj.MuseumInfo">
+                            <i style="color:#444" class="ion-social-facebook"></i>
+                        </a>
+                        <a style="width : 32px; float : left;" href="http://www.twitter.com/share?url=https://play.google.com/store/apps/details?id=com.jj.MuseumInfo">
+                            <i style="color:#444" class="ion-social-twitter"></i>
+                        </a>
+                        <!--<a style="width : 30px; float : left;" id="kakao-link-btn" href="#" onclick="kakaoShare()">-->
+                        <a style="width : 30px; float : left;" href="http://54.165.224.112/kakao" onclick="kakaoShare()">
+                            <i style="color:#444" class="ion-ios-chatbubble"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-social center-align">
+                    <img style="width:170px; height:auto; display:inline; margin-bottom: 20px;"
+                         src="img/museum/display_title.png">
+                    <img style="width:100px; height:auto; display:inline; margin-bottom: 70px;"
+                         src="img/museum/museum-logo-grey.png">
+                </div>
+            </div>
+        </li>
+        <li><a href="index.html" class="no-child"><i class="ion-ios-home"></i> Home</a></li>
+        <li><a href="side-notice.html" class="no-child"><i class="ion-clipboard"></i> 공지사항</a></li>
+        <li><a href="side-museumInfo.html" class="no-child"><i class="ion-location"></i> 박물관 안내</a></li>
+        <li><a href="side-info.html" class="no-child"><i class="ion-ios-book"></i> 이용 안내</a></li>
+        <li><a href="side-myLike.html" class="no-child"><i class="ion-heart"></i> 유물 즐겨찾기</a></li>
+        <li><a href="side-today.html" class="no-child"><i class="ion-stats-bars"></i> 박물관 투데이</a></li>
+        <li><a href="side-app.html" class="no-child"><i class="ion-ios-gear"></i> 구성정보</a></li>
     </ul>
     <ul id="slide-out-right" class="side-nav collapsible">
-        <div w3-include-html="views/include/right-panel.html"></div>
+        <li style="height: 56px !important;">
+            <div style="background-color: #444; height: 56px !important; padding: 10px 20px 20px 20px;">
+                <div class="nav-social">
+                    <!--<p >찾고싶은 물품을 검색해주세요.</p>-->
+                    <input style="margin-bottom: 5px !important; color : white !important;" type="search" id = "findForm" onkeyup="find()" placeholder="원하는 유물을 입력해주세요.">
+                </div>
+            </div>
+        </li>
+        <div class="m-10 overflow" id ="findBox" >
+
+        </div>
+        <script src="../../js/jquery-2.1.0.min.js"></script>
+
     </ul>
 
     <!-- Page Content -->
