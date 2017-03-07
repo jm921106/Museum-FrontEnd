@@ -580,6 +580,26 @@ function initiate_plugins() {
                         pointHighlightStroke: "rgba(231, 76, 60, 0)",
                         // data: [0, 0, 0, 100, 0]
                         data: [null, null, null, null, null]
+                    }, {
+                        label: "My Fiveth dataset",
+                        fillColor: "rgba(255,180,20,0.5)",
+                        strokeColor: "rgba(255,180,20,0.6)",
+                        pointColor: "rgba(255,180,20,0.9)",
+                        pointStrokeColor: "rgba(255,180,20,0)",
+                        pointHighlightFill: "rgba(255,180,20,0.9)",
+                        pointHighlightStroke: "rgba(255,180,20,0)",
+                        // data: [0, 0, 100, 0, 0]
+                        data: [null, null, null, null, null]
+                    }, {
+                        label: "My Sixth dataset",
+                        fillColor: "rgba(255,255,0,0.5)",
+                        strokeColor: "rgba(255,255,0,0.6)",
+                        pointColor: "rgba(255,255,0,0.9)",
+                        pointStrokeColor: "rgba(255,255,0,0)",
+                        pointHighlightFill: "rgba(255,255,0,0.9)",
+                        pointHighlightStroke: "rgba(255,255,0,0)",
+                        // data: [0, 0, 0, 100, 0]
+                        data: [null, null, null, null, null]
                     }]
 
                     datas.forEach(function (data) {
@@ -595,11 +615,17 @@ function initiate_plugins() {
                             case 12 :
                                 datasets[1].data[getWeek(data.date.getDate())] += data.count;
                                 break;
-                            case 2 :
+                            case 1 :
                                 datasets[2].data[getWeek(data.date.getDate())] += data.count;
                                 break;
-                            case 1 :
+                            case 2 :
                                 datasets[3].data[getWeek(data.date.getDate())] += data.count;
+                                break;
+                            case 3 :
+                                datasets[4].data[getWeek(data.date.getDate())] += data.count;
+                                break;
+                            case 4 :
+                                datasets[5].data[getWeek(data.date.getDate())] += data.count;
                                 break;
                         }
                     });
@@ -1239,6 +1265,7 @@ $(function () {
             });
             break;
         case 'side-today.html':
+        case 'side-today.html':
             $('#today-refresh').click(function () {
                 window.location.href = 'side-today.html'
             })
@@ -1288,6 +1315,26 @@ $(function () {
                     pointHighlightStroke: "rgba(231, 76, 60, 0)",
                     // data: [0, 0, 0, 100, 0]
                     data: [null, null, null, null, null]
+                }, {
+                    label: "My Fiveth dataset",
+                    fillColor: "rgba(255,180,20,0.5)",
+                    strokeColor: "rgba(255,180,20,0.6)",
+                    pointColor: "rgba(255,180,20,0.9)",
+                    pointStrokeColor: "rgba(255,180,20,0)",
+                    pointHighlightFill: "rgba(255,180,20,0.9)",
+                    pointHighlightStroke: "rgba(255,180,20,0)",
+                    // data: [0, 0, 100, 0, 0]
+                    data: [null, null, null, null, null]
+                }, {
+                    label: "My Sixth dataset",
+                    fillColor: "rgba(255,255,0,0.5)",
+                    strokeColor: "rgba(255,255,0,0.6)",
+                    pointColor: "rgba(255,255,0,0.9)",
+                    pointStrokeColor: "rgba(255,255,0,0)",
+                    pointHighlightFill: "rgba(255,255,0,0.9)",
+                    pointHighlightStroke: "rgba(255,255,0,0)",
+                    // data: [0, 0, 0, 100, 0]
+                    data: [null, null, null, null, null]
                 }]
 
                 datas.forEach(function (data) {
@@ -1303,11 +1350,17 @@ $(function () {
                         case 12 :
                             datasets[1].data[getWeek(data.date.getDate())] += data.count;
                             break;
-                        case 2 :
+                        case 1 :
                             datasets[2].data[getWeek(data.date.getDate())] += data.count;
                             break;
-                        case 1 :
+                        case 2 :
                             datasets[3].data[getWeek(data.date.getDate())] += data.count;
+                            break;
+                        case 3 :
+                            datasets[4].data[getWeek(data.date.getDate())] += data.count;
+                            break;
+                        case 4 :
+                            datasets[5].data[getWeek(data.date.getDate())] += data.count;
                             break;
                     }
                 });
